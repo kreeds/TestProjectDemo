@@ -1,0 +1,2506 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: BattleAtlas 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 97e037f91ee6f1643ac84342f09c9533, type: 2}
+  sprites:
+  - name: btl_gui_hissatu_jem_01
+    outer:
+      serializedVersion: 2
+      x: 166
+      y: 571
+      width: 163
+      height: 130
+    inner:
+      serializedVersion: 2
+      x: 166
+      y: 571
+      width: 163
+      height: 130
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_wave_orn_01
+    outer:
+      serializedVersion: 2
+      x: 549
+      y: 153
+      width: 164
+      height: 24
+    inner:
+      serializedVersion: 2
+      x: 549
+      y: 153
+      width: 164
+      height: 24
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_wazainfo_center_01
+    outer:
+      serializedVersion: 2
+      x: 884
+      y: 113
+      width: 56
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 884
+      y: 113
+      width: 56
+      height: 64
+    rotated: 0
+    paddingLeft: .0714285746
+    paddingRight: .0714285746
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jemholder_crc_01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 253
+      width: 86
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 253
+      width: 86
+      height: 86
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_tresure_info_01
+    outer:
+      serializedVersion: 2
+      x: 948
+      y: 158
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 948
+      y: 158
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_chara_orn_01
+    outer:
+      serializedVersion: 2
+      x: 831
+      y: 180
+      width: 114
+      height: 42
+    inner:
+      serializedVersion: 2
+      x: 831
+      y: 180
+      width: 114
+      height: 42
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: .285714298
+    paddingBottom: .333333343
+  - name: btl_gui_jem_blue_02
+    outer:
+      serializedVersion: 2
+      x: 353
+      y: 50
+      width: 26
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 353
+      y: 50
+      width: 26
+      height: 27
+    rotated: 0
+    paddingLeft: .0384615399
+    paddingRight: .0384615399
+    paddingTop: .0370370373
+    paddingBottom: 0
+  - name: btl_gui_jem_purple_02
+    outer:
+      serializedVersion: 2
+      x: 731
+      y: 6
+      width: 26
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 731
+      y: 6
+      width: 26
+      height: 27
+    rotated: 0
+    paddingLeft: .0384615399
+    paddingRight: .0384615399
+    paddingTop: .0370370373
+    paddingBottom: 0
+  - name: btl_gui_jemholder_02
+    outer:
+      serializedVersion: 2
+      x: 619
+      y: 538
+      width: 114
+      height: 114
+    inner:
+      serializedVersion: 2
+      x: 619
+      y: 538
+      width: 64
+      height: 114
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_wazainfo_plate_01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 704
+      width: 523
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 704
+      width: 523
+      height: 62
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jem_red_02
+    outer:
+      serializedVersion: 2
+      x: 956
+      y: 668
+      width: 26
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 956
+      y: 668
+      width: 26
+      height: 27
+    rotated: 0
+    paddingLeft: .0384615399
+    paddingRight: .0384615399
+    paddingTop: .0370370373
+    paddingBottom: 0
+  - name: btl_gui_chara_orn_02
+    outer:
+      serializedVersion: 2
+      x: 934
+      y: 320
+      width: 84
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 934
+      y: 320
+      width: 84
+      height: 70
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_wazainfo_center_02
+    outer:
+      serializedVersion: 2
+      x: 654
+      y: 948
+      width: 66
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 654
+      y: 948
+      width: 66
+      height: 76
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jem_yellow_02
+    outer:
+      serializedVersion: 2
+      x: 995
+      y: 69
+      width: 26
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 995
+      y: 69
+      width: 26
+      height: 27
+    rotated: 0
+    paddingLeft: .0384615399
+    paddingRight: .0384615399
+    paddingTop: .0370370373
+    paddingBottom: 0
+  - name: btl_gui_jem_green_02
+    outer:
+      serializedVersion: 2
+      x: 948
+      y: 791
+      width: 26
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 948
+      y: 791
+      width: 26
+      height: 27
+    rotated: 0
+    paddingLeft: .0384615399
+    paddingRight: .0384615399
+    paddingTop: .0370370373
+    paddingBottom: 0
+  - name: btl_gui_stop_icon_01
+    outer:
+      serializedVersion: 2
+      x: 89
+      y: 222
+      width: 99
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 89
+      y: 222
+      width: 99
+      height: 73
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_hissatu_logo_01
+    outer:
+      serializedVersion: 2
+      x: 416
+      y: 93
+      width: 83
+      height: 16
+    inner:
+      serializedVersion: 2
+      x: 416
+      y: 93
+      width: 83
+      height: 16
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 1.0625
+    paddingBottom: .8125
+  - name: gage
+    outer:
+      serializedVersion: 2
+      x: 570
+      y: 284
+      width: 5
+      height: 15
+    inner:
+      serializedVersion: 2
+      x: 571
+      y: 285
+      width: 3
+      height: 13
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_cutin_charaplate_01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 852
+      width: 480
+      height: 172
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 853
+      width: 478
+      height: 170
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_cutin_obiplate_01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 342
+      width: 128
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 342
+      width: 128
+      height: 63
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_bosswarning_logo_02
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 769
+      width: 731
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 769
+      width: 731
+      height: 80
+    rotated: 0
+    paddingLeft: .0369357057
+    paddingRight: .0300957598
+    paddingTop: .0125000002
+    paddingBottom: 0
+  - name: btl_gui_charaicon_box_01
+    outer:
+      serializedVersion: 2
+      x: 269
+      y: 343
+      width: 95
+      height: 95
+    inner:
+      serializedVersion: 2
+      x: 299
+      y: 373
+      width: 35
+      height: 35
+    rotated: 0
+    paddingLeft: .0105263162
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: .0105263162
+  - name: btl_gui_ornament_01L
+    outer:
+      serializedVersion: 2
+      x: 135
+      y: 365
+      width: 131
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 135
+      y: 365
+      width: 131
+      height: 73
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_gameover_logo_01
+    outer:
+      serializedVersion: 2
+      x: 526
+      y: 698
+      width: 450
+      height: 68
+    inner:
+      serializedVersion: 2
+      x: 526
+      y: 698
+      width: 450
+      height: 68
+    rotated: 0
+    paddingLeft: .055555556
+    paddingRight: .0533333346
+    paddingTop: .0294117648
+    paddingBottom: 0
+  - name: btl_gui_hp_empty_01
+    outer:
+      serializedVersion: 2
+      x: 251
+      y: 101
+      width: 162
+      height: 25
+    inner:
+      serializedVersion: 2
+      x: 261
+      y: 111
+      width: 142
+      height: 5
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_gauge_empty_01
+    outer:
+      serializedVersion: 2
+      x: 480
+      y: 112
+      width: 162
+      height: 25
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 120
+      width: 142
+      height: 9
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_charabox_02
+    outer:
+      serializedVersion: 2
+      x: 332
+      y: 561
+      width: 137
+      height: 140
+    inner:
+      serializedVersion: 2
+      x: 347
+      y: 576
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: .00729927002
+    paddingRight: .01459854
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_hp_fill_01
+    outer:
+      serializedVersion: 2
+      x: 251
+      y: 143
+      width: 151
+      height: 15
+    inner:
+      serializedVersion: 2
+      x: 252
+      y: 145
+      width: 148
+      height: 11
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_ornament_01R
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 418
+      width: 132
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 418
+      width: 132
+      height: 73
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_button_base_01
+    outer:
+      serializedVersion: 2
+      x: 868
+      y: 436
+      width: 90
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 883
+      y: 451
+      width: 55
+      height: 44
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_cutin_obiplate_02
+    outer:
+      serializedVersion: 2
+      x: 948
+      y: 821
+      width: 64
+      height: 104
+    inner:
+      serializedVersion: 2
+      x: 958
+      y: 821
+      width: 44
+      height: 104
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jem_plate_s_01
+    outer:
+      serializedVersion: 2
+      x: 89
+      y: 301
+      width: 38
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 101
+      y: 313
+      width: 14
+      height: 14
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jem_s_empty
+    outer:
+      serializedVersion: 2
+      x: 708
+      y: 254
+      width: 27
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 708
+      y: 254
+      width: 27
+      height: 27
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_tresure_info_03
+    outer:
+      serializedVersion: 2
+      x: 184
+      y: 106
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 184
+      y: 106
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_tresure_info_02
+    outer:
+      serializedVersion: 2
+      x: 413
+      y: 129
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 413
+      y: 129
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jem_purple_03
+    outer:
+      serializedVersion: 2
+      x: 943
+      y: 99
+      width: 56
+      height: 56
+    inner:
+      serializedVersion: 2
+      x: 943
+      y: 99
+      width: 56
+      height: 56
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jem_green_03
+    outer:
+      serializedVersion: 2
+      x: 936
+      y: 40
+      width: 56
+      height: 56
+    inner:
+      serializedVersion: 2
+      x: 936
+      y: 40
+      width: 56
+      height: 56
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jem_yellow_03
+    outer:
+      serializedVersion: 2
+      x: 877
+      y: 54
+      width: 56
+      height: 56
+    inner:
+      serializedVersion: 2
+      x: 877
+      y: 54
+      width: 56
+      height: 56
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jem_red_03
+    outer:
+      serializedVersion: 2
+      x: 515
+      y: 53
+      width: 56
+      height: 56
+    inner:
+      serializedVersion: 2
+      x: 515
+      y: 53
+      width: 56
+      height: 56
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jem_blue_03
+    outer:
+      serializedVersion: 2
+      x: 574
+      y: 53
+      width: 56
+      height: 56
+    inner:
+      serializedVersion: 2
+      x: 574
+      y: 53
+      width: 56
+      height: 56
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_hani_button_01
+    outer:
+      serializedVersion: 2
+      x: 367
+      y: 345
+      width: 93
+      height: 93
+    inner:
+      serializedVersion: 2
+      x: 367
+      y: 345
+      width: 93
+      height: 93
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jemholder_03
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 171
+      width: 80
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 171
+      width: 50
+      height: 79
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_logo_hani_01
+    outer:
+      serializedVersion: 2
+      x: 191
+      y: 256
+      width: 57
+      height: 19
+    inner:
+      serializedVersion: 2
+      x: 191
+      y: 256
+      width: 57
+      height: 19
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: .368421048
+    paddingBottom: .421052635
+  - name: btl_gui_wazainfo_plate_02b
+    outer:
+      serializedVersion: 2
+      x: 741
+      y: 253
+      width: 88
+      height: 71
+    inner:
+      serializedVersion: 2
+      x: 741
+      y: 253
+      width: 88
+      height: 71
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_wazainfo_plate_02a
+    outer:
+      serializedVersion: 2
+      x: 191
+      y: 173
+      width: 88
+      height: 71
+    inner:
+      serializedVersion: 2
+      x: 246
+      y: 173
+      width: 33
+      height: 71
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_BG_grad_01
+    outer:
+      serializedVersion: 2
+      x: 282
+      y: 161
+      width: 128
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 282
+      y: 161
+      width: 128
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_logo_menu_01
+    outer:
+      serializedVersion: 2
+      x: 647
+      y: 852
+      width: 81
+      height: 28
+    inner:
+      serializedVersion: 2
+      x: 647
+      y: 852
+      width: 81
+      height: 28
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_logo_FF_01
+    outer:
+      serializedVersion: 2
+      x: 988
+      y: 5
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 988
+      y: 5
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_button_base_10
+    outer:
+      serializedVersion: 2
+      x: 461
+      y: 239
+      width: 106
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 486
+      y: 239
+      width: 56
+      height: 60
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jemholder_crc_02
+    outer:
+      serializedVersion: 2
+      x: 817
+      y: 59
+      width: 57
+      height: 58
+    inner:
+      serializedVersion: 2
+      x: 817
+      y: 59
+      width: 57
+      height: 58
+    rotated: 0
+    paddingLeft: .0175438598
+    paddingRight: .0350877196
+    paddingTop: .0172413792
+    paddingBottom: .0172413792
+  - name: btl_gui_Logo_BONUS_01
+    outer:
+      serializedVersion: 2
+      x: 736
+      y: 607
+      width: 251
+      height: 45
+    inner:
+      serializedVersion: 2
+      x: 736
+      y: 607
+      width: 251
+      height: 45
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_waveLogo_01
+    outer:
+      serializedVersion: 2
+      x: 259
+      y: 441
+      width: 195
+      height: 54
+    inner:
+      serializedVersion: 2
+      x: 259
+      y: 441
+      width: 195
+      height: 54
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Logo_MANA_01
+    outer:
+      serializedVersion: 2
+      x: 736
+      y: 518
+      width: 196
+      height: 43
+    inner:
+      serializedVersion: 2
+      x: 736
+      y: 518
+      width: 196
+      height: 43
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_line_01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 80
+      width: 512
+      height: 9
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 80
+      width: 512
+      height: 9
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_slot_edge_01
+    outer:
+      serializedVersion: 2
+      x: 502
+      y: 140
+      width: 44
+      height: 96
+    inner:
+      serializedVersion: 2
+      x: 502
+      y: 140
+      width: 44
+      height: 96
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_waveNum_%
+    outer:
+      serializedVersion: 2
+      x: 817
+      y: 120
+      width: 64
+      height: 57
+    inner:
+      serializedVersion: 2
+      x: 817
+      y: 120
+      width: 64
+      height: 57
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_waveNum_line
+    outer:
+      serializedVersion: 2
+      x: 990
+      y: 636
+      width: 31
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 990
+      y: 636
+      width: 31
+      height: 67
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_waveNum_1
+    outer:
+      serializedVersion: 2
+      x: 828
+      y: 3
+      width: 39
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 828
+      y: 3
+      width: 39
+      height: 53
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_waveNum_2
+    outer:
+      serializedVersion: 2
+      x: 979
+      y: 764
+      width: 41
+      height: 54
+    inner:
+      serializedVersion: 2
+      x: 979
+      y: 764
+      width: 41
+      height: 54
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_waveNum_5
+    outer:
+      serializedVersion: 2
+      x: 175
+      y: 23
+      width: 40
+      height: 54
+    inner:
+      serializedVersion: 2
+      x: 175
+      y: 23
+      width: 40
+      height: 54
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_waveNum_7
+    outer:
+      serializedVersion: 2
+      x: 784
+      y: 3
+      width: 41
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 784
+      y: 3
+      width: 41
+      height: 53
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_waveNum_3
+    outer:
+      serializedVersion: 2
+      x: 89
+      y: 22
+      width: 40
+      height: 55
+    inner:
+      serializedVersion: 2
+      x: 89
+      y: 22
+      width: 40
+      height: 55
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_waveNum_9
+    outer:
+      serializedVersion: 2
+      x: 132
+      y: 22
+      width: 40
+      height: 55
+    inner:
+      serializedVersion: 2
+      x: 132
+      y: 22
+      width: 40
+      height: 55
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_waveNum_4
+    outer:
+      serializedVersion: 2
+      x: 765
+      y: 328
+      width: 42
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 765
+      y: 328
+      width: 42
+      height: 53
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_waveNum_6
+    outer:
+      serializedVersion: 2
+      x: 46
+      y: 22
+      width: 40
+      height: 55
+    inner:
+      serializedVersion: 2
+      x: 46
+      y: 22
+      width: 40
+      height: 55
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_waveNum_0
+    outer:
+      serializedVersion: 2
+      x: 688
+      y: 18
+      width: 40
+      height: 55
+    inner:
+      serializedVersion: 2
+      x: 688
+      y: 18
+      width: 40
+      height: 55
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_waveNum_8
+    outer:
+      serializedVersion: 2
+      x: 979
+      y: 706
+      width: 40
+      height: 55
+    inner:
+      serializedVersion: 2
+      x: 979
+      y: 706
+      width: 40
+      height: 55
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_chara_plate_01
+    outer:
+      serializedVersion: 2
+      x: 734
+      y: 841
+      width: 197
+      height: 183
+    inner:
+      serializedVersion: 2
+      x: 734
+      y: 841
+      width: 197
+      height: 183
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_brush_01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 494
+      width: 256
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 494
+      width: 256
+      height: 74
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Logo_Chain_01
+    outer:
+      serializedVersion: 2
+      x: 734
+      y: 774
+      width: 211
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 734
+      y: 774
+      width: 211
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Logo_MAX_01
+    outer:
+      serializedVersion: 2
+      x: 259
+      y: 498
+      width: 194
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 259
+      y: 498
+      width: 194
+      height: 60
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Logo_2nd_01
+    outer:
+      serializedVersion: 2
+      x: 131
+      y: 298
+      width: 135
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 131
+      y: 298
+      width: 135
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Logo_3rd_01
+    outer:
+      serializedVersion: 2
+      x: 563
+      y: 471
+      width: 119
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 563
+      y: 471
+      width: 119
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Logo_1st_01
+    outer:
+      serializedVersion: 2
+      x: 83
+      y: 160
+      width: 98
+      height: 59
+    inner:
+      serializedVersion: 2
+      x: 83
+      y: 160
+      width: 98
+      height: 59
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_HPguageBox_02
+    outer:
+      serializedVersion: 2
+      x: 929
+      y: 18
+      width: 56
+      height: 19
+    inner:
+      serializedVersion: 2
+      x: 952
+      y: 18
+      width: 10
+      height: 19
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_HPguageBox_01
+    outer:
+      serializedVersion: 2
+      x: 870
+      y: 10
+      width: 56
+      height: 19
+    inner:
+      serializedVersion: 2
+      x: 893
+      y: 10
+      width: 10
+      height: 19
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_HPguageBox_03
+    outer:
+      serializedVersion: 2
+      x: 870
+      y: 32
+      width: 56
+      height: 19
+    inner:
+      serializedVersion: 2
+      x: 893
+      y: 32
+      width: 10
+      height: 19
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_HPguageJem_01
+    outer:
+      serializedVersion: 2
+      x: 976
+      y: 225
+      width: 39
+      height: 34
+    inner:
+      serializedVersion: 2
+      x: 976
+      y: 225
+      width: 39
+      height: 34
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_HPguageJem_02
+    outer:
+      serializedVersion: 2
+      x: 563
+      y: 541
+      width: 39
+      height: 34
+    inner:
+      serializedVersion: 2
+      x: 563
+      y: 541
+      width: 39
+      height: 34
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jem_white_01
+    outer:
+      serializedVersion: 2
+      x: 324
+      y: 50
+      width: 26
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 324
+      y: 50
+      width: 26
+      height: 27
+    rotated: 0
+    paddingLeft: .0384615399
+    paddingRight: .0384615399
+    paddingTop: .0370370373
+    paddingBottom: 0
+  - name: btl_gui_jem_gray_01
+    outer:
+      serializedVersion: 2
+      x: 295
+      y: 23
+      width: 26
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 295
+      y: 23
+      width: 26
+      height: 27
+    rotated: 0
+    paddingLeft: .0384615399
+    paddingRight: .0384615399
+    paddingTop: .0370370373
+    paddingBottom: 0
+  - name: btl_gui_HPguage_01
+    outer:
+      serializedVersion: 2
+      x: 731
+      y: 105
+      width: 14
+      height: 11
+    inner:
+      serializedVersion: 2
+      x: 731
+      y: 105
+      width: 14
+      height: 11
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_HPguage_03
+    outer:
+      serializedVersion: 2
+      x: 251
+      y: 250
+      width: 13
+      height: 11
+    inner:
+      serializedVersion: 2
+      x: 251
+      y: 250
+      width: 13
+      height: 11
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_HPguage_02
+    outer:
+      serializedVersion: 2
+      x: 251
+      y: 264
+      width: 13
+      height: 11
+    inner:
+      serializedVersion: 2
+      x: 251
+      y: 264
+      width: 13
+      height: 11
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_logo_FF_02
+    outer:
+      serializedVersion: 2
+      x: 260
+      y: 18
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 260
+      y: 18
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_button_base_10a
+    outer:
+      serializedVersion: 2
+      x: 352
+      y: 239
+      width: 106
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 352
+      y: 239
+      width: 106
+      height: 60
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Jem_01
+    outer:
+      serializedVersion: 2
+      x: 990
+      y: 609
+      width: 27
+      height: 24
+    inner:
+      serializedVersion: 2
+      x: 990
+      y: 609
+      width: 27
+      height: 24
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Jem_01a
+    outer:
+      serializedVersion: 2
+      x: 260
+      y: 53
+      width: 27
+      height: 24
+    inner:
+      serializedVersion: 2
+      x: 260
+      y: 53
+      width: 27
+      height: 24
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_skillbutton_logo_02
+    outer:
+      serializedVersion: 2
+      x: 563
+      y: 442
+      width: 84
+      height: 26
+    inner:
+      serializedVersion: 2
+      x: 563
+      y: 442
+      width: 84
+      height: 26
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: .307692319
+    paddingBottom: .423076928
+  - name: btl_gui_logo_Pause_01
+    outer:
+      serializedVersion: 2
+      x: 784
+      y: 67
+      width: 26
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 784
+      y: 67
+      width: 26
+      height: 32
+    rotated: 0
+    paddingLeft: .115384616
+    paddingRight: .115384616
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status05
+    outer:
+      serializedVersion: 2
+      x: 619
+      y: 655
+      width: 334
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 619
+      y: 655
+      width: 334
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status01
+    outer:
+      serializedVersion: 2
+      x: 685
+      y: 475
+      width: 180
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 685
+      y: 475
+      width: 180
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status03
+    outer:
+      serializedVersion: 2
+      x: 666
+      y: 384
+      width: 168
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 666
+      y: 384
+      width: 168
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status04
+    outer:
+      serializedVersion: 2
+      x: 851
+      y: 393
+      width: 168
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 851
+      y: 393
+      width: 168
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status02
+    outer:
+      serializedVersion: 2
+      x: 578
+      y: 284
+      width: 160
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 578
+      y: 284
+      width: 160
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status06
+    outer:
+      serializedVersion: 2
+      x: 463
+      y: 388
+      width: 200
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 463
+      y: 388
+      width: 200
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_StatusMark01
+    outer:
+      serializedVersion: 2
+      x: 731
+      y: 36
+      width: 50
+      height: 63
+    inner:
+      serializedVersion: 2
+      x: 731
+      y: 36
+      width: 50
+      height: 63
+    rotated: 0
+    paddingLeft: .0599999987
+    paddingRight: .0599999987
+    paddingTop: 0
+    paddingBottom: .0158730168
+  - name: btl_gui_StatusMark02
+    outer:
+      serializedVersion: 2
+      x: 760
+      y: 102
+      width: 54
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 760
+      y: 102
+      width: 54
+      height: 62
+    rotated: 0
+    paddingLeft: .0185185187
+    paddingRight: .0185185187
+    paddingTop: 0
+    paddingBottom: .0322580636
+  - name: btl_gui_Status07
+    outer:
+      serializedVersion: 2
+      x: 645
+      y: 76
+      width: 83
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 645
+      y: 76
+      width: 83
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Logo_stop_01
+    outer:
+      serializedVersion: 2
+      x: 645
+      y: 119
+      width: 112
+      height: 31
+    inner:
+      serializedVersion: 2
+      x: 645
+      y: 119
+      width: 112
+      height: 31
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_BtlStart02
+    outer:
+      serializedVersion: 2
+      x: 666
+      y: 427
+      width: 182
+      height: 41
+    inner:
+      serializedVersion: 2
+      x: 666
+      y: 427
+      width: 182
+      height: 41
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_BtlStart01
+    outer:
+      serializedVersion: 2
+      x: 832
+      y: 225
+      width: 141
+      height: 41
+    inner:
+      serializedVersion: 2
+      x: 832
+      y: 225
+      width: 141
+      height: 41
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_HelperBase
+    outer:
+      serializedVersion: 2
+      x: 961
+      y: 441
+      width: 48
+      height: 120
+    inner:
+      serializedVersion: 2
+      x: 979
+      y: 459
+      width: 12
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: com_gui_TitleWindow01
+    outer:
+      serializedVersion: 2
+      x: 146
+      y: 97
+      width: 28
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 146
+      y: 97
+      width: 28
+      height: 60
+    rotated: 0
+    paddingLeft: .0714285746
+    paddingRight: .0714285746
+    paddingTop: .0333333351
+    paddingBottom: .0333333351
+  - name: main_gui_TextBox_03
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 92
+      width: 76
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 92
+      width: 76
+      height: 76
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status10
+    outer:
+      serializedVersion: 2
+      x: 463
+      y: 345
+      width: 175
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 463
+      y: 345
+      width: 175
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status09
+    outer:
+      serializedVersion: 2
+      x: 282
+      y: 196
+      width: 108
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 282
+      y: 196
+      width: 108
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status12
+    outer:
+      serializedVersion: 2
+      x: 549
+      y: 193
+      width: 98
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 549
+      y: 193
+      width: 98
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status11
+    outer:
+      serializedVersion: 2
+      x: 708
+      y: 210
+      width: 120
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 708
+      y: 210
+      width: 120
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status08
+    outer:
+      serializedVersion: 2
+      x: 832
+      y: 269
+      width: 125
+      height: 48
+    inner:
+      serializedVersion: 2
+      x: 832
+      y: 269
+      width: 125
+      height: 48
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Pilica01
+    outer:
+      serializedVersion: 2
+      x: 934
+      y: 928
+      width: 78
+      height: 96
+    inner:
+      serializedVersion: 2
+      x: 934
+      y: 928
+      width: 78
+      height: 96
+    rotated: 0
+    paddingLeft: .012820513
+    paddingRight: .012820513
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Pilica02
+    outer:
+      serializedVersion: 2
+      x: 269
+      y: 247
+      width: 80
+      height: 93
+    inner:
+      serializedVersion: 2
+      x: 269
+      y: 247
+      width: 80
+      height: 93
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: .0322580636
+    paddingBottom: 0
+  - name: btl_gui_Balloon
+    outer:
+      serializedVersion: 2
+      x: 837
+      y: 320
+      width: 94
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 881
+      y: 320
+      width: 6
+      height: 70
+    rotated: 0
+    paddingLeft: .0106382975
+    paddingRight: .0106382975
+    paddingTop: .0142857144
+    paddingBottom: .0142857144
+  - name: btl_gui_Defeat02
+    outer:
+      serializedVersion: 2
+      x: 650
+      y: 180
+      width: 43
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 650
+      y: 180
+      width: 43
+      height: 53
+    rotated: 0
+    paddingLeft: .279069781
+    paddingRight: .162790701
+    paddingTop: .0566037744
+    paddingBottom: .0754716992
+  - name: btl_gui_Defeat03
+    outer:
+      serializedVersion: 2
+      x: 633
+      y: 18
+      width: 52
+      height: 55
+    inner:
+      serializedVersion: 2
+      x: 633
+      y: 18
+      width: 52
+      height: 55
+    rotated: 0
+    paddingLeft: .0769230798
+    paddingRight: .0769230798
+    paddingTop: .0181818176
+    paddingBottom: .0727272704
+  - name: btl_gui_Defeat04
+    outer:
+      serializedVersion: 2
+      x: 480
+      y: 140
+      width: 17
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 480
+      y: 140
+      width: 17
+      height: 53
+    rotated: 0
+    paddingLeft: 1.2352941
+    paddingRight: 1.29411769
+    paddingTop: .0377358496
+    paddingBottom: .094339624
+  - name: btl_gui_Defeat01
+    outer:
+      serializedVersion: 2
+      x: 976
+      y: 262
+      width: 43
+      height: 55
+    inner:
+      serializedVersion: 2
+      x: 976
+      y: 262
+      width: 43
+      height: 55
+    rotated: 0
+    paddingLeft: .186046511
+    paddingRight: .209302321
+    paddingTop: .0181818176
+    paddingBottom: .0727272704
+  - name: btl_gui_Status13
+    outer:
+      serializedVersion: 2
+      x: 393
+      y: 196
+      width: 106
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 393
+      y: 196
+      width: 106
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_chara_orn_01r
+    outer:
+      serializedVersion: 2
+      x: 472
+      y: 431
+      width: 88
+      height: 144
+    inner:
+      serializedVersion: 2
+      x: 472
+      y: 431
+      width: 88
+      height: 144
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jemholder_edge_01
+    outer:
+      serializedVersion: 2
+      x: 641
+      y: 327
+      width: 121
+      height: 54
+    inner:
+      serializedVersion: 2
+      x: 641
+      y: 327
+      width: 121
+      height: 54
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_hissatu_jem_off_01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 571
+      width: 163
+      height: 130
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 571
+      width: 163
+      height: 130
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_hissatu_jem_eff_01
+    outer:
+      serializedVersion: 2
+      x: 472
+      y: 578
+      width: 144
+      height: 117
+    inner:
+      serializedVersion: 2
+      x: 472
+      y: 578
+      width: 144
+      height: 117
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status14
+    outer:
+      serializedVersion: 2
+      x: 483
+      y: 854
+      width: 161
+      height: 34
+    inner:
+      serializedVersion: 2
+      x: 483
+      y: 854
+      width: 161
+      height: 34
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: .00621118024
+    paddingTop: .0882352963
+    paddingBottom: .0882352963
+  - name: btl_gui_guest_logo_01
+    outer:
+      serializedVersion: 2
+      x: 685
+      y: 524
+      width: 44
+      height: 11
+    inner:
+      serializedVersion: 2
+      x: 685
+      y: 524
+      width: 44
+      height: 11
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_guest_logo_02
+    outer:
+      serializedVersion: 2
+      x: 929
+      y: 4
+      width: 48
+      height: 11
+    inner:
+      serializedVersion: 2
+      x: 929
+      y: 4
+      width: 48
+      height: 11
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_tresure_info_04
+    outer:
+      serializedVersion: 2
+      x: 79
+      y: 93
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 79
+      y: 93
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_X_01
+    outer:
+      serializedVersion: 2
+      x: 483
+      y: 891
+      width: 168
+      height: 133
+    inner:
+      serializedVersion: 2
+      x: 483
+      y: 891
+      width: 168
+      height: 133
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status17
+    outer:
+      serializedVersion: 2
+      x: 135
+      y: 443
+      width: 112
+      height: 48
+    inner:
+      serializedVersion: 2
+      x: 135
+      y: 443
+      width: 112
+      height: 48
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status16
+    outer:
+      serializedVersion: 2
+      x: 367
+      y: 302
+      width: 208
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 367
+      y: 302
+      width: 208
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status15
+    outer:
+      serializedVersion: 2
+      x: 716
+      y: 167
+      width: 98
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 716
+      y: 167
+      width: 98
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status18
+    outer:
+      serializedVersion: 2
+      x: 570
+      y: 236
+      width: 135
+      height: 45
+    inner:
+      serializedVersion: 2
+      x: 570
+      y: 236
+      width: 135
+      height: 45
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_X_01s
+    outer:
+      serializedVersion: 2
+      x: 654
+      y: 883
+      width: 77
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 654
+      y: 883
+      width: 77
+      height: 62
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Defeat06
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 22
+      width: 43
+      height: 55
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 22
+      width: 43
+      height: 55
+    rotated: 0
+    paddingLeft: .186046511
+    paddingRight: .209302321
+    paddingTop: .0181818176
+    paddingBottom: .0727272704
+  - name: btl_gui_Defeat05
+    outer:
+      serializedVersion: 2
+      x: 218
+      y: 24
+      width: 39
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 218
+      y: 24
+      width: 39
+      height: 53
+    rotated: 0
+    paddingLeft: .307692319
+    paddingRight: .230769232
+    paddingTop: .0377358496
+    paddingBottom: .094339624
+  - name: btl_gui_SPguest_logo_01
+    outer:
+      serializedVersion: 2
+      x: 191
+      y: 278
+      width: 65
+      height: 17
+    inner:
+      serializedVersion: 2
+      x: 191
+      y: 278
+      width: 65
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_Status019
+    outer:
+      serializedVersion: 2
+      x: 736
+      y: 564
+      width: 268
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 736
+      y: 564
+      width: 268
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

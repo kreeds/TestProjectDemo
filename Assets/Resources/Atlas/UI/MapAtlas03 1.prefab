@@ -1,0 +1,3478 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: MapAtlas03 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 36f5ec3ce30a75e4ea3756142fadfa4d, type: 2}
+  sprites:
+  - name: main_gui_bg_02
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1793
+      width: 255
+      height: 255
+    inner:
+      serializedVersion: 2
+      x: 1
+      y: 1794
+      width: 253
+      height: 253
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_TownPlate_01
+    outer:
+      serializedVersion: 2
+      x: 1134
+      y: 1623
+      width: 182
+      height: 41
+    inner:
+      serializedVersion: 2
+      x: 1164
+      y: 1638
+      width: 122
+      height: 11
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_MapButtonBase_02
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1092
+      width: 100
+      height: 108
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1092
+      width: 100
+      height: 108
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_MapButtonBase_03
+    outer:
+      serializedVersion: 2
+      x: 759
+      y: 1652
+      width: 100
+      height: 108
+    inner:
+      serializedVersion: 2
+      x: 759
+      y: 1652
+      width: 100
+      height: 108
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_MapButtonBase_01
+    outer:
+      serializedVersion: 2
+      x: 1606
+      y: 1689
+      width: 100
+      height: 108
+    inner:
+      serializedVersion: 2
+      x: 1606
+      y: 1689
+      width: 100
+      height: 108
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_Marker_01
+    outer:
+      serializedVersion: 2
+      x: 1899
+      y: 1468
+      width: 74
+      height: 105
+    inner:
+      serializedVersion: 2
+      x: 1899
+      y: 1468
+      width: 74
+      height: 105
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_ButtonBase_08
+    outer:
+      serializedVersion: 2
+      x: 1763
+      y: 1172
+      width: 56
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 1788
+      y: 1172
+      width: 6
+      height: 61
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_MapRouteLine_01
+    outer:
+      serializedVersion: 2
+      x: 1134
+      y: 1139
+      width: 32
+      height: 26
+    inner:
+      serializedVersion: 2
+      x: 1144
+      y: 1149
+      width: 12
+      height: 6
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_Progress_Fill_01
+    outer:
+      serializedVersion: 2
+      x: 491
+      y: 1458
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 491
+      y: 1458
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_Progress_Empty_01
+    outer:
+      serializedVersion: 2
+      x: 1229
+      y: 1098
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 1229
+      y: 1098
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_MapMarker_01
+    outer:
+      serializedVersion: 2
+      x: 1692
+      y: 1455
+      width: 22
+      height: 22
+    inner:
+      serializedVersion: 2
+      x: 1692
+      y: 1455
+      width: 22
+      height: 22
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_present_01
+    outer:
+      serializedVersion: 2
+      x: 1342
+      y: 1672
+      width: 127
+      height: 125
+    inner:
+      serializedVersion: 2
+      x: 1342
+      y: 1672
+      width: 127
+      height: 125
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_mail_01
+    outer:
+      serializedVersion: 2
+      x: 343
+      y: 1079
+      width: 78
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 343
+      y: 1079
+      width: 78
+      height: 83
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_Textbox_04
+    outer:
+      serializedVersion: 2
+      x: 1638
+      y: 1150
+      width: 62
+      height: 54
+    inner:
+      serializedVersion: 2
+      x: 1663
+      y: 1172
+      width: 14
+      height: 12
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_NumCrc_02
+    outer:
+      serializedVersion: 2
+      x: 1705
+      y: 1147
+      width: 45
+      height: 57
+    inner:
+      serializedVersion: 2
+      x: 1705
+      y: 1147
+      width: 45
+      height: 57
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_TextBox_04
+    outer:
+      serializedVersion: 2
+      x: 871
+      y: 1493
+      width: 174
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 884
+      y: 1506
+      width: 141
+      height: 49
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_box_empty_01
+    outer:
+      serializedVersion: 2
+      x: 200
+      y: 1168
+      width: 25
+      height: 25
+    inner:
+      serializedVersion: 2
+      x: 204
+      y: 1172
+      width: 16
+      height: 16
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_button_bar_02
+    outer:
+      serializedVersion: 2
+      x: 1799
+      y: 1687
+      width: 182
+      height: 194
+    inner:
+      serializedVersion: 2
+      x: 1799
+      y: 1687
+      width: 182
+      height: 194
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_line_02
+    outer:
+      serializedVersion: 2
+      x: 507
+      y: 1325
+      width: 8
+      height: 3
+    inner:
+      serializedVersion: 2
+      x: 507
+      y: 1325
+      width: 8
+      height: 3
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_Map_01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1059
+      width: 79
+      height: 28
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1059
+      width: 79
+      height: 28
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_Exit_01
+    outer:
+      serializedVersion: 2
+      x: 1446
+      y: 1078
+      width: 78
+      height: 28
+    inner:
+      serializedVersion: 2
+      x: 1446
+      y: 1078
+      width: 78
+      height: 28
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_tresure_info_01
+    outer:
+      serializedVersion: 2
+      x: 1266
+      y: 1269
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 1266
+      y: 1269
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_tresure_info_03
+    outer:
+      serializedVersion: 2
+      x: 632
+      y: 1064
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 632
+      y: 1064
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_tresure_info_02
+    outer:
+      serializedVersion: 2
+      x: 701
+      y: 1090
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 701
+      y: 1090
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_MapIcon_03
+    outer:
+      serializedVersion: 2
+      x: 401
+      y: 1442
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 401
+      y: 1442
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_MapIcon_01
+    outer:
+      serializedVersion: 2
+      x: 1134
+      y: 1688
+      width: 62
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1134
+      y: 1688
+      width: 62
+      height: 80
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_MapIcon_02
+    outer:
+      serializedVersion: 2
+      x: 324
+      y: 944
+      width: 81
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 324
+      y: 944
+      width: 81
+      height: 61
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_ItemQ_01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1426
+      width: 96
+      height: 96
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1426
+      width: 96
+      height: 96
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_bar_base_01
+    outer:
+      serializedVersion: 2
+      x: 1536
+      y: 1891
+      width: 21
+      height: 21
+    inner:
+      serializedVersion: 2
+      x: 1539
+      y: 1894
+      width: 15
+      height: 15
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_ribbon_01
+    outer:
+      serializedVersion: 2
+      x: 1209
+      y: 1802
+      width: 69
+      height: 23
+    inner:
+      serializedVersion: 2
+      x: 1214
+      y: 1802
+      width: 44
+      height: 23
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_close_01
+    outer:
+      serializedVersion: 2
+      x: 1896
+      y: 1255
+      width: 65
+      height: 68
+    inner:
+      serializedVersion: 2
+      x: 1896
+      y: 1255
+      width: 65
+      height: 68
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_hp_fill_01
+    outer:
+      serializedVersion: 2
+      x: 978
+      y: 1133
+      width: 151
+      height: 15
+    inner:
+      serializedVersion: 2
+      x: 978
+      y: 1133
+      width: 151
+      height: 15
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: map_chara_02
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 847
+      width: 54
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 847
+      width: 54
+      height: 86
+    rotated: 0
+    paddingLeft: .0185185187
+    paddingRight: .0185185187
+    paddingTop: .0116279069
+    paddingBottom: .0116279069
+  - name: map_chara_04
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 756
+      width: 53
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 756
+      width: 53
+      height: 86
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: .0566037744
+    paddingTop: .0116279069
+    paddingBottom: .0116279069
+  - name: map_chara_01
+    outer:
+      serializedVersion: 2
+      x: 59
+      y: 819
+      width: 53
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 59
+      y: 819
+      width: 53
+      height: 86
+    rotated: 0
+    paddingLeft: .0188679248
+    paddingRight: .0377358496
+    paddingTop: .0116279069
+    paddingBottom: .0116279069
+  - name: map_chara_03
+    outer:
+      serializedVersion: 2
+      x: 153
+      y: 824
+      width: 53
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 153
+      y: 824
+      width: 53
+      height: 86
+    rotated: 0
+    paddingLeft: .0188679248
+    paddingRight: .0377358496
+    paddingTop: .0116279069
+    paddingBottom: .0116279069
+  - name: default_map_chara
+    outer:
+      serializedVersion: 2
+      x: 1768
+      y: 1238
+      width: 53
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 1768
+      y: 1238
+      width: 53
+      height: 86
+    rotated: 0
+    paddingLeft: .0188679248
+    paddingRight: .0377358496
+    paddingTop: .0116279069
+    paddingBottom: .0116279069
+  - name: main_gui_MainIcon_Base_02
+    outer:
+      serializedVersion: 2
+      x: 133
+      y: 1532
+      width: 390
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 133
+      y: 1532
+      width: 390
+      height: 38
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_MainIcon_Base_01
+    outer:
+      serializedVersion: 2
+      x: 441
+      y: 1108
+      width: 59
+      height: 115
+    inner:
+      serializedVersion: 2
+      x: 449
+      y: 1108
+      width: 43
+      height: 115
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_logo_06a
+    outer:
+      serializedVersion: 2
+      x: 1410
+      y: 1299
+      width: 109
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 1410
+      y: 1299
+      width: 109
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_bar_fill_04
+    outer:
+      serializedVersion: 2
+      x: 80
+      y: 986
+      width: 32
+      height: 16
+    inner:
+      serializedVersion: 2
+      x: 80
+      y: 989
+      width: 32
+      height: 10
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_bar_fill_03
+    outer:
+      serializedVersion: 2
+      x: 1638
+      y: 1209
+      width: 32
+      height: 11
+    inner:
+      serializedVersion: 2
+      x: 1638
+      y: 1212
+      width: 32
+      height: 5
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_CharaPlate_Empty_00
+    outer:
+      serializedVersion: 2
+      x: 1651
+      y: 1616
+      width: 61
+      height: 68
+    inner:
+      serializedVersion: 2
+      x: 1651
+      y: 1616
+      width: 61
+      height: 68
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_SelArea_01
+    outer:
+      serializedVersion: 2
+      x: 1200
+      y: 1371
+      width: 249
+      height: 49
+    inner:
+      serializedVersion: 2
+      x: 1200
+      y: 1371
+      width: 249
+      height: 49
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_QuestPanel_01
+    outer:
+      serializedVersion: 2
+      x: 1130
+      y: 1917
+      width: 430
+      height: 131
+    inner:
+      serializedVersion: 2
+      x: 1130
+      y: 1917
+      width: 430
+      height: 131
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_QuestPanel_03
+    outer:
+      serializedVersion: 2
+      x: 695
+      y: 1917
+      width: 430
+      height: 131
+    inner:
+      serializedVersion: 2
+      x: 695
+      y: 1917
+      width: 430
+      height: 131
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_QuestPanel_02
+    outer:
+      serializedVersion: 2
+      x: 260
+      y: 1917
+      width: 430
+      height: 131
+    inner:
+      serializedVersion: 2
+      x: 260
+      y: 1917
+      width: 430
+      height: 131
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_SelQuestTag_02
+    outer:
+      serializedVersion: 2
+      x: 647
+      y: 1434
+      width: 249
+      height: 54
+    inner:
+      serializedVersion: 2
+      x: 647
+      y: 1434
+      width: 249
+      height: 54
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_scroll_01a
+    outer:
+      serializedVersion: 2
+      x: 892
+      y: 1830
+      width: 397
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 892
+      y: 1830
+      width: 397
+      height: 82
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_BGpattern_01
+    outer:
+      serializedVersion: 2
+      x: 701
+      y: 1083
+      width: 386
+      height: 2
+    inner:
+      serializedVersion: 2
+      x: 701
+      y: 1083
+      width: 386
+      height: 2
+    rotated: 0
+    paddingLeft: .243523315
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_window_obi_01
+    outer:
+      serializedVersion: 2
+      x: 268
+      y: 1335
+      width: 84
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 268
+      y: 1335
+      width: 84
+      height: 83
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_get_G_01
+    outer:
+      serializedVersion: 2
+      x: 267
+      y: 1423
+      width: 129
+      height: 104
+    inner:
+      serializedVersion: 2
+      x: 267
+      y: 1423
+      width: 129
+      height: 104
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_get_T_01
+    outer:
+      serializedVersion: 2
+      x: 401
+      y: 1333
+      width: 129
+      height: 104
+    inner:
+      serializedVersion: 2
+      x: 401
+      y: 1333
+      width: 129
+      height: 104
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_get_E_01
+    outer:
+      serializedVersion: 2
+      x: 901
+      y: 1384
+      width: 129
+      height: 104
+    inner:
+      serializedVersion: 2
+      x: 901
+      y: 1384
+      width: 129
+      height: 104
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_get_!_01
+    outer:
+      serializedVersion: 2
+      x: 133
+      y: 1423
+      width: 129
+      height: 104
+    inner:
+      serializedVersion: 2
+      x: 133
+      y: 1423
+      width: 129
+      height: 104
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_TextBox_03
+    outer:
+      serializedVersion: 2
+      x: 505
+      y: 1139
+      width: 76
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 505
+      y: 1139
+      width: 76
+      height: 76
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_Textbox_05b
+    outer:
+      serializedVersion: 2
+      x: 1565
+      y: 1881
+      width: 229
+      height: 167
+    inner:
+      serializedVersion: 2
+      x: 1565
+      y: 1881
+      width: 229
+      height: 167
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_next_02
+    outer:
+      serializedVersion: 2
+      x: 133
+      y: 1730
+      width: 104
+      height: 58
+    inner:
+      serializedVersion: 2
+      x: 133
+      y: 1730
+      width: 104
+      height: 58
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_obi_01
+    outer:
+      serializedVersion: 2
+      x: 1454
+      y: 1344
+      width: 256
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 1454
+      y: 1344
+      width: 256
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_map_Quest_01
+    outer:
+      serializedVersion: 2
+      x: 200
+      y: 1114
+      width: 138
+      height: 48
+    inner:
+      serializedVersion: 2
+      x: 200
+      y: 1114
+      width: 138
+      height: 48
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_map_Bonus_01
+    outer:
+      serializedVersion: 2
+      x: 105
+      y: 1055
+      width: 145
+      height: 44
+    inner:
+      serializedVersion: 2
+      x: 105
+      y: 1055
+      width: 145
+      height: 44
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_map_Battle_01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1007
+      width: 140
+      height: 43
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1007
+      width: 140
+      height: 43
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_new_01
+    outer:
+      serializedVersion: 2
+      x: 399
+      y: 1632
+      width: 75
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 399
+      y: 1632
+      width: 75
+      height: 74
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_bonus_01
+    outer:
+      serializedVersion: 2
+      x: 1267
+      y: 1119
+      width: 86
+      height: 24
+    inner:
+      serializedVersion: 2
+      x: 1267
+      y: 1119
+      width: 86
+      height: 24
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_logo_07a
+    outer:
+      serializedVersion: 2
+      x: 1172
+      y: 1135
+      width: 90
+      height: 34
+    inner:
+      serializedVersion: 2
+      x: 1172
+      y: 1135
+      width: 90
+      height: 34
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_window_11a
+    outer:
+      serializedVersion: 2
+      x: 1549
+      y: 1381
+      width: 224
+      height: 59
+    inner:
+      serializedVersion: 2
+      x: 1579
+      y: 1381
+      width: 159
+      height: 59
+    rotated: 0
+    paddingLeft: .00446428591
+    paddingRight: 0
+    paddingTop: .0169491526
+    paddingBottom: 0
+  - name: main_gui_raid_list_cell_01
+    outer:
+      serializedVersion: 2
+      x: 357
+      y: 1337
+      width: 32
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 367
+      y: 1347
+      width: 12
+      height: 18
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_raid_list_02
+    outer:
+      serializedVersion: 2
+      x: 505
+      y: 1032
+      width: 53
+      height: 102
+    inner:
+      serializedVersion: 2
+      x: 517
+      y: 1088
+      width: 25
+      height: 22
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_raid_list_01
+    outer:
+      serializedVersion: 2
+      x: 967
+      y: 1277
+      width: 53
+      height: 102
+    inner:
+      serializedVersion: 2
+      x: 979
+      y: 1333
+      width: 25
+      height: 22
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_NumCrc_01
+    outer:
+      serializedVersion: 2
+      x: 647
+      y: 1493
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 647
+      y: 1493
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_Maphe_01
+    outer:
+      serializedVersion: 2
+      x: 1469
+      y: 1211
+      width: 91
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 1469
+      y: 1211
+      width: 91
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_Tophe_01
+    outer:
+      serializedVersion: 2
+      x: 793
+      y: 1267
+      width: 120
+      height: 37
+    inner:
+      serializedVersion: 2
+      x: 793
+      y: 1267
+      width: 120
+      height: 37
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_Textbox_06
+    outer:
+      serializedVersion: 2
+      x: 1025
+      y: 1291
+      width: 98
+      height: 45
+    inner:
+      serializedVersion: 2
+      x: 1040
+      y: 1306
+      width: 68
+      height: 15
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_AP_02
+    outer:
+      serializedVersion: 2
+      x: 1410
+      y: 1345
+      width: 35
+      height: 21
+    inner:
+      serializedVersion: 2
+      x: 1410
+      y: 1345
+      width: 35
+      height: 21
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_NumCrc_01a
+    outer:
+      serializedVersion: 2
+      x: 491
+      y: 1495
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 491
+      y: 1495
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_base_05
+    outer:
+      serializedVersion: 2
+      x: 1778
+      y: 1329
+      width: 109
+      height: 111
+    inner:
+      serializedVersion: 2
+      x: 1778
+      y: 1329
+      width: 109
+      height: 111
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_QuestPanel_time_01
+    outer:
+      serializedVersion: 2
+      x: 1454
+      y: 1382
+      width: 83
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 1504
+      y: 1382
+      width: 13
+      height: 38
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_skill_01
+    outer:
+      serializedVersion: 2
+      x: 80
+      y: 910
+      width: 68
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 80
+      y: 910
+      width: 68
+      height: 69
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_logo_22
+    outer:
+      serializedVersion: 2
+      x: 1463
+      y: 1111
+      width: 67
+      height: 49
+    inner:
+      serializedVersion: 2
+      x: 1463
+      y: 1111
+      width: 67
+      height: 49
+    rotated: 0
+    paddingLeft: .0149253728
+    paddingRight: 0
+    paddingTop: .285714298
+    paddingBottom: .122448981
+  - name: btl_gui_tresuer_info_02_open
+    outer:
+      serializedVersion: 2
+      x: 339
+      y: 1010
+      width: 78
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 339
+      y: 1010
+      width: 78
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_tresuer_info_03_open
+    outer:
+      serializedVersion: 2
+      x: 240
+      y: 962
+      width: 79
+      height: 63
+    inner:
+      serializedVersion: 2
+      x: 240
+      y: 962
+      width: 79
+      height: 63
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_tresuer_info_01_open
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 938
+      width: 75
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 938
+      width: 75
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_Event_01
+    outer:
+      serializedVersion: 2
+      x: 1469
+      y: 1256
+      width: 115
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 1469
+      y: 1256
+      width: 115
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_Event_01a
+    outer:
+      serializedVersion: 2
+      x: 1056
+      y: 1170
+      width: 111
+      height: 28
+    inner:
+      serializedVersion: 2
+      x: 1056
+      y: 1170
+      width: 111
+      height: 28
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_window_13
+    outer:
+      serializedVersion: 2
+      x: 255
+      y: 1030
+      width: 79
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 271
+      y: 1046
+      width: 47
+      height: 47
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_infomation_01
+    outer:
+      serializedVersion: 2
+      x: 1267
+      y: 1148
+      width: 120
+      height: 21
+    inner:
+      serializedVersion: 2
+      x: 1267
+      y: 1148
+      width: 120
+      height: 21
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_HelperBase
+    outer:
+      serializedVersion: 2
+      x: 1715
+      y: 1256
+      width: 48
+      height: 120
+    inner:
+      serializedVersion: 2
+      x: 1731
+      y: 1272
+      width: 16
+      height: 88
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_V_ScrollBar_empty_01
+    outer:
+      serializedVersion: 2
+      x: 1968
+      y: 1578
+      width: 9
+      height: 35
+    inner:
+      serializedVersion: 2
+      x: 1968
+      y: 1586
+      width: 9
+      height: 19
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_V_ScrollBar_fill_01
+    outer:
+      serializedVersion: 2
+      x: 1551
+      y: 1171
+      width: 9
+      height: 35
+    inner:
+      serializedVersion: 2
+      x: 1551
+      y: 1179
+      width: 9
+      height: 19
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: banner_Common_Slice_01
+    outer:
+      serializedVersion: 2
+      x: 704
+      y: 1228
+      width: 84
+      height: 92
+    inner:
+      serializedVersion: 2
+      x: 739
+      y: 1228
+      width: 14
+      height: 92
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_NumCrc_eff_01
+    outer:
+      serializedVersion: 2
+      x: 1931
+      y: 1581
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 1931
+      y: 1581
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Reward_gui_Drama_Camp
+    outer:
+      serializedVersion: 2
+      x: 1200
+      y: 1338
+      width: 205
+      height: 28
+    inner:
+      serializedVersion: 2
+      x: 1200
+      y: 1338
+      width: 205
+      height: 28
+    rotated: 0
+    paddingLeft: .00487804879
+    paddingRight: 0
+    paddingTop: .0714285746
+    paddingBottom: 0
+  - name: main_gui_MapIcon_BarMini
+    outer:
+      serializedVersion: 2
+      x: 1402
+      y: 1163
+      width: 56
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 1402
+      y: 1163
+      width: 56
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_stone_M_01
+    outer:
+      serializedVersion: 2
+      x: 563
+      y: 1064
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 563
+      y: 1064
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_arcana_M_03
+    outer:
+      serializedVersion: 2
+      x: 931
+      y: 1139
+      width: 42
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 931
+      y: 1139
+      width: 42
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_arcana_M_02
+    outer:
+      serializedVersion: 2
+      x: 1931
+      y: 1618
+      width: 42
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 1931
+      y: 1618
+      width: 42
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_Micon_02
+    outer:
+      serializedVersion: 2
+      x: 1583
+      y: 1482
+      width: 114
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 1583
+      y: 1482
+      width: 114
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_Micon_03
+    outer:
+      serializedVersion: 2
+      x: 1169
+      y: 1425
+      width: 114
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 1169
+      y: 1425
+      width: 114
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_Micon_05
+    outer:
+      serializedVersion: 2
+      x: 1050
+      y: 1425
+      width: 114
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 1050
+      y: 1425
+      width: 114
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_Micon_04
+    outer:
+      serializedVersion: 2
+      x: 528
+      y: 1442
+      width: 114
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 528
+      y: 1442
+      width: 114
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_Micon_06
+    outer:
+      serializedVersion: 2
+      x: 1345
+      y: 1482
+      width: 114
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 1345
+      y: 1482
+      width: 114
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_Micon_01
+    outer:
+      serializedVersion: 2
+      x: 1464
+      y: 1482
+      width: 114
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 1464
+      y: 1482
+      width: 114
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_MainIcon_tag_02
+    outer:
+      serializedVersion: 2
+      x: 1035
+      y: 1341
+      width: 160
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 1035
+      y: 1341
+      width: 160
+      height: 79
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_difficult_Icon1
+    outer:
+      serializedVersion: 2
+      x: 987
+      y: 1224
+      width: 32
+      height: 48
+    inner:
+      serializedVersion: 2
+      x: 987
+      y: 1224
+      width: 32
+      height: 48
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_back_01
+    outer:
+      serializedVersion: 2
+      x: 1183
+      y: 1093
+      width: 41
+      height: 37
+    inner:
+      serializedVersion: 2
+      x: 1183
+      y: 1093
+      width: 41
+      height: 37
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_button_base_08
+    outer:
+      serializedVersion: 2
+      x: 612
+      y: 1230
+      width: 87
+      height: 90
+    inner:
+      serializedVersion: 2
+      x: 638
+      y: 1230
+      width: 35
+      height: 90
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: .0344827585
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_sale_01
+    outer:
+      serializedVersion: 2
+      x: 1614
+      y: 1112
+      width: 67
+      height: 33
+    inner:
+      serializedVersion: 2
+      x: 1614
+      y: 1112
+      width: 67
+      height: 33
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_capIcon_01
+    outer:
+      serializedVersion: 2
+      x: 803
+      y: 1309
+      width: 159
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 803
+      y: 1309
+      width: 159
+      height: 70
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_ButtonBase_11
+    outer:
+      serializedVersion: 2
+      x: 145
+      y: 984
+      width: 90
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 181
+      y: 984
+      width: 16
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_QuestPanel_time_01a
+    outer:
+      serializedVersion: 2
+      x: 1463
+      y: 1165
+      width: 83
+      height: 41
+    inner:
+      serializedVersion: 2
+      x: 1513
+      y: 1167
+      width: 13
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_tresure_info_05
+    outer:
+      serializedVersion: 2
+      x: 1288
+      y: 1501
+      width: 52
+      height: 52
+    inner:
+      serializedVersion: 2
+      x: 1288
+      y: 1501
+      width: 52
+      height: 52
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Reward_gui_Drama_Special
+    outer:
+      serializedVersion: 2
+      x: 1294
+      y: 1886
+      width: 237
+      height: 26
+    inner:
+      serializedVersion: 2
+      x: 1294
+      y: 1886
+      width: 237
+      height: 26
+    rotated: 0
+    paddingLeft: .0421940945
+    paddingRight: .0379746817
+    paddingTop: .0769230798
+    paddingBottom: .0769230798
+  - name: main_gui_logo_Nocontinue
+    outer:
+      serializedVersion: 2
+      x: 1826
+      y: 1227
+      width: 190
+      height: 23
+    inner:
+      serializedVersion: 2
+      x: 1826
+      y: 1227
+      width: 190
+      height: 23
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: banner_Common_Slice_03
+    outer:
+      serializedVersion: 2
+      x: 612
+      y: 1133
+      width: 84
+      height: 92
+    inner:
+      serializedVersion: 2
+      x: 647
+      y: 1133
+      width: 14
+      height: 92
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_get_D_01
+    outer:
+      serializedVersion: 2
+      x: 669
+      y: 1325
+      width: 129
+      height: 104
+    inner:
+      serializedVersion: 2
+      x: 669
+      y: 1325
+      width: 129
+      height: 104
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_get_O_01
+    outer:
+      serializedVersion: 2
+      x: 535
+      y: 1325
+      width: 129
+      height: 104
+    inner:
+      serializedVersion: 2
+      x: 535
+      y: 1325
+      width: 129
+      height: 104
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_get_I_01
+    outer:
+      serializedVersion: 2
+      x: 134
+      y: 1314
+      width: 129
+      height: 104
+    inner:
+      serializedVersion: 2
+      x: 134
+      y: 1314
+      width: 129
+      height: 104
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_get_A_01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1314
+      width: 129
+      height: 104
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1314
+      width: 129
+      height: 104
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_get_EE_01
+    outer:
+      serializedVersion: 2
+      x: 268
+      y: 1224
+      width: 129
+      height: 104
+    inner:
+      serializedVersion: 2
+      x: 268
+      y: 1224
+      width: 129
+      height: 104
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_get_N_01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1205
+      width: 129
+      height: 104
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1205
+      width: 129
+      height: 104
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: map_eb_label_bg
+    outer:
+      serializedVersion: 2
+      x: 1549
+      y: 1446
+      width: 138
+      height: 31
+    inner:
+      serializedVersion: 2
+      x: 1549
+      y: 1446
+      width: 138
+      height: 31
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_eb_icon
+    outer:
+      serializedVersion: 2
+      x: 1474
+      y: 1678
+      width: 127
+      height: 119
+    inner:
+      serializedVersion: 2
+      x: 1474
+      y: 1678
+      width: 127
+      height: 119
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_ExpBooster_01
+    outer:
+      serializedVersion: 2
+      x: 507
+      y: 1220
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 507
+      y: 1220
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_GoldBooster_01
+    outer:
+      serializedVersion: 2
+      x: 402
+      y: 1228
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 402
+      y: 1228
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: com_gui_Caption_Fail
+    outer:
+      serializedVersion: 2
+      x: 260
+      y: 1830
+      width: 627
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 260
+      y: 1830
+      width: 627
+      height: 82
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: com_gui_Caption_GachaOpen
+    outer:
+      serializedVersion: 2
+      x: 1294
+      y: 1802
+      width: 420
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 1294
+      y: 1802
+      width: 420
+      height: 74
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: com_gui_Caption_Continue
+    outer:
+      serializedVersion: 2
+      x: 868
+      y: 1773
+      width: 336
+      height: 52
+    inner:
+      serializedVersion: 2
+      x: 868
+      y: 1773
+      width: 336
+      height: 52
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cha_2d_icon_empty
+    outer:
+      serializedVersion: 2
+      x: 1209
+      y: 1669
+      width: 128
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 1209
+      y: 1669
+      width: 128
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: com_gui_Caption_Login
+    outer:
+      serializedVersion: 2
+      x: 1342
+      y: 1615
+      width: 304
+      height: 52
+    inner:
+      serializedVersion: 2
+      x: 1342
+      y: 1615
+      width: 304
+      height: 52
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: com_gui_Caption_Caution
+    outer:
+      serializedVersion: 2
+      x: 399
+      y: 1575
+      width: 288
+      height: 52
+    inner:
+      serializedVersion: 2
+      x: 399
+      y: 1575
+      width: 288
+      height: 52
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: com_gui_Caption_Friend
+    outer:
+      serializedVersion: 2
+      x: 759
+      y: 1583
+      width: 288
+      height: 52
+    inner:
+      serializedVersion: 2
+      x: 759
+      y: 1583
+      width: 288
+      height: 52
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: com_gui_Caption_Quest
+    outer:
+      serializedVersion: 2
+      x: 1052
+      y: 1558
+      width: 288
+      height: 52
+    inner:
+      serializedVersion: 2
+      x: 1052
+      y: 1558
+      width: 288
+      height: 52
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: com_gui_Caption_Pause
+    outer:
+      serializedVersion: 2
+      x: 1288
+      y: 1425
+      width: 256
+      height: 52
+    inner:
+      serializedVersion: 2
+      x: 1288
+      y: 1425
+      width: 256
+      height: 52
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: com_gui_Caption_Tips
+    outer:
+      serializedVersion: 2
+      x: 248
+      y: 1167
+      width: 188
+      height: 52
+    inner:
+      serializedVersion: 2
+      x: 248
+      y: 1167
+      width: 188
+      height: 52
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_route_01
+    outer:
+      serializedVersion: 2
+      x: 493
+      y: 1765
+      width: 370
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 493
+      y: 1765
+      width: 370
+      height: 60
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: QI_300200
+    outer:
+      serializedVersion: 2
+      x: 868
+      y: 1640
+      width: 128
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 868
+      y: 1640
+      width: 128
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: QI_defence01
+    outer:
+      serializedVersion: 2
+      x: 1001
+      y: 1640
+      width: 128
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 1001
+      y: 1640
+      width: 128
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_Gaiden_01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1527
+      width: 128
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1527
+      width: 128
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_challenge_01
+    outer:
+      serializedVersion: 2
+      x: 626
+      y: 1632
+      width: 128
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 626
+      y: 1632
+      width: 128
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_main_01
+    outer:
+      serializedVersion: 2
+      x: 133
+      y: 1578
+      width: 128
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 133
+      y: 1578
+      width: 128
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_chain_01
+    outer:
+      serializedVersion: 2
+      x: 266
+      y: 1578
+      width: 128
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 266
+      y: 1578
+      width: 128
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_free_01
+    outer:
+      serializedVersion: 2
+      x: 493
+      y: 1632
+      width: 128
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 493
+      y: 1632
+      width: 128
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_event_01
+    outer:
+      serializedVersion: 2
+      x: 1899
+      y: 1328
+      width: 128
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 1899
+      y: 1328
+      width: 128
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_sp_quest
+    outer:
+      serializedVersion: 2
+      x: 1766
+      y: 1445
+      width: 128
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 1766
+      y: 1445
+      width: 128
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_arrow_04
+    outer:
+      serializedVersion: 2
+      x: 918
+      y: 1285
+      width: 23
+      height: 19
+    inner:
+      serializedVersion: 2
+      x: 918
+      y: 1285
+      width: 23
+      height: 19
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapon_icon_2_02
+    outer:
+      serializedVersion: 2
+      x: 1025
+      y: 1222
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 1025
+      y: 1222
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapon_icon_2_05
+    outer:
+      serializedVersion: 2
+      x: 987
+      y: 1153
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 987
+      y: 1153
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapon_icon_2_03
+    outer:
+      serializedVersion: 2
+      x: 1094
+      y: 1203
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 1094
+      y: 1203
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapon_icon_2_06
+    outer:
+      serializedVersion: 2
+      x: 918
+      y: 1208
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 918
+      y: 1208
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapon_icon_2_04
+    outer:
+      serializedVersion: 2
+      x: 1197
+      y: 1269
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 1197
+      y: 1269
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapon_icon_2_01
+    outer:
+      serializedVersion: 2
+      x: 701
+      y: 1159
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 701
+      y: 1159
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_window_22
+    outer:
+      serializedVersion: 2
+      x: 1551
+      y: 1107
+      width: 58
+      height: 57
+    inner:
+      serializedVersion: 2
+      x: 1554
+      y: 1110
+      width: 52
+      height: 51
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logoV_06
+    outer:
+      serializedVersion: 2
+      x: 1986
+      y: 1461
+      width: 43
+      height: 420
+    inner:
+      serializedVersion: 2
+      x: 1986
+      y: 1461
+      width: 43
+      height: 420
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logoV_07
+    outer:
+      serializedVersion: 2
+      x: 1719
+      y: 1463
+      width: 42
+      height: 413
+    inner:
+      serializedVersion: 2
+      x: 1719
+      y: 1463
+      width: 42
+      height: 413
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_base_01
+    outer:
+      serializedVersion: 2
+      x: 357
+      y: 1380
+      width: 38
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 367
+      y: 1390
+      width: 18
+      height: 18
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_MapIcon_CraftingMini
+    outer:
+      serializedVersion: 2
+      x: 793
+      y: 1198
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 793
+      y: 1198
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_MapIcon_GauntletMini_01
+    outer:
+      serializedVersion: 2
+      x: 862
+      y: 1139
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 862
+      y: 1139
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_MapIcon_ArenaMini_01
+    outer:
+      serializedVersion: 2
+      x: 770
+      y: 1129
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 770
+      y: 1129
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_sortbox_02
+    outer:
+      serializedVersion: 2
+      x: 1134
+      y: 1086
+      width: 44
+      height: 44
+    inner:
+      serializedVersion: 2
+      x: 1146
+      y: 1098
+      width: 20
+      height: 20
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_grad_02
+    outer:
+      serializedVersion: 2
+      x: 647
+      y: 1530
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 647
+      y: 1530
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: QI_Craft01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1660
+      width: 128
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1660
+      width: 128
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_Textbox_05c
+    outer:
+      serializedVersion: 2
+      x: 1799
+      y: 1886
+      width: 224
+      height: 162
+    inner:
+      serializedVersion: 2
+      x: 1799
+      y: 1886
+      width: 224
+      height: 162
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: map_ship_01
+    outer:
+      serializedVersion: 2
+      x: 105
+      y: 1104
+      width: 90
+      height: 89
+    inner:
+      serializedVersion: 2
+      x: 105
+      y: 1104
+      width: 90
+      height: 89
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mission_status_icon02a
+    outer:
+      serializedVersion: 2
+      x: 153
+      y: 915
+      width: 72
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 153
+      y: 915
+      width: 72
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mission_status_icon01a
+    outer:
+      serializedVersion: 2
+      x: 230
+      y: 893
+      width: 72
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 230
+      y: 893
+      width: 72
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: map_wave_01
+    outer:
+      serializedVersion: 2
+      x: 1524
+      y: 1293
+      width: 93
+      height: 46
+    inner:
+      serializedVersion: 2
+      x: 1524
+      y: 1293
+      width: 93
+      height: 46
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mission_status_icon01
+    outer:
+      serializedVersion: 2
+      x: 1402
+      y: 1232
+      width: 62
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 1402
+      y: 1232
+      width: 62
+      height: 62
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mission_status_icon02
+    outer:
+      serializedVersion: 2
+      x: 1335
+      y: 1204
+      width: 62
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 1335
+      y: 1204
+      width: 62
+      height: 62
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mission_status_icon03
+    outer:
+      serializedVersion: 2
+      x: 1335
+      y: 1271
+      width: 62
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 1335
+      y: 1271
+      width: 62
+      height: 62
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mission_icon_flag01
+    outer:
+      serializedVersion: 2
+      x: 862
+      y: 1212
+      width: 49
+      height: 50
+    inner:
+      serializedVersion: 2
+      x: 862
+      y: 1212
+      width: 49
+      height: 50
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mission_icon_crown01
+    outer:
+      serializedVersion: 2
+      x: 1172
+      y: 1175
+      width: 56
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 1172
+      y: 1175
+      width: 56
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mission_MissionNameBox01
+    outer:
+      serializedVersion: 2
+      x: 692
+      y: 1594
+      width: 61
+      height: 33
+    inner:
+      serializedVersion: 2
+      x: 717
+      y: 1594
+      width: 11
+      height: 33
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mission_Logo01
+    outer:
+      serializedVersion: 2
+      x: 1052
+      y: 1617
+      width: 75
+      height: 18
+    inner:
+      serializedVersion: 2
+      x: 1052
+      y: 1617
+      width: 75
+      height: 18
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_button_base_14
+    outer:
+      serializedVersion: 2
+      x: 1392
+      y: 1109
+      width: 49
+      height: 49
+    inner:
+      serializedVersion: 2
+      x: 1392
+      y: 1109
+      width: 49
+      height: 49
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: com_gui_PostWindow01
+    outer:
+      serializedVersion: 2
+      x: 1766
+      y: 1578
+      width: 160
+      height: 104
+    inner:
+      serializedVersion: 2
+      x: 1806
+      y: 1618
+      width: 40
+      height: 16
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_raid_list_04
+    outer:
+      serializedVersion: 2
+      x: 426
+      y: 1001
+      width: 53
+      height: 102
+    inner:
+      serializedVersion: 2
+      x: 438
+      y: 1025
+      width: 23
+      height: 54
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_ButtonBase_12
+    outer:
+      serializedVersion: 2
+      x: 1565
+      y: 1169
+      width: 68
+      height: 51
+    inner:
+      serializedVersion: 2
+      x: 1587
+      y: 1169
+      width: 21
+      height: 51
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_close_02
+    outer:
+      serializedVersion: 2
+      x: 1826
+      y: 1256
+      width: 65
+      height: 68
+    inner:
+      serializedVersion: 2
+      x: 1826
+      y: 1256
+      width: 65
+      height: 68
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_receiveall
+    outer:
+      serializedVersion: 2
+      x: 803
+      y: 1385
+      width: 88
+      height: 44
+    inner:
+      serializedVersion: 2
+      x: 803
+      y: 1385
+      width: 88
+      height: 44
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_acceptall
+    outer:
+      serializedVersion: 2
+      x: 1589
+      y: 1225
+      width: 81
+      height: 45
+    inner:
+      serializedVersion: 2
+      x: 1589
+      y: 1225
+      width: 81
+      height: 45
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_rejectall
+    outer:
+      serializedVersion: 2
+      x: 1163
+      y: 1220
+      width: 74
+      height: 44
+    inner:
+      serializedVersion: 2
+      x: 1163
+      y: 1220
+      width: 74
+      height: 44
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_logo_sendtoall
+    outer:
+      serializedVersion: 2
+      x: 1242
+      y: 1174
+      width: 70
+      height: 45
+    inner:
+      serializedVersion: 2
+      x: 1242
+      y: 1174
+      width: 70
+      height: 45
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btl_gui_jemholder_04
+    outer:
+      serializedVersion: 2
+      x: 260
+      y: 1711
+      width: 228
+      height: 114
+    inner:
+      serializedVersion: 2
+      x: 310
+      y: 1711
+      width: 128
+      height: 114
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapon_icon_2_07
+    outer:
+      serializedVersion: 2
+      x: 1128
+      y: 1272
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 1128
+      y: 1272
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapon_icon_2_09
+    outer:
+      serializedVersion: 2
+      x: 1966
+      y: 1259
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 1966
+      y: 1259
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: weapon_icon_2_08
+    outer:
+      serializedVersion: 2
+      x: 1622
+      y: 1275
+      width: 64
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 1622
+      y: 1275
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_icon_base_05a
+    outer:
+      serializedVersion: 2
+      x: 134
+      y: 1198
+      width: 109
+      height: 111
+    inner:
+      serializedVersion: 2
+      x: 134
+      y: 1198
+      width: 109
+      height: 111
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_QuestPanel_Info_01
+    outer:
+      serializedVersion: 2
+      x: 1675
+      y: 1209
+      width: 83
+      height: 42
+    inner:
+      serializedVersion: 2
+      x: 1699
+      y: 1209
+      width: 9
+      height: 42
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_QuestPanel_time_01b
+    outer:
+      serializedVersion: 2
+      x: 1242
+      y: 1224
+      width: 80
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 1292
+      y: 1224
+      width: 10
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: main_gui_TextBox_04a
+    outer:
+      serializedVersion: 2
+      x: 692
+      y: 1493
+      width: 174
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 705
+      y: 1506
+      width: 141
+      height: 49
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
