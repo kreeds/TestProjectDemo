@@ -6,6 +6,7 @@ using System.Collections;
 /// </summary>
 public class BattleManager : MonoBehaviour 
 {
+	public InputGestures m_gestureHandler;
 	EnemyManager	m_curBoss;
 	PlayerManager	m_playerMgr;
 
@@ -44,13 +45,21 @@ public class BattleManager : MonoBehaviour
 		m_phase = BattlePhase.START;
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
+		Debug.Log("m_phase: " + m_phase);
 		switch(m_phase)
 		{
+			case BattlePhase.START:
+			{
+				Debug.Log("AttackPhase");
+				if(m_gestureHandler != null)
+					m_gestureHandler.GenerateRandomGesture();
+				m_phase = BattlePhase.ATTACK;
+			}
+			break;
 			case BattlePhase.ATTACK:
 			break;
-
 			case BattlePhase.SPECIAL:
 			break;
 

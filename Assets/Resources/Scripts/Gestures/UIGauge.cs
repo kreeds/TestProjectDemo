@@ -27,7 +27,9 @@ public class UIGauge : MonoBehaviour {
 	{
 		if(damaged)
 		{
-			m_sliderGreen.sliderValue = ((m_currentVal - m_val)/(float)m_totalVal);
+			Debug.Log("******DAMAGED*****");
+			m_currentVal -= m_val;
+			m_sliderGreen.sliderValue = (m_currentVal/(float)m_totalVal);
 			damaged = false;
 		}
 	}

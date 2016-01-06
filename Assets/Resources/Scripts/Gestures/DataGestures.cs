@@ -9,7 +9,7 @@ using System.IO;
 
 public class DataGestures : MonoBehaviour {
 
-    public string[] requiredGestureNames = new string[] { "updown_line", "valahar_arc", "leftdown_corner", "circle"};
+    public string[] requiredGestureNames;
     int currentGestureIndex = 0;
 
     Gesture[] gestureExamples;
@@ -166,7 +166,20 @@ public class DataGestures : MonoBehaviour {
     /// <param name="reconizedGestureName">Reconized gesture name.</param>
 	public bool IsRequiredGestureRecognized(string recognizedGestureName)
     {
-		bool res = (recognizedGestureName.Replace(' ', '_') == requiredGestureNames[currentGestureIndex]);
+    	bool res = false;
+
+		string mod = recognizedGestureName.Replace(' ', '_');
+
+		Debug.Log("Mod:" + mod);
+
+		foreach(string gesturename in requiredGestureNames)
+		{
+			if(mod == gesturename)
+			{
+				res = true;
+				break;
+			}
+		}
         if (res)
         {
 			currentGestureIndex++;

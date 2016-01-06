@@ -17,6 +17,7 @@ public class InputGestures : MonoBehaviour {
 	public static StringGestureDelegates Load;
 
     public DataGestures mgData;
+    public Transform parent;
 
     BattleManager m_battleMgr;
     PlayerManager m_playerMgr;
@@ -221,6 +222,22 @@ public class InputGestures : MonoBehaviour {
 				} 
 			}
 		}
+
+    }
+
+    public void GenerateRandomGesture()
+    {
+
+    	Debug.Log("Generate Random Gestures");
+    	int GestureIndex = UnityEngine.Random.Range(0,4);
+		Sprite[] sprites = Resources.LoadAll<Sprite>("Sprite/multistrokes");
+
+		// create the object
+        GameObject Image = new GameObject();
+		Image.AddComponent<SpriteRenderer>();
+		Image.GetComponent<SpriteRenderer>().sprite = sprites[GestureIndex];
+		Image.layer = LayerMask.NameToLayer("UI");
+		Image.transform.SetParent(parent);
 
     }
 }

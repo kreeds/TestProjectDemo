@@ -56,6 +56,8 @@ public class EnemyManager : MonoBehaviour {
 	public void damageEnemy(int damage)
 	{
 		m_boss.hp -= damage;
+
+		Debug.Log("Boss Hp:" + m_boss.hp);
 		if(m_gauge != null)
 			m_gauge.reduce(damage);
 	}

@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: f467cc7d2f1cf4030862720628d435c9
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: multistrokes_0
+    21300002: multistrokes_1
+    21300004: multistrokes_2
+    21300006: multistrokes_3
+    21300008: multistrokes_4
+    21300010: multistrokes_5
+    21300012: multistrokes_6
+    21300014: multistrokes_7
+    21300016: multistrokes_8
+    21300018: multistrokes_9
+    21300020: multistrokes_10
+    21300022: multistrokes_11
+    21300024: multistrokes_12
+    21300026: multistrokes_13
+    21300028: multistrokes_14
+    21300030: multistrokes_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: multistrokes_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 381
+        width: 97
+        height: 72
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_1
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 379
+        width: 78
+        height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_2
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 381
+        width: 71
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_3
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 380
+        width: 68
+        height: 72
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 284
+        width: 92
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_5
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 265
+        width: 96
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_6
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 266
+        width: 78
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_7
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 268
+        width: 73
+        height: 82
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_8
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 145
+        width: 82
+        height: 77
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_9
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 145
+        width: 71
+        height: 76
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_10
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 145
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_11
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 145
+        width: 38
+        height: 82
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_12
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 27
+        width: 65
+        height: 91
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_13
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 30
+        width: 101
+        height: 85
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_14
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 30
+        width: 84
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_15
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 32
+        width: 70
+        height: 88
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
