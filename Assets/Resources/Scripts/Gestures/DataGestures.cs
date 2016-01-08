@@ -21,6 +21,7 @@ public class DataGestures : MonoBehaviour {
         gestureExamples = LoadGesturesData();
     }
 
+
     /// <summary>
     /// Save the specified points and path.
     /// </summary>
@@ -37,7 +38,7 @@ public class DataGestures : MonoBehaviour {
 		using (XmlWriter writer = XmlWriter.Create(filename, xmlWriterSettings))
 		{
 			writer.WriteStartDocument();
-			writer.WriteStartElement("Gestur`e");
+			writer.WriteStartElement("Gesture");
 			writer.WriteAttributeString("Name", gestureName);
 			writer.WriteAttributeString("Subject", "10");
 			writer.WriteAttributeString("InputType", "stylus");
@@ -145,6 +146,10 @@ public class DataGestures : MonoBehaviour {
         return new Gesture(points.ToArray(), gestureName);
     }
 
+    public int GetGestureCount()
+    {
+    	return gestureExamples.Length;
+    }
     /// <summary>
     /// Recognizes the gesture input by player
     /// </summary>
@@ -164,7 +169,7 @@ public class DataGestures : MonoBehaviour {
     /// </summary>
     /// <returns><c>true</c> if this instance is required gesture recognized the specified reconizedGestureName; otherwise, <c>false</c>.</returns>
     /// <param name="reconizedGestureName">Reconized gesture name.</param>
-	public bool IsRequiredGestureRecognized(string recognizedGestureName)
+	public bool IsRequiredGestureRecognized(string recognizedGestureName, int gestureid)
     {
     	bool res = false;
 
@@ -172,25 +177,11 @@ public class DataGestures : MonoBehaviour {
 
 		Debug.Log("Mod:" + mod);
 
-		foreach(string gesturename in requiredGestureNames)
+		if(mod == requiredGestureNames[gestureid])
 		{
-			if(mod == gesturename)
-			{
-				res = true;
-				break;
-			}
+			res = true;
 		}
-        if (res)
-        {
-			currentGestureIndex++;
-			Debug.Log("*****************Gesture is Recognized*****************");
-            //show that gesture is recognized
-        }
-        else
-        {
-			//show that gesture is not recognized
-			Debug.Log("*****************Gesture is not Recognized*****************");
-        }
+
         return res;
     }
 }

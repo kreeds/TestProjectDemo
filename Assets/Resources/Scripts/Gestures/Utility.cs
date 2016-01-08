@@ -20,7 +20,8 @@ public static class GenericCopier<T>
 }
 
 
-public class Utility : MonoBehaviour {
+public class Utility : MonoBehaviour 
+{
 
 	// Use this for initialization
 	void Start () {

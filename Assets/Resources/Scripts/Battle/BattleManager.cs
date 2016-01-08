@@ -11,8 +11,13 @@ public class BattleManager : MonoBehaviour
 	PlayerManager	m_playerMgr;
 
 	// Measured in seconds
-	public float specialInterval = 10;
-	public float stunnedInterval = 10;
+	public float m_gestureInv = 5;
+	public float m_interval = 3;
+	public float m_specialInv = 3;
+	public float m_stunInv = 3;
+
+
+	bool m_gestureStart;
 
 
 	// Battle Phases
@@ -42,23 +47,45 @@ public class BattleManager : MonoBehaviour
 		m_curBoss = EnemyManager.Get();
 		m_playerMgr = PlayerManager.Get();
 
-		m_phase = BattlePhase.START;
+		m_gestureStart = false;
+
+		m_phase = BattlePhase.ATTACK;
+	}
+
+	IEnumerator CommenceAttack()
+	{			
+		yield return new WaitForSeconds(m_interval);
+		if(m_gestureHandler != null)
+			m_gestureHandler.GenerateRandomGesture();
+		yield return new WaitForSeconds(m_gestureInv);
+		//Destroy Gesture
+		if(m_gestureHandler != null)
+			m_gestureHandler.DestroyGesture();
+		yield return new WaitForSeconds(m_interval);
+			m_gestureStart = false;
+
 	}
 
 	void FixedUpdate()
 	{
-		Debug.Log("m_phase: " + m_phase);
 		switch(m_phase)
 		{
 			case BattlePhase.START:
 			{
-				Debug.Log("AttackPhase");
-				if(m_gestureHandler != null)
-					m_gestureHandler.GenerateRandomGesture();
-				m_phase = BattlePhase.ATTACK;
+				Debug.Log("Start Phase");
+
 			}
 			break;
 			case BattlePhase.ATTACK:
+			{
+
+				if(m_gestureStart == false)
+				{
+					m_gestureStart = true;
+					StartCoroutine(CommenceAttack());
+				}
+				m_phase = BattlePhase.ATTACK;
+			}
 			break;
 			case BattlePhase.SPECIAL:
 			break;
@@ -72,4 +99,5 @@ public class BattleManager : MonoBehaviour
 	{
 		return m_instance;
 	}
+
 }

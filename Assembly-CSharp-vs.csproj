@@ -145,6 +145,7 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Resources\Scripts\Battle\BattleManager.cs" />
+     <Compile Include="Assets\Resources\Scripts\Battle\EffectsController.cs" />
      <Compile Include="Assets\Resources\Scripts\Battle\EnemyManager.cs" />
      <Compile Include="Assets\Resources\Scripts\Battle\InputManager.cs" />
      <Compile Include="Assets\Resources\Scripts\Battle\PlayerManager.cs" />

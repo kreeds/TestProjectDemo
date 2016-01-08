@@ -34,9 +34,12 @@ public class InputGestures : MonoBehaviour {
     bool IsStartTrailSpawned;
 
     List<GameObject> trailList;
+    GameObject guide;
 
     int strokeID = 0;
     int strokeCount = 0;
+
+    int gestureIndex = 0;
 
     List<Point> 		currentGesturePoints;
     List<Point>			pointsContainer;
@@ -98,7 +101,7 @@ public class InputGestures : MonoBehaviour {
     	Debug.Log("Path: " + path); 
     }
 	
-	// Update is called once per frame
+	// Update is called once per frameguide
 	void Update ()
     {
         Vector2 cursorPosition = new Vector2();
@@ -193,9 +196,8 @@ public class InputGestures : MonoBehaviour {
                 if (IsGestureRecognizingNeeded) //need more than 2 points for gesture recognition
                 {
                     string gestureName = mgData.RecognizeGesture(currentGesturePoints);
-					if(mgData.IsRequiredGestureRecognized(	gestureName ))
+					if(mgData.IsRequiredGestureRecognized(	gestureName, gestureIndex))
 					{
-
 						// Call Event
 						if(m_playerMgr != null)
 							m_playerMgr.Attack();
@@ -229,15 +231,20 @@ public class InputGestures : MonoBehaviour {
     {
 
     	Debug.Log("Generate Random Gestures");
-    	int GestureIndex = UnityEngine.Random.Range(0,4);
+		gestureIndex = UnityEngine.Random.Range(0,mgData.GetGestureCount());
 		Sprite[] sprites = Resources.LoadAll<Sprite>("Sprite/multistrokes");
 
 		// create the object
-        GameObject Image = new GameObject();
-		Image.AddComponent<SpriteRenderer>();
-		Image.GetComponent<SpriteRenderer>().sprite = sprites[GestureIndex];
-		Image.layer = LayerMask.NameToLayer("UI");
-		Image.transform.SetParent(parent);
+		guide = Instantiate(Resources.Load("Prefabs/GestureImage")) as GameObject;
+		guide.GetComponent<SpriteRenderer>().sprite = sprites[gestureIndex];
+		guide.layer = LayerMask.NameToLayer("UI");
+		guide.transform.SetParent(parent);
 
+    }
+
+    public void DestroyGesture()
+    {
+    	if(guide != null)
+    		Destroy(guide);
     }
 }
