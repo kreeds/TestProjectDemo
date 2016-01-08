@@ -150,6 +150,16 @@ public class DataGestures : MonoBehaviour {
     {
     	return gestureExamples.Length;
     }
+
+    public string GetGestureNameByIndex(int index)
+    {	
+    	if(gestureExamples != null)
+    		return gestureExamples[index].Name;
+
+    	else
+    		return null;
+    }
+
     /// <summary>
     /// Recognizes the gesture input by player
     /// </summary>
