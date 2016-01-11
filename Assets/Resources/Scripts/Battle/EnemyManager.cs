@@ -14,7 +14,8 @@ public class EnemyManager : MonoBehaviour {
 
 	DFEnemy	m_boss;
 	public static EnemyManager _instance;
-
+	
+	[SerializeField]LAppModelProxy l2dInterface;
 
 	[SerializeField]UIGauge m_gauge;
 
@@ -60,5 +61,7 @@ public class EnemyManager : MonoBehaviour {
 		Debug.Log("Boss Hp:" + m_boss.hp);
 		if(m_gauge != null)
 			m_gauge.reduce(damage);
+
+		l2dInterface.PlayDamageAnim ();
 	}
 }

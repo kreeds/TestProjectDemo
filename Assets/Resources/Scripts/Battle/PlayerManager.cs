@@ -14,6 +14,8 @@ public class PlayerManager : MonoBehaviour {
 	BattleManager m_battleMgr;
 	EnemyManager m_enemyMgr;
 
+	[SerializeField]LAppModelProxy l2dInterface;
+
 	public static PlayerManager _instance;
 
 
@@ -54,6 +56,8 @@ public class PlayerManager : MonoBehaviour {
 		Debug.Log("Player Attack");
 		if(m_enemyMgr != null)
 			m_enemyMgr.damageEnemy(m_player.atk);
+
+		l2dInterface.PlayAnimation ();
 	}	
 
 }
