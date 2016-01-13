@@ -1,23 +1,23 @@
 fileFormatVersion: 2
-guid: f467cc7d2f1cf4030862720628d435c9
+guid: 67ace2bd700c344358f971713f5cdf6c
 TextureImporter:
   fileIDToRecycleName:
-    21300000: multistrokes_0
-    21300002: multistrokes_1
-    21300004: multistrokes_2
-    21300006: multistrokes_3
-    21300008: multistrokes_4
-    21300010: multistrokes_5
-    21300012: multistrokes_6
-    21300014: multistrokes_7
-    21300016: multistrokes_8
-    21300018: multistrokes_9
-    21300020: multistrokes_10
-    21300022: multistrokes_11
-    21300024: multistrokes_12
-    21300026: multistrokes_13
-    21300028: multistrokes_14
-    21300030: multistrokes_15
+    21300000: multistrokes_white_0
+    21300002: multistrokes_white_1
+    21300004: multistrokes_white_2
+    21300006: multistrokes_white_3
+    21300008: multistrokes_white_4
+    21300010: multistrokes_white_5
+    21300012: multistrokes_white_6
+    21300014: multistrokes_white_7
+    21300016: multistrokes_white_8
+    21300018: multistrokes_white_9
+    21300020: multistrokes_white_10
+    21300022: multistrokes_white_11
+    21300024: multistrokes_white_12
+    21300026: multistrokes_white_13
+    21300028: multistrokes_white_14
+    21300030: multistrokes_white_15
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -59,163 +59,163 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: multistrokes_0
+    - name: multistrokes_white_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 381
-        width: 97
-        height: 72
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_1
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 379
-        width: 78
-        height: 74
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_2
-      rect:
-        serializedVersion: 2
-        x: 248
-        y: 381
-        width: 71
+        x: 17
+        y: 382
+        width: 69
         height: 71
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_3
+    - name: multistrokes_white_1
       rect:
         serializedVersion: 2
-        x: 370
-        y: 380
+        x: 129
+        y: 374
         width: 68
-        height: 72
+        height: 78
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_4
+    - name: multistrokes_white_2
       rect:
         serializedVersion: 2
-        x: 4
-        y: 284
-        width: 92
-        height: 40
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_5
-      rect:
-        serializedVersion: 2
-        x: 119
-        y: 265
-        width: 96
-        height: 80
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_6
-      rect:
-        serializedVersion: 2
-        x: 251
-        y: 266
-        width: 78
-        height: 79
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_7
-      rect:
-        serializedVersion: 2
-        x: 376
-        y: 268
-        width: 73
-        height: 82
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_8
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 145
-        width: 82
-        height: 77
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_9
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 145
-        width: 71
+        x: 252
+        y: 377
+        width: 66
         height: 76
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_10
+    - name: multistrokes_white_3
       rect:
         serializedVersion: 2
-        x: 244
-        y: 145
-        width: 79
-        height: 79
+        x: 379
+        y: 381
+        width: 58
+        height: 72
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_11
+    - name: multistrokes_white_4
       rect:
         serializedVersion: 2
-        x: 371
-        y: 145
-        width: 38
-        height: 82
+        x: 0
+        y: 297
+        width: 99
+        height: 16
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_12
+    - name: multistrokes_white_5
       rect:
         serializedVersion: 2
-        x: 19
-        y: 27
-        width: 65
+        x: 120
+        y: 260
+        width: 93
         height: 91
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_13
+    - name: multistrokes_white_6
       rect:
         serializedVersion: 2
-        x: 122
-        y: 30
-        width: 101
-        height: 85
+        x: 251
+        y: 266
+        width: 74
+        height: 77
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_14
+    - name: multistrokes_white_7
       rect:
         serializedVersion: 2
-        x: 245
+        x: 374
+        y: 262
+        width: 76
+        height: 78
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_white_8
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 146
+        width: 71
+        height: 70
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_white_9
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 140
+        width: 58
+        height: 81
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_white_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 143
+        width: 59
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_white_11
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 144
+        width: 17
+        height: 75
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_white_12
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 25
+        width: 53
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_white_13
+      rect:
+        serializedVersion: 2
+        x: 133
         y: 30
-        width: 84
+        width: 81
         height: 80
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: multistrokes_15
+    - name: multistrokes_white_14
       rect:
         serializedVersion: 2
-        x: 360
-        y: 32
-        width: 70
-        height: 88
+        x: 247
+        y: 26
+        width: 82
+        height: 78
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: multistrokes_white_15
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 36
+        width: 44
+        height: 87
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

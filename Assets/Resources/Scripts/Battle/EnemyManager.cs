@@ -1,27 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DFEnemy
-{
-	public int hp;
-	public int totalHp;
-	public int attack;
-	public int attkInterval;
-}
 
 
 public class EnemyManager : MonoBehaviour {
 
-	DFEnemy	m_boss;
+	Enemy currentEnemy;
 	public static EnemyManager _instance;
-	
-	[SerializeField]LAppModelProxy l2dInterface;
-
 	[SerializeField]UIGauge m_gauge;
+	
+	LAppModelProxy l2dInterface;
+
+	public enum EnemyState
+	{
+		IDLE,
+		ATTACK,
+		TOTAL
+	};
+
+	EnemyState m_enemyState;
 
 	public static EnemyManager Get()
 	{
 		return _instance;
+	}
+
+	void LoadEnemyData(int questID)
+	{
+		
 	}
 
 	void Awake()
@@ -31,20 +37,22 @@ public class EnemyManager : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () 
+	void Initialize () 
 	{
-		m_boss = new DFEnemy();
-		m_boss.hp = 100;
-		m_boss.totalHp = 100;
-		m_boss.attack = 10;
-		m_boss.attkInterval = 2;
 
 		if(_instance == null)
 			_instance = this;
 
+		GameObject obj = Resources.Load("Prefabs/EnemySample") as GameObject;
+		currentEnemy = obj.GetComponent<Enemy>();
+		currentEnemy.Initialize(100, 100, 10, 2);
+
+		l2dInterface = obj.GetComponent<LAppModelProxy>();
+
+	
 		if(m_gauge != null)
 		{
-			m_gauge.Init(m_boss.hp, m_boss.totalHp);
+			m_gauge.Init(currentEnemy.Hp, currentEnemy.totalHp);
 		}
 	}
 	
@@ -54,14 +62,18 @@ public class EnemyManager : MonoBehaviour {
 	
 	}
 
+	/// <summary>
+	/// Method to damage enemy
+	/// </summary>
+	/// <param name="damage">Damage.</param>
 	public void damageEnemy(int damage)
 	{
-		m_boss.hp -= damage;
+		currentEnemy.Hp -= damage;
 
-		Debug.Log("Boss Hp:" + m_boss.hp);
 		if(m_gauge != null)
 			m_gauge.reduce(damage);
 
 		l2dInterface.PlayDamageAnim ();
 	}
+
 }

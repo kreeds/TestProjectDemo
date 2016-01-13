@@ -78,7 +78,6 @@ public class BattleManager : MonoBehaviour
 			break;
 			case BattlePhase.ATTACK:
 			{
-
 				if(m_gestureStart == false)
 				{
 					m_gestureStart = true;
