@@ -25,10 +25,6 @@ public class EnemyManager : MonoBehaviour {
 		return _instance;
 	}
 
-	void LoadEnemyData(int questID)
-	{
-		
-	}
 
 	void Awake()
 	{	
@@ -37,13 +33,9 @@ public class EnemyManager : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Initialize () 
+	void Start () 
 	{
-
-		if(_instance == null)
-			_instance = this;
-
-		GameObject obj = Resources.Load("Prefabs/EnemySample") as GameObject;
+		GameObject obj = Instantiate(Resources.Load("Prefabs/EnemySample")) as GameObject;
 		currentEnemy = obj.GetComponent<Enemy>();
 		currentEnemy.Initialize(100, 100, 10, 2);
 
