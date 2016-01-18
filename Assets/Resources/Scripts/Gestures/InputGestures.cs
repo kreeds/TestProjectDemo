@@ -26,6 +26,8 @@ public class InputGestures : MonoBehaviour {
 
  	float currtime;
 
+ 	GameObject particleObj;
+
     bool IsTouchInProgress, IsMovementInTouch, WasMovementInTouch;
     Vector2 positionTouchStart;
     bool IsTrailQueuedForDestroy;
@@ -184,9 +186,12 @@ public class InputGestures : MonoBehaviour {
             if ((trail != null)&&(!IsTrailQueuedForDestroy))
             {	
                 IsTrailQueuedForDestroy = true;
-               
-                foreach(GameObject tr in trailList)
-					Destroy(tr, tr.GetComponent<TrailRenderer>().time);
+
+                // Clear the list
+       			foreach(GameObject obj in trailList)
+       			{
+       				Destroy(obj);
+       			}
 
                 trailList.Clear();
 
@@ -201,6 +206,15 @@ public class InputGestures : MonoBehaviour {
 						// Call Event
 						if(m_playerMgr != null)
 							m_playerMgr.Attack();
+
+						// Particle Effect
+						if(particleObj == null)
+							particleObj = Instantiate(Resources.Load("Prefabs/PowerEffect"), Vector3.zero, Quaternion.identity) as GameObject;
+						else
+						{
+							particleObj.GetComponent<ParticleSystem>().Play();
+						}
+
 					}
                     IsGestureRecognizingNeeded = false;
 					currentGesturePoints.Clear();
@@ -226,7 +240,6 @@ public class InputGestures : MonoBehaviour {
 		}
 
     }
-
     public void GenerateRandomGesture()
     {
 

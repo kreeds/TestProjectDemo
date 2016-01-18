@@ -3,12 +3,14 @@ using System.Collections;
 
 public class UIGauge : MonoBehaviour {
 
-	int m_currentVal;			// Current integer value of gauge
-	int m_totalVal;				// Total integer value of gauge
-	int m_val;					// Value to store damage or health restored
+	float m_currentVal;			// Current integer value of gauge
+	float m_totalVal;			// Total integer value of gauge
+	float m_prevVal;			// Stores the previous value of the health
+
+	public float speed;
 
 
-	bool damaged;			
+	bool damaged = false;		
 	[SerializeField]UISlider	m_sliderGreen;
 	[SerializeField]UISlider	m_sliderRed;
 
@@ -16,22 +18,23 @@ public class UIGauge : MonoBehaviour {
 
 
 	#region Mono
-	// Use this for initialization
-	void Start () 
-	{
-		damaged = false;
-	}
-	
+
 	// Update is called once per frame
 	void Update ()  
 	{
-		if(damaged)
+		if(m_prevVal > m_currentVal)
 		{
-			Debug.Log("******DAMAGED*****");
-			m_currentVal -= m_val;
-			m_sliderGreen.sliderValue = (m_currentVal/(float)m_totalVal);
-			damaged = false;
+			m_prevVal -= (m_totalVal/m_currentVal) * speed * Time.deltaTime;
+			m_sliderGreen.sliderValue = m_currentVal/m_totalVal;
+			m_sliderRed.sliderValue = m_prevVal/m_totalVal;
 		}
+		else
+		{
+			m_prevVal = m_currentVal;
+			m_sliderRed.sliderValue = m_prevVal/m_totalVal;
+		}
+
+
 	}
 	#endregion
 
@@ -40,14 +43,16 @@ public class UIGauge : MonoBehaviour {
 	{
 		m_currentVal = curVal;
 		m_totalVal = totalVal;
+		m_prevVal = totalVal;
+		speed = (m_totalVal / 10); // affects the health drainage
 		if(m_totalVal != 0)
 			m_sliderGreen.sliderValue = ((float)m_currentVal/m_totalVal);
 	}
 
 	public void reduce(int damage)
 	{
-		m_val = damage;
-		damaged = true;
+		Debug.Log("Damaged");
+		m_currentVal -= damage;
 	}
 	#endregion
 
