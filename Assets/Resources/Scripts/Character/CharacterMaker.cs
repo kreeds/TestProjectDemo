@@ -30,4 +30,10 @@ public class CharacterMaker : MonoBehaviour {
 	void SelectClothesRight(){
 		live2DModel.ChangeClothes (true);
 	}
+
+	void SaveSettingsAndContinue(){
+		live2DModel.SaveProfile ();
+		Application.LoadLevel ("BattleScene");
+		//go to next scene
+	}
 }

@@ -67,5 +67,8 @@ public class EnemyManager : MonoBehaviour {
 
 		l2dInterface.PlayDamageAnim ();
 	}
-
+	
+	public void Idle(){
+		l2dInterface.PlayIdleAnim ();
+	}
 }

@@ -41,6 +41,8 @@ public class PlayerManager : MonoBehaviour {
 
 		m_enemyMgr = EnemyManager.Get();
 		m_battleMgr = BattleManager.Get();
+
+		l2dInterface.LoadProfile ();
 	}
 
 	// Update is called once per frame
@@ -57,7 +59,11 @@ public class PlayerManager : MonoBehaviour {
 		if(m_enemyMgr != null)
 			m_enemyMgr.damageEnemy(m_player.atk);
 
-		l2dInterface.PlayAnimation ();
-	}	
+		l2dInterface.PlayAttackAnim ();
+	}
+
+	public void Idle(){
+		l2dInterface.PlayIdleAnim ();
+	}
 
 }
