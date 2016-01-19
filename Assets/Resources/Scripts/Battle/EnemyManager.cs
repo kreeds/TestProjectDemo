@@ -37,6 +37,7 @@ public class EnemyManager : MonoBehaviour {
 	{
 		GameObject obj = Instantiate(Resources.Load("Prefabs/EnemySample")) as GameObject;
 		currentEnemy = obj.GetComponent<Enemy>();
+		currentEnemy.transform.position = new Vector3(3.5f, -2.48f, currentEnemy.transform.position.z);
 		currentEnemy.Initialize(100, 100, 10, 2);
 
 		l2dInterface = obj.GetComponent<LAppModelProxy>();
