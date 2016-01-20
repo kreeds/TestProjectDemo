@@ -79,8 +79,11 @@ public class BattleManager : MonoBehaviour
 	IEnumerator CommenceAttack()
 	{			
 		yield return new WaitForSeconds(m_interval);
-		if(m_gestureHandler != null)
-			m_gestureHandler.GenerateRandomGesture();
+		if (m_gestureHandler != null) {
+			m_gestureHandler.GenerateRandomGesture ();
+			m_playerMgr.Idle ();
+			m_curBoss.Idle ();
+		}
 		yield return new WaitForSeconds(m_gestureInv);
 		//Destroy Gesture
 		if(m_gestureHandler != null)

@@ -47,6 +47,7 @@ public class PlayerManager : MonoBehaviour {
 		{
 			m_gauge.Init(m_player.hp, m_player.hp);
 		}
+		l2dInterface.LoadProfile ();
 	}
 
 	// Update is called once per frame
@@ -76,6 +77,12 @@ public class PlayerManager : MonoBehaviour {
 
 		if(m_gauge != null)
 			m_gauge.reduce(damage);
-	}	
+
+		l2dInterface.PlayAttackAnim ();
+	}
+
+	public void Idle(){
+		l2dInterface.PlayIdleAnim ();
+	}
 
 }
