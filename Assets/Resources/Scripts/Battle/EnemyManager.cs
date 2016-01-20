@@ -6,19 +6,11 @@ using System.Collections;
 public class EnemyManager : MonoBehaviour {
 
 	Enemy currentEnemy;
+	PlayerManager playerMgr;
 	public static EnemyManager _instance;
 	[SerializeField]UIGauge m_gauge;
 	
 	LAppModelProxy l2dInterface;
-
-	public enum EnemyState
-	{
-		IDLE,
-		ATTACK,
-		TOTAL
-	};
-
-	EnemyState m_enemyState;
 
 	public static EnemyManager Get()
 	{
@@ -30,6 +22,8 @@ public class EnemyManager : MonoBehaviour {
 	{	
 		if(_instance == null)
 			_instance = this;
+
+		playerMgr = PlayerManager.Get();
 	}
 
 	// Use this for initialization
@@ -52,7 +46,14 @@ public class EnemyManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-	
+	}
+
+
+	public void attack()
+	{
+		currentEnemy.EnemyNextState = Enemy.STATE.ATTACK;
+		if(playerMgr != null)
+			playerMgr.Damaged(currentEnemy.attack);
 	}
 
 	/// <summary>

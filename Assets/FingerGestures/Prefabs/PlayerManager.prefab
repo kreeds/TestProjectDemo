@@ -39,6 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acbfa50a5459a4ad0bae453647b37a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_gauge: {fileID: 0}
   l2dInterface: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

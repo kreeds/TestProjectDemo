@@ -117,7 +117,7 @@ public class InputGestures : MonoBehaviour {
                     case TouchPhase.Began:
                         StartGesture(cursorPosition);
                         break;
-				case TouchPhase.Stationary:
+					case TouchPhase.Stationary:
                         IsMovementInTouch = false;
                         break;
                     case TouchPhase.Moved:
@@ -215,6 +215,11 @@ public class InputGestures : MonoBehaviour {
 							particleObj.GetComponent<ParticleSystem>().Play();
 						}
 
+					}
+					else
+					{
+						if(m_playerMgr != null)
+							m_battleMgr.FailGesture();
 					}
                     IsGestureRecognizingNeeded = false;
 					currentGesturePoints.Clear();

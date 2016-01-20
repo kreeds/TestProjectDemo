@@ -7,7 +7,7 @@ using System.Collections;
 public class BattleManager : MonoBehaviour 
 {
 	public InputGestures m_gestureHandler;
-	EnemyManager	m_curBoss;
+	EnemyManager	m_enemyMgr;
 	PlayerManager	m_playerMgr;
 
 	// Measured in seconds
@@ -16,12 +16,13 @@ public class BattleManager : MonoBehaviour
 	public float m_specialInv = 3;
 	public float m_stunInv = 3;
 
+	IEnumerator m_coroutine;
 
 	bool m_gestureStart;
 
 
 	// Battle Phases
-	public enum BattlePhase
+	private enum BattlePhase
 	{
 		START,
 		ATTACK,
@@ -32,7 +33,30 @@ public class BattleManager : MonoBehaviour
 
 	};
 
-	BattlePhase m_phase;
+	BattlePhase m_phase; 
+
+	// Gesture State
+	public enum GestureState
+	{
+		START,
+		SHOWING,
+		END,
+		TOTAL
+	};
+
+	GestureState			m_gestureState;
+	public GestureState 	getGestureState
+	{
+		get
+		{
+			return m_gestureState;
+		}
+		set 
+		{
+			m_gestureState = value;
+		}
+	}
+
 
 	static BattleManager	m_instance;
 
@@ -44,12 +68,12 @@ public class BattleManager : MonoBehaviour
 
 	void Start()
 	{
-		m_curBoss = EnemyManager.Get();
+		m_enemyMgr = EnemyManager.Get();
 		m_playerMgr = PlayerManager.Get();
 
 		m_gestureStart = false;
-
-		m_phase = BattlePhase.ATTACK;
+		m_gestureState = GestureState.START;
+		m_phase = BattlePhase.START;
 	}
 
 	IEnumerator CommenceAttack()
@@ -61,29 +85,33 @@ public class BattleManager : MonoBehaviour
 		//Destroy Gesture
 		if(m_gestureHandler != null)
 			m_gestureHandler.DestroyGesture();
+		m_enemyMgr.attack();
+
 		yield return new WaitForSeconds(m_interval);
-			m_gestureStart = false;
+			m_gestureState = GestureState.END;
 
 	}
 
-	void FixedUpdate()
+	void Update()
 	{
 		switch(m_phase)
 		{
 			case BattlePhase.START:
 			{
 				Debug.Log("Start Phase");
+				m_phase = BattlePhase.ATTACK;
 
 			}
 			break;
 			case BattlePhase.ATTACK:
 			{
-				if(m_gestureStart == false)
+				if(m_gestureState == GestureState.START || m_gestureState == GestureState.END)
 				{
+					m_gestureState = GestureState.SHOWING;
 					m_gestureStart = true;
-					StartCoroutine(CommenceAttack());
+					m_coroutine = CommenceAttack();
+					StartCoroutine(m_coroutine);
 				}
-				m_phase = BattlePhase.ATTACK;
 			}
 			break;
 			case BattlePhase.SPECIAL:
@@ -97,6 +125,17 @@ public class BattleManager : MonoBehaviour
 	public static BattleManager Get()
 	{
 		return m_instance;
+	}
+
+	public void FailGesture()
+	{
+		// Stop Coroutine
+		if(m_coroutine != null)
+			StopCoroutine(m_coroutine);
+
+		// Commence Enemy Attack
+		if(m_enemyMgr != null)
+			m_enemyMgr.attack();
 	}
 
 }

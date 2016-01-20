@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour {
 	BattleManager m_battleMgr;
 	EnemyManager m_enemyMgr;
 
+	[SerializeField]UIGauge m_gauge;
 	[SerializeField]LAppModelProxy l2dInterface;
 
 	public static PlayerManager _instance;
@@ -41,6 +42,11 @@ public class PlayerManager : MonoBehaviour {
 
 		m_enemyMgr = EnemyManager.Get();
 		m_battleMgr = BattleManager.Get();
+
+		if(m_gauge != null)
+		{
+			m_gauge.Init(m_player.hp, m_player.hp);
+		}
 	}
 
 	// Update is called once per frame
@@ -53,11 +59,23 @@ public class PlayerManager : MonoBehaviour {
 	/// </summary>
 	public void Attack()
 	{
-		Debug.Log("Player Attack");
 		if(m_enemyMgr != null)
 			m_enemyMgr.damageEnemy(m_player.atk);
 
 		l2dInterface.PlayAnimation ();
+	}
+
+	/// <summary>
+	/// Damage Done to player
+	/// </summary>
+	/// <param name="damage">Damage.</param>
+	public void Damaged(int damage)
+	{
+		Debug.Log("Damaged Player");
+		m_player.hp -= damage;
+
+		if(m_gauge != null)
+			m_gauge.reduce(damage);
 	}	
 
 }
