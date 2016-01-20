@@ -82,7 +82,7 @@ public class BattleManager : MonoBehaviour
 		if (m_gestureHandler != null) {
 			m_gestureHandler.GenerateRandomGesture ();
 			m_playerMgr.Idle ();
-			m_curBoss.Idle ();
+			m_enemyMgr.Idle ();
 		}
 		yield return new WaitForSeconds(m_gestureInv);
 		//Destroy Gesture

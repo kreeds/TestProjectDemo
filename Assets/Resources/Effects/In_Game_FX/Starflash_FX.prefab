@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &110912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 410912}
+  - 33: {fileID: 3310912}
+  - 64: {fileID: 6410912}
+  - 23: {fileID: 2310912}
+  - 114: {fileID: 11410912}
+  m_Layer: 5
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &113004
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +30,7 @@ GameObject:
   - 198: {fileID: 19813006}
   - 199: {fileID: 19913006}
   - 114: {fileID: 11413004}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Star3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +47,7 @@ GameObject:
   - 4: {fileID: 413006}
   - 198: {fileID: 19813008}
   - 199: {fileID: 19913008}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Circle_white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +64,7 @@ GameObject:
   - 4: {fileID: 413008}
   - 198: {fileID: 19813010}
   - 199: {fileID: 19913010}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Star_White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +82,7 @@ GameObject:
   - 198: {fileID: 19813012}
   - 199: {fileID: 19913012}
   - 114: {fileID: 11413006}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CFX3_Hit_Electric_A_Air (Yellow)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +99,7 @@ GameObject:
   - 4: {fileID: 413012}
   - 198: {fileID: 19813018}
   - 199: {fileID: 19913018}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Circle_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +116,7 @@ GameObject:
   - 4: {fileID: 413014}
   - 198: {fileID: 19813014}
   - 199: {fileID: 19913014}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CFX3 Electricity Anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +133,7 @@ GameObject:
   - 4: {fileID: 413016}
   - 198: {fileID: 19813016}
   - 199: {fileID: 19913016}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CFX3 Sparkles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +150,7 @@ GameObject:
   - 4: {fileID: 413018}
   - 198: {fileID: 19813020}
   - 199: {fileID: 19913020}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CFX3 Sparkles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +168,7 @@ GameObject:
   - 198: {fileID: 19813022}
   - 199: {fileID: 19913022}
   - 114: {fileID: 11413008}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Star2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +185,7 @@ GameObject:
   - 4: {fileID: 413022}
   - 198: {fileID: 19813024}
   - 199: {fileID: 19913024}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Circle_white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +202,7 @@ GameObject:
   - 4: {fileID: 413024}
   - 198: {fileID: 19813026}
   - 199: {fileID: 19913026}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Star_White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +220,7 @@ GameObject:
   - 198: {fileID: 19813028}
   - 199: {fileID: 19913028}
   - 114: {fileID: 11413010}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CFX3_Hit_Electric_A_Air (Yellow)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +237,7 @@ GameObject:
   - 4: {fileID: 413028}
   - 198: {fileID: 19813034}
   - 199: {fileID: 19913034}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Circle_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +254,7 @@ GameObject:
   - 4: {fileID: 413030}
   - 198: {fileID: 19813030}
   - 199: {fileID: 19913030}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CFX3 Electricity Anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +271,7 @@ GameObject:
   - 4: {fileID: 413032}
   - 198: {fileID: 19813032}
   - 199: {fileID: 19913032}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CFX3 Sparkles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +288,7 @@ GameObject:
   - 4: {fileID: 413034}
   - 198: {fileID: 19813036}
   - 199: {fileID: 19913036}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CFX3 Sparkles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +305,7 @@ GameObject:
   - 4: {fileID: 413036}
   - 198: {fileID: 19813004}
   - 199: {fileID: 19913004}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Starflash_FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +322,7 @@ GameObject:
   - 4: {fileID: 413038}
   - 198: {fileID: 19813038}
   - 199: {fileID: 19913038}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CFX3 Sparkles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +339,7 @@ GameObject:
   - 4: {fileID: 413040}
   - 198: {fileID: 19813042}
   - 199: {fileID: 19913042}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CFX3 Sparkles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +356,7 @@ GameObject:
   - 4: {fileID: 413042}
   - 198: {fileID: 19813044}
   - 199: {fileID: 19913044}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CFX3 Electricity Anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +373,7 @@ GameObject:
   - 4: {fileID: 413044}
   - 198: {fileID: 19813040}
   - 199: {fileID: 19913040}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Circle_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +391,7 @@ GameObject:
   - 198: {fileID: 19813046}
   - 199: {fileID: 19913046}
   - 114: {fileID: 11413012}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CFX3_Hit_Electric_A_Air (Yellow)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +408,7 @@ GameObject:
   - 4: {fileID: 413048}
   - 198: {fileID: 19813048}
   - 199: {fileID: 19913048}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Star_White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +425,7 @@ GameObject:
   - 4: {fileID: 413050}
   - 198: {fileID: 19813050}
   - 199: {fileID: 19913050}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Circle_white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,13 +443,25 @@ GameObject:
   - 198: {fileID: 19813052}
   - 199: {fileID: 19913052}
   - 114: {fileID: 11413014}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Star1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &410912
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110912}
+  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106709}
+  m_LocalPosition: {x: 0, y: 0, z: -.000433839479}
+  m_LocalScale: {x: .400000006, y: 1, z: .200000003}
+  m_Children: []
+  m_Father: {fileID: 413036}
+  m_RootOrder: 0
 --- !u!4 &413004
 Transform:
   m_ObjectHideFlags: 1
@@ -446,7 +477,7 @@ Transform:
   - {fileID: 413010}
   - {fileID: 413012}
   m_Father: {fileID: 413036}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &413006
 Transform:
   m_ObjectHideFlags: 1
@@ -549,7 +580,7 @@ Transform:
   - {fileID: 413026}
   - {fileID: 413028}
   m_Father: {fileID: 413036}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &413022
 Transform:
   m_ObjectHideFlags: 1
@@ -647,6 +678,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 410912}
   - {fileID: 413052}
   - {fileID: 413020}
   - {fileID: 413004}
@@ -754,7 +786,60 @@ Transform:
   - {fileID: 413046}
   - {fileID: 413044}
   m_Father: {fileID: 413036}
-  m_RootOrder: 0
+  m_RootOrder: 1
+--- !u!23 &2310912
+Renderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110912}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 0a39d3b4dd54c41f78a3b9acda289054, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3310912
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110912}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &6410912
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110912}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &11410912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9999b11931e314fe8889c4bc25a5723a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_scrollSpeed: 15
+  m_offset: 0
 --- !u!114 &11413004
 MonoBehaviour:
   m_ObjectHideFlags: 1
