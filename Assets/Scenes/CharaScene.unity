@@ -612,7 +612,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11497588, guid: 977b66d49722042d581d6844ede399c0, type: 2}
       propertyPath: path
-      value: Live2DAssets/Test/Unitychan.json
+      value: Live2DAssets/testchan/testchan.model.json
       objectReference: {fileID: 0}
     - target: {fileID: 2397588, guid: 977b66d49722042d581d6844ede399c0, type: 2}
       propertyPath: m_Enabled
@@ -629,6 +629,10 @@ Prefab:
     - target: {fileID: 497588, guid: 977b66d49722042d581d6844ede399c0, type: 2}
       propertyPath: m_LocalScale.z
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 11497588, guid: 977b66d49722042d581d6844ede399c0, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 977b66d49722042d581d6844ede399c0, type: 2}
@@ -1602,7 +1606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190d918d38714b446ad8b55640d0032a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: Live2DAssets/Test/Unitychan.json
+  path: Live2DAssets/testchan/testchan.model.json
   sceneNo: 0
 --- !u!64 &2103080691
 MeshCollider:

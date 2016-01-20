@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour {
 	PlayerManager playerMgr;
 	public static EnemyManager _instance;
 	[SerializeField]UIGauge m_gauge;
+	[SerializeField]UIPanel	m_panel;
 	
 	LAppModelProxy l2dInterface;
 
@@ -29,7 +30,10 @@ public class EnemyManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		GameObject obj = Instantiate(Resources.Load("Prefabs/EnemySample")) as GameObject;
+//		GameObject obj = Instantiate(Resources.Load("Prefabs/EnemySample")) as GameObject;
+		GameObject obj = NGUITools.AddChild (m_panel.gameObject, Resources.Load ("Prefabs/EnemySample") as GameObject);
+		obj.transform.localScale = new Vector3(15, 15, 15);
+		obj.transform.rotation = Quaternion.Euler (new Vector3 (270, 0, 0));
 		currentEnemy = obj.GetComponent<Enemy>();
 		currentEnemy.transform.position = new Vector3(3.5f, -2.48f, currentEnemy.transform.position.z);
 		currentEnemy.Initialize(100, 100, 10, 2);
