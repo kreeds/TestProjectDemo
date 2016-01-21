@@ -17,6 +17,12 @@ public class Idle : FSMState
 		stateID = StateID.E_IDLE;
 	}
 
+	public override void Init()
+	{
+		// Play Idle Animation
+		enemy.L2dModel.PlayIdleAnim();
+	}
+
 	public override void Transit()
 	{
 		// Attack Player
@@ -37,8 +43,7 @@ public class Idle : FSMState
 
 	public override void Execute()
 	{
-		// Play Idle Animation
-		enemy.L2dModel.PlayIdleAnim();
+		
 	}
 }
 
@@ -51,6 +56,11 @@ public class Damaged: FSMState
 		stateID = StateID.E_DAMAGED;
 	}
 
+	public override void Init()
+	{
+		// Play Attack Animation
+		enemy.L2dModel.PlayDamageAnim();
+	}
 	public override void Transit()
 	{
 		
@@ -58,8 +68,7 @@ public class Damaged: FSMState
 
 	public override void Execute()
 	{
-		// Play Attack Animation
-		enemy.L2dModel.PlayDamageAnim();
+		
 	}
 
 
@@ -129,14 +138,8 @@ public class Enemy : MonoBehaviour {
 		l2dInterface = gameObject.GetComponent<LAppModelProxy>();
 	}
 
-	// Use this for initialization
-	public void Initialize (int hp, int totalhp, int atk, int atkint) 
+	void Start()
 	{
-		Hp = hp;
-		totalHp = totalhp;
-		attack = atk;
-		attkInterval = atkint;
-
 		Idle idleState = new Idle(this);
 		idleState.AddTransition(Transition.E_FAILGESTURE, StateID.E_ATTACK);
 		idleState.AddTransition(Transition.E_LOSTHP, StateID.E_DAMAGED);
@@ -147,15 +150,25 @@ public class Enemy : MonoBehaviour {
 		atkState.AddTransition(Transition.E_LOSTHP, StateID.E_DAMAGED);
 
 		Damaged dmgState = new Damaged(this);
-		atkState.AddTransition(Transition.E_NOHP, StateID.E_DEATH);
-		atkState.AddTransition(Transition.E_FINISHATTACK, StateID.E_IDLE);
+		dmgState.AddTransition(Transition.E_NOHP, StateID.E_DEATH);
+		dmgState.AddTransition(Transition.E_FINISHATTACK, StateID.E_IDLE);
 
 		Death deathState = new Death(this);
 		enemyState = new FiniteStateMachine();
 		enemyState.AddState(idleState);
+
 		enemyState.AddState(atkState);
 		enemyState.AddState(dmgState);
 		enemyState.AddState(deathState);
+	}
+
+	// Use this for initialization
+	public void Initialize (int hp, int totalhp, int atk, int atkint) 
+	{
+		Hp = hp;
+		totalHp = totalhp;
+		attack = atk;
+		attkInterval = atkint;
 	}
 
 	public void SetTransition(Transition t) 
@@ -167,7 +180,6 @@ public class Enemy : MonoBehaviour {
 	{
 		enemyState.currentState.Transit();
 		enemyState.currentState.Execute();
-
 	}
 
 }

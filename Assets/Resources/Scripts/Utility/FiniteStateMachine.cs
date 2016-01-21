@@ -18,7 +18,7 @@ public class FiniteStateMachine{
 	private FSMState curState;
 	public FSMState currentState
 	{
-		get{return currentState;}
+		get{return curState;}
 	}
 
 	// Constructor - Feels weird not destroying
