@@ -10,8 +10,7 @@ public class EnemyManager : MonoBehaviour {
 	public static EnemyManager _instance;
 	[SerializeField]UIGauge m_gauge;
 	[SerializeField]UIPanel	m_panel;
-	
-	LAppModelProxy l2dInterface;
+
 
 	public static EnemyManager Get()
 	{
@@ -35,11 +34,8 @@ public class EnemyManager : MonoBehaviour {
 		obj.transform.localScale = new Vector3(15, 15, 15);
 		obj.transform.rotation = Quaternion.Euler (new Vector3 (270, 0, 0));
 		currentEnemy = obj.GetComponent<Enemy>();
-		currentEnemy.transform.position = new Vector3(3.5f, -2.48f, currentEnemy.transform.position.z);
+		currentEnemy.transform.localPosition = new Vector3(146.0f, -95.0f, 0);
 		currentEnemy.Initialize(100, 100, 10, 2);
-
-		l2dInterface = obj.GetComponent<LAppModelProxy>();
-
 	
 		if(m_gauge != null)
 		{
@@ -55,7 +51,6 @@ public class EnemyManager : MonoBehaviour {
 
 	public void attack()
 	{
-		currentEnemy.EnemyNextState = Enemy.STATE.ATTACK;
 		if(playerMgr != null)
 			playerMgr.Damaged(currentEnemy.attack);
 	}
@@ -70,11 +65,5 @@ public class EnemyManager : MonoBehaviour {
 
 		if(m_gauge != null)
 			m_gauge.reduce(damage);
-
-		l2dInterface.PlayDamageAnim ();
-	}
-	
-	public void Idle(){
-		l2dInterface.PlayIdleAnim ();
 	}
 }

@@ -257,6 +257,7 @@ public class InputGestures : MonoBehaviour {
 		guide.GetComponent<SpriteRenderer>().sprite = sprites[gestureIndex];
 		guide.layer = LayerMask.NameToLayer("UI");
 		guide.transform.SetParent(parent);
+		guide.transform.localPosition = new Vector3( guide.transform.localPosition.x, guide.transform.localPosition.y, -10);
 
     }
 

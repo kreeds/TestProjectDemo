@@ -5,11 +5,19 @@ using System.Collections.Generic;
 public enum Transition
 {
 	NULL = 0,	// represent no transitions in FSM
+	E_FAILGESTURE,
+	E_LOSTHP,
+	E_FINISHATTACK,
+	E_NOHP
 };
 
 public enum StateID
 {
 	NULL = 0,  // represent no state in system
+	E_IDLE,
+	E_ATTACK,
+	E_DEATH,
+	E_DAMAGED
 }
 
 public abstract class FSMState
@@ -82,7 +90,7 @@ public abstract class FSMState
 	{
 		
 	}
-	// Exercution method
+	// Execution method
 	public abstract void Execute();
 
 	// Transition Rule
