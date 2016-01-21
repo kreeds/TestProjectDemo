@@ -81,17 +81,17 @@ public abstract class FSMState
 	}
 
 	// Init method before entering state
-	public virtual void Init()
+	public virtual void OnEnter()
 	{
 
 	}
 	// Exit method before leaving state
-	public virtual void Exit()
+	public virtual void OnExit()
 	{
 		
 	}
-	// Execution method
-	public abstract void Execute();
+	// Update method
+	public abstract void Update();
 
 	// Transition Rule
 	public abstract void Transit();

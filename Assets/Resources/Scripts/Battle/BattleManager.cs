@@ -11,7 +11,7 @@ public class BattleManager : MonoBehaviour
 	PlayerManager	m_playerMgr;
 
 	// Measured in seconds
-	public float m_gestureInv = 5;
+	public float m_gestureInv = 3;
 	public float m_interval = 3;
 	public float m_specialInv = 3;
 	public float m_stunInv = 3;
@@ -19,7 +19,6 @@ public class BattleManager : MonoBehaviour
 	IEnumerator m_coroutine;
 
 	bool m_gestureStart;
-
 
 	// Battle Phases
 	private enum BattlePhase
@@ -81,17 +80,17 @@ public class BattleManager : MonoBehaviour
 		yield return new WaitForSeconds(m_interval);
 		if (m_gestureHandler != null) {
 			m_gestureHandler.GenerateRandomGesture ();
-			m_playerMgr.Idle ();
 		}
 		yield return new WaitForSeconds(m_gestureInv);
+		Debug.Log(Time.time);
 
 		//Destroy Gesture
 		if(m_gestureHandler != null)
 			m_gestureHandler.DestroyGesture();
-		m_enemyMgr.attack();
+		m_gestureState = GestureState.END;
 
 		yield return new WaitForSeconds(m_interval);
-			m_gestureState = GestureState.END;
+		m_gestureState = GestureState.START;
 
 	}
 
@@ -101,14 +100,13 @@ public class BattleManager : MonoBehaviour
 		{
 			case BattlePhase.START:
 			{
-				Debug.Log("Start Phase");
 				m_phase = BattlePhase.ATTACK;
 
 			}
 			break;
 			case BattlePhase.ATTACK:
 			{
-				if(m_gestureState == GestureState.START || m_gestureState == GestureState.END)
+				if(m_gestureState == GestureState.START)
 				{
 					m_gestureState = GestureState.SHOWING;
 					m_gestureStart = true;
@@ -125,20 +123,18 @@ public class BattleManager : MonoBehaviour
 		}
 	}
 
+	public void Correct()
+	{
+		StopCoroutine(m_coroutine);
+		m_gestureState = GestureState.START;
+
+		if(m_gestureHandler != null)
+			m_gestureHandler.DestroyGesture();
+	}
+
 	public static BattleManager Get()
 	{
 		return m_instance;
-	}
-
-	public void FailGesture()
-	{
-		// Stop Coroutine
-		if(m_coroutine != null)
-			StopCoroutine(m_coroutine);
-
-		// Commence Enemy Attack
-		if(m_enemyMgr != null)
-			m_enemyMgr.attack();
 	}
 
 }

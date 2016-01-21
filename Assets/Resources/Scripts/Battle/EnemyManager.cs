@@ -47,12 +47,6 @@ public class EnemyManager : MonoBehaviour {
 	}
 
 
-	public void attack()
-	{
-		if(playerMgr != null)
-			playerMgr.Damaged(currentEnemy.attack);
-	}
-
 	/// <summary>
 	/// Method to damage enemy
 	/// </summary>

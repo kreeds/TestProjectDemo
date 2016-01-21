@@ -48,11 +48,13 @@ public class PlayerManager : MonoBehaviour {
 			m_gauge.Init(m_player.hp, m_player.hp);
 		}
 		l2dInterface.LoadProfile ();
+
+		l2dInterface.PlayIdleAnim ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
 
 	/// <summary>
@@ -60,10 +62,11 @@ public class PlayerManager : MonoBehaviour {
 	/// </summary>
 	public void Attack()
 	{
+		Debug.Log("Attacking Enemy");
 		if(m_enemyMgr != null)
 			m_enemyMgr.damageEnemy(m_player.atk);
 
-		l2dInterface.PlayAnimation ();
+		l2dInterface.PlayAttackAnim ();
 	}
 
 	/// <summary>
@@ -72,17 +75,13 @@ public class PlayerManager : MonoBehaviour {
 	/// <param name="damage">Damage.</param>
 	public void Damaged(int damage)
 	{
-		Debug.Log("Damaged Player");
 		m_player.hp -= damage;
 
 		if(m_gauge != null)
 			m_gauge.reduce(damage);
 
-		l2dInterface.PlayAttackAnim ();
+		l2dInterface.PlayDamageAnim ();
 	}
 
-	public void Idle(){
-		l2dInterface.PlayIdleAnim ();
-	}
 
 }

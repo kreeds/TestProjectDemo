@@ -7,6 +7,8 @@ public class Idle : FSMState
 	BattleManager bmgr;
 	Enemy enemy;
 
+	bool attacked;
+	bool damaged;
 	int prevhp;
 
 	public Idle(Enemy emy)
@@ -15,19 +17,29 @@ public class Idle : FSMState
 		enemy = emy;
 		prevhp = emy.Hp;	
 		stateID = StateID.E_IDLE;
+		attacked = false;
 	}
 
-	public override void Init()
+	public override void OnEnter()
 	{
+		Debug.Log("Entering Idle State");
 		// Play Idle Animation
 		enemy.L2dModel.PlayIdleAnim();
 	}
 
 	public override void Transit()
 	{
+
+		if((bmgr.getGestureState == BattleManager.GestureState.START ||
+			bmgr.getGestureState == BattleManager.GestureState.SHOWING) && attacked)
+			attacked = false;
+
 		// Attack Player
-		if(bmgr.getGestureState == BattleManager.GestureState.END)
+		if(bmgr.getGestureState == BattleManager.GestureState.END && !attacked)
+		{
 			enemy.SetTransition(Transition.E_FAILGESTURE);
+			attacked = true;
+		}
 
 		// Death
 		if(enemy.Hp <= 0)
@@ -41,9 +53,14 @@ public class Idle : FSMState
 		}
 	}
 
-	public override void Execute()
+	public override void Update()
 	{
 		
+	}
+
+	public override void OnExit()
+	{
+		Debug.Log("Exiting Idle State");
 	}
 }
 
@@ -56,19 +73,32 @@ public class Damaged: FSMState
 		stateID = StateID.E_DAMAGED;
 	}
 
-	public override void Init()
+	public override void OnEnter()
 	{
+		Debug.Log("Entering Damaged State");
 		// Play Attack Animation
 		enemy.L2dModel.PlayDamageAnim();
 	}
+
 	public override void Transit()
+	{
+		if(enemy.L2dModel.IsAnimationComplete())
+		{
+			if(enemy.Hp > 0)
+				enemy.SetTransition(Transition.E_FINISHATTACK); // Back to Idle
+			else
+				enemy.SetTransition(Transition.E_NOHP); // Transit to Death
+		}
+	}
+
+	public override void Update()
 	{
 		
 	}
 
-	public override void Execute()
+	public override void OnExit()
 	{
-		
+		Debug.Log("Exiting Damaged State");
 	}
 
 
@@ -77,21 +107,44 @@ public class Damaged: FSMState
 public class Attack : FSMState
 {
 	Enemy enemy;
+	PlayerManager pmgr;
+	int hp = 0;
 	public Attack(Enemy emy)
 	{
 		stateID = StateID.E_ATTACK;
 		enemy = emy;
+		pmgr = PlayerManager.Get();
+		hp = enemy.Hp;
+	}
+
+	public override void OnEnter()
+	{
+
+		Debug.Log("Entering Attack State");
+		// Play Attack Animation
+		enemy.L2dModel.PlayAttackAnim();
 	}
 
 	public override void Transit()
 	{
-		
+		// Damaged
+		if(enemy.Hp < hp)
+		{
+			enemy.SetTransition(Transition.E_LOSTHP);
+		}
+		else if(enemy.L2dModel.IsAnimationComplete())
+		{
+			enemy.SetTransition(Transition.E_FINISHATTACK);
+		}
 	}
 
-	public override void Execute()
+	public override void Update()
 	{
-		// Play Attack Animation
-		enemy.L2dModel.PlayAttackAnim();
+	}
+	public override void OnExit()
+	{
+		pmgr.Damaged(enemy.attack);	
+		Debug.Log("Exiting Attack State");
 	}
 }
 
@@ -110,7 +163,7 @@ public class Death : FSMState
 		
 	}
 
-	public override void Execute()
+	public override void Update()
 	{
 		// Play Death Animation
 
@@ -179,7 +232,7 @@ public class Enemy : MonoBehaviour {
 	void FixedUpdate()
 	{
 		enemyState.currentState.Transit();
-		enemyState.currentState.Execute();
+		enemyState.currentState.Update();
 	}
 
 }

@@ -22,7 +22,7 @@ public class InputGestures : MonoBehaviour {
     BattleManager m_battleMgr;
     PlayerManager m_playerMgr;
  
- 	const float timetoEnd = 3.0f;
+ 	public float timetoEnd = 3.0f;
 
  	float currtime;
 
@@ -215,11 +215,9 @@ public class InputGestures : MonoBehaviour {
 							particleObj.GetComponent<ParticleSystem>().Play();
 						}
 
-					}
-					else
-					{
-						if(m_playerMgr != null)
-							m_battleMgr.FailGesture();
+						if(m_battleMgr != null)
+							m_battleMgr.Correct();
+
 					}
                     IsGestureRecognizingNeeded = false;
 					currentGesturePoints.Clear();

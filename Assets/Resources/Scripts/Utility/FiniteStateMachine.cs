@@ -105,9 +105,9 @@ public class FiniteStateMachine{
 		{
 			if(state.STATE_ID  == curStateID)
 			{
-				curState.Exit();
+				curState.OnExit();
 				curState = state;
-				curState.Init();
+				curState.OnEnter();
 				break;
 			}
 		}
