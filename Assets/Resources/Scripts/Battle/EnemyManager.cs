@@ -11,7 +11,6 @@ public class EnemyManager : MonoBehaviour {
 	[SerializeField]UIGauge m_gauge;
 	[SerializeField]UIPanel	m_panel;
 
-
 	public static EnemyManager Get()
 	{
 		return _instance;
@@ -29,10 +28,7 @@ public class EnemyManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-//		GameObject obj = Instantiate(Resources.Load("Prefabs/EnemySample")) as GameObject;
-		GameObject obj = NGUITools.AddChild (m_panel.gameObject, Resources.Load ("Prefabs/EnemySample") as GameObject);
-		obj.transform.localScale = new Vector3(15, 15, 15);
-		obj.transform.rotation = Quaternion.Euler (new Vector3 (270, 0, 0));
+		GameObject obj = Instantiate(Resources.Load("Prefabs/EnemySample")) as GameObject;
 		currentEnemy = obj.GetComponent<Enemy>();
 		currentEnemy.transform.localPosition = new Vector3(146.0f, -95.0f, 0);
 		currentEnemy.Initialize(100, 100, 10, 2);
