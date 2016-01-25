@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &113004
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,13 +305,14 @@ GameObject:
   - 4: {fileID: 413036}
   - 198: {fileID: 19813004}
   - 199: {fileID: 19913004}
+  - 111: {fileID: 11165360}
   m_Layer: 5
   m_Name: Starflash_FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &113038
 GameObject:
   m_ObjectHideFlags: 1
@@ -445,6 +446,25 @@ GameObject:
   - 114: {fileID: 11413014}
   m_Layer: 5
   m_Name: Star1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &165360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 465360}
+  - 33: {fileID: 3365360}
+  - 23: {fileID: 2365360}
+  - 64: {fileID: 6465360}
+  - 114: {fileID: 11465360}
+  m_Layer: 0
+  m_Name: live2DObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -682,6 +702,7 @@ Transform:
   - {fileID: 413052}
   - {fileID: 413020}
   - {fileID: 413004}
+  - {fileID: 465360}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &413038
@@ -787,6 +808,18 @@ Transform:
   - {fileID: 413044}
   m_Father: {fileID: 413036}
   m_RootOrder: 1
+--- !u!4 &465360
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165360}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalPosition: {x: 0, y: 0, z: -1.60000002}
+  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_Children: []
+  m_Father: {fileID: 413036}
+  m_RootOrder: 4
 --- !u!23 &2310912
 Renderer:
   m_ObjectHideFlags: 1
@@ -807,6 +840,26 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!23 &2365360
+Renderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165360}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!33 &3310912
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -814,6 +867,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110912}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &3365360
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165360}
+  m_Mesh: {fileID: 4300000, guid: 81074fde212a61d439bdbfb10bfc7e9e, type: 2}
 --- !u!64 &6410912
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -827,6 +887,34 @@ MeshCollider:
   m_SmoothSphereCollisions: 0
   m_Convex: 0
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &6465360
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: 81074fde212a61d439bdbfb10bfc7e9e, type: 2}
+--- !u!111 &11165360
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113036}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 201d99112074e452698af6376d2167b6, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 201d99112074e452698af6376d2167b6, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &11410912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -912,6 +1000,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnlyDeactivate: 0
+--- !u!114 &11465360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190d918d38714b446ad8b55640d0032a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: Live2DAssets/UnityChan/unitychan.model.json
+  sceneNo: 0
 --- !u!198 &19813004
 ParticleSystem:
   m_ObjectHideFlags: 1
