@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour {
 
 	[SerializeField]UIGauge m_gauge;
 	[SerializeField]LAppModelProxy l2dInterface;
+	[SerializeField]UIPanel m_panel;
 
 	public static PlayerManager _instance;
 
@@ -63,10 +64,16 @@ public class PlayerManager : MonoBehaviour {
 	public void Attack()
 	{
 		Debug.Log("Attacking Enemy");
-		if(m_enemyMgr != null)
-			m_enemyMgr.damageEnemy(m_player.atk);
-
-		l2dInterface.PlayAttackAnim ();
+//		if(m_enemyMgr != null)
+//			m_enemyMgr.damageEnemy(m_player.atk);
+//
+//		l2dInterface.PlayAttackAnim ();
+		GameObject obj = NGUITools.AddChild (m_panel.gameObject, Resources.Load ("Prefabs/Effect_Fx") as GameObject);
+		obj.transform.localPosition = new Vector3 (0, 0, -10f);
+		BattleEffect effect = obj.GetComponent<BattleEffect> ();
+		if (effect != null) {
+			effect.Initialize(gameObject);
+		}
 	}
 
 	/// <summary>
@@ -83,5 +90,8 @@ public class PlayerManager : MonoBehaviour {
 		l2dInterface.PlayDamageAnim ();
 	}
 
-
+	private void OnEffectFinish(){
+		if(m_enemyMgr != null)
+			m_enemyMgr.damageEnemy(m_player.atk);
+	}
 }

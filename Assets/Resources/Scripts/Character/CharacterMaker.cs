@@ -36,4 +36,13 @@ public class CharacterMaker : MonoBehaviour {
 		Application.LoadLevel ("BattleScene");
 		//go to next scene
 	}
+
+	void OnPlayAnimation()
+	{
+		if (live2DModel.IsAnimationComplete ()) {
+			live2DModel.GetModel ().StartRandomMotion ("", LAppDefine.PRIORITY_NORMAL);
+		}
+	}
 }
+
+
