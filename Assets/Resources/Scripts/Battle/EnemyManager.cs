@@ -28,17 +28,22 @@ public class EnemyManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		GameObject obj = NGUITools.AddChild(m_panel.gameObject, Resources.Load("Prefabs/EnemySample") as GameObject);
-		obj.transform.rotation = Quaternion.Euler (270f, 0f, 0f);
-		obj.transform.localScale = new Vector3 (20, 20, 20);
-		currentEnemy = obj.GetComponent<Enemy>();
-		currentEnemy.transform.localPosition = new Vector3(268.0f, -120.0f, 0);
-		currentEnemy.Initialize(100, 100, 10, 2);
-	
-		if(m_gauge != null)
-		{
-			m_gauge.Init(currentEnemy.Hp, currentEnemy.totalHp);
-		}
+//		GameObject obj = NGUITools.AddChild(m_panel.gameObject, Resources.Load("Prefabs/EnemySample") as GameObject);
+//		obj.transform.rotation = Quaternion.Euler (270f, 0f, 0f);
+//		obj.transform.localScale = new Vector3 (20, 20, 20);
+//		currentEnemy = obj.GetComponent<Enemy>();
+//		currentEnemy.transform.localPosition = new Vector3(268.0f, -120.0f, 0);
+
+//		GameObject obj = NGUITools.AddChild(m_panel.gameObject, Resources.Load("Prefabs/SimpleEnemy") as GameObject);
+//		obj.transform.localPosition = new Vector3 (300f, 0, 0);
+//		currentEnemy = obj.GetComponent<Enemy>();
+//		currentEnemy.Initialize(80, 80, 8, 3);
+//	
+//		if(m_gauge != null)
+//		{
+//			m_gauge.Init(currentEnemy.Hp, currentEnemy.totalHp);
+//		}
+		CreateSimpleEnemy ();
 	}
 	
 	// Update is called once per frame
@@ -46,7 +51,34 @@ public class EnemyManager : MonoBehaviour {
 	{
 	}
 
+	void CreateSimpleEnemy()
+	{
+		GameObject obj = NGUITools.AddChild(m_panel.gameObject, Resources.Load("Prefabs/SimpleEnemy") as GameObject);
+		obj.transform.localPosition = new Vector3 (300f, 0, 0);
+		currentEnemy = obj.GetComponent<Enemy>();
+		currentEnemy.Initialize(80, 80, 8, 3);
+		
+		if(m_gauge != null)
+		{
+			m_gauge.Init(currentEnemy.Hp, currentEnemy.totalHp);
+		}
+	}
 
+	void CreateLive2DEnemy()
+	{
+		GameObject obj = NGUITools.AddChild(m_panel.gameObject, Resources.Load("Prefabs/EnemySample") as GameObject);
+		obj.transform.rotation = Quaternion.Euler (270f, 0f, 0f);
+		obj.transform.localScale = new Vector3 (20, 20, 20);
+		currentEnemy = obj.GetComponent<Enemy>();
+		currentEnemy.transform.localPosition = new Vector3(268.0f, -120.0f, 0);
+
+		currentEnemy.Initialize(80, 80, 8, 3);
+		
+		if(m_gauge != null)
+		{
+			m_gauge.Init(currentEnemy.Hp, currentEnemy.totalHp);
+		}
+	}
 	/// <summary>
 	/// Method to damage enemy
 	/// </summary>
