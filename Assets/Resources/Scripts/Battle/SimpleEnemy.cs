@@ -9,7 +9,8 @@ public class SimpleEnemy : Enemy {
 
 	// Use this for initialization
 	void Start () {
-	
+		
+		InitializeStateMachine ();
 	}
 	
 	// Update is called once per frame
@@ -29,6 +30,23 @@ public class SimpleEnemy : Enemy {
 	
 	public override bool IsAnimationComplete()
 	{
+		if (_tweenColor.isActiveAndEnabled || _tweenPosition.isActiveAndEnabled) {
+			return false;
+		}
 		return true;
+	}
+
+	void OnDamagedAnim()
+	{
+		if (_tweenColor.direction == AnimationOrTween.Direction.Forward) {
+			_tweenColor.Play(false);
+		}
+	}
+
+	void OnAttackAnim()
+	{
+		if (_tweenPosition.direction == AnimationOrTween.Direction.Forward) {
+			_tweenPosition.Play(false);
+		}
 	}
 }

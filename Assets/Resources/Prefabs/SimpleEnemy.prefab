@@ -97,19 +97,21 @@ MonoBehaviour:
   totalHp: 80
   attack: 15
   attkInterval: 3
+  _tweenColor: {fileID: 11484276}
+  _tweenPosition: {fileID: 11484278}
 --- !u!114 &11484276
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110412}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfa4a4a103e4fed43a7e9e9df4a6915c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   method: 0
-  style: 2
+  style: 0
   animationCurve:
     serializedVersion: 2
     m_Curve:
@@ -127,11 +129,11 @@ MonoBehaviour:
     m_PostInfinity: 2
   ignoreTimeScale: 1
   delay: 0
-  duration: 1
+  duration: .200000003
   steeperCurves: 0
   tweenGroup: 0
   eventReceiver: {fileID: 110410}
-  callWhenFinished: OnTweenReceiver
+  callWhenFinished: OnDamagedAnim
   from: {r: 1, g: 1, b: 1, a: 1}
   to: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &11484278
@@ -140,7 +142,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110412}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
   m_Name: 
@@ -164,13 +166,13 @@ MonoBehaviour:
     m_PostInfinity: 2
   ignoreTimeScale: 1
   delay: 0
-  duration: 1
+  duration: .200000003
   steeperCurves: 0
   tweenGroup: 0
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
+  eventReceiver: {fileID: 110410}
+  callWhenFinished: OnAttackAnim
   from: {x: 0, y: 0, z: 0}
-  to: {x: 0, y: 0, z: 0}
+  to: {x: -100, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
