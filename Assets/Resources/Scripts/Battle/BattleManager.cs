@@ -6,13 +6,21 @@ using System.Collections;
 /// </summary>
 public class BattleManager : MonoBehaviour 
 {
+	public delegate void GestureMethod();
+	GestureMethod GestureGenerateMethod;
+
 	public InputGestures m_gestureHandler;
+	public GenerateGesture m_gestureGenerator;
 	EnemyManager	m_enemyMgr;
 	PlayerManager	m_playerMgr;
 
+
+	public int m_fullgaugeCount = 5;
+	int gaugeCount = 0;
+
 	// Measured in seconds
 	public float m_gestureInv = 3;
-	public float m_interval = 3;
+	public float m_interval = 5;
 	public float m_specialInv = 3;
 	public float m_stunInv = 3;
 
@@ -20,8 +28,10 @@ public class BattleManager : MonoBehaviour
 
 	bool m_gestureStart;
 
+
+
 	// Battle Phases
-	private enum BattlePhase
+	public enum BattlePhase
 	{
 		START,
 		ATTACK,
@@ -33,6 +43,10 @@ public class BattleManager : MonoBehaviour
 	};
 
 	BattlePhase m_phase; 
+	public BattlePhase getBattlePhase
+	{
+		get{return m_phase;}
+	}
 
 	// Gesture State
 	public enum GestureState
@@ -73,20 +87,22 @@ public class BattleManager : MonoBehaviour
 		m_gestureStart = false;
 		m_gestureState = GestureState.START;
 		m_phase = BattlePhase.START;
+
+		gaugeCount = 0;
 	}
 
 	IEnumerator CommenceAttack()
 	{			
 		yield return new WaitForSeconds(m_interval);
-		if (m_gestureHandler != null) {
-			m_gestureHandler.GenerateRandomGesture ();
+		if (GestureGenerateMethod != null) {
+			GestureGenerateMethod ();
 		}
 		yield return new WaitForSeconds(m_gestureInv);
 		Debug.Log(Time.time);
 
 		//Destroy Gesture
-		if(m_gestureHandler != null)
-			m_gestureHandler.DestroyGesture();
+		if(m_gestureGenerator != null)
+			m_gestureGenerator.DestroyGesture();
 		m_gestureState = GestureState.END;
 
 		yield return new WaitForSeconds(m_interval);
@@ -106,16 +122,37 @@ public class BattleManager : MonoBehaviour
 			break;
 			case BattlePhase.ATTACK:
 			{
+				if(gaugeCount >= m_fullgaugeCount)
+				{
+					Debug.Log("*****************battle phase: " + m_phase );
+					m_phase = BattlePhase.SPECIAL;
+					break;
+
+				}
 				if(m_gestureState == GestureState.START)
 				{
 					m_gestureState = GestureState.SHOWING;
 					m_gestureStart = true;
 					m_coroutine = CommenceAttack();
+					GestureGenerateMethod = m_gestureGenerator.GenerateEasyGesture;
+
 					StartCoroutine(m_coroutine);
 				}
 			}
 			break;
 			case BattlePhase.SPECIAL:
+			{
+				if(m_gestureState == GestureState.START)
+				{
+					m_gestureState = GestureState.SHOWING;
+					m_gestureStart = true;
+					m_coroutine = CommenceAttack();
+					GestureGenerateMethod = m_gestureGenerator.GenerateHardGesture;
+					StartCoroutine(m_coroutine);
+					gaugeCount = 0;
+					m_phase = BattlePhase.ATTACK;
+				}
+			}
 			break;
 
 			case BattlePhase.STUNNED:
@@ -128,8 +165,10 @@ public class BattleManager : MonoBehaviour
 		StopCoroutine(m_coroutine);
 		m_gestureState = GestureState.START;
 
-		if(m_gestureHandler != null)
-			m_gestureHandler.DestroyGesture();
+		if(m_gestureGenerator != null)
+			m_gestureGenerator.DestroyGesture();
+
+		++gaugeCount;
 	}
 
 	public static BattleManager Get()

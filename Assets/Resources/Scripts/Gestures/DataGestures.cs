@@ -16,7 +16,7 @@ public class DataGestures : MonoBehaviour {
 
     const string PATH = "";
 
-    void Start()
+    void Awake()
     {
         gestureExamples = LoadGesturesData();
     }
@@ -132,7 +132,7 @@ public class DataGestures : MonoBehaviour {
             }
         }
         catch (Exception Ex)
-        {
+		{
             Debug.Log("EXCEPTION: " + Ex.GetType().ToString());
             Debug.Log(Ex.Message);
         }
