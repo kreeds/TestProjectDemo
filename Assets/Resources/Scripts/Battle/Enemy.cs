@@ -24,7 +24,8 @@ public class Idle : FSMState
 	{
 		Debug.Log("Entering Idle State");
 		// Play Idle Animation
-		enemy.L2dModel.PlayIdleAnim();
+//		enemy.L2dModel.PlayIdleAnim();
+		enemy.PlayIdleAnim ();
 	}
 
 	public override void Transit()
@@ -77,12 +78,13 @@ public class Damaged: FSMState
 	{
 		Debug.Log("Entering Damaged State");
 		// Play Attack Animation
-		enemy.L2dModel.PlayDamageAnim();
+//		enemy.L2dModel.PlayDamageAnim();
+		enemy.PlayDamageAnim ();
 	}
 
 	public override void Transit()
 	{
-		if(enemy.L2dModel.IsAnimationComplete())
+		if(enemy.IsAnimationComplete ())
 		{
 			if(enemy.Hp > 0)
 				enemy.SetTransition(Transition.E_FINISHATTACK); // Back to Idle
@@ -122,7 +124,8 @@ public class Attack : FSMState
 
 		Debug.Log("Entering Attack State");
 		// Play Attack Animation
-		enemy.L2dModel.PlayAttackAnim();
+//		enemy.L2dModel.PlayAttackAnim();
+		enemy.PlayAttackAnim ();
 	}
 
 	public override void Transit()
@@ -132,7 +135,7 @@ public class Attack : FSMState
 		{
 			enemy.SetTransition(Transition.E_LOSTHP);
 		}
-		else if(enemy.L2dModel.IsAnimationComplete())
+		else if(enemy.IsAnimationComplete ())
 		{
 			enemy.SetTransition(Transition.E_FINISHATTACK);
 		}
@@ -177,21 +180,26 @@ public class Enemy : MonoBehaviour {
 	public int attack;
 	public int attkInterval;
 
-	FiniteStateMachine enemyState;
+	protected FiniteStateMachine enemyState;
 
 
-	LAppModelProxy l2dInterface;
-	public LAppModelProxy L2dModel
-	{
-		get{return l2dInterface;}
-	}
-
-	void Awake()
-	{
-		l2dInterface = gameObject.GetComponent<LAppModelProxy>();
-	}
+//	LAppModelProxy l2dInterface;
+//	public LAppModelProxy L2dModel
+//	{
+//		get{return l2dInterface;}
+//	}
+//
+//	void Awake()
+//	{
+//		l2dInterface = gameObject.GetComponent<LAppModelProxy>();
+//	}
 
 	void Start()
+	{
+		InitializeStateMachine ();
+	}
+
+	protected virtual void InitializeStateMachine()
 	{
 		Idle idleState = new Idle(this);
 		idleState.AddTransition(Transition.E_FAILGESTURE, StateID.E_ATTACK);
@@ -216,7 +224,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	public void Initialize (int hp, int totalhp, int atk, int atkint) 
+	public virtual void Initialize (int hp, int totalhp, int atk, int atkint) 
 	{
 		Hp = hp;
 		totalHp = totalhp;
@@ -235,4 +243,22 @@ public class Enemy : MonoBehaviour {
 		enemyState.currentState.Update();
 	}
 
+	public virtual void PlayIdleAnim()
+	{
+
+	}
+
+	public virtual void PlayDamageAnim()
+	{
+	}
+
+	public virtual void PlayAttackAnim()
+	{
+
+	}
+
+	public virtual bool IsAnimationComplete()
+	{
+		return true;
+	}
 }

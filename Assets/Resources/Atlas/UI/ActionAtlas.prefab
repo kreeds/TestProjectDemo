@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &136116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 436116}
+  - 114: {fileID: 11436116}
+  m_Layer: 0
+  m_Name: ActionAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &436116
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11436116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 8faf4d5ec713d4e988d3a67ab91880fc, type: 2}
+  sprites:
+  - name: SSSSS_Battle_UI_HealthBar
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 703
+      width: 158
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 58
+      y: 703
+      width: 42
+      height: 64
+    rotated: 0
+    paddingLeft: .0949367061
+    paddingRight: .101265825
+    paddingTop: .015625
+    paddingBottom: .03125
+  - name: SSSSS_Quest_UI_button
+    outer:
+      serializedVersion: 2
+      x: 544
+      y: 768
+      width: 110
+      height: 111
+    inner:
+      serializedVersion: 2
+      x: 544
+      y: 768
+      width: 110
+      height: 111
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: SSSSS_Quest_UI_button_long
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 768
+      width: 543
+      height: 111
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 768
+      width: 543
+      height: 111
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: SSSSS_Battle_MoonGauge
+    outer:
+      serializedVersion: 2
+      x: 664
+      y: 740
+      width: 283
+      height: 284
+    inner:
+      serializedVersion: 2
+      x: 664
+      y: 740
+      width: 283
+      height: 284
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: .00706713786
+    paddingTop: .00352112669
+    paddingBottom: 0
+  - name: SSSSS_Battle_UI_Health
+    outer:
+      serializedVersion: 2
+      x: 948
+      y: 962
+      width: 21
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 948
+      y: 962
+      width: 21
+      height: 62
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: SSSSS_Quest_UI_button_task
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 880
+      width: 663
+      height: 144
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 880
+      width: 663
+      height: 144
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 136116}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

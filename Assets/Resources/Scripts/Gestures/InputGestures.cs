@@ -208,8 +208,9 @@ public class InputGestures : MonoBehaviour {
 							m_playerMgr.Attack();
 
 						// Particle Effect
-						if(particleObj == null)
-							particleObj = Instantiate(Resources.Load("Effects/In_Game_FX/Starflash_FX"), Vector3.zero, Quaternion.identity) as GameObject;
+						if(particleObj == null){
+							//particleObj = Instantiate(Resources.Load("Effects/In_Game_FX/Starflash_FX"), Vector3.zero, Quaternion.identity) as GameObject;
+						}
 						else
 						{
 							particleObj.GetComponent<ParticleSystem>().Play();
