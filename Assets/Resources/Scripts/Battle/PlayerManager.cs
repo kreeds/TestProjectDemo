@@ -61,7 +61,7 @@ public class PlayerManager : MonoBehaviour {
 	/// <summary>
 	/// Commence Attack Event
 	/// </summary>
-	public void Attack()
+	public void SpecialAttack()
 	{
 		Debug.Log("Attacking Enemy");
 //		if(m_enemyMgr != null)
@@ -74,6 +74,12 @@ public class PlayerManager : MonoBehaviour {
 		if (effect != null) {
 			effect.Initialize(gameObject);
 		}
+	}
+
+	public void NormalAttack()
+	{
+		if(m_enemyMgr != null)
+			m_enemyMgr.damageEnemy(m_player.atk);
 	}
 
 	/// <summary>
@@ -92,6 +98,6 @@ public class PlayerManager : MonoBehaviour {
 
 	private void OnEffectFinish(){
 		if(m_enemyMgr != null)
-			m_enemyMgr.damageEnemy(m_player.atk);
+			m_enemyMgr.damageEnemy(m_player.atk * 2);
 	}
 }

@@ -30,9 +30,9 @@ public class EnemyManager : MonoBehaviour {
 	{
 		GameObject obj = NGUITools.AddChild(m_panel.gameObject, Resources.Load("Prefabs/EnemySample") as GameObject);
 		obj.transform.rotation = Quaternion.Euler (270f, 0f, 0f);
-		obj.transform.localScale = new Vector3 (15, 15, 15);
+		obj.transform.localScale = new Vector3 (20, 20, 20);
 		currentEnemy = obj.GetComponent<Enemy>();
-		currentEnemy.transform.localPosition = new Vector3(146.0f, -95.0f, 0);
+		currentEnemy.transform.localPosition = new Vector3(268.0f, -120.0f, 0);
 		currentEnemy.Initialize(100, 100, 10, 2);
 	
 		if(m_gauge != null)

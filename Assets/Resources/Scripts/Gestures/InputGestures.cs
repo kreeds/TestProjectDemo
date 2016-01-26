@@ -17,6 +17,7 @@ public class InputGestures : MonoBehaviour {
 	public static StringGestureDelegates Load;
 
     public DataGestures mgData;
+    public GenerateGesture	mgGesture;
     public Transform parent;
 
     BattleManager m_battleMgr;
@@ -41,7 +42,6 @@ public class InputGestures : MonoBehaviour {
     int strokeID = 0;
     int strokeCount = 0;
 
-    int gestureIndex = 0;
 
     List<Point> 		currentGesturePoints;
     List<Point>			pointsContainer;
@@ -49,6 +49,10 @@ public class InputGestures : MonoBehaviour {
     GameObject trail;
 
 
+	void Awake()
+	{
+		
+	}
 	void Start () {
 
 		currtime = 0.0f;
@@ -101,6 +105,141 @@ public class InputGestures : MonoBehaviour {
     void GestureLoad(string path)
     {
     	Debug.Log("Path: " + path); 
+    }
+
+    /// <summary>
+    /// Special Attack Phase Check
+    /// </summary>
+    void SpecialAttackPhaseCheck()
+    {
+	 	if(m_battleMgr.getBattlePhase != BattleManager.BattlePhase.SPECIAL)
+	 		return;
+	 		
+		if (!IsTouchInProgress &&  currtime >= timetoEnd)//end
+        {
+            if ((trail != null)&&(!IsTrailQueuedForDestroy))
+            {	
+                IsTrailQueuedForDestroy = true;
+
+                // Clear the list
+       			foreach(GameObject obj in trailList)
+       			{
+       				Destroy(obj);
+       			}
+
+                trailList.Clear();
+
+				pointsContainer = GenericCopier<List<Point>>.DeepCopy(currentGesturePoints);
+
+                IsStartTrailSpawned = false;
+                if (IsGestureRecognizingNeeded) //need more than 2 points for gesture recognition
+                {
+                    string gestureName = mgData.RecognizeGesture(currentGesturePoints);
+					if(mgData.IsRequiredGestureRecognized(	gestureName, mgGesture.getGestureIndex)
+						 && m_battleMgr.getGestureState != BattleManager.GestureState.END )
+					{
+						// Call Event
+						if(m_playerMgr != null)
+							m_playerMgr.SpecialAttack();
+
+//						// Particle Effect
+//						if(particleObj == null)
+//							particleObj = Instantiate(Resources.Load("Effects/In_Game_FX/Starflash_FX"), Vector3.zero, Quaternion.identity) as GameObject;
+//						else
+//						{
+//							particleObj.GetComponent<ParticleSystem>().Play();
+//						}
+
+						if(m_battleMgr != null)
+							m_battleMgr.Correct();
+
+					}
+                    IsGestureRecognizingNeeded = false;
+					currentGesturePoints.Clear();
+                }
+
+				strokeCount = strokeID;
+            }
+            strokeID = 0;
+			currtime = 0;
+        }
+    }
+
+	void AttackPhaseCheck()
+    {
+		if(m_battleMgr.getBattlePhase != BattleManager.BattlePhase.ATTACK)
+	 		return;
+	 	 
+		if (!IsTouchInProgress)//end
+        {
+            if ((trail != null)&&(!IsTrailQueuedForDestroy))
+            {	
+                IsTrailQueuedForDestroy = true;
+
+//                // Clear the list
+//       			foreach(GameObject obj in trailList)
+//       			{
+//       				Destroy(obj);
+//       			}
+
+                trailList.Clear();
+
+				pointsContainer = GenericCopier<List<Point>>.DeepCopy(currentGesturePoints);
+
+                IsStartTrailSpawned = false;
+                if (IsGestureRecognizingNeeded) //need more than 2 points for gesture recognition
+                {
+                    string gestureName = mgData.RecognizeGesture(currentGesturePoints);
+					if(mgData.IsRequiredGestureRecognized(	gestureName, mgGesture.getGestureIndex)
+						 && m_battleMgr.getGestureState != BattleManager.GestureState.END )
+					{
+						// Call Event
+						if(m_playerMgr != null)
+							m_playerMgr.NormalAttack();
+
+						// Particle Effect
+						if(particleObj == null)
+							particleObj = Instantiate(Resources.Load("Prefabs/PowerEffect"), Vector3.zero, Quaternion.identity) as GameObject;
+						else
+						{
+							particleObj.GetComponent<ParticleSystem>().Play();
+						}
+
+						if(m_battleMgr != null)
+							m_battleMgr.Correct();
+
+					}
+                    IsGestureRecognizingNeeded = false;
+					currentGesturePoints.Clear();
+                }
+
+				strokeCount = strokeID;
+            }
+            strokeID = 0;
+			currtime = 0;
+        }
+    }
+
+
+
+   	/// <summary>
+   	/// Draws the player input line
+   	/// </summary>
+    void DrawLine()
+    {
+		// Draw Line
+		if(pointsContainer != null)
+		{
+			// Draw Debug Lines for current points
+			for(int i = 0; i < pointsContainer.Count; ++i)
+			{
+				if(pointsContainer.Count > (i+1) && pointsContainer[i].StrokeID == pointsContainer[i+1].StrokeID)
+				{
+					Debug.DrawLine(Camera.main.ScreenToWorldPoint(new Vector3(pointsContainer[i].X, -pointsContainer[i].Y)),
+									Camera.main.ScreenToWorldPoint(new Vector3(pointsContainer[i+1].X, -pointsContainer[i+1].Y)), Color.red);
+				} 
+			}
+		}
     }
 	
 	// Update is called once per frameguide
@@ -163,6 +302,7 @@ public class InputGestures : MonoBehaviour {
 
 		if(IsStartTrailSpawned)
 			currtime += Time.deltaTime;
+
         if (IsTouchInProgress)
         {
             if (!WasMovementInTouch) //begin
@@ -181,87 +321,12 @@ public class InputGestures : MonoBehaviour {
                 trail.transform.position = position;
             }
         }
-		else if (!IsTouchInProgress && currtime >= timetoEnd)//end
-        {
-            if ((trail != null)&&(!IsTrailQueuedForDestroy))
-            {	
-                IsTrailQueuedForDestroy = true;
 
-                // Clear the list
-       			foreach(GameObject obj in trailList)
-       			{
-       				Destroy(obj);
-       			}
-
-                trailList.Clear();
-
-				pointsContainer = GenericCopier<List<Point>>.DeepCopy(currentGesturePoints);
-
-                IsStartTrailSpawned = false;
-                if (IsGestureRecognizingNeeded) //need more than 2 points for gesture recognition
-                {
-                    string gestureName = mgData.RecognizeGesture(currentGesturePoints);
-					if(mgData.IsRequiredGestureRecognized(	gestureName, gestureIndex))
-					{
-						// Call Event
-						if(m_playerMgr != null)
-							m_playerMgr.Attack();
-
-						// Particle Effect
-						if(particleObj == null)
-							particleObj = Instantiate(Resources.Load("Effects/In_Game_FX/Starflash_FX"), Vector3.zero, Quaternion.identity) as GameObject;
-						else
-						{
-							particleObj.GetComponent<ParticleSystem>().Play();
-						}
-
-						if(m_battleMgr != null)
-							m_battleMgr.Correct();
-
-					}
-                    IsGestureRecognizingNeeded = false;
-					currentGesturePoints.Clear();
-                }
-
-				strokeCount = strokeID;
-            }
-            strokeID = 0;
-			currtime = 0;
-        }
-		// Draw Line
-		if(pointsContainer != null)
-		{
-			// Draw Debug Lines for current points
-			for(int i = 0; i < pointsContainer.Count; ++i)
-			{
-				if(pointsContainer.Count > (i+1) && pointsContainer[i].StrokeID == pointsContainer[i+1].StrokeID)
-				{
-					Debug.DrawLine(Camera.main.ScreenToWorldPoint(new Vector3(pointsContainer[i].X, -pointsContainer[i].Y)),
-									Camera.main.ScreenToWorldPoint(new Vector3(pointsContainer[i+1].X, -pointsContainer[i+1].Y)), Color.red);
-				} 
-			}
-		}
-
-    }
-    public void GenerateRandomGesture()
-    {
-
-    	Debug.Log("Generate Random Gestures");
-		gestureIndex = UnityEngine.Random.Range(0,mgData.GetGestureCount());
-		Sprite[] sprites = Resources.LoadAll<Sprite>("Sprite/multistrokes");
-
-		// create the object
-		guide = Instantiate(Resources.Load("Prefabs/GestureImage")) as GameObject;
-		guide.GetComponent<SpriteRenderer>().sprite = sprites[gestureIndex];
-		guide.layer = LayerMask.NameToLayer("UI");
-		guide.transform.SetParent(parent);
-		guide.transform.localPosition = new Vector3( guide.transform.localPosition.x, guide.transform.localPosition.y, -10);
+		AttackPhaseCheck();
+		SpecialAttackPhaseCheck();
+		
+		DrawLine();
 
     }
 
-    public void DestroyGesture()
-    {
-    	if(guide != null)
-    		Destroy(guide);
-    }
 }

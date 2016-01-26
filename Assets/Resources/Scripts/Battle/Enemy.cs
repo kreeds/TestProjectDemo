@@ -29,6 +29,17 @@ public class Idle : FSMState
 
 	public override void Transit()
 	{
+		// Death
+		if(enemy.Hp <= 0)
+			enemy.SetTransition(Transition.E_NOHP);
+
+		// Hp Lost
+		if(enemy.Hp < prevhp)
+		{
+			prevhp = enemy.Hp;
+			enemy.SetTransition(Transition.E_LOSTHP);
+		}
+
 
 		if((bmgr.getGestureState == BattleManager.GestureState.START ||
 			bmgr.getGestureState == BattleManager.GestureState.SHOWING) && attacked)
@@ -41,16 +52,7 @@ public class Idle : FSMState
 			attacked = true;
 		}
 
-		// Death
-		if(enemy.Hp <= 0)
-			enemy.SetTransition(Transition.E_NOHP);
-
-		// Hp Lost
-		if(enemy.Hp < prevhp)
-		{
-			prevhp = enemy.Hp;
-			enemy.SetTransition(Transition.E_LOSTHP);
-		}
+	
 	}
 
 	public override void Update()
@@ -67,10 +69,13 @@ public class Idle : FSMState
 public class Damaged: FSMState
 {
 	Enemy enemy;
+	int hp = 0;
+
 	public Damaged(Enemy emy)
 	{
 		enemy = emy;
 		stateID = StateID.E_DAMAGED;
+		hp = emy.Hp;
 	}
 
 	public override void OnEnter()
@@ -88,6 +93,12 @@ public class Damaged: FSMState
 				enemy.SetTransition(Transition.E_FINISHATTACK); // Back to Idle
 			else
 				enemy.SetTransition(Transition.E_NOHP); // Transit to Death
+		}
+		else if(enemy.Hp < hp)
+		{
+			hp = enemy.Hp;
+			enemy.SetTransition(Transition.E_LOSTHP); // Transit to Death
+
 		}
 	}
 
@@ -128,13 +139,16 @@ public class Attack : FSMState
 	public override void Transit()
 	{
 		// Damaged
-		if(enemy.Hp < hp)
-		{
-			enemy.SetTransition(Transition.E_LOSTHP);
-		}
-		else if(enemy.L2dModel.IsAnimationComplete())
+//		if(enemy.Hp < hp)
+//		{
+//			hp = enemy.Hp;
+//			enemy.SetTransition(Transition.E_LOSTHP);
+//		}
+//		else 
+		if(enemy.L2dModel.IsAnimationComplete())
 		{
 			enemy.SetTransition(Transition.E_FINISHATTACK);
+
 		}
 	}
 
@@ -143,7 +157,8 @@ public class Attack : FSMState
 	}
 	public override void OnExit()
 	{
-		pmgr.Damaged(enemy.attack);	
+		if(enemy.L2dModel.IsAnimationComplete())
+			pmgr.Damaged(enemy.attack);	
 		Debug.Log("Exiting Attack State");
 	}
 }
@@ -205,6 +220,7 @@ public class Enemy : MonoBehaviour {
 		Damaged dmgState = new Damaged(this);
 		dmgState.AddTransition(Transition.E_NOHP, StateID.E_DEATH);
 		dmgState.AddTransition(Transition.E_FINISHATTACK, StateID.E_IDLE);
+		dmgState.AddTransition(Transition.E_LOSTHP, StateID.E_DAMAGED);
 
 		Death deathState = new Death(this);
 		enemyState = new FiniteStateMachine();

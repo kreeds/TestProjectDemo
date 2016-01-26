@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 489052}
   - 120: {fileID: 12025026}
   - 114: {fileID: 11424996}
+  - 114: {fileID: 11437662}
   m_Layer: 9
   m_Name: DrawPoint
   m_TagString: Untagged
@@ -41,6 +42,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_threshold: .100000001
+--- !u!114 &11437662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a09dad89d11389ed000e82b8d76c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeOut: 2
+  detachChildren: 0
 --- !u!120 &12025026
 LineRenderer:
   m_ObjectHideFlags: 1

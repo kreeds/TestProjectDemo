@@ -51,7 +51,6 @@ public class UIGauge : MonoBehaviour {
 
 	public void reduce(int damage)
 	{
-		Debug.Log("Damaged");
 		m_currentVal -= damage;
 	}
 	#endregion
