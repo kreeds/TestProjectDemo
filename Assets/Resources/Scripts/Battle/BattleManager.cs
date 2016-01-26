@@ -105,8 +105,16 @@ public class BattleManager : MonoBehaviour
 			m_gestureGenerator.DestroyGesture();
 		m_gestureState = GestureState.END;
 
+		if(m_phase == BattlePhase.SPECIAL)
+		{
+			m_phase = BattlePhase.ATTACK;
+			gaugeCount = 0;
+		}
+
 		yield return new WaitForSeconds(m_interval);
 		m_gestureState = GestureState.START;
+
+
 
 	}
 
@@ -149,8 +157,6 @@ public class BattleManager : MonoBehaviour
 					m_coroutine = CommenceAttack();
 					GestureGenerateMethod = m_gestureGenerator.GenerateHardGesture;
 					StartCoroutine(m_coroutine);
-					gaugeCount = 0;
-					m_phase = BattlePhase.ATTACK;
 				}
 			}
 			break;
@@ -169,6 +175,12 @@ public class BattleManager : MonoBehaviour
 			m_gestureGenerator.DestroyGesture();
 
 		++gaugeCount;
+
+		if(m_phase == BattlePhase.SPECIAL)
+		{
+			m_phase = BattlePhase.ATTACK;
+			gaugeCount = 0;
+		}
 	}
 
 	public static BattleManager Get()
