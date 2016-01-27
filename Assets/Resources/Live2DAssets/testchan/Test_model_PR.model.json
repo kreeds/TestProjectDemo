@@ -8,6 +8,9 @@
 	"motions":{
 		"idle":[
 			{"file":"motions/Idle01.mtn"}
+		],
+		"special":[
+			{"file":"motions/special.mtn"}
 		]
 	}
 }
