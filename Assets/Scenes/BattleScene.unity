@@ -21322,8 +21322,8 @@ MonoBehaviour:
   m_interval: 3
   m_specialInv: 3
   m_stunInv: 3
-  m_FinishGauge: {fileID: 1672941962}
-  m_FinishButton: {fileID: 1600514509}
+  m_finishGauge: {fileID: 1672941962}
+  m_finishButton: {fileID: 1600514509}
 --- !u!4 &1099650035
 Transform:
   m_ObjectHideFlags: 0
@@ -27448,8 +27448,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c4ff40739c7904ca26c14ffbdc4176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  functionName: 
+  target: {fileID: 1099650033}
+  functionName: OnFinishPressed
   trigger: 0
   includeChildren: 0
 --- !u!114 &1600514507
