@@ -92,9 +92,7 @@ public class BattleManager : MonoBehaviour
 		m_gestureState = GestureState.START;
 		m_phase = BattlePhase.START;
 
-		m_finishButton.isEnabled = false;
-
-		gaugeCount = 4;
+		gaugeCount = 0;
 
 		m_finishGauge.Init (gaugeCount, m_fullgaugeCount);
 	}
@@ -137,14 +135,14 @@ public class BattleManager : MonoBehaviour
 			break;
 			case BattlePhase.ATTACK:
 			{
-				if(gaugeCount >= m_fullgaugeCount && m_beginFinisher)
+				if(gaugeCount >= m_fullgaugeCount)
 				{
 					Debug.Log("*****************battle phase: " + m_phase );
 					m_phase = BattlePhase.SPECIAL;
 					break;
 
 				}
-				if(gaugeCount < m_fullgaugeCount && m_gestureState == GestureState.START)
+				if(m_gestureState == GestureState.START)
 				{
 					m_gestureState = GestureState.SHOWING;
 					m_gestureStart = true;
@@ -183,8 +181,6 @@ public class BattleManager : MonoBehaviour
 
 		++gaugeCount;
 		m_finishGauge.reduce (-1);
-
-		m_finishButton.isEnabled = (gaugeCount >= m_fullgaugeCount);
 
 		if(m_phase == BattlePhase.SPECIAL)
 		{
