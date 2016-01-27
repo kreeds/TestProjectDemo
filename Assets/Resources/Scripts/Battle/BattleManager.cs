@@ -27,8 +27,10 @@ public class BattleManager : MonoBehaviour
 	IEnumerator m_coroutine;
 
 	bool m_gestureStart;
+	bool m_beginFinisher;
 
-
+	[SerializeField]UIGauge			m_finishGauge;
+	[SerializeField]UIButton		m_finishButton;
 
 	// Battle Phases
 	public enum BattlePhase
@@ -85,10 +87,16 @@ public class BattleManager : MonoBehaviour
 		m_playerMgr = PlayerManager.Get();
 
 		m_gestureStart = false;
+		m_beginFinisher = false;
+
 		m_gestureState = GestureState.START;
 		m_phase = BattlePhase.START;
 
-		gaugeCount = 0;
+		m_finishButton.isEnabled = false;
+
+		gaugeCount = 4;
+
+		m_finishGauge.Init (gaugeCount, m_fullgaugeCount);
 	}
 
 	IEnumerator CommenceAttack()
@@ -129,14 +137,14 @@ public class BattleManager : MonoBehaviour
 			break;
 			case BattlePhase.ATTACK:
 			{
-				if(gaugeCount >= m_fullgaugeCount)
+				if(gaugeCount >= m_fullgaugeCount && m_beginFinisher)
 				{
 					Debug.Log("*****************battle phase: " + m_phase );
 					m_phase = BattlePhase.SPECIAL;
 					break;
 
 				}
-				if(m_gestureState == GestureState.START)
+				if(gaugeCount < m_fullgaugeCount && m_gestureState == GestureState.START)
 				{
 					m_gestureState = GestureState.SHOWING;
 					m_gestureStart = true;
@@ -174,6 +182,9 @@ public class BattleManager : MonoBehaviour
 			m_gestureGenerator.DestroyGesture();
 
 		++gaugeCount;
+		m_finishGauge.reduce (-1);
+
+		m_finishButton.isEnabled = (gaugeCount >= m_fullgaugeCount);
 
 		if(m_phase == BattlePhase.SPECIAL)
 		{
@@ -187,4 +198,9 @@ public class BattleManager : MonoBehaviour
 		return m_instance;
 	}
 
+
+	void OnFinishPressed()
+	{
+		m_beginFinisher = true;
+	}
 }

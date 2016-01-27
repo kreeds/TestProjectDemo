@@ -22,7 +22,7 @@ public class BattleEffect : MonoBehaviour {
 
 	public void Initialize(GameObject rootObject)
 	{	
-		l2dInterface.GetModel ().StartMotion ("", 0, LAppDefine.PRIORITY_NORMAL);
+		l2dInterface.GetModel ().StartMotion ("special", 0, LAppDefine.PRIORITY_NORMAL);
 //		l2dInterface.PlayAttackAnim ();
 		_rootObject = rootObject;
 	}
