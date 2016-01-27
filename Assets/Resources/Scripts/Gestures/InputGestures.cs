@@ -136,7 +136,7 @@ public class InputGestures : MonoBehaviour {
                 {
                     string gestureName = mgData.RecognizeGesture(currentGesturePoints);
 					if(mgData.IsRequiredGestureRecognized(	gestureName, mgGesture.getGestureIndex)
-						 && m_battleMgr.getGestureState != BattleManager.GestureState.END )
+						 && m_battleMgr.currentGestureState != BattleManager.GestureState.END )
 					{
 						// Call Event
 						if(m_playerMgr != null)
@@ -191,7 +191,7 @@ public class InputGestures : MonoBehaviour {
                 {
                     string gestureName = mgData.RecognizeGesture(currentGesturePoints);
 					if(mgData.IsRequiredGestureRecognized(	gestureName, mgGesture.getGestureIndex)
-						 && m_battleMgr.getGestureState != BattleManager.GestureState.END )
+						 && m_battleMgr.currentGestureState != BattleManager.GestureState.END )
 					{
 						// Call Event
 						if(m_playerMgr != null)

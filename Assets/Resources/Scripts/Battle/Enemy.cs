@@ -42,12 +42,12 @@ public class Idle : FSMState
 		}
 
 
-		if((bmgr.getGestureState == BattleManager.GestureState.START ||
-			bmgr.getGestureState == BattleManager.GestureState.SHOWING) && attacked)
+		if((bmgr.currentGestureState == BattleManager.GestureState.START ||
+			bmgr.currentGestureState == BattleManager.GestureState.SHOWING) && attacked)
 			attacked = false;
 
 		// Attack Player
-		if(bmgr.getGestureState == BattleManager.GestureState.END && !attacked)
+		if(bmgr.currentGestureState == BattleManager.GestureState.END && !attacked)
 		{
 			enemy.SetTransition(Transition.E_FAILGESTURE);
 			attacked = true;
@@ -121,12 +121,15 @@ public class Attack : FSMState
 {
 	Enemy enemy;
 	PlayerManager pmgr;
+	BattleManager bmgr;
+
 	int hp = 0;
 	public Attack(Enemy emy)
 	{
 		stateID = StateID.E_ATTACK;
 		enemy = emy;
 		pmgr = PlayerManager.Get();
+		bmgr = BattleManager.Get();
 		hp = enemy.Hp;
 	}
 
@@ -141,13 +144,7 @@ public class Attack : FSMState
 
 	public override void Transit()
 	{
-		// Damaged
-//		if(enemy.Hp < hp)
-//		{
-//			hp = enemy.Hp;
-//			enemy.SetTransition(Transition.E_LOSTHP);
-//		}
-//		else 
+
 		if(enemy.IsAnimationComplete())
 		{
 			enemy.SetTransition(Transition.E_FINISHATTACK);
@@ -160,8 +157,10 @@ public class Attack : FSMState
 	}
 	public override void OnExit()
 	{
-		if(enemy.IsAnimationComplete())
-			pmgr.Damaged(enemy.attack);	
+		pmgr.Damaged(enemy.attack);	
+
+		// Restart Gesture State
+		bmgr.currentGestureState = BattleManager.GestureState.START;
 		Debug.Log("Exiting Attack State");
 	}
 }

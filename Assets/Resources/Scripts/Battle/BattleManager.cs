@@ -58,7 +58,7 @@ public class BattleManager : MonoBehaviour
 	};
 
 	GestureState			m_gestureState;
-	public GestureState 	getGestureState
+	public GestureState 	currentGestureState
 	{
 		get
 		{
@@ -111,12 +111,11 @@ public class BattleManager : MonoBehaviour
 			gaugeCount = 0;
 		}
 
-		yield return new WaitForSeconds(m_interval);
-		m_gestureState = GestureState.START;
-
-
+//		yield return new WaitForSeconds(m_interval);
+//		m_gestureState = GestureState.START;
 
 	}
+
 
 	void Update()
 	{
