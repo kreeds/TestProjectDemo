@@ -24,7 +24,6 @@ public class PlayerManager : MonoBehaviour {
 	public static PlayerManager Get()
 	{
 		return _instance;
-
 	}
 
 	void Awake()

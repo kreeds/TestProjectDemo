@@ -44,9 +44,9 @@ public class GestureEditor : EditorWindow
 			}
 
 			filename = EditorUtility.SaveFilePanel("Save File as XML", "Assets/Resources/TextData/GestureSet", "Untitled", "xml");
-    		if(InputGestures.Save != null)
+    		if(InputManager.Save != null)
     		{
-    			InputGestures.Save(filename, gesturename);
+    			InputManager.Save(filename, gesturename);
 			}
     	}
 
@@ -59,7 +59,7 @@ public class GestureEditor : EditorWindow
     {
 		GUILayout.Label ("Gesture Editor", EditorStyles.boldLabel);
 
-		saveRegistered = (InputGestures.Save != null)? true : false;
+		saveRegistered = (InputManager.Save != null)? true : false;
 		if(!saveRegistered)
     		GUILayout.Label (miniLabel, EditorStyles.miniLabel);
     	
@@ -69,8 +69,8 @@ public class GestureEditor : EditorWindow
 
 		if(GUILayout.Button("Load"))
     	{
-			if(InputGestures.Load != null)
-				InputGestures.Load(Path);
+			if(InputManager.Load != null)
+				InputManager.Load(Path);
     	}
 
 //        

@@ -8,13 +8,15 @@ using PDollarGestureRecognizer;
 using System;
 using System.Text;
 
-public class InputGestures : MonoBehaviour {
+public class InputManager : MonoBehaviour {
 
 	public delegate void GestureDelegates(string param1, string param2);
 	public delegate void StringGestureDelegates(string param1);
 
 	public static GestureDelegates Save;
 	public static StringGestureDelegates Load;
+
+	public static InputManager _instance;
 
     public DataGestures mgData;
     public GenerateGesture	mgGesture;
@@ -46,12 +48,27 @@ public class InputGestures : MonoBehaviour {
     List<Point> 		currentGesturePoints;
     List<Point>			pointsContainer;
 
+
+    bool disableGesture = false;
+    public bool DisableGesture
+    {
+    	get{return disableGesture;}
+    	set{
+    		disableGesture = value;
+    	}
+    }
+
     GameObject trail;
 
+	public static InputManager Get()
+	{
+		return _instance;
+	}
 
 	void Awake()
 	{
-		
+		if(_instance == null)
+			_instance = this;
 	}
 	void Start () {
 
@@ -141,14 +158,6 @@ public class InputGestures : MonoBehaviour {
 						// Call Event
 						if(m_playerMgr != null)
 							m_playerMgr.SpecialAttack();
-
-//						// Particle Effect
-//						if(particleObj == null)
-//							particleObj = Instantiate(Resources.Load("Effects/In_Game_FX/Starflash_FX"), Vector3.zero, Quaternion.identity) as GameObject;
-//						else
-//						{
-//							particleObj.GetComponent<ParticleSystem>().Play();
-//						}
 
 						if(m_battleMgr != null)
 							m_battleMgr.Correct();
@@ -245,6 +254,10 @@ public class InputGestures : MonoBehaviour {
 	// Update is called once per frameguide
 	void Update ()
     {
+    	Debug.Log("Disable Gesture: " + disableGesture);
+    	if(disableGesture)
+    		return;
+
         Vector2 cursorPosition = new Vector2();
         if ((Input.touchCount > 0))
         {

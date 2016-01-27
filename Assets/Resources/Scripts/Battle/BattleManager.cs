@@ -9,7 +9,7 @@ public class BattleManager : MonoBehaviour
 	public delegate void GestureMethod();
 	GestureMethod GestureGenerateMethod;
 
-	public InputGestures m_gestureHandler;
+	public InputManager m_gestureHandler;
 	public GenerateGesture m_gestureGenerator;
 	EnemyManager	m_enemyMgr;
 	PlayerManager	m_playerMgr;
@@ -201,6 +201,13 @@ public class BattleManager : MonoBehaviour
 
 	void OnFinishPressed()
 	{
+		StopCoroutine(m_coroutine);
+		m_gestureState = GestureState.START;
+
+		if(m_gestureGenerator != null)
+			m_gestureGenerator.DestroyGesture();
+
+
 		m_beginFinisher = true;
 	}
 }

@@ -18,17 +18,35 @@ public class UIButton : UIButtonColor
 
 	public Color disabledColor = Color.grey;
 
+
+
+	/// <summary>
+	/// Derek: Controls Input 
+	/// </summary>
+	InputManager	input;
+
+
 	/// <summary>
 	/// If the collider is disabled, assume the disabled color.
 	/// </summary>
 
 	protected override void OnEnable ()
 	{
+		input = InputManager.Get();
 		if (isEnabled) base.OnEnable();
 		else UpdateColor(false, true);
+
 	}
 
-	public override void OnHover (bool isOver) { if (isEnabled) base.OnHover(isOver); }
+	public override void OnHover (bool isOver) 
+	{ 
+		if (isEnabled)
+		{
+			input.DisableGesture = isOver;
+			
+			base.OnHover(isOver);
+		}
+	}
 	public override void OnPress (bool isPressed) { if (isEnabled) base.OnPress(isPressed); }
 
 	/// <summary>

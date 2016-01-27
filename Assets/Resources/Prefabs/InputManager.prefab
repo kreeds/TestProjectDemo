@@ -36,11 +36,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 131450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d28b490b5277445ac901dd8b669cdb16, type: 3}
+  m_Script: {fileID: 11500000, guid: 81622d045f3fe43658eb867e43aac641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mgData: {fileID: 0}
+  mgGesture: {fileID: 0}
   parent: {fileID: 0}
+  timetoEnd: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
