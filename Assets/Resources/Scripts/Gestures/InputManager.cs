@@ -159,9 +159,6 @@ public class InputManager : MonoBehaviour {
 						if(m_playerMgr != null)
 							m_playerMgr.SpecialAttack();
 
-						if(m_battleMgr != null)
-							m_battleMgr.Correct();
-
 					}
                     IsGestureRecognizingNeeded = false;
 					currentGesturePoints.Clear();
@@ -214,8 +211,6 @@ public class InputManager : MonoBehaviour {
 							particleObj.GetComponent<ParticleSystem>().Play();
 						}
 
-						if(m_battleMgr != null)
-							m_battleMgr.Correct();
 
 					}
                     IsGestureRecognizingNeeded = false;
@@ -254,7 +249,6 @@ public class InputManager : MonoBehaviour {
 	// Update is called once per frameguide
 	void Update ()
     {
-    	Debug.Log("Disable Gesture: " + disableGesture);
     	if(disableGesture)
     		return;
 

@@ -42,10 +42,9 @@ public class UIButton : UIButtonColor
 	{ 
 		if (isEnabled)
 		{
-			input.DisableGesture = isOver;
-			
 			base.OnHover(isOver);
 		}
+		input.DisableGesture = isOver;
 	}
 	public override void OnPress (bool isPressed) { if (isEnabled) base.OnPress(isPressed); }
 

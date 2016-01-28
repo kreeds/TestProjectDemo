@@ -9,8 +9,6 @@ public class UIGauge : MonoBehaviour {
 
 	public float speed;
 
-
-	bool damaged = false;		
 	[SerializeField]UISlider	m_sliderGreen;
 	[SerializeField]UISlider	m_sliderRed;
 
@@ -53,6 +51,12 @@ public class UIGauge : MonoBehaviour {
 	{
 		m_currentVal -= damage;
 	}
+
+	public void gain(int hp)
+	{
+		m_currentVal += hp;
+	}
+
 	#endregion
 
 

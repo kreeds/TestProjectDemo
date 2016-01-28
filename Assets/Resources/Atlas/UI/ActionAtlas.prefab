@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: SSSSS_Battle_UI_HealthBar
     outer:
       serializedVersion: 2
-      x: 0
-      y: 703
+      x: 111
+      y: 530
       width: 158
       height: 64
     inner:
       serializedVersion: 2
-      x: 58
-      y: 703
+      x: 169
+      y: 530
       width: 42
       height: 64
     rotated: 0
@@ -62,14 +62,14 @@ MonoBehaviour:
   - name: SSSSS_Quest_UI_button
     outer:
       serializedVersion: 2
-      x: 544
-      y: 768
+      x: 0
+      y: 483
       width: 110
       height: 111
     inner:
       serializedVersion: 2
-      x: 544
-      y: 768
+      x: 0
+      y: 483
       width: 110
       height: 111
     rotated: 0
@@ -80,14 +80,14 @@ MonoBehaviour:
   - name: SSSSS_Quest_UI_button_long
     outer:
       serializedVersion: 2
-      x: 0
-      y: 768
+      x: 284
+      y: 652
       width: 543
       height: 111
     inner:
       serializedVersion: 2
-      x: 0
-      y: 768
+      x: 284
+      y: 652
       width: 543
       height: 111
     rotated: 0
@@ -98,14 +98,14 @@ MonoBehaviour:
   - name: SSSSS_Battle_MoonGauge
     outer:
       serializedVersion: 2
-      x: 664
-      y: 740
+      x: 0
+      y: 595
       width: 283
       height: 284
     inner:
       serializedVersion: 2
-      x: 664
-      y: 740
+      x: 0
+      y: 595
       width: 283
       height: 284
     rotated: 0
@@ -116,13 +116,13 @@ MonoBehaviour:
   - name: SSSSS_Battle_UI_Health
     outer:
       serializedVersion: 2
-      x: 948
+      x: 1002
       y: 962
       width: 21
       height: 62
     inner:
       serializedVersion: 2
-      x: 948
+      x: 1002
       y: 962
       width: 21
       height: 62
@@ -149,6 +149,96 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: SSSSS_Quest_UI_button_notext
+    outer:
+      serializedVersion: 2
+      x: 284
+      y: 764
+      width: 547
+      height: 115
+    inner:
+      serializedVersion: 2
+      x: 284
+      y: 764
+      width: 547
+      height: 115
+    rotated: 0
+    paddingLeft: .0877513736
+    paddingRight: .0292504579
+    paddingTop: .434782594
+    paddingBottom: .382608682
+  - name: SSSSS_Quest_UI_button_1Star
+    outer:
+      serializedVersion: 2
+      x: 664
+      y: 932
+      width: 337
+      height: 92
+    inner:
+      serializedVersion: 2
+      x: 664
+      y: 932
+      width: 337
+      height: 92
+    rotated: 0
+    paddingLeft: .0534124635
+    paddingRight: .0148367956
+    paddingTop: .0434782617
+    paddingBottom: .0434782617
+  - name: SSSSS_Quest_UI_button_3Coin
+    outer:
+      serializedVersion: 2
+      x: 617
+      y: 571
+      width: 334
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 617
+      y: 571
+      width: 334
+      height: 80
+    rotated: 0
+    paddingLeft: .0628742501
+    paddingRight: .0149700595
+    paddingTop: .0874999985
+    paddingBottom: .162499994
+  - name: SSSSS_Quest_UI_button_4Gem
+    outer:
+      serializedVersion: 2
+      x: 284
+      y: 493
+      width: 327
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 284
+      y: 493
+      width: 327
+      height: 75
+    rotated: 0
+    paddingLeft: .0856269076
+    paddingRight: .0152905202
+    paddingTop: .119999997
+    paddingBottom: .213333338
+  - name: SSSSS_Quest_UI_button_2Energy
+    outer:
+      serializedVersion: 2
+      x: 284
+      y: 569
+      width: 332
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 284
+      y: 569
+      width: 332
+      height: 82
+    rotated: 0
+    paddingLeft: .0692771077
+    paddingRight: .0150602413
+    paddingTop: .0853658542
+    paddingBottom: .134146348
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

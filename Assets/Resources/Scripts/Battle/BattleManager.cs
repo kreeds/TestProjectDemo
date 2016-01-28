@@ -11,6 +11,8 @@ public class BattleManager : MonoBehaviour
 
 	public InputManager m_gestureHandler;
 	public GenerateGesture m_gestureGenerator;
+	public GameObject	m_actionRoot;
+
 	EnemyManager	m_enemyMgr;
 	PlayerManager	m_playerMgr;
 
@@ -95,16 +97,18 @@ public class BattleManager : MonoBehaviour
 		gaugeCount = 0;
 
 		m_finishGauge.Init (gaugeCount, m_fullgaugeCount);
+
+		m_finishButton.isEnabled = false;
 	}
 
 	IEnumerator CommenceAttack()
-	{			
-		yield return new WaitForSeconds(m_interval);
+	{	
+		//Testing for Emiko's Proposal		
+		//yield return new WaitForSeconds(m_interval);
 		if (GestureGenerateMethod != null) {
 			GestureGenerateMethod ();
 		}
 		yield return new WaitForSeconds(m_gestureInv);
-		Debug.Log(Time.time);
 
 		//Destroy Gesture
 		if(m_gestureGenerator != null)
@@ -116,6 +120,9 @@ public class BattleManager : MonoBehaviour
 			m_phase = BattlePhase.ATTACK;
 			gaugeCount = 0;
 		}
+
+		m_actionRoot.SetActive(true);
+		m_phase = BattlePhase.ATTACK;
 
 //		yield return new WaitForSeconds(m_interval);
 //		m_gestureState = GestureState.START;
@@ -137,29 +144,40 @@ public class BattleManager : MonoBehaviour
 			{
 				if(gaugeCount >= m_fullgaugeCount)
 				{
-					Debug.Log("*****************battle phase: " + m_phase );
-					m_phase = BattlePhase.SPECIAL;
-					break;
+					if(m_beginFinisher)
+					{
+						Debug.Log("*****************battle phase: " + m_phase );
+						m_phase = BattlePhase.SPECIAL;
+						m_beginFinisher = false;
 
+					}
+					else
+					{
+						m_finishButton.isEnabled = true;
+					}
 				}
-				if(m_gestureState == GestureState.START)
-				{
-					m_gestureState = GestureState.SHOWING;
-					m_gestureStart = true;
-					m_coroutine = CommenceAttack();
-					GestureGenerateMethod = m_gestureGenerator.GenerateEasyGesture;
-
-					StartCoroutine(m_coroutine);
-				}
+//				if(m_gestureState == GestureState.START)
+//				{
+//					m_gestureState = GestureState.SHOWING;
+//					m_gestureStart = true;
+//					m_coroutine = CommenceAttack();
+//					GestureGenerateMethod = m_gestureGenerator.GenerateEasyGesture;
+//
+//					StartCoroutine(m_coroutine);
+//				}
 			}
 			break;
 			case BattlePhase.SPECIAL:
 			{
 				if(m_gestureState == GestureState.START)
 				{
+					if(m_actionRoot != null)
+						m_actionRoot.SetActive(false);
+
 					m_gestureState = GestureState.SHOWING;
 					m_gestureStart = true;
 					m_coroutine = CommenceAttack();
+
 					GestureGenerateMethod = m_gestureGenerator.GenerateHardGesture;
 					StartCoroutine(m_coroutine);
 				}
@@ -173,7 +191,8 @@ public class BattleManager : MonoBehaviour
 
 	public void Correct()
 	{
-		StopCoroutine(m_coroutine);
+		if(m_coroutine != null)
+			StopCoroutine(m_coroutine);
 		m_gestureState = GestureState.START;
 
 		if(m_gestureGenerator != null)
@@ -187,8 +206,13 @@ public class BattleManager : MonoBehaviour
 			m_phase = BattlePhase.ATTACK;
 			gaugeCount = 0;
 		}
+		m_actionRoot.SetActive(true);
 	}
 
+	public void ResetGauge()
+	{
+		m_finishGauge.Init(gaugeCount, m_fullgaugeCount);
+	}
 	public static BattleManager Get()
 	{
 		return m_instance;
@@ -197,13 +221,17 @@ public class BattleManager : MonoBehaviour
 
 	void OnFinishPressed()
 	{
-		StopCoroutine(m_coroutine);
+		if(m_coroutine != null)
+			StopCoroutine(m_coroutine);
+
 		m_gestureState = GestureState.START;
 
-		if(m_gestureGenerator != null)
-			m_gestureGenerator.DestroyGesture();
-
+//		if(m_gestureGenerator != null)
+//			m_gestureGenerator.DestroyGesture();
 
 		m_beginFinisher = true;
+		m_actionRoot.SetActive(false);
+
+		m_finishButton.isEnabled = false;
 	}
 }

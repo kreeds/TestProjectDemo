@@ -40,7 +40,7 @@ public class GenerateGesture : MonoBehaviour
 		m_guide = Instantiate(Resources.Load("Prefabs/GestureImage")) as GameObject;
 		m_guide.GetComponent<SpriteRenderer>().sprite = m_sprites[m_gestureIndex];
 
-		Debug.Log("Generated Gesture: " + m_gestureIndex);
+		Debug.Log("Generated Gesture: " + m_gestureIndex + " guide: " + m_guide );
 
 		m_guide.layer = LayerMask.NameToLayer("UI");
 		m_guide.transform.SetParent(m_parent);
@@ -80,6 +80,7 @@ public class GenerateGesture : MonoBehaviour
 
 	public void DestroyGesture()
     {
+    	Debug.Log("Destoying Gesture " + m_guide);
 		if(m_guide != null)
 			Destroy(m_guide);
     }
