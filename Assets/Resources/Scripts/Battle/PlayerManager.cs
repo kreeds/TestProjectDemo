@@ -128,8 +128,9 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 	private void OnEffectFinish(){
-		if(m_enemyMgr != null)
-			m_enemyMgr.damageEnemy(m_player.atk * 2);
+		if (m_enemyMgr != null)
+//			m_enemyMgr.damageEnemy(m_player.atk * 2);
+			m_enemyMgr.killEnemy ();
 
 		if(m_battleMgr != null)
 			m_battleMgr.ResetGauge();

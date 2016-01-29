@@ -146,7 +146,15 @@ public class InputManager : MonoBehaviour {
 
                 trailList.Clear();
 
+#if UNITY_IPHONE && !UNITY_EDITOR
+				if (pointsContainer != null)
+					pointsContainer.Clear ();
+				
+				pointsContainer = new List<Point>();
+				pointsContainer.AddRange(currentGesturePoints.ToArray ());
+#else
 				pointsContainer = GenericCopier<List<Point>>.DeepCopy(currentGesturePoints);
+#endif
 
                 IsStartTrailSpawned = false;
                 if (IsGestureRecognizingNeeded) //need more than 2 points for gesture recognition
@@ -190,7 +198,15 @@ public class InputManager : MonoBehaviour {
 
                 trailList.Clear();
 
+#if UNITY_IPHONE && !UNITY_EDITOR
+				if (pointsContainer != null)
+					pointsContainer.Clear ();
+
+				pointsContainer = new List<Point>();
+				pointsContainer.AddRange(currentGesturePoints.ToArray ());
+#else
 				pointsContainer = GenericCopier<List<Point>>.DeepCopy(currentGesturePoints);
+#endif
 
                 IsStartTrailSpawned = false;
                 if (IsGestureRecognizingNeeded) //need more than 2 points for gesture recognition

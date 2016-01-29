@@ -90,4 +90,12 @@ public class EnemyManager : MonoBehaviour {
 		if(m_gauge != null)
 			m_gauge.reduce(damage);
 	}
+
+	public void killEnemy()
+	{
+		if(m_gauge != null)
+			m_gauge.reduce(currentEnemy.Hp);
+
+		currentEnemy.Hp = -1;
+	}
 }

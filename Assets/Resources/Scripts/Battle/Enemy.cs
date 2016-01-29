@@ -22,7 +22,7 @@ public class Idle : FSMState
 
 	public override void OnEnter()
 	{
-		Debug.Log("Entering Idle State");
+		Debug.Log(enemy.name + ": Entering Idle State");
 		// Play Idle Animation
 //		enemy.L2dModel.PlayIdleAnim();
 		enemy.PlayIdleAnim ();
@@ -63,7 +63,7 @@ public class Idle : FSMState
 
 	public override void OnExit()
 	{
-		Debug.Log("Exiting Idle State");
+		Debug.Log(enemy.name + ": Exiting Idle State");
 	}
 }
 
@@ -81,7 +81,7 @@ public class Damaged: FSMState
 
 	public override void OnEnter()
 	{
-		Debug.Log("Entering Damaged State");
+		Debug.Log(enemy.name + ": Entering Damaged State");
 		// Play Attack Animation
 //		enemy.L2dModel.PlayDamageAnim();
 		enemy.PlayDamageAnim ();
@@ -111,7 +111,7 @@ public class Damaged: FSMState
 
 	public override void OnExit()
 	{
-		Debug.Log("Exiting Damaged State");
+		Debug.Log(enemy.name + ": Exiting Damaged State");
 	}
 
 
@@ -136,7 +136,7 @@ public class Attack : FSMState
 	public override void OnEnter()
 	{
 
-		Debug.Log("Entering Attack State");
+		Debug.Log(enemy.name + ": Entering Attack State");
 		// Play Attack Animation
 //		enemy.L2dModel.PlayAttackAnim();
 		enemy.PlayAttackAnim ();
@@ -175,9 +175,22 @@ public class Death : FSMState
 		enemy = emy;
 	}
 
-	public override void Transit()
+	public override void OnEnter()
 	{
 		
+		Debug.Log(enemy.name + ": Entering Death State");
+		// Play Attack Animation
+		//		enemy.L2dModel.PlayAttackAnim();
+		enemy.PlayDeathAnim ();
+	}
+
+	public override void Transit()
+	{
+		if(enemy.IsAnimationComplete())
+		{
+			GameObject.DestroyObject(enemy.gameObject);
+			
+		}
 	}
 
 	public override void Update()
@@ -275,5 +288,9 @@ public class Enemy : MonoBehaviour {
 	public virtual bool IsAnimationComplete()
 	{
 		return true;
+	}
+
+	public virtual void PlayDeathAnim()
+	{
 	}
 }

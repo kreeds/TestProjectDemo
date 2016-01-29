@@ -6,6 +6,7 @@ public class SimpleEnemy : Enemy {
 	[SerializeField]TweenColor 				_tweenColor;
 	[SerializeField]TweenPosition 			_tweenPosition;
 
+	[SerializeField]Animation				_deathAnimation;
 
 	// Use this for initialization
 	void Start () {
@@ -30,10 +31,18 @@ public class SimpleEnemy : Enemy {
 	
 	public override bool IsAnimationComplete()
 	{
-		if (_tweenColor.isActiveAndEnabled || _tweenPosition.isActiveAndEnabled) {
+		if (_tweenColor.isActiveAndEnabled || 
+		    _tweenPosition.isActiveAndEnabled ||
+		    _deathAnimation.isPlaying
+		    ) {
 			return false;
 		}
 		return true;
+	}
+
+	public override void PlayDeathAnim()
+	{
+		_deathAnimation.Play ();
 	}
 
 	void OnDamagedAnim()
