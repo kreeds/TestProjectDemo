@@ -81,13 +81,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 284
-      y: 652
+      y: 505
       width: 543
       height: 111
     inner:
       serializedVersion: 2
       x: 284
-      y: 652
+      y: 505
       width: 543
       height: 111
     rotated: 0
@@ -153,13 +153,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 284
-      y: 764
+      y: 617
       width: 547
       height: 115
     inner:
       serializedVersion: 2
       x: 284
-      y: 764
+      y: 617
       width: 547
       height: 115
     rotated: 0
@@ -189,13 +189,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 617
-      y: 571
+      y: 424
       width: 334
       height: 80
     inner:
       serializedVersion: 2
       x: 617
-      y: 571
+      y: 424
       width: 334
       height: 80
     rotated: 0
@@ -207,13 +207,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 284
-      y: 493
+      y: 346
       width: 327
       height: 75
     inner:
       serializedVersion: 2
       x: 284
-      y: 493
+      y: 346
       width: 327
       height: 75
     rotated: 0
@@ -225,13 +225,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 284
-      y: 569
+      y: 422
       width: 332
       height: 82
     inner:
       serializedVersion: 2
       x: 284
-      y: 569
+      y: 422
       width: 332
       height: 82
     rotated: 0
@@ -239,6 +239,24 @@ MonoBehaviour:
     paddingRight: .0150602413
     paddingTop: .0853658542
     paddingBottom: .134146348
+  - name: Win
+    outer:
+      serializedVersion: 2
+      x: 284
+      y: 733
+      width: 494
+      height: 146
+    inner:
+      serializedVersion: 2
+      x: 284
+      y: 733
+      width: 494
+      height: 146
+    rotated: 0
+    paddingLeft: .135627523
+    paddingRight: .159919024
+    paddingTop: .321917802
+    paddingBottom: .321917802
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

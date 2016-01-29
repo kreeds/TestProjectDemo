@@ -129,7 +129,7 @@ public class InputManager : MonoBehaviour {
     /// </summary>
     void SpecialAttackPhaseCheck()
     {
-	 	if(m_battleMgr.getBattlePhase != BattleManager.BattlePhase.SPECIAL)
+	 	if(m_battleMgr.CurBattlePhase != BattleManager.BattlePhase.SPECIAL)
 	 		return;
 	 		
 		if (!IsTouchInProgress &&  currtime >= timetoEnd)//end
@@ -181,7 +181,7 @@ public class InputManager : MonoBehaviour {
 
 	void AttackPhaseCheck()
     {
-		if(m_battleMgr.getBattlePhase != BattleManager.BattlePhase.ATTACK)
+		if(m_battleMgr.CurBattlePhase != BattleManager.BattlePhase.ATTACK)
 	 		return;
 	 	 
 		if (!IsTouchInProgress)//end

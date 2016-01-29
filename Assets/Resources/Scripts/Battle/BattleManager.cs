@@ -33,6 +33,7 @@ public class BattleManager : MonoBehaviour
 
 	[SerializeField]UIGauge			m_finishGauge;
 	[SerializeField]UIButton		m_finishButton;
+	[SerializeField]GameObject		m_winLogo;
 
 	// Battle Phases
 	public enum BattlePhase
@@ -41,15 +42,19 @@ public class BattleManager : MonoBehaviour
 		ATTACK,
 		SPECIAL,
 		STUNNED,
+		END,
 
 		TOTAL
 
 	};
 
 	BattlePhase m_phase; 
-	public BattlePhase getBattlePhase
+	public BattlePhase CurBattlePhase
 	{
 		get{return m_phase;}
+		set{
+			m_phase = value;
+		}
 	}
 
 	// Gesture State
@@ -183,8 +188,11 @@ public class BattleManager : MonoBehaviour
 				}
 			}
 			break;
-
-			case BattlePhase.STUNNED:
+			case BattlePhase.END:
+			{
+				if(m_winLogo != null)
+					m_winLogo.SetActive(true);
+			}
 			break;
 		}
 	}
@@ -199,7 +207,7 @@ public class BattleManager : MonoBehaviour
 			m_gestureGenerator.DestroyGesture();
 
 		++gaugeCount;
-		m_finishGauge.reduce (-1);
+		m_finishGauge.gain (1);
 
 		if(m_phase == BattlePhase.SPECIAL)
 		{
@@ -218,6 +226,12 @@ public class BattleManager : MonoBehaviour
 		return m_instance;
 	}
 
+	public void ReduceGauge()
+	{
+		--gaugeCount;
+		m_finishGauge.reduce(1);
+	}
+
 
 	void OnFinishPressed()
 	{
@@ -234,4 +248,5 @@ public class BattleManager : MonoBehaviour
 
 		m_finishButton.isEnabled = false;
 	}
+
 }

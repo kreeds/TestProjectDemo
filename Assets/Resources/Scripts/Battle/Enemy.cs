@@ -158,7 +158,7 @@ public class Attack : FSMState
 	public override void OnExit()
 	{
 		pmgr.Damaged(enemy.attack);	
-
+		bmgr.ReduceGauge();
 		// Restart Gesture State
 		bmgr.currentGestureState = BattleManager.GestureState.START;
 		Debug.Log("Exiting Attack State");
@@ -169,10 +169,13 @@ public class Attack : FSMState
 public class Death : FSMState
 {
 	Enemy enemy;
+	BattleManager bmr;
+
 	public Death(Enemy emy)
 	{
 		stateID = StateID.E_DEATH;
 		enemy = emy;
+		bmr = BattleManager.Get();
 	}
 
 	public override void OnEnter()
@@ -186,17 +189,16 @@ public class Death : FSMState
 
 	public override void Transit()
 	{
-		if(enemy.IsAnimationComplete())
-		{
-			GameObject.DestroyObject(enemy.gameObject);
-			
-		}
+
 	}
 
 	public override void Update()
 	{
-		// Play Death Animation
-
+		if(enemy.IsAnimationComplete())
+		{
+			bmr.CurBattlePhase = BattleManager.BattlePhase.END;
+			GameObject.DestroyObject(enemy.gameObject);
+		}
 	}
 }
 

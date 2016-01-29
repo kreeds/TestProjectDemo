@@ -55,6 +55,11 @@ public abstract class FSMState
 			return;
 		}
 
+		if(trans == Transition.E_NOHP)
+		{
+			Debug.Log("trans: " + trans.ToString() + " StateID: " + id.ToString());
+		}
+
 		// check if current map already contains key
 		if(map.ContainsKey(trans))
 		{
@@ -63,6 +68,8 @@ public abstract class FSMState
 		}
 
 		map.Add(trans, id);
+
+		Debug.Log("Sucessfully added: " + trans.ToString() + " id extract: " + map[trans] + " Current StateID: " + STATE_ID.ToString());
 	}
 	// Delete Transition
 	public void DeleteTransition(Transition trans)

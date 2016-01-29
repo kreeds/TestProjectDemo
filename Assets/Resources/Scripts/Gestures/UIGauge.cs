@@ -29,6 +29,7 @@ public class UIGauge : MonoBehaviour {
 		else
 		{
 			m_prevVal = m_currentVal;
+			m_sliderGreen.sliderValue = m_currentVal/m_totalVal;
 			m_sliderRed.sliderValue = m_prevVal/m_totalVal;
 		}
 
