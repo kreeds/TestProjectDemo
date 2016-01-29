@@ -3,9 +3,19 @@
 	"name": "Test_model_PR",
 	"model": "Test_model_PR.moc",
 	"textures": [
-		"Test_model_PR.2048/texture_01.png"
+		"Test_model_PR.2048/texture_00.png",
+		
+		"Test_model_PR.2048/texture_01.png",
+		"Test_model_PR.2048/texture03.png",
+		"Test_model_PR.2048/texture_amichan.png"
 	],
 	"motions":{
+		"idle":[
+			{"file":"motions/Idle01.mtn"}
+		],
+		"normal":[
+			{"file":"motions/attack01.mtn"}
+		],
 		"special":[
 			{"file":"motions/special.mtn"}
 		]
