@@ -1270,7 +1270,7 @@ Transform:
   m_GameObject: {fileID: 145946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .675105393, y: -.675076008, z: -17.1900177}
-  m_LocalScale: {x: .999960005, y: .999960005, z: .999960005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 445950}
   - {fileID: 445948}
@@ -1956,7 +1956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9999b11931e314fe8889c4bc25a5723a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_scrollSpeed: 60
+  m_scrollSpeed: 120
   m_offset: 0
 --- !u!114 &11479694
 MonoBehaviour:
@@ -1976,18 +1976,18 @@ MonoBehaviour:
   widgetsAreStatic: 0
   cullWhileDragging: 0
   worldToLocal:
-    e00: 344.5
+    e00: 320
     e01: 0
     e02: 0
-    e03: -.675105393
+    e03: 1.1920929e-07
     e10: 0
-    e11: 344.5
+    e11: 320
     e12: 0
-    e13: .675076008
+    e13: -2.94446945e-05
     e20: 0
     e21: 0
-    e22: 344.5
-    e23: 396.140015
+    e22: 320
+    e23: 369.190002
     e30: 0
     e31: 0
     e32: 0
@@ -23534,7 +23534,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145166}
   lengthInSec: .5
-  startDelay: 4
+  startDelay: 3.5
   speed: 1
   randomSeed: 0
   looping: 0
