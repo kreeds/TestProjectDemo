@@ -106,6 +106,8 @@ public class PlayerManager : MonoBehaviour {
 
 	public void NormalAttack()
 	{
+		l2dInterface.PlayAttackAnim ();
+
 		if(m_enemyMgr != null)
 			m_enemyMgr.damageEnemy(m_player.atk);
 
