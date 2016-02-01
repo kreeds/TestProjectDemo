@@ -19,8 +19,10 @@
 		"Test_model_PR.2048/BD.png",
 		"Test_model_PR.2048/CD.png",
 		"Test_model_PR.2048/DD.png",
-		
-		"Test_model_PR.2048/texture_01.png",
+	
+	
+
+		"Test_model_PR.2048/texture_00.png",
 		
 		"Test_model_PR.2048/texture_01.png",
 		"Test_model_PR.2048/texture03.png",
@@ -34,7 +36,7 @@
 			{"file":"motions/attack01.mtn"}
 		],
 		"special":[
-			{"file":"motions/special02.mtn"}
+			{"file":"motions/special.mtn"}
 		]
 	}
 }
