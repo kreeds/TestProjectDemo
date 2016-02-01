@@ -209,7 +209,7 @@ public class InputManager : MonoBehaviour {
 #endif
 
                 IsStartTrailSpawned = false;
-                if (IsGestureRecognizingNeeded) //need more than 2 points for gesture recognition
+                if (IsGestureRecognizingNeeded && currentGesturePoints.Count > 0) //need more than 2 points for gesture recognition
                 {
                     string gestureName = mgData.RecognizeGesture(currentGesturePoints);
 					if(mgData.IsRequiredGestureRecognized(	gestureName, mgGesture.getGestureIndex)
