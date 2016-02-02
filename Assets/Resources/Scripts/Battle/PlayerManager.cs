@@ -114,8 +114,11 @@ public class PlayerManager : MonoBehaviour {
 		if(m_battleMgr != null)
 			m_battleMgr.Correct();
 
-		GameObject obj = NGUITools.AddChild (m_panel.gameObject, Resources.Load ("Prefabs/Star1") as GameObject);
+		GameObject obj = NGUITools.AddChild (m_panel.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
 		obj.transform.localPosition = new Vector3 (300, 0);
+
+		GameObject obj2 = NGUITools.AddChild (m_panel.gameObject, Resources.Load ("Prefabs/Button01_Fx") as GameObject);
+		obj2.transform.localPosition = new Vector3 (-210, 90);
 	}
 
 	/// <summary>
