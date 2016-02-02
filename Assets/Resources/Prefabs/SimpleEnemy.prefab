@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 410410}
   - 114: {fileID: 11484274}
   - 111: {fileID: 11124962}
+  - 114: {fileID: 11445446}
   m_Layer: 5
   m_Name: SimpleEnemy
   m_TagString: Untagged
@@ -28,6 +29,7 @@ GameObject:
   - 114: {fileID: 11410412}
   - 114: {fileID: 11484276}
   - 114: {fileID: 11484278}
+  - 114: {fileID: 11447354}
   m_Layer: 5
   m_Name: Texture
   m_TagString: Untagged
@@ -42,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 145.800003, y: -2, z: 0}
+  m_LocalPosition: {x: 247, y: -292, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410412}
@@ -55,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 211, z: 0}
   m_LocalScale: {x: 446.91983, y: 446.91983, z: 1.86216593}
   m_Children: []
   m_Father: {fileID: 410410}
@@ -98,6 +100,81 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mTexture: {fileID: 2800000, guid: 9e8a3ca48d05e441dae80455052e5ab0, type: 3}
   mMat: {fileID: 0}
+--- !u!114 &11445446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e7459110b9666449485c40f25362a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 2
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: 1
+  steeperCurves: 0
+  tweenGroup: 0
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: 1, y: 1, z: 1}
+  to: {x: 1, y: .985000014, z: 1}
+  updateTable: 1
+--- !u!114 &11447354
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 2
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: 1
+  steeperCurves: 0
+  tweenGroup: 0
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: 0, y: 211, z: 0}
+  to: {x: 0, y: 211.5, z: 0}
 --- !u!114 &11484274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,6 +193,7 @@ MonoBehaviour:
   _tweenColor: {fileID: 11484276}
   _tweenPosition: {fileID: 11484278}
   _deathAnimation: {fileID: 11124962}
+  _texture: {fileID: 11410412}
 --- !u!114 &11484276
 MonoBehaviour:
   m_ObjectHideFlags: 1

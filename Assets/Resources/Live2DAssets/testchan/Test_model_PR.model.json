@@ -28,10 +28,12 @@
 	],
 	"motions":{
 		"idle":[
-			{"file":"motions/Idle01.mtn"}
+			{"file":"motions/Idle01.mtn"},
+			{"file":"motions/idle3.mtn"}
 		],
 		"normal":[
-			{"file":"motions/attack01.mtn"}
+			{"file":"motions/attack01.mtn"},
+			{"file":"motions/attack02.mtn"}
 		],
 		"special":[
 			{"file":"motions/special02.mtn"}

@@ -7,11 +7,13 @@ public class SimpleEnemy : Enemy {
 	[SerializeField]TweenPosition 			_tweenPosition;
 
 	[SerializeField]Animation				_deathAnimation;
+	[SerializeField]UITexture					_texture;
 
 	// Use this for initialization
 	void Start () {
 		
 		InitializeStateMachine ();
+		_texture.gameObject.transform.localPosition = new Vector3 (0, 211, 0);
 	}
 	
 	// Update is called once per frame

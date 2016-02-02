@@ -75,7 +75,7 @@ public class PlayerManager : MonoBehaviour {
 		}
 		l2dInterface.LoadProfile ();
 
-		l2dInterface.PlayIdleAnim ();
+		l2dInterface.PlayCombatIdleAnim ();
 	}
 
 	// Update is called once per frame
@@ -113,6 +113,9 @@ public class PlayerManager : MonoBehaviour {
 
 		if(m_battleMgr != null)
 			m_battleMgr.Correct();
+
+		GameObject obj = NGUITools.AddChild (m_panel.gameObject, Resources.Load ("Prefabs/Star1") as GameObject);
+		obj.transform.localPosition = new Vector3 (300, 0);
 	}
 
 	/// <summary>

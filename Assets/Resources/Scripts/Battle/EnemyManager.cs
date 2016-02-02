@@ -54,7 +54,7 @@ public class EnemyManager : MonoBehaviour {
 	void CreateSimpleEnemy()
 	{
 		GameObject obj = NGUITools.AddChild(m_panel.gameObject, Resources.Load("Prefabs/SimpleEnemy") as GameObject);
-		obj.transform.localPosition = new Vector3 (300f, -54f, 0);
+		obj.transform.localPosition = new Vector3 (300f, -292f, 0);
 		currentEnemy = obj.GetComponent<Enemy>();
 		currentEnemy.Initialize(80, 80, 8, 3);
 		
