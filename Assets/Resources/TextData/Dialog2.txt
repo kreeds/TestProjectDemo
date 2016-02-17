@@ -1,0 +1,19 @@
+<Chara>
+0:P
+1:M
+2: 
+<Dialog>
+1^  ..!! I've never entered such a stylish store before...
+<Choice>
+How is this dress?^This suits you!
+<ChoiceEnd>
+<ChoiceEnd>
+1^… Alright. I will try it on. Let’s see how i look in the mirror...
+1^Oh my!! I look so UGLY! These clothes… i am ruining them! I am a disaster!
+1^...is this how i look like? Do i really look like a monster?!! (panic)
+2^It is time to transform and battle! 
+<Choice>
+fight now^fight later?
+<ChoiceEnd>
+<ChoiceEnd>
+<End>

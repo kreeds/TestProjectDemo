@@ -22,6 +22,7 @@ public class CharacterMaker : MonoBehaviour {
 		currentState = CustomizeState.Hair;
 		nameInput.label.text = "Gumi";
 		OnHairButton ();
+		live2DModel.PlayIdleAnim ();
 	}
 	
 	// Update is called once per frame

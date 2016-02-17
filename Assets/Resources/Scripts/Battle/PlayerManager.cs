@@ -75,6 +75,7 @@ public class PlayerManager : MonoBehaviour {
 		}
 		l2dInterface.LoadProfile ();
 
+		l2dInterface.GetModel ().StopBasicMotion (true);
 		l2dInterface.PlayCombatIdleAnim ();
 	}
 
