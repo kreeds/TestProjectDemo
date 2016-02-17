@@ -21,7 +21,7 @@ public class AreaNode: MonoBehaviour {
 
 		Debug.Log("m_pos.x : " + m_pos.x + " m_pos.y: " + m_pos.y);
 		transform.localPosition = new Vector3(m_pos.x, m_pos.y, -10);
-		transform.localScale = new Vector3(50.0f,50.0f,1.0f);
+		transform.localScale = new Vector3(100.0f,100.0f,1.0f);
 
 		m_texture = GetComponent<UITexture>();
 		m_texture.mainTexture = (m_lock)? 

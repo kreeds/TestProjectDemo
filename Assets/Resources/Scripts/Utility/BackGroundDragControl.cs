@@ -9,7 +9,7 @@ public class BackGroundDragControl : MonoBehaviour {
 	void Start () {
 		if(panel != null)
 		{
-			panel.clipRange = new Vector4(panel.clipRange.x, panel.clipRange.y, Screen.width, 0);
+			panel.clipRange = new Vector4(panel.clipRange.x, panel.clipRange.y, 640, 960);
 		}
 	}
 }

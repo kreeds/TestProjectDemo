@@ -12,8 +12,8 @@ public class MapHandler : MonoBehaviour {
 	void LoadArea()
 	{	
 		m_areaNodeList = new List<AreaNode>();
-		m_areaNodeList.Add(CreateAreaNode(1, false, "1-4", new Vector3(661.0f, 50.0f, -10.0f)) );
-		m_areaNodeList.Add(CreateAreaNode(1, true, "1-3", new Vector3(204.6f, 84.9f, -10.0f)) );
+		m_areaNodeList.Add(CreateAreaNode(1, false, "1-4", new Vector3(1312.0f, 147.0f, -10.0f)) );
+		m_areaNodeList.Add(CreateAreaNode(1, true, "1-3", new Vector3(147, 170, -10.0f)) );
 	}
 
 	AreaNode CreateAreaNode(int aid, bool locked, string name, Vector3 pos)
