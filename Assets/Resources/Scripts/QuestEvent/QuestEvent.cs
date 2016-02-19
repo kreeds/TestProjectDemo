@@ -131,6 +131,8 @@ public class QuestEvent : MonoBehaviour {
 
 	[SerializeField]UIGrid		choiceRoot;
 
+	[SerializeField]Collider		textCollider;
+
 	ParseMode 			parseMode;
 
 	int 				charaInSceneCount;
@@ -139,6 +141,8 @@ public class QuestEvent : MonoBehaviour {
 	EventBase			openingEvent;
 
 	EventBase			currentEvent;
+
+	bool 				displayingChoice;
 
 	List<QuestChoiceOption>  choiceList;
 	List<Character> characterList;
@@ -152,7 +156,7 @@ public class QuestEvent : MonoBehaviour {
 
 		currentEvent = openingEvent;
 		ShowCurrentDialog ();
-
+		displayingChoice = false;
 	}
 	
 	// Update is called once per frame
@@ -308,6 +312,8 @@ public class QuestEvent : MonoBehaviour {
 
 			textLabel.text = dialog.dialogLine;
 			nameLabel.text = characterList[dialog.characterID]._name;
+
+			displayingChoice = false;
 		} else if (currentEvent.eventType == EventBase.EventType.Choice) {
 			EventChoice choiceEvent = currentEvent as EventChoice;
 
@@ -321,17 +327,24 @@ public class QuestEvent : MonoBehaviour {
 			}
 
 			choiceRoot.repositionNow = true;
+
+			textCollider.enabled = false;
 		}
 	}
 
 	void OnNext()
 	{
-		Debug.Log ("Dialog pressed");
-		currentEvent = currentEvent.nextEvent;
-		ShowCurrentDialog ();
+		if (displayingChoice == false) {
+			currentEvent = currentEvent.nextEvent;
+			ShowCurrentDialog ();
+		} else {
+			ShowCurrentDialog ();
+		}
 	}
 
 	void OnChoiceSelected(int selected){
+		displayingChoice = true;
+
 		EventChoice choiceEvent = currentEvent as EventChoice;
 
 		if (choiceEvent.nextEvent != null) {
@@ -346,6 +359,9 @@ public class QuestEvent : MonoBehaviour {
 
 		choiceList.Clear ();
 
-		ShowCurrentDialog ();
+//		ShowCurrentDialog ();
+		textLabel.text = choiceEvent.choiceOptions [selected];
+		nameLabel.text = characterList [0]._name;
+		textCollider.enabled = true;
 	}
 }

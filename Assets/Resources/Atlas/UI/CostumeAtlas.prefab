@@ -1,0 +1,274 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &130162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 430162}
+  - 114: {fileID: 11430162}
+  m_Layer: 0
+  m_Name: CostumeAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &430162
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130162}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11430162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: ea86ad85ee2ee44f99c61a5d08a656d4, type: 2}
+  sprites:
+  - name: UI_cos_side_03
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 114
+      width: 187
+      height: 187
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 114
+      width: 187
+      height: 187
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_cos_side_04
+    outer:
+      serializedVersion: 2
+      x: 206
+      y: 325
+      width: 187
+      height: 187
+    inner:
+      serializedVersion: 2
+      x: 206
+      y: 325
+      width: 187
+      height: 187
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_cos_tab_02
+    outer:
+      serializedVersion: 2
+      x: 206
+      y: 6
+      width: 134
+      height: 130
+    inner:
+      serializedVersion: 2
+      x: 206
+      y: 6
+      width: 134
+      height: 130
+    rotated: 0
+    paddingLeft: .417910457
+    paddingRight: .335820884
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_cos_lock
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 18
+      width: 69
+      height: 95
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 18
+      width: 69
+      height: 95
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_cos_sort_shop
+    outer:
+      serializedVersion: 2
+      x: 582
+      y: 423
+      width: 257
+      height: 89
+    inner:
+      serializedVersion: 2
+      x: 582
+      y: 423
+      width: 257
+      height: 89
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_cos_tab_01
+    outer:
+      serializedVersion: 2
+      x: 394
+      y: 24
+      width: 138
+      height: 121
+    inner:
+      serializedVersion: 2
+      x: 394
+      y: 24
+      width: 138
+      height: 121
+    rotated: 0
+    paddingLeft: .405797094
+    paddingRight: .297101438
+    paddingTop: .0247933883
+    paddingBottom: .0495867766
+  - name: UI_cos_sort_owned
+    outer:
+      serializedVersion: 2
+      x: 582
+      y: 333
+      width: 257
+      height: 89
+    inner:
+      serializedVersion: 2
+      x: 582
+      y: 333
+      width: 257
+      height: 89
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_cos_side_02
+    outer:
+      serializedVersion: 2
+      x: 206
+      y: 137
+      width: 187
+      height: 187
+    inner:
+      serializedVersion: 2
+      x: 206
+      y: 137
+      width: 187
+      height: 187
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_cos_side_01
+    outer:
+      serializedVersion: 2
+      x: 394
+      y: 325
+      width: 187
+      height: 187
+    inner:
+      serializedVersion: 2
+      x: 394
+      y: 325
+      width: 187
+      height: 187
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_cos_tab_03
+    outer:
+      serializedVersion: 2
+      x: 582
+      y: 202
+      width: 122
+      height: 130
+    inner:
+      serializedVersion: 2
+      x: 582
+      y: 202
+      width: 122
+      height: 130
+    rotated: 0
+    paddingLeft: .467213124
+    paddingRight: .459016383
+    paddingTop: 0
+    paddingBottom: 0
+  - name: icon03
+    outer:
+      serializedVersion: 2
+      x: 394
+      y: 146
+      width: 168
+      height: 178
+    inner:
+      serializedVersion: 2
+      x: 394
+      y: 146
+      width: 168
+      height: 178
+    rotated: 0
+    paddingLeft: .267857134
+    paddingRight: .255952388
+    paddingTop: .21348314
+    paddingBottom: .224719107
+  - name: icon02
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 302
+      width: 205
+      height: 210
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 302
+      width: 205
+      height: 210
+    rotated: 0
+    paddingLeft: .126829267
+    paddingRight: .121951222
+    paddingTop: .114285715
+    paddingBottom: .104761906
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 130162}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

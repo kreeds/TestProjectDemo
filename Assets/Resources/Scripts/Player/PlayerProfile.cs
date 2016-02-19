@@ -8,6 +8,8 @@ public class PlayerProfile {
 	public int playerHairIndex;
 	public int playerClothesIndex;
 
+	public int stamina;
+
 
 	static PlayerProfile playerProfile;
 
@@ -18,6 +20,7 @@ public class PlayerProfile {
 			playerProfile.playerName = "Test";
 			playerProfile.playerHairIndex = 0;
 			playerProfile.playerClothesIndex = 0;
+			playerProfile.stamina = 20;
 		}
 	
 		return playerProfile;

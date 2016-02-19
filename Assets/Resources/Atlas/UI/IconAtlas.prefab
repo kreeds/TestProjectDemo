@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &166164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 466164}
+  - 114: {fileID: 11466164}
+  m_Layer: 0
+  m_Name: IconAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &466164
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166164}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11466164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 560429e2cb3584552a524cd54e41d9f1, type: 2}
+  sprites:
+  - name: UI_icon01
+    outer:
+      serializedVersion: 2
+      x: 163
+      y: 180
+      width: 164
+      height: 167
+    inner:
+      serializedVersion: 2
+      x: 163
+      y: 180
+      width: 164
+      height: 167
+    rotated: 0
+    paddingLeft: .128048778
+    paddingRight: .152439028
+    paddingTop: .14371258
+    paddingBottom: .113772452
+  - name: UI_icon03
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 150
+      width: 144
+      height: 181
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 150
+      width: 144
+      height: 181
+    rotated: 0
+    paddingLeft: .243055552
+    paddingRight: .215277776
+    paddingTop: .0718232021
+    paddingBottom: .0883977935
+  - name: UI_icon04
+    outer:
+      serializedVersion: 2
+      x: 163
+      y: 348
+      width: 171
+      height: 164
+    inner:
+      serializedVersion: 2
+      x: 163
+      y: 348
+      width: 171
+      height: 164
+    rotated: 0
+    paddingLeft: .122807018
+    paddingRight: .105263159
+    paddingTop: .109756097
+    paddingBottom: .170731708
+  - name: UI_icon05
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 332
+      width: 162
+      height: 180
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 332
+      width: 162
+      height: 180
+    rotated: 0
+    paddingLeft: .135802463
+    paddingRight: .160493821
+    paddingTop: .100000001
+    paddingBottom: .0666666701
+  - name: UI_icon02
+    outer:
+      serializedVersion: 2
+      x: 328
+      y: 223
+      width: 179
+      height: 124
+    inner:
+      serializedVersion: 2
+      x: 328
+      y: 223
+      width: 179
+      height: 124
+    rotated: 0
+    paddingLeft: .0726256967
+    paddingRight: .100558661
+    paddingTop: .25
+    paddingBottom: .443548381
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 166164}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
