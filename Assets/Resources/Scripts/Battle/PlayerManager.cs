@@ -14,6 +14,10 @@ struct PlayerStats
 	public int hp;
 	public int bravebar;
 	public int atk;
+	public int energy;
+	public int totalenergy;
+	public int goldcount;
+	public int gemcount;
 }
 
 public class PlayerManager : MonoBehaviour {

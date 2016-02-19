@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: SSSSS_Battle_UI_HealthBar
     outer:
       serializedVersion: 2
-      x: 111
-      y: 530
+      x: 0
+      y: 500
       width: 158
       height: 64
     inner:
       serializedVersion: 2
-      x: 169
-      y: 540
+      x: 58
+      y: 510
       width: 42
       height: 45
     rotated: 0
@@ -62,14 +62,14 @@ MonoBehaviour:
   - name: SSSSS_Quest_UI_button
     outer:
       serializedVersion: 2
-      x: 0
-      y: 483
+      x: 617
+      y: 1645
       width: 110
       height: 111
     inner:
       serializedVersion: 2
-      x: 0
-      y: 483
+      x: 617
+      y: 1645
       width: 110
       height: 111
     rotated: 0
@@ -80,14 +80,14 @@ MonoBehaviour:
   - name: SSSSS_Quest_UI_button_long
     outer:
       serializedVersion: 2
-      x: 284
-      y: 505
+      x: 0
+      y: 1391
       width: 543
       height: 111
     inner:
       serializedVersion: 2
-      x: 284
-      y: 505
+      x: 0
+      y: 1391
       width: 543
       height: 111
     rotated: 0
@@ -99,13 +99,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 595
+      y: 1619
       width: 283
       height: 284
     inner:
       serializedVersion: 2
       x: 0
-      y: 595
+      y: 1619
       width: 283
       height: 284
     rotated: 0
@@ -117,13 +117,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1002
-      y: 962
+      y: 1986
       width: 21
       height: 62
     inner:
       serializedVersion: 2
       x: 1002
-      y: 962
+      y: 1986
       width: 21
       height: 62
     rotated: 0
@@ -135,13 +135,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 880
+      y: 1904
       width: 663
       height: 144
     inner:
       serializedVersion: 2
       x: 0
-      y: 880
+      y: 1904
       width: 663
       height: 144
     rotated: 0
@@ -152,14 +152,14 @@ MonoBehaviour:
   - name: SSSSS_Quest_UI_button_notext
     outer:
       serializedVersion: 2
-      x: 284
-      y: 617
+      x: 0
+      y: 1503
       width: 547
       height: 115
     inner:
       serializedVersion: 2
-      x: 395
-      y: 617
+      x: 111
+      y: 1503
       width: 319
       height: 115
     rotated: 0
@@ -171,13 +171,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 664
-      y: 932
+      y: 1956
       width: 337
       height: 92
     inner:
       serializedVersion: 2
       x: 664
-      y: 932
+      y: 1956
       width: 337
       height: 92
     rotated: 0
@@ -188,14 +188,14 @@ MonoBehaviour:
   - name: SSSSS_Quest_UI_button_3Coin
     outer:
       serializedVersion: 2
-      x: 617
-      y: 424
+      x: 548
+      y: 1538
       width: 334
       height: 80
     inner:
       serializedVersion: 2
-      x: 617
-      y: 424
+      x: 548
+      y: 1538
       width: 334
       height: 80
     rotated: 0
@@ -206,14 +206,14 @@ MonoBehaviour:
   - name: SSSSS_Quest_UI_button_4Gem
     outer:
       serializedVersion: 2
-      x: 284
-      y: 346
+      x: 544
+      y: 1427
       width: 327
       height: 75
     inner:
       serializedVersion: 2
-      x: 284
-      y: 346
+      x: 544
+      y: 1427
       width: 327
       height: 75
     rotated: 0
@@ -225,13 +225,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 284
-      y: 422
+      y: 1674
       width: 332
       height: 82
     inner:
       serializedVersion: 2
       x: 284
-      y: 422
+      y: 1674
       width: 332
       height: 82
     rotated: 0
@@ -243,13 +243,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 284
-      y: 733
+      y: 1757
       width: 494
       height: 146
     inner:
       serializedVersion: 2
       x: 284
-      y: 733
+      y: 1757
       width: 494
       height: 146
     rotated: 0
@@ -257,6 +257,258 @@ MonoBehaviour:
     paddingRight: .159919024
     paddingTop: .321917802
     paddingBottom: .321917802
+  - name: UI_icon04
+    outer:
+      serializedVersion: 2
+      x: 731
+      y: 988
+      width: 171
+      height: 164
+    inner:
+      serializedVersion: 2
+      x: 731
+      y: 988
+      width: 171
+      height: 164
+    rotated: 0
+    paddingLeft: .122807018
+    paddingRight: .105263159
+    paddingTop: .109756097
+    paddingBottom: .170731708
+  - name: UI_icon02
+    outer:
+      serializedVersion: 2
+      x: 179
+      y: 828
+      width: 179
+      height: 124
+    inner:
+      serializedVersion: 2
+      x: 179
+      y: 828
+      width: 179
+      height: 124
+    rotated: 0
+    paddingLeft: .0726256967
+    paddingRight: .100558661
+    paddingTop: .25
+    paddingBottom: .443548381
+  - name: UI_icon05
+    outer:
+      serializedVersion: 2
+      x: 568
+      y: 972
+      width: 162
+      height: 180
+    inner:
+      serializedVersion: 2
+      x: 568
+      y: 972
+      width: 162
+      height: 180
+    rotated: 0
+    paddingLeft: .135802463
+    paddingRight: .160493821
+    paddingTop: .100000001
+    paddingBottom: .0666666701
+  - name: UI_icon03
+    outer:
+      serializedVersion: 2
+      x: 876
+      y: 1209
+      width: 144
+      height: 181
+    inner:
+      serializedVersion: 2
+      x: 876
+      y: 1209
+      width: 144
+      height: 181
+    rotated: 0
+    paddingLeft: .243055552
+    paddingRight: .215277776
+    paddingTop: .0718232021
+    paddingBottom: .0883977935
+  - name: UI_icon01
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 565
+      width: 164
+      height: 167
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 565
+      width: 164
+      height: 167
+    rotated: 0
+    paddingLeft: .128048778
+    paddingRight: .152439028
+    paddingTop: .14371258
+    paddingBottom: .113772452
+  - name: icon03
+    outer:
+      serializedVersion: 2
+      x: 399
+      y: 974
+      width: 168
+      height: 178
+    inner:
+      serializedVersion: 2
+      x: 399
+      y: 974
+      width: 168
+      height: 178
+    rotated: 0
+    paddingLeft: .267857134
+    paddingRight: .255952388
+    paddingTop: .21348314
+    paddingBottom: .224719107
+  - name: icon08
+    outer:
+      serializedVersion: 2
+      x: 779
+      y: 1664
+      width: 243
+      height: 239
+    inner:
+      serializedVersion: 2
+      x: 779
+      y: 1664
+      width: 243
+      height: 239
+    rotated: 0
+    paddingLeft: .0329218097
+    paddingRight: .0205761325
+    paddingTop: .0376569033
+    paddingBottom: .0334728025
+  - name: icon05
+    outer:
+      serializedVersion: 2
+      x: 205
+      y: 953
+      width: 193
+      height: 199
+    inner:
+      serializedVersion: 2
+      x: 205
+      y: 953
+      width: 193
+      height: 199
+    rotated: 0
+    paddingLeft: .170984462
+    paddingRight: .15544042
+    paddingTop: .180904523
+    paddingBottom: .105527639
+  - name: icon09
+    outer:
+      serializedVersion: 2
+      x: 461
+      y: 1169
+      width: 208
+      height: 221
+    inner:
+      serializedVersion: 2
+      x: 461
+      y: 1169
+      width: 208
+      height: 221
+    rotated: 0
+    paddingLeft: .129807696
+    paddingRight: .100961536
+    paddingTop: .0588235296
+    paddingBottom: .0995475128
+  - name: icon06
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1153
+      width: 227
+      height: 237
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1153
+      width: 227
+      height: 237
+    rotated: 0
+    paddingLeft: .0925110132
+    paddingRight: .0352422893
+    paddingTop: .0464135036
+    paddingBottom: .0337552726
+  - name: icon07
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 953
+      width: 204
+      height: 199
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 953
+      width: 204
+      height: 199
+    rotated: 0
+    paddingLeft: .0882352963
+    paddingRight: .166666672
+    paddingTop: .125628144
+    paddingBottom: .160804018
+  - name: icon02
+    outer:
+      serializedVersion: 2
+      x: 670
+      y: 1180
+      width: 205
+      height: 210
+    inner:
+      serializedVersion: 2
+      x: 670
+      y: 1180
+      width: 205
+      height: 210
+    rotated: 0
+    paddingLeft: .126829267
+    paddingRight: .121951222
+    paddingTop: .114285715
+    paddingBottom: .104761906
+  - name: icon04
+    outer:
+      serializedVersion: 2
+      x: 228
+      y: 1169
+      width: 232
+      height: 221
+    inner:
+      serializedVersion: 2
+      x: 228
+      y: 1169
+      width: 232
+      height: 221
+    rotated: 0
+    paddingLeft: .0603448264
+    paddingRight: .043103449
+    paddingTop: .0904977396
+    paddingBottom: .0678733066
+  - name: icon00
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 733
+      width: 178
+      height: 219
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 733
+      width: 178
+      height: 219
+    rotated: 0
+    paddingLeft: .196629211
+    paddingRight: .241573036
+    paddingTop: .0730593577
+    paddingBottom: .0958904102
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
