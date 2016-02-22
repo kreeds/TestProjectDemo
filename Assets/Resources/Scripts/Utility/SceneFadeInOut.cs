@@ -17,7 +17,7 @@ public class SceneFadeInOut : MonoBehaviour
     {
 		if(guiTex != null)
        	// Set the texture so that it is the the size of the screen and covers it.
-       	guiTex.transform.localScale = new Vector3(640, 960, 1);
+       	guiTex.transform.localScale = new Vector3(2048, 2048, 1);
     }
 
     IEnumerator FadeToClear ()

@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HUDHandler : MonoBehaviour {
+public enum GAUGE
+{
+	ENEMY = 0,
+	PLAYER,
+	MAX
+};
 
+public class HUDHandler : MonoBehaviour {
 	// Label fields to be inserted
 	[SerializeField]UILabel m_energyLabel;
 	[SerializeField]UILabel m_goldLabel;
@@ -12,6 +18,7 @@ public class HUDHandler : MonoBehaviour {
 	[SerializeField]GameObject m_Top;
 	[SerializeField]GameObject m_Bottom;
 
+	public UIGauge[] HPBars;
 
 	#region Mono
 	void Awake()
@@ -26,11 +33,20 @@ public class HUDHandler : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-	
+	 
 	}
 	#endregion
 
 	#region Public
+	public void CreateBattleHUD()
+	{
+		HPBars = new UIGauge[2];
+		GameObject obj = NGUITools.AddChild(gameObject, Instantiate(Resources.Load("Prefabs/Battle/HpBar")) as GameObject);
+		HPBars[(int)GAUGE.ENEMY] = obj.GetComponent<UIGauge>();
+		obj = Instantiate(Resources.Load("Prefabs/Battle/HpBar")) as GameObject;
+		HPBars[(int)GAUGE.PLAYER] = obj.GetComponent<UIGauge>();
+	}
+
 	public void ShowTop(bool show)
 	{
 		m_Top.SetActive(show);
