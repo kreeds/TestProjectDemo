@@ -129,6 +129,9 @@ public class QuestEvent : MonoBehaviour {
 	[SerializeField]UILabel			nameLabel;
 	[SerializeField]UILabel			textLabel;
 
+	[SerializeField]UILabel			playerText;
+	[SerializeField]UILabel			otherText;
+
 	[SerializeField]UIGrid		choiceRoot;
 
 	[SerializeField]Collider		textCollider;
@@ -306,12 +309,17 @@ public class QuestEvent : MonoBehaviour {
 	void ShowCurrentDialog()
 	{
 		if (currentEvent == null)
-			return;
+			return; //go to next scene here
 		if (currentEvent.eventType == EventBase.EventType.Dialog) {
 			EventDialog dialog = currentEvent as EventDialog;
 
-			textLabel.text = dialog.dialogLine;
-			nameLabel.text = characterList[dialog.characterID]._name;
+			if (dialog.characterID != 0){
+				otherText.text = dialog.dialogLine;
+				nameLabel.text = characterList[dialog.characterID]._name;
+				playerText.text = "";
+			}else{
+				playerText.text = dialog.dialogLine;
+			}
 
 			displayingChoice = false;
 		} else if (currentEvent.eventType == EventBase.EventType.Choice) {
@@ -346,12 +354,12 @@ public class QuestEvent : MonoBehaviour {
 		displayingChoice = true;
 
 		EventChoice choiceEvent = currentEvent as EventChoice;
-
-		if (choiceEvent.nextEvent != null) {
-			currentEvent = choiceEvent.nextEvent;
-		} else if (choiceEvent.nextEvents.Count > 0){
+		if (choiceEvent.nextEvents.Count > 0){
 			currentEvent = choiceEvent.nextEvents [selected];
 		}
+		else {
+			currentEvent = choiceEvent.nextEvent;
+		} 
 
 		foreach (QuestChoiceOption option in choiceList) {
 			Destroy(option.gameObject);

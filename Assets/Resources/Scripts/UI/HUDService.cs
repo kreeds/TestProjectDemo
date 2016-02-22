@@ -21,6 +21,11 @@ public class HUDService : CSingleton {
 
 	}
 
+	public HUDHandler HUDControl
+	{
+		get{ return m_handler;}
+	}
+
 	public void StartScene()
 	{
 		m_scene.StartScene();

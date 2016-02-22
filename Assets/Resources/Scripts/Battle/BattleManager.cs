@@ -31,6 +31,8 @@ public class BattleManager : MonoBehaviour
 	bool m_gestureStart;
 	bool m_beginFinisher;
 
+	HUDService m_HUDService;
+
 	[SerializeField]UIGauge			m_finishGauge;
 	[SerializeField]UIButton		m_finishButton;
 	[SerializeField]GameObject		m_winLogo;
@@ -104,6 +106,11 @@ public class BattleManager : MonoBehaviour
 		m_finishGauge.Init (gaugeCount, m_fullgaugeCount);
 
 		m_finishButton.isEnabled = false;
+
+		Service.Init();
+		m_HUDService = Service.Get<HUDService>();
+		m_HUDService.StartScene();
+		m_HUDService.ShowBottom(false);
 	}
 
 	IEnumerator CommenceAttack()
