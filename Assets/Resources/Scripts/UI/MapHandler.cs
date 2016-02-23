@@ -22,7 +22,7 @@ public class MapHandler : MonoBehaviour {
 		obj.transform.parent = gameObject.transform;
 		obj.layer = gameObject.layer;
 		AreaNode an =  obj.GetComponent<AreaNode>();
-		an.Init(aid, locked, name, pos);
+		an.Init(aid, locked, false, name, pos);
 
 		return an;
 	}
