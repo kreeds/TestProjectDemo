@@ -124,12 +124,19 @@ public class Character
 public class Scene
 {
 	public List<Character> characterList;
-	public List<Vector2> dialogList;
+	public List<Drama> dialogList;
 
-	public Vector2 playerPos;
+	public Vector2 playerPos; //position of player at start of scene
 
 	public int bgID;
+}
+
+public class Drama
+{
 	public string dramaFile;
+	public Vector2 loc;
+	public Vector2 playerPos; //position of player at start of convo
+	public int direction;
 }
 
 public class QuestEvent : MonoBehaviour {
@@ -221,13 +228,18 @@ public class QuestEvent : MonoBehaviour {
 			++i;
 		}
 
-		foreach (Vector2 pos in currentScene.dialogList) {
+		foreach (Drama drama in currentScene.dialogList) {
 			
 			GameObject obj = NGUITools.AddChild(bubbleGroup, Resources.Load("Prefabs/AreaNode") as GameObject);
+
 			AreaNode an =  obj.GetComponent<AreaNode>();
-			an.Init(0, false, true, "Bubble", pos);
+			an.Init(0, false, true, "Bubble", drama.loc);
 			an.receiver = gameObject;
 			an.callback = "OnBubbleClicked";
+
+			Vector3 scale = obj.transform.localScale;
+			scale.x *= drama.direction;
+			obj.transform.localScale = scale;
 		}
 
 		backgroundTexture.mainTexture = Resources.Load ("Texture/bg0" + currentScene.bgID) as Texture;
@@ -245,23 +257,17 @@ public class QuestEvent : MonoBehaviour {
 	{
 		currentScene = new Scene ();
 		currentScene.characterList = new List<Character> ();
-		currentScene.dialogList = new List<Vector2> ();
+		currentScene.dialogList = new List<Drama> ();
 		ParseMode parseMode = ParseMode.None;
 
 		Character currentCharacter = null;
 
-		Vector2 currentDramaLocation = new Vector2();
+		Drama currentDrama = null;
 
 		foreach (string line in questData) {
 			if (line.Contains("BG")){
 				string[] parts = line.Split(':');
 				currentScene.bgID = int.Parse(parts[1]);
-			}
-			if (line.Contains("DramaFilename")){
-				
-				string[] parts = line.Split(':');
-				currentScene.dramaFile = parts[1];
-				continue;
 			}
 			if (line.Contains("<CharaSetup>")){
 				parseMode = ParseMode.CharaSetup;
@@ -274,8 +280,11 @@ public class QuestEvent : MonoBehaviour {
 			}
 			if (line.Contains("<Drama>")){
 				parseMode = ParseMode.DramaLocation;
-				currentDramaLocation = new Vector2();
+				currentDrama = new Drama();
 				continue;
+			}
+			if (line.Contains("<DramaEnd>")){
+				currentScene.dialogList.Add(currentDrama);
 			}
 			switch (parseMode){
 			case ParseMode.PlayerSetup:
@@ -315,18 +324,22 @@ public class QuestEvent : MonoBehaviour {
 						currentCharacter._name = parts[1];
 					}
 				}
-
 				break;
 
 			case ParseMode.DramaLocation:
 				if (line.Contains(":")){
 					string[] parts = line.Split(':');
-					if (line.Contains("x")){
-						currentDramaLocation.x = int.Parse(parts[1]);
+					if (line.Contains("x:")){
+						currentDrama.loc.x = int.Parse(parts[1]);
 					}
-					if (line.Contains("y")){
-						currentDramaLocation.y = int.Parse(parts[1]);
-						currentScene.dialogList.Add (currentDramaLocation);
+					if (line.Contains("y:")){
+						currentDrama.loc.y = int.Parse(parts[1]);
+					}
+					if (line.Contains("DramaFilename")){
+						currentDrama.dramaFile = parts[1];
+					}
+					if (line.Contains("side")){
+						currentDrama.direction = int.Parse(parts[1]);
 					}
 				}
 				break;
@@ -545,7 +558,9 @@ public class QuestEvent : MonoBehaviour {
 	void OnBubbleClicked(int selected){
 		bubbleGroup.SetActive (false);
 
-		float dialogLoc = currentScene.dialogList [0].x;
+		Drama selectedDrama = currentScene.dialogList [selected];
+
+		float dialogLoc = selectedDrama.loc.x;
 
 		Vector3 pos = scenePanel.transform.localPosition;
 		float diff = pos.x - dialogLoc;
@@ -556,7 +571,7 @@ public class QuestEvent : MonoBehaviour {
 		clipPos.x = dialogLoc;
 		scenePanel.clipRange = clipPos;
 
-		LoadEvent (currentScene.dramaFile);
+		LoadEvent (selectedDrama.dramaFile);
 
 		pos = eventBase.transform.localPosition;
 		pos.x = dialogLoc;
