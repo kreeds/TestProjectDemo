@@ -46,12 +46,21 @@ public class CostumeScene : MonoBehaviour {
 
 	[SerializeField]LAppModelProxy		_l2dModel;
 
+	
+	[SerializeField]SceneFadeInOut fader;
+	
+	HUDService m_hudService;
+
 	int currentGroupID;
 	int costumeGroupID;
 
 	// Use this for initialization
 	void Start () {
-	
+		
+		Service.Init();	
+		m_hudService = Service.Get<HUDService>();
+		m_hudService.StartScene();
+
 		PutTestData ();
 
 		currentGroupID = costumeGroupID = 0;
@@ -209,5 +218,10 @@ public class CostumeScene : MonoBehaviour {
 			_l2dModel.SetHair (itemID - 100);
 		}
 
+	}
+
+	void OnHomeClick()
+	{
+		fader.ChangeScene("MainMenu");
 	}
 }

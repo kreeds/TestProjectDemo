@@ -8,9 +8,13 @@ public class AreaNode: MonoBehaviour {
 	public string 		m_name;
 	public Vector2 		m_pos;
 
-	UITexture			m_texture;
+	public string 		callback;
+	public GameObject	receiver;
 
-	public void Init(int aid, bool alock, string name, Vector3 position)
+//	UITexture			m_texture;
+	[SerializeField]UISprite 		m_sprite;
+
+	public void Init(int aid, bool alock, bool dialog, string name, Vector3 position)
 	{
 		m_areaid = aid;
 		m_lock = alock;
@@ -23,21 +27,26 @@ public class AreaNode: MonoBehaviour {
 		transform.localPosition = new Vector3(m_pos.x, m_pos.y, -10);
 		transform.localScale = new Vector3(100.0f,100.0f,1.0f);
 
-		m_texture = GetComponent<UITexture>();
-		m_texture.mainTexture = (m_lock)? 
-									Resources.Load("Texture/icon07") as Texture :
-									Resources.Load("Texture/icon08") as Texture ;
-									
+//		m_texture = GetComponent<UITexture>();
+//		m_texture.mainTexture = (m_lock)? 
+//									Resources.Load("Texture/icon07") as Texture :
+//									Resources.Load("Texture/icon08") as Texture ;
+
+		if (m_sprite != null) {
+			m_sprite.spriteName = m_lock? "icon07" : dialog? "icon06": "icon08";
+		}							
 		
 	}
 
 	void Awake()
 	{
-		m_texture = gameObject.GetComponent<UITexture>();
+//		m_texture = gameObject.GetComponent<UITexture>();
 	}
 	void OnClick()
 	{
 		Debug.Log("OnClicked");
+
+		receiver.SendMessage (callback, m_areaid);
 		// Scene Changing
 	}
 }

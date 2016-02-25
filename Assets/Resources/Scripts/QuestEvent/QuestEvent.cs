@@ -109,6 +109,11 @@ public class Character
 {
 	public int _id;
 	public string _name;
+	public int _isL2d;
+	public int xpos;
+	public int ypos;
+	public int hairId;
+	public int clothesId;
 	public Character(int id = 0, string name = "")
 	{
 		_id = id;
@@ -116,27 +121,63 @@ public class Character
 	}
 };
 
+public class Scene
+{
+	public List<Character> characterList;
+	public List<Drama> dialogList;
+
+	public Vector2 playerPos; //position of player at start of scene
+
+	public int bgID;
+}
+
+public class Drama
+{
+	public string dramaFile;
+	public Vector2 loc;
+	public Vector2 playerPos; //position of player at start of convo
+	public int direction;
+}
+
 public class QuestEvent : MonoBehaviour {
 
 	enum ParseMode
 	{
 		None,
+		CharaSetup,
+		PlayerSetup,
+		DramaLocation,
+		DramaFilename,
+
 		Character,
 		Dialog,
 		Choice,
 	}
-
 	[SerializeField]UILabel			nameLabel;
 	[SerializeField]UILabel			textLabel;
 
 	[SerializeField]UILabel			playerText;
 	[SerializeField]UILabel			otherText;
 
-	[SerializeField]UIGrid		choiceRoot;
+	[SerializeField]UITexture		backgroundTexture;
+
+	[SerializeField]UIGrid			choiceRoot;
 
 	[SerializeField]Collider		textCollider;
 
-	ParseMode 			parseMode;
+	[SerializeField]GameObject		eventBase;
+	[SerializeField]GameObject		bubbleGroup;
+
+	[SerializeField]LAppModelProxy[] eventCharas;
+
+	[SerializeField]SceneFadeInOut fader;
+
+	[SerializeField]UIPanel			scenePanel;
+
+	[SerializeField]LAppModelProxy	playerChara;
+	
+	HUDService m_hudService;
+
 
 	int 				charaInSceneCount;
 
@@ -148,23 +189,162 @@ public class QuestEvent : MonoBehaviour {
 	bool 				displayingChoice;
 
 	List<QuestChoiceOption>  choiceList;
-	List<Character> characterList;
+	static List<Character> characterList;
+
+	static Scene currentScene;
 
 	// Use this for initialization
 	void Start () {
-		choiceList = new List<QuestChoiceOption> ();
-		parseMode = ParseMode.None;
-		charaInSceneCount = 0;
-		LoadEvent ("TextData/Dialog2");
+//		Service.Init();	
+//		m_hudService = Service.Get<HUDService>();
+//		m_hudService.StartScene();
 
-		currentEvent = openingEvent;
-		ShowCurrentDialog ();
-		displayingChoice = false;
+		choiceList = new List<QuestChoiceOption> ();
+		charaInSceneCount = 0;
+
+		LoadScene ();
+		InitializeScene ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	void InitializeScene()
+	{
+		eventBase.SetActive (false);
+
+		if (currentScene == null)
+			return;
+
+		int i = 0;
+		foreach (Character chara in currentScene.characterList) {
+			eventCharas[i].transform.localPosition = new Vector3(chara.xpos, chara.ypos, -7);
+
+			eventCharas[i].SetHair(chara.hairId);
+			eventCharas[i].SetClothes(chara.clothesId);
+
+			++i;
+		}
+
+		foreach (Drama drama in currentScene.dialogList) {
+			
+			GameObject obj = NGUITools.AddChild(bubbleGroup, Resources.Load("Prefabs/AreaNode") as GameObject);
+
+			AreaNode an =  obj.GetComponent<AreaNode>();
+			an.Init(0, false, true, "Bubble", drama.loc);
+			an.receiver = gameObject;
+			an.callback = "OnBubbleClicked";
+
+			Vector3 scale = obj.transform.localScale;
+			scale.x *= drama.direction;
+			obj.transform.localScale = scale;
+		}
+
+		backgroundTexture.mainTexture = Resources.Load ("Texture/bg0" + currentScene.bgID) as Texture;
+	}
+
+	static public void LoadScene()
+	{
+		TextAsset asset = Resources.Load ("TextData/Quest1") as TextAsset;
+		if (asset != null) {
+			LoadQuest (asset.text.Split ('\n'));
+		}
+	}
+
+	static void LoadQuest(string[] questData)
+	{
+		currentScene = new Scene ();
+		currentScene.characterList = new List<Character> ();
+		currentScene.dialogList = new List<Drama> ();
+		ParseMode parseMode = ParseMode.None;
+
+		Character currentCharacter = null;
+
+		Drama currentDrama = null;
+
+		foreach (string line in questData) {
+			if (line.Contains("BG")){
+				string[] parts = line.Split(':');
+				currentScene.bgID = int.Parse(parts[1]);
+			}
+			if (line.Contains("<CharaSetup>")){
+				parseMode = ParseMode.CharaSetup;
+				continue;
+			}
+
+			if (line.Contains("<PlayerSetup>")){
+				parseMode = ParseMode.PlayerSetup;
+				continue;
+			}
+			if (line.Contains("<Drama>")){
+				parseMode = ParseMode.DramaLocation;
+				currentDrama = new Drama();
+				continue;
+			}
+			if (line.Contains("<DramaEnd>")){
+				currentScene.dialogList.Add(currentDrama);
+			}
+			switch (parseMode){
+			case ParseMode.PlayerSetup:
+				if (line.Contains(":")){
+					string[] parts = line.Split(':');
+					if (line.Contains("x")){
+						currentScene.playerPos.x = int.Parse(parts[1]);
+					}
+					if (line.Contains("y")){
+						currentScene.playerPos.y = int.Parse(parts[1]);
+					}
+				}
+				break;
+
+			case ParseMode.CharaSetup:
+				if (line.Contains("<Chara>")){
+					currentCharacter = new Character(currentScene.characterList.Count);
+				}
+				if (line.Contains("<CharaEnd>")){
+					currentScene.characterList.Add(currentCharacter);
+				}
+				if (line.Contains(":")){
+					string[] parts = line.Split(':');
+					if (line.Contains("x")){
+						currentCharacter.xpos = int.Parse(parts[1]);
+					}
+					if (line.Contains("y")){
+						currentCharacter.ypos = int.Parse(parts[1]);
+					}
+					if (line.Contains("hair")){
+						currentCharacter.hairId = int.Parse(parts[1]);
+					}
+					if (line.Contains("clothes")){
+						currentCharacter.clothesId = int.Parse(parts[1]);
+					}
+					if (line.Contains("name")){
+						currentCharacter._name = parts[1];
+					}
+				}
+				break;
+
+			case ParseMode.DramaLocation:
+				if (line.Contains(":")){
+					string[] parts = line.Split(':');
+					if (line.Contains("x:")){
+						currentDrama.loc.x = int.Parse(parts[1]);
+					}
+					if (line.Contains("y:")){
+						currentDrama.loc.y = int.Parse(parts[1]);
+					}
+					if (line.Contains("DramaFilename")){
+						currentDrama.dramaFile = parts[1];
+					}
+					if (line.Contains("side")){
+						currentDrama.direction = int.Parse(parts[1]);
+					}
+				}
+				break;
+			}
+		}
 	}
 
 	void LoadEvent(string filename)
@@ -175,7 +355,9 @@ public class QuestEvent : MonoBehaviour {
 		}
 	}
 
-	void LoadEvent(string[] questData){
+	void LoadEvent(string[] questDialog){
+		
+		ParseMode parseMode = ParseMode.None;
 
 		EventBase currentEvent = null;
 		characterList = new List<Character>();
@@ -190,7 +372,7 @@ public class QuestEvent : MonoBehaviour {
 		bool mergePending = false;
 		priorityQueue.Add (currentBranch);
 
-		foreach (string dataLine in questData) {
+		foreach (string dataLine in questDialog) {
 			if (dataLine == "<Chara>"){
 				parseMode = ParseMode.Character;
 				continue;
@@ -371,5 +553,40 @@ public class QuestEvent : MonoBehaviour {
 		textLabel.text = choiceEvent.choiceOptions [selected];
 		nameLabel.text = characterList [0]._name;
 		textCollider.enabled = true;
+	}
+
+	void OnBubbleClicked(int selected){
+		bubbleGroup.SetActive (false);
+
+		Drama selectedDrama = currentScene.dialogList [selected];
+
+		float dialogLoc = selectedDrama.loc.x;
+
+		Vector3 pos = scenePanel.transform.localPosition;
+		float diff = pos.x - dialogLoc;
+		pos.x = -dialogLoc;
+		scenePanel.transform.localPosition = pos;
+
+		Vector4 clipPos = scenePanel.clipRange;
+		clipPos.x = dialogLoc;
+		scenePanel.clipRange = clipPos;
+
+		LoadEvent (selectedDrama.dramaFile);
+
+		pos = eventBase.transform.localPosition;
+		pos.x = dialogLoc;
+		eventBase.transform.localPosition = pos;
+		eventBase.SetActive (true);
+
+		pos = playerChara.transform.localPosition;
+		pos.x = currentScene.playerPos.x;
+
+		playerChara.transform.localPosition = pos;
+
+		currentEvent = openingEvent; //move it to after the event dialog is loaded
+		ShowCurrentDialog ();
+		displayingChoice = false;
+
+
 	}
 }
