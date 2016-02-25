@@ -96,7 +96,7 @@ public class FiniteStateMachine{
 		StateID id = currentState.GetStateFromTrans(trans);
 		if(id == StateID.NULL)
 		{
-			Debug.LogError("Unable to get State trans");
+			Debug.LogError("Unable to get State trans: " + trans.ToString());
 			return;
 		}
 

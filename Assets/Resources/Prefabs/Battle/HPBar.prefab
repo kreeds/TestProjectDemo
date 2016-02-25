@@ -25,13 +25,14 @@ GameObject:
   m_Component:
   - 4: {fileID: 466112}
   - 114: {fileID: 11466112}
+  - 114: {fileID: 11482634}
   m_Layer: 5
   m_Name: HPBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &166114
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,8 +74,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11, y: 0, z: 0}
-  m_LocalScale: {x: 222, y: 24, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 745, y: 83, z: 1}
   m_Children: []
   m_Father: {fileID: 466112}
   m_RootOrder: 1
@@ -86,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 166112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -423, y: 233, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: .600000024, y: .600000024, z: 1}
   m_Children:
   - {fileID: 466114}
   - {fileID: 466110}
@@ -100,8 +101,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 200, y: 12, z: 1}
+  m_LocalPosition: {x: 42, y: 2.20000005, z: 0}
+  m_LocalScale: {x: 664.664062, y: 60, z: 1}
   m_Children: []
   m_Father: {fileID: 466112}
   m_RootOrder: 0
@@ -112,8 +113,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 200.000015, y: 12.0000601, z: .999908984}
+  m_LocalPosition: {x: 42, y: 2.20000005, z: 0}
+  m_LocalScale: {x: 664.664062, y: 60, z: .999908984}
   m_Children: []
   m_Father: {fileID: 466112}
   m_RootOrder: 2
@@ -131,8 +132,8 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
   mDepth: 0
-  mAtlas: {fileID: 11400000, guid: d4ef034eb0c574d74959b94ae462050d, type: 2}
-  mSpriteName: btl_gui_HPguageBox_01
+  mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
+  mSpriteName: battle02
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -181,11 +182,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mColor: {r: 0, g: 1, b: 0, a: 1}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
   mDepth: 2
-  mAtlas: {fileID: 11400000, guid: d4ef034eb0c574d74959b94ae462050d, type: 2}
-  mSpriteName: gage
+  mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
+  mSpriteName: Battle04
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -220,16 +221,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mColor: {r: 1, g: 0, b: 0, a: 1}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
   mDepth: 1
-  mAtlas: {fileID: 11400000, guid: d4ef034eb0c574d74959b94ae462050d, type: 2}
-  mSpriteName: gage
+  mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
+  mSpriteName: SSSSS_Battle_UI_Health
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
+--- !u!114 &11482634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortByDepth: 1
+  showInPanelTool: 1
+  generateNormals: 0
+  depthPass: 0
+  widgetsAreStatic: 0
+  cullWhileDragging: 0
+  worldToLocal:
+    e00: 1.66666663
+    e01: 0
+    e02: 0
+    e03: 705
+    e10: 0
+    e11: 1.66666663
+    e12: 0
+    e13: -388.333313
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  mAlpha: 1
+  mDebugInfo: 1
+  mClipping: 0
+  mClipRange: {x: 0, y: 0, z: 0, w: 0}
+  mClipSoftness: {x: 40, y: 40}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

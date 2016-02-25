@@ -9,12 +9,12 @@ public class BattleManager : MonoBehaviour
 	public delegate void GestureMethod();
 	GestureMethod GestureGenerateMethod;
 
-	public InputManager m_gestureHandler;
 	public GenerateGesture m_gestureGenerator;
 	public GameObject	m_actionRoot;
 
 	EnemyManager	m_enemyMgr;
 	PlayerManager	m_playerMgr;
+	InputManager	m_gestureHandler;
 
 
 	public int m_fullgaugeCount = 5;
@@ -94,6 +94,7 @@ public class BattleManager : MonoBehaviour
 	{
 		m_enemyMgr = EnemyManager.Get();
 		m_playerMgr = PlayerManager.Get();
+		m_gestureHandler = InputManager.Get();
 
 		m_gestureStart = false;
 		m_beginFinisher = false;
@@ -110,6 +111,9 @@ public class BattleManager : MonoBehaviour
 		Service.Init();
 		m_HUDService = Service.Get<HUDService>();
 		m_HUDService.StartScene();
+
+		// Create Battle HUD
+		m_HUDService.CreateBattleHUD();
 		m_HUDService.ShowBottom(false);
 	}
 
@@ -136,9 +140,6 @@ public class BattleManager : MonoBehaviour
 		m_actionRoot.SetActive(true);
 		m_phase = BattlePhase.ATTACK;
 
-//		yield return new WaitForSeconds(m_interval);
-//		m_gestureState = GestureState.START;
-
 	}
 
 
@@ -154,11 +155,11 @@ public class BattleManager : MonoBehaviour
 			break;
 			case BattlePhase.ATTACK:
 			{
+				m_gestureHandler.DisableGesture = true;
 				if(gaugeCount >= m_fullgaugeCount)
 				{
 					if(m_beginFinisher)
 					{
-						Debug.Log("*****************battle phase: " + m_phase );
 						m_phase = BattlePhase.SPECIAL;
 						m_beginFinisher = false;
 
@@ -168,19 +169,11 @@ public class BattleManager : MonoBehaviour
 						m_finishButton.isEnabled = true;
 					}
 				}
-//				if(m_gestureState == GestureState.START)
-//				{
-//					m_gestureState = GestureState.SHOWING;
-//					m_gestureStart = true;
-//					m_coroutine = CommenceAttack();
-//					GestureGenerateMethod = m_gestureGenerator.GenerateEasyGesture;
-//
-//					StartCoroutine(m_coroutine);
-//				}
 			}
 			break;
 			case BattlePhase.SPECIAL:
 			{
+				m_gestureHandler.DisableGesture = false;
 				if(m_gestureState == GestureState.START)
 				{
 					if(m_actionRoot != null)

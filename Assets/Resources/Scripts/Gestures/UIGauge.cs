@@ -14,12 +14,17 @@ public class UIGauge : MonoBehaviour {
 
 	const float 	animTime = 0.5f;
 
+	bool UIInitialized = false;
+
 
 	#region Mono
 
 	// Update is called once per frame
 	void Update ()  
 	{
+		if(!UIInitialized )
+			return;
+
 		if(m_prevVal > m_currentVal)
 		{
 			m_prevVal -= (m_totalVal/m_currentVal) * speed * Time.deltaTime;
@@ -38,14 +43,17 @@ public class UIGauge : MonoBehaviour {
 	#endregion
 
 	#region public
-	public void Init(int curVal, int totalVal)
+	public void Init(int curVal, int totalVal, string name = "")
 	{
+		UIInitialized = true;
 		m_currentVal = curVal;
 		m_totalVal = totalVal;
 		m_prevVal = totalVal;
 		speed = (m_totalVal / 10); // affects the health drainage
 		if(m_totalVal != 0)
 			m_sliderGreen.sliderValue = ((float)m_currentVal/m_totalVal);
+
+		gameObject.name = name;
 	}
 
 	public void reduce(int damage)

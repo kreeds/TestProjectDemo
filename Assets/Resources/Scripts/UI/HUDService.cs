@@ -30,6 +30,11 @@ public class HUDService : CSingleton {
 	{
 		m_scene.StartScene();
 	}
+	public void CreateBattleHUD()
+	{
+		m_handler.CreateBattleHUD();
+	}
+
 	public void ShowTop(bool show)
 	{
 		m_handler.ShowTop(show);
@@ -39,5 +44,11 @@ public class HUDService : CSingleton {
 	{
 		m_handler.ShowBottom(show);
 	}
+
+	public void ShowMid(bool show)
+	{
+		m_handler.ShowMid(show);
+	}
+
 
 }

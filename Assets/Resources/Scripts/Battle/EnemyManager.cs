@@ -7,15 +7,15 @@ public class EnemyManager : MonoBehaviour {
 
 	Enemy currentEnemy;
 	PlayerManager playerMgr;
+	HUDHandler handle;
+
 	public static EnemyManager _instance;
-	[SerializeField]UIGauge m_gauge;
 	[SerializeField]UIPanel	m_panel;
 
 	public static EnemyManager Get()
 	{
 		return _instance;
 	}
-
 
 	void Awake()
 	{	
@@ -28,21 +28,7 @@ public class EnemyManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-//		GameObject obj = NGUITools.AddChild(m_panel.gameObject, Resources.Load("Prefabs/EnemySample") as GameObject);
-//		obj.transform.rotation = Quaternion.Euler (270f, 0f, 0f);
-//		obj.transform.localScale = new Vector3 (20, 20, 20);
-//		currentEnemy = obj.GetComponent<Enemy>();
-//		currentEnemy.transform.localPosition = new Vector3(268.0f, -120.0f, 0);
-
-//		GameObject obj = NGUITools.AddChild(m_panel.gameObject, Resources.Load("Prefabs/SimpleEnemy") as GameObject);
-//		obj.transform.localPosition = new Vector3 (300f, 0, 0);
-//		currentEnemy = obj.GetComponent<Enemy>();
-//		currentEnemy.Initialize(80, 80, 8, 3);
-//	
-//		if(m_gauge != null)
-//		{
-//			m_gauge.Init(currentEnemy.Hp, currentEnemy.totalHp);
-//		}
+		handle = Service.Get<HUDService>().HUDControl;
 		CreateSimpleEnemy ();
 	}
 	
@@ -54,13 +40,13 @@ public class EnemyManager : MonoBehaviour {
 	void CreateSimpleEnemy()
 	{
 		GameObject obj = NGUITools.AddChild(m_panel.gameObject, Resources.Load("Prefabs/SimpleEnemy") as GameObject);
-		obj.transform.localPosition = new Vector3 (300f, -292f, 0);
+		obj.transform.localPosition = new Vector3 (-719f, -292f, 0);
 		currentEnemy = obj.GetComponent<Enemy>();
 		currentEnemy.Initialize(80, 80, 8, 3);
 		
-		if(m_gauge != null)
+		if(handle != null)
 		{
-			m_gauge.Init(currentEnemy.Hp, currentEnemy.totalHp);
+			handle.InitializeGauge((int)GAUGE.ENEMY, currentEnemy.Hp, currentEnemy.totalHp, "HP" + currentEnemy.name);
 		}
 	}
 
@@ -74,11 +60,12 @@ public class EnemyManager : MonoBehaviour {
 
 		currentEnemy.Initialize(80, 80, 8, 3);
 		
-		if(m_gauge != null)
+		if(handle != null)
 		{
-			m_gauge.Init(currentEnemy.Hp, currentEnemy.totalHp);
+			handle.InitializeGauge((int)GAUGE.ENEMY, currentEnemy.Hp, currentEnemy.totalHp, "HP" + currentEnemy.name);
 		}
 	}
+
 	/// <summary>
 	/// Method to damage enemy
 	/// </summary>
@@ -87,15 +74,20 @@ public class EnemyManager : MonoBehaviour {
 	{
 		currentEnemy.Hp -= damage;
 
-		if(m_gauge != null)
-			m_gauge.reduce(damage);
+		if(handle != null)
+			handle.reduce((int)GAUGE.ENEMY, damage);
 	}
 
 	public void killEnemy()
 	{
-		if(m_gauge != null)
-			m_gauge.reduce(currentEnemy.Hp);
+		if(handle != null)
+			handle.reduce((int)GAUGE.ENEMY, currentEnemy.Hp);
 
 		currentEnemy.Hp = -1;
+	}
+
+	public int GetCurrentEnemyAttack()
+	{
+		return currentEnemy.attack;
 	}
 }

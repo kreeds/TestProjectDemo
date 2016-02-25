@@ -20,16 +20,11 @@ public static class GenericCopier<T>
 }
 
 
-public class Utility : MonoBehaviour 
+public class Utility 
 {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public static IEnumerator DelayInSeconds(float seconds, Action<bool> callback)
+	{
+		yield return new WaitForSeconds(seconds);
+		callback(true);
 	}
 }

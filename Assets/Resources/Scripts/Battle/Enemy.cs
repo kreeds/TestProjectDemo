@@ -5,6 +5,7 @@ using System.Collections;
 public class Idle : FSMState
 {
 	BattleManager bmgr;
+	PlayerManager pmgr;
 	Enemy enemy;
 
 	bool attacked;
@@ -14,6 +15,7 @@ public class Idle : FSMState
 	public Idle(Enemy emy)
 	{
 		bmgr = BattleManager.Get();
+		pmgr = PlayerManager.Get();
 		enemy = emy;
 		prevhp = emy.Hp;	
 		stateID = StateID.E_IDLE;
@@ -24,7 +26,6 @@ public class Idle : FSMState
 	{
 		Debug.Log(enemy.name + ": Entering Idle State");
 		// Play Idle Animation
-//		enemy.L2dModel.PlayIdleAnim();
 		enemy.PlayIdleAnim ();
 	}
 
@@ -32,28 +33,31 @@ public class Idle : FSMState
 	{
 		// Death
 		if(enemy.Hp <= 0)
+		{
 			enemy.SetTransition(Transition.E_NOHP);
+			return;
+		}
 
 		// Hp Lost
 		if(enemy.Hp < prevhp)
 		{
 			prevhp = enemy.Hp;
 			enemy.SetTransition(Transition.E_LOSTHP);
+			return;
 		}
 
-
-		if((bmgr.currentGestureState == BattleManager.GestureState.START ||
-			bmgr.currentGestureState == BattleManager.GestureState.SHOWING) && attacked)
-			attacked = false;
-
+//		if((bmgr.currentGestureState == BattleManager.GestureState.START ||
+//			bmgr.currentGestureState == BattleManager.GestureState.SHOWING) && attacked)
+//			attacked = false;
+//
 		// Attack Player
-		if(bmgr.currentGestureState == BattleManager.GestureState.END && !attacked)
+		if(pmgr.isAttackComplete)
 		{
 			enemy.SetTransition(Transition.E_FAILGESTURE);
+			pmgr.isAttackComplete = false;
 			attacked = true;
 		}
 
-	
 	}
 
 	public override void Update()
@@ -92,16 +96,20 @@ public class Damaged: FSMState
 		if(enemy.IsAnimationComplete ())
 		{
 			if(enemy.Hp > 0)
+			{
 				enemy.SetTransition(Transition.E_FINISHATTACK); // Back to Idle
+			}
 			else
+			{
 				enemy.SetTransition(Transition.E_NOHP); // Transit to Death
+			}
 		}
-		else if(enemy.Hp < hp)
-		{
-			hp = enemy.Hp;
-			enemy.SetTransition(Transition.E_LOSTHP); // Transit to Death
-
-		}
+//		else if(enemy.Hp < hp)
+//		{
+//			hp = enemy.Hp;
+//			enemy.SetTransition(Transition.E_LOSTHP); // Transit to Death
+//
+//		}
 	}
 
 	public override void Update()
@@ -137,8 +145,6 @@ public class Attack : FSMState
 	{
 
 		Debug.Log(enemy.name + ": Entering Attack State");
-		// Play Attack Animation
-//		enemy.L2dModel.PlayAttackAnim();
 		enemy.PlayAttackAnim ();
 	}
 
@@ -148,17 +154,24 @@ public class Attack : FSMState
 		if(enemy.IsAnimationComplete())
 		{
 			enemy.SetTransition(Transition.E_FINISHATTACK);
+			Service.Get<CameraService>().TweenPos(new Vector3(-1.46f, -3.76f, 0.0f),
+													new Vector3(1.46f, -3.76f, 0.0f),
+													UITweener.Method.EaseInOut,
+													UITweener.Style.Once,
+													pmgr.gameObject,
+													"OnMovementEnd");
 
 		}
 	}
 
 	public override void Update()
 	{
+
 	}
 	public override void OnExit()
 	{
-		pmgr.Damaged(enemy.attack);	
-		bmgr.ReduceGauge();
+		//pmgr.Damaged(enemy.attack);	
+		//bmgr.ReduceGauge();
 		// Restart Gesture State
 		bmgr.currentGestureState = BattleManager.GestureState.START;
 		Debug.Log("Exiting Attack State");

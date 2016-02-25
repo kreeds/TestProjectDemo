@@ -27,11 +27,23 @@ public class PlayerManager : MonoBehaviour {
 
 	BattleManager m_battleMgr;
 	EnemyManager m_enemyMgr;
+	CameraService m_camService;
+	HUDHandler m_handler;
+	
 
 	[SerializeField]UIGauge m_gauge;
 	[SerializeField]LAppModelProxy l2dInterface;
 	[SerializeField]UIPanel m_panel;
-	[SerializeField]GameObject m_ActionRoot;
+	[SerializeField]float waitinterval;
+
+	bool isPlaying = true;
+
+	bool attackend = false;
+	public bool isAttackComplete
+	{
+		get{ return attackend; }
+		set{ attackend = value; }
+	}
 
 	public static PlayerManager _instance;
 
@@ -52,6 +64,9 @@ public class PlayerManager : MonoBehaviour {
 
 		m_enemyMgr = EnemyManager.Get();
 		m_battleMgr = BattleManager.Get();
+		m_handler = Service.Get<HUDService>().HUDControl;
+
+
 
 		// Initialize base value of player
 		m_player = new PlayerStats();
@@ -64,19 +79,23 @@ public class PlayerManager : MonoBehaviour {
 		m_skills.energyCost = 4;
 		m_skills.id = 1;
 
-
 		//Create Skill Buttons
-		GameObject obj = NGUITools.AddChild (m_ActionRoot.gameObject, Resources.Load ("Prefabs/ActionButton") as GameObject);
-		obj.transform.localPosition = new Vector3 (158.0f, -158.0f, 0f);
-		UIButtonMessage button = obj.GetComponent<UIButtonMessage>();
-		button.functionName = "NormalAttack";
-		button.target = this.gameObject;
 
+		m_camService = Service.Get<CameraService>();
 
-		if(m_gauge != null)
+		if(m_handler != null)
 		{
-			m_gauge.Init(m_player.hp, m_player.hp);
+			GameObject obj = Instantiate(Resources.Load ("Prefabs/ActionButton")) as GameObject;
+			m_handler.AttachMid(ref obj);
+			obj.transform.localScale = new Vector3 (0.7f, 0.7f, 0.7f);
+			obj.transform.localPosition = new Vector3 (-108.0f, 188.0f, 0f);
+			UIButtonMessage button = obj.GetComponent<UIButtonMessage>();
+			button.functionName = "NormalAttack";
+			button.target = this.gameObject;
+
+			m_handler.InitializeGauge((int)GAUGE.PLAYER, m_player.hp, m_player.hp, "Player");
 		}
+
 		l2dInterface.LoadProfile ();
 
 		l2dInterface.GetModel ().StopBasicMotion (true);
@@ -85,7 +104,55 @@ public class PlayerManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if(!isPlaying && l2dInterface.IsAnimationComplete())
+		{
+			isPlaying = true;
+			// Scroll to enemy
+			m_camService.TweenPos(new Vector3(1.46f, -3.76f, 0.0f),
+								new Vector3(-1.46f, -3.76f, 0.0f),
+								UITweener.Method.EaseInOut,
+								UITweener.Style.Once,
+								gameObject,
+								"OnAttackEnd");
+
+		}
+	}
+
+	void OnAttackEnd()
+	{
+		if(m_enemyMgr != null)
+			m_enemyMgr.damageEnemy(m_player.atk);
+
+		if(m_battleMgr != null)
+			m_battleMgr.Correct();
+
+		GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
+		obj.transform.localPosition = new Vector3 (16, 112);
+
+		GameObject obj2 = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Button01_Fx") as GameObject);
+		obj2.transform.localPosition = new Vector3 (0, 90);
+
+		//StartCoroutine(ReturnCamera());
+		StartCoroutine(Utility.DelayInSeconds(3,
+						(res)=>
+						{
+							attackend = true;
+							//StartCoroutine(ReturnCamera());
+						}
+						));
+
+	}
+	void OnMovementEnd()
+	{
 		
+		GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
+		obj.transform.localPosition = new Vector3 (16, 112);
+
+		// Apply Damage to player
+		Damaged(m_enemyMgr.GetCurrentEnemyAttack());
+
+
+		StartCoroutine(Utility.DelayInSeconds(3, (res)=>{Service.Get<HUDService>().ShowMid(true); }));
 	}
 
 	/// <summary>
@@ -93,14 +160,9 @@ public class PlayerManager : MonoBehaviour {
 	/// </summary>
 	public void SpecialAttack()
 	{
-		Debug.Log("Attacking Enemy");
-//		if(m_enemyMgr != null)
-//			m_enemyMgr.damageEnemy(m_player.atk);
-//
-//		l2dInterface.PlayAttackAnim ();
 		GameObject obj = NGUITools.AddChild (m_panel.gameObject, Resources.Load ("Prefabs/Effect_Fx") as GameObject);
 		obj.transform.localPosition = new Vector3 (0, 0, -10f);
-		BattleEffect effect = obj.GetComponent<BattleEffect> ();
+		BattleEffect effect = obj.GetComponent<BattleEffect>();
 		if (effect != null) {
 			effect.Initialize(gameObject);
 		}
@@ -113,17 +175,8 @@ public class PlayerManager : MonoBehaviour {
 	{
 		l2dInterface.PlayAttackAnim ();
 
-		if(m_enemyMgr != null)
-			m_enemyMgr.damageEnemy(m_player.atk);
-
-		if(m_battleMgr != null)
-			m_battleMgr.Correct();
-
-		GameObject obj = NGUITools.AddChild (m_panel.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
-		obj.transform.localPosition = new Vector3 (300, 0);
-
-		GameObject obj2 = NGUITools.AddChild (m_panel.gameObject, Resources.Load ("Prefabs/Button01_Fx") as GameObject);
-		obj2.transform.localPosition = new Vector3 (-210, 90);
+		Service.Get<HUDService>().ShowMid(false);
+		isPlaying = attackend = false;
 	}
 
 	/// <summary>
@@ -134,8 +187,8 @@ public class PlayerManager : MonoBehaviour {
 	{
 		m_player.hp -= damage;
 
-		if(m_gauge != null)
-			m_gauge.reduce(damage);
+		if(m_handler != null)
+			m_handler.reduce((int)GAUGE.PLAYER, damage);
 
 		l2dInterface.PlayDamageAnim ();
 	}
@@ -148,4 +201,17 @@ public class PlayerManager : MonoBehaviour {
 		if(m_battleMgr != null)
 			m_battleMgr.ResetGauge();
 	}
+
+	#region IEnumurators
+	IEnumerator ReturnCamera()
+	{
+		yield return new WaitForSeconds(waitinterval);
+		m_camService.TweenPos(new Vector3(-1.46f, -3.76f, 0.0f),
+								new Vector3(1.46f, -3.76f, 0.0f),
+								UITweener.Method.EaseInOut,
+								UITweener.Style.Once,
+								gameObject,
+								"OnMovementEnd");
+	}
+	#endregion
 }
