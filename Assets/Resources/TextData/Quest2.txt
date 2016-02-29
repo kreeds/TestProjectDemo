@@ -1,6 +1,6 @@
 BG:2
 <PlayerSetup>
-x:-556
+x:85
 y:-114
 <CharaSetup>
 <Chara>
@@ -12,8 +12,9 @@ hair:1
 clothes:1
 <CharaEnd>
 <Drama>
-x:-400
+x:-100
 y:-50
-side:1
+side:-1
 DramaFilename:TextData/Dialog2
+NextEvent:Battle
 <DramaEnd>

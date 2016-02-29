@@ -137,6 +137,27 @@ public class Drama
 	public Vector2 loc;
 	public Vector2 playerPos; //position of player at start of convo
 	public int direction;
+
+	public string nextEvent; //maybe replace with a id that indicates the next event?
+}
+
+public class QuestAction
+{
+	public Vector2 loc;
+	public int staminaCost;
+	public int completionAmount;
+	public string desc;
+}
+
+public class Quest
+{
+	public List<QuestAction> actionList;
+	public Vector2 loc;
+
+	public int requiredAmount;
+	public int completedAmount;
+
+	public string nextEvent;
 }
 
 public class QuestEvent : MonoBehaviour {
@@ -148,6 +169,9 @@ public class QuestEvent : MonoBehaviour {
 		PlayerSetup,
 		DramaLocation,
 		DramaFilename,
+
+		Quest,
+		QuestAction,
 
 		Character,
 		Dialog,
@@ -167,17 +191,21 @@ public class QuestEvent : MonoBehaviour {
 
 	[SerializeField]GameObject		eventBase;
 	[SerializeField]GameObject		bubbleGroup;
+	[SerializeField]GameObject		actionGroup;
 
-	[SerializeField]LAppModelProxy[] eventCharas;
+//	[SerializeField]LAppModelProxy[] eventCharas;
 
 	[SerializeField]SceneFadeInOut fader;
 
 	[SerializeField]UIPanel			scenePanel;
 
 	[SerializeField]LAppModelProxy	playerChara;
+
+	QuestProgress					questProgress;
 	
 	HUDService m_hudService;
 
+	List<LAppModelProxy>	sceneCharas;
 
 	int 				charaInSceneCount;
 
@@ -189,20 +217,26 @@ public class QuestEvent : MonoBehaviour {
 	bool 				displayingChoice;
 
 	List<QuestChoiceOption>  choiceList;
+
+	List<AreaNode>		nodeList;
+	List<ActionEvent> 	actionList;
+
 	static List<Character> characterList;
 
 	static Scene currentScene;
 
+	static Quest currentQuest; //multiple quests in one scene later
+
 	// Use this for initialization
 	void Start () {
-//		Service.Init();	
-//		m_hudService = Service.Get<HUDService>();
-//		m_hudService.StartScene();
+		Service.Init();	
+		m_hudService = Service.Get<HUDService>();
+		m_hudService.StartScene();
 
 		choiceList = new List<QuestChoiceOption> ();
 		charaInSceneCount = 0;
 
-		LoadScene ();
+		LoadScene ("TextData/Quest1");
 		InitializeScene ();
 	}
 	
@@ -218,14 +252,36 @@ public class QuestEvent : MonoBehaviour {
 		if (currentScene == null)
 			return;
 
-		int i = 0;
+		if (actionList == null) {
+			actionList = new List<ActionEvent> ();
+		} else {
+		}
+
+		if (nodeList == null) {
+			nodeList = new List<AreaNode> ();
+		} else {
+
+		}
+
+//		int i = 0;
+		sceneCharas = new List<LAppModelProxy> ();
 		foreach (Character chara in currentScene.characterList) {
-			eventCharas[i].transform.localPosition = new Vector3(chara.xpos, chara.ypos, -7);
+			GameObject obj = GameObject.Instantiate(Resources.Load("Live2DAssets/live2DObject")) as GameObject;
+			obj.transform.SetParent (scenePanel.transform);
+			obj.transform.localScale = new Vector3 (30f, 30f, 30f);
+			obj.transform.localPosition = new Vector3(chara.xpos, chara.ypos, -5);
 
-			eventCharas[i].SetHair(chara.hairId);
-			eventCharas[i].SetClothes(chara.clothesId);
+			LAppModelProxy l2dModel = obj.GetComponent<LAppModelProxy>();
+//			eventCharas[i].transform.localPosition = new Vector3(chara.xpos, chara.ypos, -7);
+//
+//			eventCharas[i].SetHair(chara.hairId);
+//			eventCharas[i].SetClothes(chara.clothesId);
+			l2dModel.SetHair(chara.hairId);
+			l2dModel.SetClothes(chara.clothesId);
 
-			++i;
+			sceneCharas.Add(l2dModel);
+
+//			++i;
 		}
 
 		foreach (Drama drama in currentScene.dialogList) {
@@ -240,14 +296,90 @@ public class QuestEvent : MonoBehaviour {
 			Vector3 scale = obj.transform.localScale;
 			scale.x *= drama.direction;
 			obj.transform.localScale = scale;
+
+			nodeList.Add(an);
 		}
 
+		bubbleGroup.SetActive (true);
+
 		backgroundTexture.mainTexture = Resources.Load ("Texture/bg0" + currentScene.bgID) as Texture;
+
+//		currentQuest = new Quest ();
+//		currentQuest.completedAmount = 0;
+//		currentQuest.requiredAmount = 20;
+//		currentQuest.nextEvent = "TextData/Quest1";
+//
+//		QuestAction action = new QuestAction ();
+//		action.loc.x = -123;
+//		action.loc.y = -50;
+//		action.completionAmount = 1;
+//		action.staminaCost = 1;
+//		action.desc = "Research from books";
+//
+//		currentQuest.actionList = new List<QuestAction> ();
+//		currentQuest.actionList.Add (action);
+//
+//		action = new QuestAction ();
+//		action.loc.x = 123;
+//		action.loc.y = -50;
+//		action.completionAmount = 1;
+//		action.staminaCost = 1;
+//		action.desc = "Write draft";
+
+//		currentQuest.actionList.Add (action);
+
+		if (currentQuest != null) {
+			GameObject obj = GameObject.Instantiate(Resources.Load("Prefabs/QuestProgress")) as GameObject;
+			m_hudService.HUDControl.AttachMid(ref obj);
+
+			obj.transform.localPosition = new Vector3(0, -280f, 0);
+			obj.transform.localScale = new Vector3(1, 1, 1);
+
+			questProgress = obj.GetComponent<QuestProgress>();
+			questProgress.SetProgress (0);
+			for (int i = 0; i < currentQuest.actionList.Count; ++i) {
+				QuestAction currentAction = currentQuest.actionList [i];
+				GameObject actionObj = NGUITools.AddChild (actionGroup, Resources.Load ("Prefabs/ActionEvent") as GameObject);
+
+				Vector3 pos = new Vector3 (currentAction.loc.x, currentAction.loc.y, -7);
+				actionObj.transform.localPosition = pos;
+
+				ActionEvent actionEvent = actionObj.GetComponent<ActionEvent> ();
+				actionEvent.Initialize (i, gameObject, currentAction.desc);
+
+				actionList.Add(actionEvent);
+			}
+		}
+
+		
+		UIDraggablePanel dragPanel = scenePanel.GetComponent<UIDraggablePanel> ();
+		if (dragPanel != null)
+			dragPanel.enabled = true;
 	}
 
-	static public void LoadScene()
+	void ClearScene()
 	{
-		TextAsset asset = Resources.Load ("TextData/Quest1") as TextAsset;
+		foreach (AreaNode areaNode in nodeList){
+			Destroy(areaNode.gameObject);
+		}
+		nodeList.Clear ();
+
+		foreach(ActionEvent action in actionList){
+			Destroy (action.gameObject);
+		}
+		actionList.Clear ();
+
+		if (questProgress != null)
+			Destroy (questProgress.gameObject);
+
+		foreach (LAppModelProxy l2d in sceneCharas) {
+			Destroy (l2d.gameObject);
+		}
+	}
+
+	static public void LoadScene(string filename)
+	{
+		TextAsset asset = Resources.Load (filename) as TextAsset;
 		if (asset != null) {
 			LoadQuest (asset.text.Split ('\n'));
 		}
@@ -262,7 +394,10 @@ public class QuestEvent : MonoBehaviour {
 
 		Character currentCharacter = null;
 
+//		Quest currentQuest = null;
+
 		Drama currentDrama = null;
+		QuestAction currentQuestAction = null;
 
 		foreach (string line in questData) {
 			if (line.Contains("BG")){
@@ -271,6 +406,12 @@ public class QuestEvent : MonoBehaviour {
 			}
 			if (line.Contains("<CharaSetup>")){
 				parseMode = ParseMode.CharaSetup;
+				continue;
+			}
+			if (line.Contains("<Quest>")){
+				parseMode = ParseMode.Quest;
+				currentQuest = new Quest();
+				currentQuest.actionList = new List<QuestAction>();
 				continue;
 			}
 
@@ -285,6 +426,14 @@ public class QuestEvent : MonoBehaviour {
 			}
 			if (line.Contains("<DramaEnd>")){
 				currentScene.dialogList.Add(currentDrama);
+			}
+			if (line.Contains("<QuestEvent>")){
+				parseMode = ParseMode.QuestAction;
+				if (currentQuest != null && currentQuestAction != null){
+					currentQuest.actionList.Add(currentQuestAction);
+				}
+				currentQuestAction = new QuestAction();
+
 			}
 			switch (parseMode){
 			case ParseMode.PlayerSetup:
@@ -338,10 +487,56 @@ public class QuestEvent : MonoBehaviour {
 					if (line.Contains("DramaFilename")){
 						currentDrama.dramaFile = parts[1];
 					}
+					if (line.Contains("NextEvent")){
+						currentDrama.nextEvent = parts[1];
+					}
 					if (line.Contains("side")){
 						currentDrama.direction = int.Parse(parts[1]);
 					}
 				}
+				break;
+
+			case ParseMode.Quest:
+				if (line.Contains(":")){
+					string[] parts = line.Split(':');
+					if (line.Contains("x:")){
+						currentQuest.loc.x = int.Parse(parts[1]);
+					}
+					if (line.Contains("y:")){
+						currentQuest.loc.y = int.Parse(parts[1]);
+					}
+					if (line.Contains("side")){
+//						currentQuest.direction = int.Parse(parts[1]);
+					}
+					if (line.Contains ("completion")){
+						currentQuest.requiredAmount = int.Parse (parts[1]);
+					}
+					if (line.Contains("nextscene")){
+						currentQuest.nextEvent = parts[1];
+					}
+				}
+				break;
+
+			case ParseMode.QuestAction:
+				if (line.Contains(":")){
+					string[] parts = line.Split(':');
+					if (line.Contains("x:")){
+						currentQuestAction.loc.x = int.Parse(parts[1]);
+					}
+					if (line.Contains("y:")){
+						currentQuestAction.loc.y = int.Parse(parts[1]);
+					}
+					if (line.Contains("desc")){
+						currentQuestAction.desc = parts[1];
+					}
+					if (line.Contains ("completion")){
+						currentQuestAction.completionAmount = int.Parse (parts[1]);
+					}
+					if (line.Contains("cost")){
+						currentQuestAction.staminaCost = int.Parse (parts[1]);
+					}
+				}
+				
 				break;
 			}
 		}
@@ -490,8 +685,12 @@ public class QuestEvent : MonoBehaviour {
 
 	void ShowCurrentDialog()
 	{
-		if (currentEvent == null)
+		if (currentEvent == null) {
+			ClearScene ();
+			LoadScene(currentScene.dialogList[0].nextEvent);
+			InitializeScene ();
 			return; //go to next scene here
+		}
 		if (currentEvent.eventType == EventBase.EventType.Dialog) {
 			EventDialog dialog = currentEvent as EventDialog;
 
@@ -587,6 +786,30 @@ public class QuestEvent : MonoBehaviour {
 		ShowCurrentDialog ();
 		displayingChoice = false;
 
+		UIDraggablePanel dragPanel = scenePanel.GetComponent<UIDraggablePanel> ();
+		if (dragPanel != null)
+			dragPanel.enabled = false;
+	}
 
+	void OnAction(int actionID){
+		QuestAction action = currentQuest.actionList [actionID];
+
+		currentQuest.completedAmount += action.completionAmount;
+		float progressRatio = 0f;
+
+		if (currentQuest.completedAmount >= currentQuest.requiredAmount) {
+			progressRatio = 1f;
+			LoadScene(currentQuest.nextEvent);
+			currentQuest = null;
+			ClearScene();
+			InitializeScene ();
+		}
+		else
+			progressRatio = currentQuest.completedAmount / (float)currentQuest.requiredAmount;
+
+		questProgress.SetProgress (progressRatio);
+//		Vector3 localScale = progressSprite.transform.localScale;
+//		localScale.x = (232)*(5f*progressRatio);
+//		progressSprite.transform.localScale = localScale;
 	}
 }
