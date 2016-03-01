@@ -415,7 +415,7 @@ Transform:
   m_GameObject: {fileID: 311338834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -230, y: 18, z: -2}
-  m_LocalScale: {x: 32, y: 32, z: 1}
+  m_LocalScale: {x: 36, y: 36, z: 1}
   m_Children: []
   m_Father: {fileID: 1417699274}
   m_RootOrder: 1
@@ -465,12 +465,18 @@ MonoBehaviour:
   backgroundTexture: {fileID: 126112586}
   choiceRoot: {fileID: 761566646}
   textCollider: {fileID: 2119769548}
-  eventBase: {fileID: 2119769545}
+  dialogBase: {fileID: 2119769545}
   bubbleGroup: {fileID: 2095825855}
   actionGroup: {fileID: 154104525}
+  playerTextGroup: {fileID: 855283028}
   fader: {fileID: 0}
   scenePanel: {fileID: 1122216192}
   playerChara: {fileID: 1141201788}
+  sceneFiles:
+  - TextData/Quest0
+  - TextData/Quest1
+  - TextData/Quest2
+  firstQuest: 0
 --- !u!1 &455630011
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +609,7 @@ Transform:
   m_GameObject: {fileID: 527839836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -230, y: 61, z: -2}
-  m_LocalScale: {x: 32, y: 32, z: 1}
+  m_LocalScale: {x: 36, y: 36, z: 1}
   m_Children: []
   m_Father: {fileID: 855283029}
   m_RootOrder: 1
@@ -660,7 +666,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 761566644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -237.899994, z: 0}
+  m_LocalPosition: {x: 0, y: -60, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2119769546}
@@ -680,7 +686,7 @@ MonoBehaviour:
   arrangement: 1
   maxPerLine: 0
   cellWidth: 200
-  cellHeight: 70
+  cellHeight: 90
   repositionNow: 0
   sorted: 0
   hideInactive: 1

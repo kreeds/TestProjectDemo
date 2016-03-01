@@ -2,163 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class EventBase
-{
-	public enum EventType
-	{
-		Dialog,
-		Choice,
 
-		EventTypeCount
-	}
-
-	public int energyCost;
-	public EventType eventType;
-	public int eventGroup;
-	public EventBase nextEvent;
-
-	public virtual void DumpContents()
-	{
-	}
-
-	public virtual EventBase FindLeaf(int groupIndex)
-	{
-		if (nextEvent != null)
-			return nextEvent.FindLeaf (groupIndex);
-		else if (eventGroup == groupIndex) {
-			return this;
-		}
-		return null;
-	}
-
-	public virtual EventBase FindBranch(int groupIndex)
-	{
-		if (nextEvent != null)
-			return nextEvent.FindBranch (groupIndex);
-
-		return null;
-	}
-};
-
-public class EventDialog : EventBase
-{
-	public int characterID;
-	public string dialogLine;
-
-	public override void DumpContents()
-	{
-		Debug.Log (characterID + ": " + dialogLine);
-		if (nextEvent != null)
-			nextEvent.DumpContents ();
-	}
-
-};
-
-public class EventChoice : EventBase
-{
-	public string[] choiceOptions;
-	public List<EventBase> nextEvents;
-
-	public EventChoice()
-	{
-		nextEvents = new List<EventBase> ();
-		eventType = EventType.Choice;
-	}
-
-
-	public override void DumpContents()
-	{
-		if (nextEvent != null)
-			nextEvent.DumpContents ();
-		else {
-			int i = 0;
-			foreach (EventBase childNodes in nextEvents){
-				Debug.Log(i + ") " + choiceOptions[i++]);
-				childNodes.DumpContents ();
-			}
-		}
-	}
-
-	public override EventBase FindLeaf(int groupIndex)
-	{
-		EventBase leafEvent = null;
-		foreach (EventBase childNode in nextEvents) {
-			EventBase temp = childNode.FindLeaf(groupIndex);
-			if (temp != null){
-				return temp;
-			}
-		}
-		return null;
-	}
-
-	public override EventBase FindBranch(int groupIndex)
-	{
-		foreach (EventBase child in nextEvents) {
-			EventBase leafBranch = child.FindBranch (groupIndex);
-			if (leafBranch != null)
-				return leafBranch;
-		}
-		if (eventGroup == groupIndex)
-			return this;
-
-		return null;
-	}
-};
-
-public class Character
-{
-	public int _id;
-	public string _name;
-	public int _isL2d;
-	public int xpos;
-	public int ypos;
-	public int hairId;
-	public int clothesId;
-	public Character(int id = 0, string name = "")
-	{
-		_id = id;
-		_name = name;
-	}
-};
-
-public class Scene
-{
-	public List<Character> characterList;
-	public List<Drama> dialogList;
-
-	public Vector2 playerPos; //position of player at start of scene
-
-	public int bgID;
-}
-
-public class Drama
-{
-	public string dramaFile;
-	public Vector2 loc;
-	public Vector2 playerPos; //position of player at start of convo
-	public int direction;
-
-	public string nextEvent; //maybe replace with a id that indicates the next event?
-}
-
-public class QuestAction
-{
-	public Vector2 loc;
-	public int staminaCost;
-	public int completionAmount;
-	public string desc;
-}
-
-public class Quest
-{
-	public List<QuestAction> actionList;
-	public Vector2 loc;
-
-	public int requiredAmount;
-	public int completedAmount;
-
-	public string nextEvent;
-}
 
 public class QuestEvent : MonoBehaviour {
 
@@ -189,9 +33,10 @@ public class QuestEvent : MonoBehaviour {
 
 	[SerializeField]Collider		textCollider;
 
-	[SerializeField]GameObject		eventBase;
+	[SerializeField]GameObject		dialogBase;
 	[SerializeField]GameObject		bubbleGroup;
 	[SerializeField]GameObject		actionGroup;
+	[SerializeField]GameObject		playerTextGroup;	
 
 //	[SerializeField]LAppModelProxy[] eventCharas;
 
@@ -200,6 +45,9 @@ public class QuestEvent : MonoBehaviour {
 	[SerializeField]UIPanel			scenePanel;
 
 	[SerializeField]LAppModelProxy	playerChara;
+
+	[SerializeField]string[]		sceneFiles;
+	[SerializeField]int				firstQuest;
 
 	QuestProgress					questProgress;
 	
@@ -210,9 +58,11 @@ public class QuestEvent : MonoBehaviour {
 	int 				charaInSceneCount;
 
 	Character[]			charactersInScene;
-	EventBase			openingEvent;
+	DialogBase			openingDialogEvent;
 
-	EventBase			currentEvent;
+	DialogBase			currentDialogEvent;
+
+	Quest				currentQuest;
 
 	bool 				displayingChoice;
 
@@ -225,7 +75,7 @@ public class QuestEvent : MonoBehaviour {
 
 	static Scene currentScene;
 
-	static Quest currentQuest; //multiple quests in one scene later
+//	static Quest currentQuest; //multiple sceneFiles in one scene later
 
 	// Use this for initialization
 	void Start () {
@@ -233,10 +83,13 @@ public class QuestEvent : MonoBehaviour {
 		m_hudService = Service.Get<HUDService>();
 		m_hudService.StartScene();
 
+		m_hudService.ShowBottom (true);
+
 		choiceList = new List<QuestChoiceOption> ();
 		charaInSceneCount = 0;
 
-		LoadScene ("TextData/Quest1");
+//		LoadScene ("TextData/Quest2");
+		LoadScene (sceneFiles [firstQuest]);
 		InitializeScene ();
 	}
 	
@@ -247,7 +100,7 @@ public class QuestEvent : MonoBehaviour {
 
 	void InitializeScene()
 	{
-		eventBase.SetActive (false);
+		dialogBase.SetActive (false);
 
 		if (currentScene == null)
 			return;
@@ -284,77 +137,33 @@ public class QuestEvent : MonoBehaviour {
 //			++i;
 		}
 
-		foreach (Drama drama in currentScene.dialogList) {
+		foreach (EventBase currentEvent in currentScene.eventList) {
+			if (currentEvent.prereq != -1){
+				continue;
+			}
 			
 			GameObject obj = NGUITools.AddChild(bubbleGroup, Resources.Load("Prefabs/AreaNode") as GameObject);
 
 			AreaNode an =  obj.GetComponent<AreaNode>();
-			an.Init(0, false, true, "Bubble", drama.loc);
+			an.Init(currentEvent.id, false, true, "Bubble", currentEvent.loc);
 			an.receiver = gameObject;
 			an.callback = "OnBubbleClicked";
 
 			Vector3 scale = obj.transform.localScale;
-			scale.x *= drama.direction;
+			scale.x *= currentEvent.direction;
 			obj.transform.localScale = scale;
 
 			nodeList.Add(an);
 		}
-
 		bubbleGroup.SetActive (true);
 
 		backgroundTexture.mainTexture = Resources.Load ("Texture/bg0" + currentScene.bgID) as Texture;
 
-//		currentQuest = new Quest ();
-//		currentQuest.completedAmount = 0;
-//		currentQuest.requiredAmount = 20;
-//		currentQuest.nextEvent = "TextData/Quest1";
-//
-//		QuestAction action = new QuestAction ();
-//		action.loc.x = -123;
-//		action.loc.y = -50;
-//		action.completionAmount = 1;
-//		action.staminaCost = 1;
-//		action.desc = "Research from books";
-//
-//		currentQuest.actionList = new List<QuestAction> ();
-//		currentQuest.actionList.Add (action);
-//
-//		action = new QuestAction ();
-//		action.loc.x = 123;
-//		action.loc.y = -50;
-//		action.completionAmount = 1;
-//		action.staminaCost = 1;
-//		action.desc = "Write draft";
-
-//		currentQuest.actionList.Add (action);
-
-		if (currentQuest != null) {
-			GameObject obj = GameObject.Instantiate(Resources.Load("Prefabs/QuestProgress")) as GameObject;
-			m_hudService.HUDControl.AttachMid(ref obj);
-
-			obj.transform.localPosition = new Vector3(0, -280f, 0);
-			obj.transform.localScale = new Vector3(1, 1, 1);
-
-			questProgress = obj.GetComponent<QuestProgress>();
-			questProgress.SetProgress (0);
-			for (int i = 0; i < currentQuest.actionList.Count; ++i) {
-				QuestAction currentAction = currentQuest.actionList [i];
-				GameObject actionObj = NGUITools.AddChild (actionGroup, Resources.Load ("Prefabs/ActionEvent") as GameObject);
-
-				Vector3 pos = new Vector3 (currentAction.loc.x, currentAction.loc.y, -7);
-				actionObj.transform.localPosition = pos;
-
-				ActionEvent actionEvent = actionObj.GetComponent<ActionEvent> ();
-				actionEvent.Initialize (i, gameObject, currentAction.desc);
-
-				actionList.Add(actionEvent);
-			}
-		}
-
-		
 		UIDraggablePanel dragPanel = scenePanel.GetComponent<UIDraggablePanel> ();
 		if (dragPanel != null)
 			dragPanel.enabled = true;
+
+		playerTextGroup.SetActive (true);
 	}
 
 	void ClearScene()
@@ -381,15 +190,13 @@ public class QuestEvent : MonoBehaviour {
 	{
 		TextAsset asset = Resources.Load (filename) as TextAsset;
 		if (asset != null) {
-			LoadQuest (asset.text.Split ('\n'));
+			LoadScene (asset.text.Split ('\n'));
 		}
 	}
 
-	static void LoadQuest(string[] questData)
+	static void LoadScene(string[] sceneData)
 	{
 		currentScene = new Scene ();
-		currentScene.characterList = new List<Character> ();
-		currentScene.dialogList = new List<Drama> ();
 		ParseMode parseMode = ParseMode.None;
 
 		Character currentCharacter = null;
@@ -398,12 +205,19 @@ public class QuestEvent : MonoBehaviour {
 
 		Drama currentDrama = null;
 		QuestAction currentQuestAction = null;
+		Quest currentQuest = null;
 
-		foreach (string line in questData) {
+		foreach (string line in sceneData) {
 			if (line.Contains("BG")){
 				string[] parts = line.Split(':');
 				currentScene.bgID = int.Parse(parts[1]);
 			}
+
+			if (line.Contains("NextScene:")){
+				string[] parts = line.Split(':');
+				currentScene.nextScene = int.Parse(parts[1]);
+			}
+
 			if (line.Contains("<CharaSetup>")){
 				parseMode = ParseMode.CharaSetup;
 				continue;
@@ -425,7 +239,11 @@ public class QuestEvent : MonoBehaviour {
 				continue;
 			}
 			if (line.Contains("<DramaEnd>")){
-				currentScene.dialogList.Add(currentDrama);
+//				currentScene.dialogList.Add(currentDrama);
+				currentScene.eventList.Add (currentDrama);
+			}
+			if (line.Contains("<QuestEnd>")){
+				currentScene.eventList.Add (currentQuest);
 			}
 			if (line.Contains("<QuestEvent>")){
 				parseMode = ParseMode.QuestAction;
@@ -487,11 +305,17 @@ public class QuestEvent : MonoBehaviour {
 					if (line.Contains("DramaFilename")){
 						currentDrama.dramaFile = parts[1];
 					}
-					if (line.Contains("NextEvent")){
-						currentDrama.nextEvent = parts[1];
-					}
+//					if (line.Contains("NextEvent")){
+//						currentDrama.nextEvent = parts[1];
+//					}
 					if (line.Contains("side")){
 						currentDrama.direction = int.Parse(parts[1]);
+					}
+					if (line.Contains("prereq:")){
+						currentDrama.prereq = int.Parse (parts[1]);
+					}
+					if (line.Contains("id:")){
+						currentDrama.id = int.Parse (parts[1]);
 					}
 				}
 				break;
@@ -511,9 +335,15 @@ public class QuestEvent : MonoBehaviour {
 					if (line.Contains ("completion")){
 						currentQuest.requiredAmount = int.Parse (parts[1]);
 					}
-					if (line.Contains("nextscene")){
-						currentQuest.nextEvent = parts[1];
+					if (line.Contains("prereq:")){
+						currentQuest.prereq = int.Parse (parts[1]);
 					}
+					if (line.Contains("id:")){
+						currentQuest.id = int.Parse (parts[1]);
+					}
+//					if (line.Contains("nextscene")){
+//						currentQuest.nextEvent = parts[1];
+//					}
 				}
 				break;
 
@@ -542,19 +372,19 @@ public class QuestEvent : MonoBehaviour {
 		}
 	}
 
-	void LoadEvent(string filename)
+	void LoadDialog(string filename)
 	{
 		TextAsset asset = Resources.Load (filename) as TextAsset;
 		if (asset != null) {
-			LoadEvent (asset.text.Split ('\n'));
+			LoadDialog (asset.text.Split ('\n'));
 		}
 	}
 
-	void LoadEvent(string[] questDialog){
+	void LoadDialog(string[] questDialog){
 		
 		ParseMode parseMode = ParseMode.None;
 
-		EventBase currentEvent = null;
+		DialogBase currentDialogEvent = null;
 		characterList = new List<Character>();
 
 		int currentBranch = 0;
@@ -590,7 +420,7 @@ public class QuestEvent : MonoBehaviour {
 				continue;
 			}
 			
-			EventBase nextEvent = null;
+			DialogBase nextEvent = null;
 			switch (parseMode){
 			case ParseMode.Character:
 			{
@@ -603,7 +433,7 @@ public class QuestEvent : MonoBehaviour {
 			{
 				string[] parts = dataLine.Split(new char[] {'^'});
 
-				EventDialog newDialogLine = new EventDialog();
+				DialogLine newDialogLine = new DialogLine();
 				newDialogLine.eventGroup = currentBranch;
 
 				newDialogLine.characterID = int.Parse(parts[0]);
@@ -616,7 +446,7 @@ public class QuestEvent : MonoBehaviour {
 			case ParseMode.Choice:
 			{
 				string[] parts = dataLine.Split(new char[] {'^'});
-				EventChoice newChoice = new EventChoice();
+				DialogChoice newChoice = new DialogChoice();
 				newChoice.eventGroup = currentBranch;
 				newChoice.choiceOptions = new string[parts.Length];
 
@@ -639,28 +469,28 @@ public class QuestEvent : MonoBehaviour {
 				break;
 			}
 
-			if (currentEvent == null){
-					openingEvent = nextEvent;
+			if (currentDialogEvent == null){
+					openingDialogEvent = nextEvent;
 				}
 			else{
-				if (currentEvent.eventGroup == nextEvent.eventGroup)
-					currentEvent.nextEvent = nextEvent;
+				if (currentDialogEvent.eventGroup == nextEvent.eventGroup)
+					currentDialogEvent.nextEvent = nextEvent;
 				else{
 
 					int lastBranch = branchQueue[0];
 					if (lastBranch != priorityQueue[0]) //branch splitting
 					{
-						currentEvent = openingEvent.FindBranch(lastBranch);
-//						while (currentEvent.eventGroup != lastBranch && currentEvent.eventType != EventBase.EventType.Choice){
-//							currentEvent = currentEvent.nextEvent;
+						currentDialogEvent = openingDialogEvent.FindBranch(lastBranch);
+//						while (currentDialogEvent.eventGroup != lastBranch && currentDialogEvent.eventType != DialogBase.EventType.Choice){
+//							currentDialogEvent = currentDialogEvent.nextEvent;
 //						}
-						EventChoice branchEvent = (EventChoice)currentEvent;
+						DialogChoice branchEvent = (DialogChoice)currentDialogEvent;
 						branchEvent.nextEvents.Add (nextEvent);
 					}else{ //branch merging
 						
 						foreach (int finishedIndex in finishedQueue){
-							currentEvent = openingEvent.FindLeaf(finishedIndex);
-							currentEvent.nextEvent = nextEvent;
+							currentDialogEvent = openingDialogEvent.FindLeaf(finishedIndex);
+							currentDialogEvent.nextEvent = nextEvent;
 						}
 						finishedQueue.Clear ();
 						branchQueue.RemoveAt(0);
@@ -668,31 +498,29 @@ public class QuestEvent : MonoBehaviour {
 				}
 
 			}
-			currentEvent = nextEvent;
+			currentDialogEvent = nextEvent;
 		}
 
 		charactersInScene = characterList.ToArray ();
 
-		currentEvent = openingEvent;
-		currentEvent.DumpContents ();
-//		while (currentEvent != null) {
-//			EventDialog dialog = currentEvent as EventDialog;
+		currentDialogEvent = openingDialogEvent;
+		currentDialogEvent.DumpContents ();
+//		while (currentDialogEvent != null) {
+//			DialogLine dialog = currentDialogEvent as DialogLine;
 //			Debug.Log(dialog.dialogLine + "\n");
 //
-//			currentEvent = currentEvent.nextEvent;
+//			currentDialogEvent = currentDialogEvent.nextEvent;
 //		}
 	}
 
 	void ShowCurrentDialog()
 	{
-		if (currentEvent == null) {
-			ClearScene ();
-			LoadScene(currentScene.dialogList[0].nextEvent);
-			InitializeScene ();
-			return; //go to next scene here
+		if (currentDialogEvent == null) {
+			GoToNext ();
+			return;
 		}
-		if (currentEvent.eventType == EventBase.EventType.Dialog) {
-			EventDialog dialog = currentEvent as EventDialog;
+		if (currentDialogEvent.eventType == DialogBase.EventType.Dialog) {
+			DialogLine dialog = currentDialogEvent as DialogLine;
 
 			if (dialog.characterID != 0){
 				otherText.text = dialog.dialogLine;
@@ -703,12 +531,12 @@ public class QuestEvent : MonoBehaviour {
 			}
 
 			displayingChoice = false;
-		} else if (currentEvent.eventType == EventBase.EventType.Choice) {
-			EventChoice choiceEvent = currentEvent as EventChoice;
+		} else if (currentDialogEvent.eventType == DialogBase.EventType.Choice) {
+			DialogChoice choiceEvent = currentDialogEvent as DialogChoice;
 
 			int i = 0;
 			foreach (string str in choiceEvent.choiceOptions){
-				GameObject obj = NGUITools.AddChild(choiceRoot.gameObject, Resources.Load("Prefabs/QuestChoice") as GameObject);
+				GameObject obj = NGUITools.AddChild(choiceRoot.gameObject, Resources.Load("Prefabs/Event/QuestChoice") as GameObject);
 				QuestChoiceOption choiceOption = obj.GetComponent<QuestChoiceOption>();
 				choiceOption.Initialize(gameObject, i++, str);
 
@@ -718,13 +546,15 @@ public class QuestEvent : MonoBehaviour {
 			choiceRoot.repositionNow = true;
 
 			textCollider.enabled = false;
+
+			playerTextGroup.SetActive (false);
 		}
 	}
 
 	void OnNext()
 	{
 		if (displayingChoice == false) {
-			currentEvent = currentEvent.nextEvent;
+			currentDialogEvent = currentDialogEvent.nextEvent;
 			ShowCurrentDialog ();
 		} else {
 			ShowCurrentDialog ();
@@ -734,12 +564,12 @@ public class QuestEvent : MonoBehaviour {
 	void OnChoiceSelected(int selected){
 		displayingChoice = true;
 
-		EventChoice choiceEvent = currentEvent as EventChoice;
+		DialogChoice choiceEvent = currentDialogEvent as DialogChoice;
 		if (choiceEvent.nextEvents.Count > 0){
-			currentEvent = choiceEvent.nextEvents [selected];
+			currentDialogEvent = choiceEvent.nextEvents [selected];
 		}
 		else {
-			currentEvent = choiceEvent.nextEvent;
+			currentDialogEvent = choiceEvent.nextEvent;
 		} 
 
 		foreach (QuestChoiceOption option in choiceList) {
@@ -752,13 +582,80 @@ public class QuestEvent : MonoBehaviour {
 		textLabel.text = choiceEvent.choiceOptions [selected];
 		nameLabel.text = characterList [0]._name;
 		textCollider.enabled = true;
+
+		playerTextGroup.SetActive (true);
 	}
 
 	void OnBubbleClicked(int selected){
 		bubbleGroup.SetActive (false);
 
-		Drama selectedDrama = currentScene.dialogList [selected];
+		currentScene.currentEvent = selected;
+//		Drama selectedDrama = currentScene.dialogList [selected];
+		EventBase currentEvent = currentScene.eventList [selected];
 
+		if (currentEvent.eventType == SceneEventType.Drama) {
+//			StartDrama (selectedDrama);
+			StartDrama (currentEvent as Drama);
+		} else if (currentEvent.eventType == SceneEventType.Quest) {
+			StartQuest (currentEvent as Quest);
+		}
+
+	}
+		//start quest or start drama
+
+	void GoToNext()
+	{
+		foreach (EventBase eventListItem in currentScene.eventList){
+			if (eventListItem.id == currentScene.currentEvent)
+				continue;
+			
+			if (eventListItem.prereq == currentScene.currentEvent){
+				currentScene.currentEvent = eventListItem.id;
+				if (eventListItem.eventType == SceneEventType.Drama){
+					StartDrama(eventListItem as Drama);
+				}else{
+					StartQuest (eventListItem as Quest);
+				}
+				return;
+			}
+		}
+		
+		ClearScene ();
+		LoadScene(sceneFiles[currentScene.nextScene]);
+		InitializeScene ();
+	}
+
+	void StartQuest(Quest quest) {
+
+		if (quest != null) {
+			currentQuest = quest;
+			if (questProgress == null){
+				GameObject obj = GameObject.Instantiate(Resources.Load("Prefabs/Event/QuestProgress")) as GameObject;
+				m_hudService.HUDControl.AttachMid(ref obj);
+
+				obj.transform.localPosition = new Vector3(0, -280f, 0);
+				obj.transform.localScale = new Vector3(1, 1, 1);
+
+				questProgress = obj.GetComponent<QuestProgress>();
+			}
+			questProgress.gameObject.SetActive (true);
+			questProgress.SetProgress (0);
+			for (int i = 0; i < currentQuest.actionList.Count; ++i) {
+				QuestAction currentAction = currentQuest.actionList [i];
+				GameObject actionObj = NGUITools.AddChild (actionGroup, Resources.Load ("Prefabs/Event/ActionEvent") as GameObject);
+
+				Vector3 pos = new Vector3 (currentAction.loc.x, currentAction.loc.y, -7);
+				actionObj.transform.localPosition = pos;
+
+				ActionEvent actionEvent = actionObj.GetComponent<ActionEvent> ();
+				actionEvent.Initialize (i, gameObject, currentAction.desc);
+
+				actionList.Add(actionEvent);
+			}
+		}
+	}
+
+	void StartDrama(Drama selectedDrama) {
 		float dialogLoc = selectedDrama.loc.x;
 
 		Vector3 pos = scenePanel.transform.localPosition;
@@ -770,25 +667,29 @@ public class QuestEvent : MonoBehaviour {
 		clipPos.x = dialogLoc;
 		scenePanel.clipRange = clipPos;
 
-		LoadEvent (selectedDrama.dramaFile);
+		LoadDialog (selectedDrama.dramaFile);
 
-		pos = eventBase.transform.localPosition;
+		pos = dialogBase.transform.localPosition;
 		pos.x = dialogLoc;
-		eventBase.transform.localPosition = pos;
-		eventBase.SetActive (true);
+		dialogBase.transform.localPosition = pos;
+		dialogBase.SetActive (true);
 
 		pos = playerChara.transform.localPosition;
 		pos.x = currentScene.playerPos.x;
 
 		playerChara.transform.localPosition = pos;
 
-		currentEvent = openingEvent; //move it to after the event dialog is loaded
+		currentDialogEvent = openingDialogEvent; //move it to after the event dialog is loaded
 		ShowCurrentDialog ();
 		displayingChoice = false;
 
 		UIDraggablePanel dragPanel = scenePanel.GetComponent<UIDraggablePanel> ();
 		if (dragPanel != null)
 			dragPanel.enabled = false;
+
+		if (questProgress != null) {
+			questProgress.gameObject.SetActive (false);
+		}
 	}
 
 	void OnAction(int actionID){
@@ -799,10 +700,7 @@ public class QuestEvent : MonoBehaviour {
 
 		if (currentQuest.completedAmount >= currentQuest.requiredAmount) {
 			progressRatio = 1f;
-			LoadScene(currentQuest.nextEvent);
-			currentQuest = null;
-			ClearScene();
-			InitializeScene ();
+			GoToNext ();
 		}
 		else
 			progressRatio = currentQuest.completedAmount / (float)currentQuest.requiredAmount;
