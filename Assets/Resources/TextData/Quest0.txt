@@ -1,0 +1,41 @@
+BG:0
+<PlayerSetup>
+x:160
+y:-114
+<Quest>
+x:-100
+y:-50
+side:1
+completion:20
+<QuestEvent>
+x:1521
+y:-37
+cost:1
+completion:6
+desc:Research from books
+<QuestEvent>
+x:-200
+y:-50
+cost:1
+completion:6
+desc:Find a topic
+<QuestEvent>
+x:813
+y:160
+cost:1
+completion:6
+desc:Look at something green
+<QuestEvent>
+x:470
+y:100
+cost:1
+completion:6
+desc:Write draft
+<QuestEvent>
+x:500
+y:100
+cost:1
+completion:6
+desc:Write essay
+<QuestEnd>
+NextScene:1

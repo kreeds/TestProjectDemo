@@ -1,0 +1,34 @@
+{
+	"type": "Live2D Model Setting",
+	"name": "model",
+	"model": "model.moc",
+	"textures": [
+		"texture_2048.png"
+	],
+	"motions":{
+		"change":[
+			{"file":"idol00.mtn","fade_in":200, "fade_out":200}
+		],
+		"idle":[
+			{"file":"idol01.mtn","fade_in":200, "fade_out":200}
+		],
+		"idle_npc":[
+			{"file":"idol02.mtn","fade_in":200, "fade_out":200}
+		],
+		"idle_battle":[
+			{"file":"idol03.mtn","fade_in":200, "fade_out":200}
+		],
+		"attack":[
+			{"file":"atk00.mtn"}
+		],
+		"special":[
+			{"file":"atk01.mtn"}
+		],
+		"damaged":[
+			{"file":"dmg00.mtn"}
+		],
+		"win":[
+			{"file":"win00.mtn"}
+		],
+	}
+}
