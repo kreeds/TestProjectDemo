@@ -20,6 +20,10 @@ public class HUDHandler : MonoBehaviour {
 	[SerializeField]GameObject m_Mid;
 	[SerializeField]GameObject m_BattleBottom;
 
+	[SerializeField]UIButton	m_specialBtn;
+	[SerializeField]UISprite 	m_heartSprite;
+	[SerializeField]UILabel		m_specialLabel;
+
 	UIGauge[] HPBars;
 
 	#region Mono
@@ -55,6 +59,13 @@ public class HUDHandler : MonoBehaviour {
 
 		if(m_BattleBottom != null)
 			m_BattleBottom.SetActive(true);
+
+		if(m_specialBtn != null)
+		{
+			m_specialBtn.isEnabled = false;
+			m_specialBtn.GetComponent<UIButtonMessage>().target = GameObject.Find("BattleManager");
+			m_specialBtn.GetComponent<UIButtonMessage>().functionName = "OnFinishPressed";
+		}
 	}
 
 	public void InitializeGauge(int index, int curVal, int totalVal, string name = "")
@@ -89,6 +100,39 @@ public class HUDHandler : MonoBehaviour {
 	{
 		m_Mid.SetActive(show);
 	}
+
+	public void SetSpecialEnable(bool enable)
+	{
+		if(m_specialBtn != null)
+			m_specialBtn.isEnabled = enable;
+
+
+		if(m_specialLabel != null)
+			m_specialLabel.enabled = enable;
+	}
+
+	public void SetSpecialGaugeAmt(float targetAmt)
+	{
+		if(m_heartSprite != null)
+		{
+			StartCoroutine(FillSprite(targetAmt));
+		}
+	}
+
+	IEnumerator FillSprite(float targetAmt)
+	{
+		float diff = targetAmt - m_heartSprite.fillAmount;
+		while( diff > 0.01f )
+		{
+			diff = targetAmt - m_heartSprite.fillAmount;
+			m_heartSprite.fillAmount = Mathf.Lerp(m_heartSprite.fillAmount, targetAmt, Time.deltaTime);
+			yield return null;
+		}
+		m_heartSprite.fillAmount = targetAmt;
+		//m_specialBtn.isEnabled = (m_heartSprite.fillAmount == 1)? true: false;
+
+	}	
+
 	#endregion
 
 

@@ -29,15 +29,14 @@ public class PlayerManager : MonoBehaviour {
 	EnemyManager m_enemyMgr;
 	CameraService m_camService;
 	HUDHandler m_handler;
-	
 
 	[SerializeField]UIGauge m_gauge;
 	[SerializeField]LAppModelProxy l2dInterface;
-	[SerializeField]UIPanel m_panel;
+	[SerializeField]GameObject m_obj;
 	[SerializeField]float waitinterval;
 
 	bool isPlaying = true;
-
+	bool specialAtk = false;
 	bool attackend = false;
 	public bool isAttackComplete
 	{
@@ -108,51 +107,67 @@ public class PlayerManager : MonoBehaviour {
 		{
 			isPlaying = true;
 			// Scroll to enemy
-			m_camService.TweenPos(new Vector3(1.46f, -3.76f, 0.0f),
-								new Vector3(-1.46f, -3.76f, 0.0f),
-								UITweener.Method.EaseInOut,
-								UITweener.Style.Once,
-								gameObject,
-								"OnAttackEnd");
-
+			TweenAttack(true);
 		}
 	}
 
 	void OnAttackEnd()
 	{
-		if(m_enemyMgr != null)
-			m_enemyMgr.damageEnemy(m_player.atk);
 
-		if(m_battleMgr != null)
-			m_battleMgr.Correct();
+		StartCoroutine(Utility.DelayInSeconds(0.2f, (res) =>
+		{
+			if(m_enemyMgr != null)
+			{
+				if(!specialAtk)
+				{
+					m_enemyMgr.damageEnemy(m_player.atk);
+					GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
+					obj.transform.localPosition = new Vector3 (16, 112);
 
-		GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
-		obj.transform.localPosition = new Vector3 (16, 112);
+				}
+				else
+				{
+					GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
+					obj.transform.localPosition = new Vector3 (16, 112);
+					obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
+					obj.transform.localPosition = new Vector3 (-152, 112);
+					obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
+					obj.transform.localPosition = new Vector3 (-23, -137);
+					obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/FX/WhiteFader_FX") as GameObject);
+					obj.transform.localScale = new Vector3(2048f, 2048f, 0);
+					m_enemyMgr.killEnemy();
+				}
+			}
 
-		GameObject obj2 = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Button01_Fx") as GameObject);
-		obj2.transform.localPosition = new Vector3 (0, 90);
 
-		//StartCoroutine(ReturnCamera());
-		StartCoroutine(Utility.DelayInSeconds(3,
-						(res)=>
-						{
-							attackend = true;
-							//StartCoroutine(ReturnCamera());
-						}
-						));
+			if(m_battleMgr != null)
+				m_battleMgr.Correct();
+
+			//StartCoroutine(ReturnCamera());
+			attackend = true;
+		}
+		));
+
 
 	}
 	void OnMovementEnd()
 	{
-		
-		GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
-		obj.transform.localPosition = new Vector3 (16, 112);
+		StartCoroutine(Utility.DelayInSeconds(0.2f, (res) =>
+		{
+			GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
+			obj.transform.localPosition = new Vector3 (16, 112);
 
-		// Apply Damage to player
-		Damaged(m_enemyMgr.GetCurrentEnemyAttack());
+			// Apply Damage to player
+			Damaged(m_enemyMgr.GetCurrentEnemyAttack());
 
+			StartCoroutine(Utility.DelayInSeconds(3, 
+												(res1)=>{
+												Service.Get<HUDService>().ShowMid(true);
+												Service.Get<HUDService>().HUDControl.SetSpecialEnable(true);
+												}));
+		}
+		));
 
-		StartCoroutine(Utility.DelayInSeconds(3, (res)=>{Service.Get<HUDService>().ShowMid(true); }));
 	}
 
 	/// <summary>
@@ -160,8 +175,8 @@ public class PlayerManager : MonoBehaviour {
 	/// </summary>
 	public void SpecialAttack()
 	{
-		GameObject obj = NGUITools.AddChild (m_panel.gameObject, Resources.Load ("Prefabs/Effect_Fx") as GameObject);
-		obj.transform.localPosition = new Vector3 (0, 0, -10f);
+		GameObject obj = NGUITools.AddChild (m_obj, Resources.Load ("Prefabs/FX/Effect_Fx") as GameObject);
+		obj.transform.localPosition = new Vector3 (720, 0, -10f);
 		BattleEffect effect = obj.GetComponent<BattleEffect>();
 		if (effect != null) {
 			effect.Initialize(gameObject);
@@ -169,6 +184,8 @@ public class PlayerManager : MonoBehaviour {
 
 		if(m_battleMgr != null)
 			m_battleMgr.Correct();
+
+		specialAtk = true;
 	}
 
 	public void NormalAttack()
@@ -176,7 +193,9 @@ public class PlayerManager : MonoBehaviour {
 		l2dInterface.PlayAttackAnim ();
 
 		Service.Get<HUDService>().ShowMid(false);
-		isPlaying = attackend = false;
+		isPlaying = attackend = specialAtk = false;
+
+
 	}
 
 	/// <summary>
@@ -193,25 +212,31 @@ public class PlayerManager : MonoBehaviour {
 		l2dInterface.PlayDamageAnim ();
 	}
 
-	private void OnEffectFinish(){
-		if (m_enemyMgr != null)
-//			m_enemyMgr.damageEnemy(m_player.atk * 2);
-			m_enemyMgr.killEnemy ();
-
+	private void OnEffectFinish()
+	{
+		TweenAttack(true);
 		if(m_battleMgr != null)
 			m_battleMgr.ResetGauge();
 	}
 
+	private void TweenAttack(bool isAttacking)
+	{
+		Vector3 from, to;
+		from = (isAttacking)? new Vector3(1.46f, -3.76f, 0.0f) : new Vector3(-1.46f, -3.76f, 0.0f);
+		to = (isAttacking)? new Vector3(-1.46f, -3.76f, 0.0f) : new Vector3(1.46f, -3.76f, 0.0f);
+
+		m_camService.TweenPos(	from,
+								to,
+								UITweener.Method.EaseInOut,
+								UITweener.Style.Once,
+								gameObject,
+								"OnAttackEnd");
+	}
 	#region IEnumurators
 	IEnumerator ReturnCamera()
 	{
 		yield return new WaitForSeconds(waitinterval);
-		m_camService.TweenPos(new Vector3(-1.46f, -3.76f, 0.0f),
-								new Vector3(1.46f, -3.76f, 0.0f),
-								UITweener.Method.EaseInOut,
-								UITweener.Style.Once,
-								gameObject,
-								"OnMovementEnd");
+		TweenAttack(false);
 	}
 	#endregion
 }

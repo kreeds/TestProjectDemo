@@ -1,76 +1,70 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &143140
+--- !u!1 &137794
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 443140}
-  - 114: {fileID: 11443140}
-  - 114: {fileID: 11443142}
-  m_Layer: 0
-  m_Name: DataManager
+  - 4: {fileID: 437794}
+  - 114: {fileID: 11437796}
+  - 114: {fileID: 11437794}
+  m_Layer: 5
+  m_Name: WhiteFader_FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &443140
+--- !u!4 &437794
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143140}
+  m_GameObject: {fileID: 137794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.00650426, y: -.59728682, z: -1.81054688}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2048, y: 2048, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11443140
+--- !u!114 &11437794
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143140}
+  m_GameObject: {fileID: 137794}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb3a4a631689f4a0c9eedba1e6ef00f9, type: 3}
+  m_Script: {fileID: 11500000, guid: b6dbe5cd5351e44acb7c58374a16f668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredGestureNames:
-  - T
-  - N
-  - D
-  - P
-  - line
-  - five_point_star
-  - null
-  - arrowhead
-  - X
-  - H
-  - I
-  - exclamation
-  - pitchfork
-  - six_point_star
-  - asterisk
-  - half_note
---- !u!114 &11443142
+  fadeSpeed: 1
+  texture: {fileID: 11437796}
+--- !u!114 &11437796
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143140}
+  m_GameObject: {fileID: 137794}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f739ed0b3e08a4baaad99faeaefa2c65, type: 3}
+  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_parent: {fileID: 0}
-  m_easySpriteIndex: 01000000020000000300000004000000050000000a0000000f000000
-  m_hardSpriteIndex: 00000000060000000700000008000000090000000c0000000d000000
+  mColor: {r: 1, g: 1, b: 1, a: 0}
+  mPivot: 4
+  mDepth: 0
+  mRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
+  mTexture: {fileID: 2800000, guid: 175a7bdd4567a4a99b54d3fdfed42781, type: 3}
+  mMat: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -80,6 +74,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 143140}
+  m_RootGameObject: {fileID: 137794}
   m_IsPrefabParent: 1
   m_IsExploded: 1

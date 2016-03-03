@@ -7,17 +7,29 @@ public class TextureAnimation : MonoBehaviour {
 	#region Fields
 	[SerializeField] float 	m_scrollSpeed = 0.5f;
 	[SerializeField] float	m_offset;
+
 	#endregion
 
 	#region Override MonoBehanviour
 	// Use this for initialization
-	void Start () {
+	void OnEnable () {
 		StartCoroutine(animationFlow());
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void Forward(bool forward)
+	{
+		m_scrollSpeed = (forward)? Mathf.Abs(m_scrollSpeed) : - Mathf.Abs(m_scrollSpeed);
+	}
+
+	public void Reset()
+	{
+		m_offset = 0;
+		renderer.material.SetTextureOffset("_MainTex", Vector2.zero);
 	}
 	#endregion
 

@@ -46,12 +46,12 @@ public class Idle : FSMState
 			return;
 		}
 
-//		if((bmgr.currentGestureState == BattleManager.GestureState.START ||
-//			bmgr.currentGestureState == BattleManager.GestureState.SHOWING) && attacked)
-//			attacked = false;
-//
+		if((bmgr.currentGestureState == BattleManager.GestureState.START ||
+			bmgr.currentGestureState == BattleManager.GestureState.SHOWING) && attacked)
+			attacked = false;
+
 		// Attack Player
-		if(pmgr.isAttackComplete)
+		if(pmgr.isAttackComplete || (bmgr.currentGestureState == BattleManager.GestureState.END && !attacked) )
 		{
 			enemy.SetTransition(Transition.E_FAILGESTURE);
 			pmgr.isAttackComplete = false;
@@ -73,6 +73,7 @@ public class Idle : FSMState
 
 public class Damaged: FSMState
 {
+
 	Enemy enemy;
 	int hp = 0;
 
@@ -132,6 +133,11 @@ public class Attack : FSMState
 	BattleManager bmgr;
 
 	int hp = 0;
+	float intervalCount = 0;
+	const float DelayCount = 2.0f;
+	bool attack = true;
+
+
 	public Attack(Enemy emy)
 	{
 		stateID = StateID.E_ATTACK;
@@ -139,19 +145,31 @@ public class Attack : FSMState
 		pmgr = PlayerManager.Get();
 		bmgr = BattleManager.Get();
 		hp = enemy.Hp;
+	
 	}
 
 	public override void OnEnter()
 	{
 
 		Debug.Log(enemy.name + ": Entering Attack State");
-		enemy.PlayAttackAnim ();
+		attack = true;
+
 	}
 
 	public override void Transit()
 	{
+		if(attack)
+		{
+			intervalCount += Time.deltaTime;
+			if(intervalCount > DelayCount)
+			{
+				enemy.PlayAttackAnim();
+				intervalCount = 0;
+				attack = false;
+			}
+		}
 
-		if(enemy.IsAnimationComplete())
+		if(!attack && enemy.IsAnimationComplete())
 		{
 			enemy.SetTransition(Transition.E_FINISHATTACK);
 			Service.Get<CameraService>().TweenPos(new Vector3(-1.46f, -3.76f, 0.0f),
