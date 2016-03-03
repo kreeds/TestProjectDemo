@@ -5,6 +5,14 @@ public class CollectableItems : MonoBehaviour {
 
 	[SerializeField]UISprite sprite;
 
+	UIButtonMessage m_btnMsg;
+
+	void Start()
+	{
+		m_btnMsg = GetComponent<UIButtonMessage>();
+
+
+	}
 	public void Init(ItemType type)
 	{
 		switch(type)
@@ -22,5 +30,10 @@ public class CollectableItems : MonoBehaviour {
 				sprite.spriteName = "";
 				break;
 		}
+	}
+
+	void OnCollect()
+	{
+		Debug.Log("OnCollect activated*****");
 	}
 }

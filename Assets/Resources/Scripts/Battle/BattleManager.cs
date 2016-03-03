@@ -10,7 +10,6 @@ public class BattleManager : MonoBehaviour
 	GestureMethod GestureGenerateMethod;
 
 	public GenerateGesture m_gestureGenerator;
-	public GameObject	m_actionRoot;
 
 	EnemyManager	m_enemyMgr;
 	PlayerManager	m_playerMgr;
@@ -34,8 +33,8 @@ public class BattleManager : MonoBehaviour
 	HUDService m_HUDService;
 
 	[SerializeField]UIGauge			m_finishGauge;
-	[SerializeField]UIButton		m_finishButton;
 	[SerializeField]GameObject		m_winLogo;
+	[SerializeField]GameObject		m_itemParent;
 
 	// Battle Phases
 	public enum BattlePhase
@@ -106,8 +105,6 @@ public class BattleManager : MonoBehaviour
 
 		m_finishGauge.Init (gaugeCount, m_fullgaugeCount);
 
-		m_finishButton.isEnabled = false;
-
 		Service.Init();
 		m_HUDService = Service.Get<HUDService>();
 		m_HUDService.StartScene();
@@ -138,8 +135,6 @@ public class BattleManager : MonoBehaviour
 		gaugeCount = 0;
 
 		ResetGauge();
-
-		m_actionRoot.SetActive(true);
 
 		m_phase = BattlePhase.ATTACK;
 
@@ -175,10 +170,6 @@ public class BattleManager : MonoBehaviour
 						m_beginFinisher = false;
 
 					}
-					else
-					{
-						m_finishButton.isEnabled = true;
-					}
 				}
 			}
 			break;
@@ -187,9 +178,6 @@ public class BattleManager : MonoBehaviour
 				m_gestureHandler.DisableGesture = false;
 				if(m_gestureState == GestureState.START)
 				{
-					if(m_actionRoot != null)
-						m_actionRoot.SetActive(false);
-					
 					m_gestureState = GestureState.SHOWING;
 					m_gestureStart = true;
 					m_coroutine = CommenceAtkInterval();
@@ -232,7 +220,6 @@ public class BattleManager : MonoBehaviour
 		{
 			m_HUDService.HUDControl.SetSpecialGaugeAmt((float)gaugeCount/m_fullgaugeCount);
 		}
-		m_actionRoot.SetActive(true);
 	}
 	 
 	public void ResetGauge()
@@ -252,6 +239,15 @@ public class BattleManager : MonoBehaviour
 
 		m_HUDService.HUDControl.SetSpecialGaugeAmt((float)gaugeCount/m_fullgaugeCount);
 	}
+
+	//TODO: Add parameter to take in data for items to launch
+	public void CreateEmitter(Vector3 pos)
+	{
+		GameObject obj = NGUITools.AddChild(m_itemParent, Resources.Load("Prefabs/Emitter") as GameObject);
+		obj.transform.localPosition = pos;
+	}
+
+	#region Button
 	void OnFinishPressed()
 	{
 		if(m_coroutine != null)
@@ -265,9 +261,9 @@ public class BattleManager : MonoBehaviour
 //			m_gestureGenerator.DestroyGesture();
 
 		m_beginFinisher = true;
-		m_actionRoot.SetActive(false);
 		m_HUDService.ShowMid(false);
 		m_HUDService.HUDControl.SetSpecialEnable(false);
 	}
+	#endregion
 
 }

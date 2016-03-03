@@ -31,7 +31,9 @@ public class GenerateGesture : MonoBehaviour
 
 	void Start()
 	{
+		m_parent = Service.Get<HUDService>().HUDControl.transform;
 		m_sprites = Resources.LoadAll<Sprite>("Sprite/multistrokes");
+
 	}
 
 	void CreateGestureObject()

@@ -229,6 +229,9 @@ public class Death : FSMState
 		{
 			bmr.CurBattlePhase = BattleManager.BattlePhase.END;
 			GameObject.DestroyObject(enemy.gameObject);
+			Vector3 vec = new Vector3(enemy.transform.localPosition.x, 0 , 0);
+
+			bmr.CreateEmitter(vec);
 		}
 	}
 }

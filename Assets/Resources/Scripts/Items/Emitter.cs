@@ -51,8 +51,8 @@ public class Emitter : MonoBehaviour {
 			Rigidbody body = obj.GetComponent<Rigidbody>();
 			colContainer.Add(obj.GetComponent<BoxCollider>());
 
-			float randomx= Random.Range(-0.5f, 0.5f);
-			float randomy = Random.Range(-1.0f, 1.0f);
+			float randomx= Random.Range(-0.4f, 0.4f);
+			float randomy = Random.Range(-1.5f, 1.5f);
 			body.AddForce(new Vector3(randomx, randomy,0), ForceMode.Impulse);
 		}
 

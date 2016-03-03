@@ -50,4 +50,6 @@ public class HUDService : CSingleton {
 		m_handler.ShowMid(show);
 	}
 
+
+
 }
