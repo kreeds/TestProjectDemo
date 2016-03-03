@@ -18,7 +18,7 @@ public class BattleManager : MonoBehaviour
 
 
 	public int m_fullgaugeCount = 5;
-	int gaugeCount = 0;
+	int gaugeCount = 1;
 
 	// Measured in seconds
 	public float m_gestureInv = 3;
@@ -115,30 +115,41 @@ public class BattleManager : MonoBehaviour
 		// Create Battle HUD
 		m_HUDService.CreateBattleHUD();
 		m_HUDService.ShowBottom(false);
+		m_HUDService.HUDControl.SetSpecialEnable(false);
 	}
 
-	IEnumerator CommenceAttack()
+	IEnumerator CommenceAtkInterval()
 	{	
 		//Testing for Emiko's Proposal		
 		//yield return new WaitForSeconds(m_interval);
 		if (GestureGenerateMethod != null) {
 			GestureGenerateMethod ();
 		}
+
+		// Count Down till Gesture Failure
 		yield return new WaitForSeconds(m_gestureInv);
 
-		//Destroy Gesture
+		// Gesture Failure, Destroy Gesture and reset State
 		if(m_gestureGenerator != null)
 			m_gestureGenerator.DestroyGesture();
+
 		m_gestureState = GestureState.END;
 
-		if(m_phase == BattlePhase.SPECIAL)
-		{
-			m_phase = BattlePhase.ATTACK;
-			gaugeCount = 0;
-		}
+		gaugeCount = 0;
+
+		ResetGauge();
 
 		m_actionRoot.SetActive(true);
+
 		m_phase = BattlePhase.ATTACK;
+
+		// Move Camera to view Enemy
+		Service.Get<CameraService>().TweenPos(new Vector3(1.46f, -3.76f, 0.0f),
+													new Vector3(-1.46f, -3.76f, 0.0f),
+													UITweener.Method.EaseInOut,
+													UITweener.Style.Once,
+													null,
+													"");
 
 	}
 
@@ -178,10 +189,10 @@ public class BattleManager : MonoBehaviour
 				{
 					if(m_actionRoot != null)
 						m_actionRoot.SetActive(false);
-
+					
 					m_gestureState = GestureState.SHOWING;
 					m_gestureStart = true;
-					m_coroutine = CommenceAttack();
+					m_coroutine = CommenceAtkInterval();
 
 					GestureGenerateMethod = m_gestureGenerator.GenerateHardGesture;
 					StartCoroutine(m_coroutine);
@@ -201,25 +212,32 @@ public class BattleManager : MonoBehaviour
 	{
 		if(m_coroutine != null)
 			StopCoroutine(m_coroutine);
+
 		m_gestureState = GestureState.START;
 
 		if(m_gestureGenerator != null)
 			m_gestureGenerator.DestroyGesture();
 
 		++gaugeCount;
-		m_finishGauge.gain (1);
+		if(gaugeCount > m_fullgaugeCount)
+			gaugeCount = m_fullgaugeCount;
 
 		if(m_phase == BattlePhase.SPECIAL)
 		{
 			m_phase = BattlePhase.ATTACK;
 			gaugeCount = 0;
+			ResetGauge();
+		}
+		else
+		{
+			m_HUDService.HUDControl.SetSpecialGaugeAmt((float)gaugeCount/m_fullgaugeCount);
 		}
 		m_actionRoot.SetActive(true);
 	}
-
+	 
 	public void ResetGauge()
 	{
-		m_finishGauge.Init(gaugeCount, m_fullgaugeCount);
+		m_HUDService.HUDControl.SetSpecialGaugeAmt(0);
 	}
 	public static BattleManager Get()
 	{
@@ -229,24 +247,27 @@ public class BattleManager : MonoBehaviour
 	public void ReduceGauge()
 	{
 		--gaugeCount;
-		m_finishGauge.reduce(1);
+		if(gaugeCount < 0)
+			gaugeCount = 0;
+
+		m_HUDService.HUDControl.SetSpecialGaugeAmt((float)gaugeCount/m_fullgaugeCount);
 	}
-
-
 	void OnFinishPressed()
 	{
 		if(m_coroutine != null)
 			StopCoroutine(m_coroutine);
 
 		m_gestureState = GestureState.START;
+	
+		ResetGauge();
 
 //		if(m_gestureGenerator != null)
 //			m_gestureGenerator.DestroyGesture();
 
 		m_beginFinisher = true;
 		m_actionRoot.SetActive(false);
-
-		m_finishButton.isEnabled = false;
+		m_HUDService.ShowMid(false);
+		m_HUDService.HUDControl.SetSpecialEnable(false);
 	}
 
 }
