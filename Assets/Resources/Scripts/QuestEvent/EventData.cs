@@ -175,6 +175,8 @@ public class Quest:EventBase
 	public string questName;
 	public string questDesc;
 
+	public string finishDesc;
+
 	public Quest(): base()
 	{
 		eventType = SceneEventType.Quest;

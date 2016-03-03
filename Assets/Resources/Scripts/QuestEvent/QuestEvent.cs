@@ -71,6 +71,8 @@ public class QuestEvent : MonoBehaviour {
 	List<AreaNode>		nodeList;
 	List<ActionEvent> 	actionList;
 
+	RelationshipUp					relationShipPanel;
+
 	static List<Character> characterList;
 
 	static Scene currentScene;
@@ -87,9 +89,11 @@ public class QuestEvent : MonoBehaviour {
 
 		choiceList = new List<QuestChoiceOption> ();
 		charaInSceneCount = 0;
-
+		
+		playerChara.PlayIdleAnim ();
 //		LoadScene ("TextData/Quest2");
-		LoadScene (sceneFiles [firstQuest]);
+		if (currentScene == null)
+			LoadScene (sceneFiles [firstQuest]);
 		InitializeScene ();
 	}
 	
@@ -100,6 +104,7 @@ public class QuestEvent : MonoBehaviour {
 
 	void InitializeScene()
 	{
+		playerChara.PlayIdleAnim ();
 		dialogBase.SetActive (false);
 
 		if (currentScene == null)
@@ -341,6 +346,19 @@ public class QuestEvent : MonoBehaviour {
 					if (line.Contains("id:")){
 						currentQuest.id = int.Parse (parts[1]);
 					}
+					if (line.Contains("name")){
+						currentQuest.questName = parts[1];
+					}
+					if (line.Contains ("startdesc")){
+						int start = line.IndexOf('"') + 1;
+						string desc = line.Substring (start, line.LastIndexOf('"') - start).Replace("\\n", System.Environment.NewLine) ;
+						currentQuest.questDesc = desc;
+					}
+					if (line.Contains ("finishdesc")){
+						int start = line.IndexOf('"') + 1;
+						string desc = line.Substring (start, line.LastIndexOf('"') - start).Replace("\\n", System.Environment.NewLine) ;
+						currentQuest.finishDesc = desc;
+					}
 //					if (line.Contains("nextscene")){
 //						currentQuest.nextEvent = parts[1];
 //					}
@@ -516,7 +534,18 @@ public class QuestEvent : MonoBehaviour {
 	void ShowCurrentDialog()
 	{
 		if (currentDialogEvent == null) {
-			GoToNext ();
+//			GoToNext ();
+
+			if (relationShipPanel == null){
+//				GameObject obj = Instantiate(Resources.Load("Prefabs/Event/RelationUpObject")) as GameObject;
+//				m_hudService.HUDControl.AttachMid(ref obj);
+				GameObject obj = NGUITools.AddChild(scenePanel.gameObject, Resources.Load("Prefabs/Event/RelationUpObject") as GameObject);
+				relationShipPanel = obj.GetComponent<RelationshipUp>();
+				obj.transform.localPosition = new Vector3(0, 0, -12f);
+			}
+			relationShipPanel.Initialize(gameObject, currentScene.characterList[0].hairId, currentScene.characterList[0].clothesId,
+			                             63, 135, currentScene.characterList[0]._name);
+			dialogBase.SetActive(false);
 			return;
 		}
 		if (currentDialogEvent.eventType == DialogBase.EventType.Dialog) {
@@ -597,7 +626,15 @@ public class QuestEvent : MonoBehaviour {
 //			StartDrama (selectedDrama);
 			StartDrama (currentEvent as Drama);
 		} else if (currentEvent.eventType == SceneEventType.Quest) {
-			StartQuest (currentEvent as Quest);
+			currentQuest = currentEvent as Quest;
+//			GameObject obj = NGUITools.AddChild (scenePanel.gameObject, Resources.Load ("Prefabs/Event/QuestStart") as GameObject);
+			GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/QuestStart")) as GameObject;
+			m_hudService.HUDControl.AttachMid(ref obj);
+			obj.transform.localScale = Vector3.one;
+			obj.transform.localPosition = new Vector3(0, 0, -5);
+			QuestStart questWindow = obj.GetComponent<QuestStart>();
+			questWindow.Initialize(gameObject, currentQuest.questName, currentQuest.questDesc);
+//			StartQuest (currentEvent as Quest);
 		}
 
 	}
@@ -623,7 +660,14 @@ public class QuestEvent : MonoBehaviour {
 		ClearScene ();
 		LoadScene(sceneFiles[currentScene.nextScene]);
 		InitializeScene ();
+//		fader.ChangeScene ("EventScene");
 	}
+
+	void BeginQuest()
+	{
+		StartQuest (currentQuest);
+	}
+
 
 	void StartQuest(Quest quest) {
 
@@ -700,7 +744,15 @@ public class QuestEvent : MonoBehaviour {
 
 		if (currentQuest.completedAmount >= currentQuest.requiredAmount) {
 			progressRatio = 1f;
-			GoToNext ();
+//			GoToNext ();
+			
+			GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/QuestFinish")) as GameObject;
+			m_hudService.HUDControl.AttachMid(ref obj);
+			obj.transform.localScale = Vector3.one;
+			obj.transform.localPosition = new Vector3(0, 0, -5);
+
+			QuestComplete questComplete = obj.GetComponent<QuestComplete>();
+			questComplete.Initialize(gameObject, currentQuest.finishDesc);
 		}
 		else
 			progressRatio = currentQuest.completedAmount / (float)currentQuest.requiredAmount;
@@ -709,5 +761,10 @@ public class QuestEvent : MonoBehaviour {
 //		Vector3 localScale = progressSprite.transform.localScale;
 //		localScale.x = (232)*(5f*progressRatio);
 //		progressSprite.transform.localScale = localScale;
+	}
+
+	void OnQuestCompleteOk()
+	{
+		GoToNext ();
 	}
 }

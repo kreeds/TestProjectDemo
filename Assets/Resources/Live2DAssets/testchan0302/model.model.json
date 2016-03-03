@@ -19,16 +19,16 @@
 			{"file":"idol03.mtn","fade_in":200, "fade_out":200}
 		],
 		"attack":[
-			{"file":"atk00.mtn"}
+			{"file":"atk00.mtn","fade_in":200, "fade_out":200}
 		],
 		"special":[
-			{"file":"atk01.mtn"}
+			{"file":"atk01.mtn","fade_in":200, "fade_out":200}
 		],
 		"damaged":[
-			{"file":"dmg00.mtn"}
+			{"file":"dmg00.mtn","fade_in":200, "fade_out":200}
 		],
 		"win":[
-			{"file":"win00.mtn"}
+			{"file":"win00.mtn","fade_in":200, "fade_out":200}
 		],
 	}
 }
