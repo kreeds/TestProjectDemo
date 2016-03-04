@@ -8,16 +8,28 @@ public class RelationshipUp : MonoBehaviour {
 
 	[SerializeField]UILabel					_nameLabel;
 	[SerializeField]UILabel					_relLvLabel;
+	[SerializeField]UILabel					_friendDescLabel;
 
 	[SerializeField]UISlider				_relLvSlider;
 
+	[SerializeField]Collider				_skipCollider;
+	[SerializeField]UIButton				_okButton;
+
 	GameObject								_rootObject;
 
-	float 									_targetValue;
 	float									_currentValue;
 
-	int 									_target;
-	int										_current;
+	float									_difference;
+
+	float									_finalValue;
+	int										_finalLevel;
+
+	int										_bondLevel;
+
+	float counter;
+	static float								_levelCost = 5;
+
+	bool 									_isAnimating;
 
 	// Use this for initialization
 	void Start () {
@@ -26,11 +38,39 @@ public class RelationshipUp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (_currentValue < _targetValue) {
-	
-			_currentValue += (Time.deltaTime * 0.1f);
+		if (_isAnimating && _difference > 0) {
+			float decrement = Time.deltaTime * 0.4f;
+			_difference -= decrement;
+			_currentValue += decrement;
+			if (_currentValue >= 1) {
+				_currentValue = 0;
+				_bondLevel += 1;
+				SetFriendShipLevel (_bondLevel);
+			}
+
 			_relLvSlider.sliderValue = _currentValue;
+		} else {
+			_skipCollider.enabled = false;
+			_okButton.gameObject.SetActive (true);
 		}
+	}
+
+	void SetFriendShipLevel(int level){
+		switch (level) {
+		case 0:
+			_friendDescLabel.text = "Acquaintance";
+			break;
+			
+		case 1:
+			_friendDescLabel.text = "Friend";
+			break;
+			
+		case 2:
+		case 3:
+			_friendDescLabel.text = "Good Friend!";
+			break;
+		}
+		_relLvLabel.text = level.ToString ();
 	}
 
 	public void Initialize (GameObject rootObject, int hairIndex, int clothesIndex, int previous, int current, string name){
@@ -38,18 +78,40 @@ public class RelationshipUp : MonoBehaviour {
 		_model.SetClothes (clothesIndex);
 		_model.SetHair (hairIndex);
 
-		if ((current / 100 - previous / 100) >= 1) {
-			_targetValue = 1.0f;
-		} else {
-			_targetValue = (current % 100) * 0.01f;
-		}
+		_bondLevel = (int)(previous / _levelCost);
 
-		_currentValue =  (previous % 100) * 0.01f;
+		_finalLevel = (int)(current / _levelCost);
+
+		_difference = current / _levelCost - previous / _levelCost;
+
+		_currentValue =  (previous % _levelCost) /_levelCost;
+
+		_finalValue = (current % _levelCost)  / _levelCost; 
 
 		_relLvSlider.sliderValue = _currentValue;
 
-		_relLvLabel.text = (previous / 100).ToString ();
+		SetFriendShipLevel (_bondLevel);
 
 		_rootObject = rootObject;
+
+		_isAnimating = true;
+	}
+
+	void OnSkip()
+	{
+		SetFriendShipLevel (_finalLevel);
+		_relLvSlider.sliderValue = _finalValue;
+
+		_skipCollider.enabled = false;
+		
+		_okButton.gameObject.SetActive (true);
+		_isAnimating = false;
+	}
+
+	void OnConfirm()
+	{
+		_rootObject.SendMessage("GoToNext");
+		Destroy(gameObject);
+
 	}
 }

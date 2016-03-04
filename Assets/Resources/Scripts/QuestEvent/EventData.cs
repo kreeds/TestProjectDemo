@@ -57,6 +57,8 @@ public class DialogLine : DialogBase
 public class DialogChoice : DialogBase
 {
 	public string[] choiceOptions;
+	public int[] choiceCost;
+	public int[] choiceReward;
 	public List<DialogBase> nextEvents;
 	
 	public DialogChoice()
@@ -135,6 +137,11 @@ public class Scene
 
 	public int currentEvent;
 
+	public EventBase getCurrentEvent()
+	{
+		return eventList [currentEvent];
+	}
+
 	public Scene()
 	{
 		eventList = new List<EventBase> ();
@@ -150,9 +157,11 @@ public class Drama:EventBase
 //	public int direction;
 //	
 //	public string nextEvent; //maybe replace with a id that indicates the next event?
+	public int relationshipBonus; //needs to be associated with a character next time
 
 	public Drama(): base()
 	{
+		relationshipBonus = 0;
 		eventType = SceneEventType.Drama;
 	}
 }

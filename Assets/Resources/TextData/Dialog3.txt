@@ -4,7 +4,7 @@
 <Dialog>
 1^ (crying) P, do you think i am ugly? Am i hopeless?
 <Choice>
-You are beautiful the way you are.^You need some work.^Ignore
+C:8::You are beautiful the way you are.::R:10^C:3::You need some work.::R:2^C:0::Ignore::R:0
 <ChoiceEnd>
 <ChoiceEnd>
 <ChoiceEnd>

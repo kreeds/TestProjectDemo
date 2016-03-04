@@ -5,7 +5,7 @@
 <Dialog>
 1^  ..!! I've never entered such a stylish store before...
 <Choice>
-How is this dress?^This suits you!
+C:2::How is this dress?::R:0^C:2::This suits you!::R:0
 <ChoiceEnd>
 <ChoiceEnd>
 1^… Alright. I will try it on. Let’s see how i look in the mirror...
@@ -13,7 +13,7 @@ How is this dress?^This suits you!
 1^...is this how i look like? Do i really look like a monster?!! (panic)
 2^It is time to transform and battle! 
 <Choice>
-fight now^fight later?
+C:0::fight now::R:0^C:0::fight later?::R:0
 <ChoiceEnd>
 <ChoiceEnd>
 <End>
