@@ -103,6 +103,7 @@ public class HUDHandler : MonoBehaviour {
 
 	public void SetSpecialEnable(bool enable)
 	{
+		Debug.Log("*********Special Enable: " + enable);
 		if(m_specialBtn != null)
 			m_specialBtn.isEnabled = enable;
 

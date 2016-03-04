@@ -70,15 +70,19 @@ public class CollectableItems : MonoBehaviour {
 								label.enabled = true;
 								label.text = "+" + m_amt.ToString();
 							}
-							// AddGold();
-							StartCoroutine(Utility.DelayInSeconds(1.0f, 
+							if(sprite != null)
+							{
+								sprite.enabled = false;
+							}
+//							// AddGold();
+							StartCoroutine(Utility.DelayInSeconds(3.0f, 
 											(res1) => { 
 											Destroy(gameObject); } ));
 						} 
 						));
 	}
 
-	void OnCollect()
+	void OnClick()
 	{
 
 		// AddGold();
@@ -110,4 +114,6 @@ public class CollectableItems : MonoBehaviour {
 												(res) => { 
 												Destroy(gameObject); } ));
 	}
+
+
 }

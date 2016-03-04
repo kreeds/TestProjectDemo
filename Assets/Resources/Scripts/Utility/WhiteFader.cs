@@ -5,6 +5,7 @@ public class WhiteFader : MonoBehaviour {
 
 	[SerializeField]float fadeSpeed = 1.0f;
 	[SerializeField]UITexture	texture;
+
 	// Use this for initialization
 	void Start () {
 
@@ -38,6 +39,7 @@ public class WhiteFader : MonoBehaviour {
 
 		// ... set the colour to clear and disable the GUITexture.
 		texture.color = Color.clear;
+
 		Destroy(this.gameObject);
     }
 }

@@ -27,7 +27,6 @@ GameObject:
   - 65: {fileID: 6579316}
   - 114: {fileID: 11479314}
   - 54: {fileID: 5487516}
-  - 114: {fileID: 11475374}
   m_Layer: 11
   m_Name: CollectableItems
   m_TagString: Untagged
@@ -145,21 +144,6 @@ MonoBehaviour:
   mShrinkToFit: 0
   mLineWidth: 0
   mMultiline: 1
---- !u!114 &11475374
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4c4ff40739c7904ca26c14ffbdc4176, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 179314}
-  functionName: OnCollect
-  trigger: 0
-  includeChildren: 0
 --- !u!114 &11479310
 MonoBehaviour:
   m_ObjectHideFlags: 1

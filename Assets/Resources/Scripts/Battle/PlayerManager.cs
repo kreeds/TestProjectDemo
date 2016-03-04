@@ -164,7 +164,8 @@ public class PlayerManager : MonoBehaviour {
 			StartCoroutine(Utility.DelayInSeconds(2, 
 												(res1)=>{
 												Service.Get<HUDService>().ShowMid(true);
-												Service.Get<HUDService>().HUDControl.SetSpecialEnable(true);
+												if(attackend)
+													Service.Get<HUDService>().HUDControl.SetSpecialEnable(true);
 												l2dInterface.PlayIdleAnim();
 												}));
 		}

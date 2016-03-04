@@ -32,8 +32,8 @@ public class BattleManager : MonoBehaviour
 
 	HUDService m_HUDService;
 
-	[SerializeField]UIGauge			m_finishGauge;
 	[SerializeField]GameObject		m_winLogo;
+	[SerializeField]BoardHandler	m_boardHandler;
 	[SerializeField]GameObject		m_itemParent;
 
 	// Battle Phases
@@ -166,7 +166,6 @@ public class BattleManager : MonoBehaviour
 					{
 						m_phase = BattlePhase.SPECIAL;
 						m_beginFinisher = false;
-
 					}
 				}
 			}
@@ -187,8 +186,14 @@ public class BattleManager : MonoBehaviour
 			break;
 			case BattlePhase.END:
 			{
-				if(m_winLogo != null)
-					m_winLogo.SetActive(true);
+				StartCoroutine(Utility.DelayInSeconds( 5.0f, 
+														(res) => 
+														{ 
+															if(m_winLogo != null) 
+																m_winLogo.SetActive(true); 
+															if(m_boardHandler != null)
+																m_boardHandler.Init(true);
+														} ));
 			}
 			break;
 		}

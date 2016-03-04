@@ -50,6 +50,11 @@ public class HUDService : CSingleton {
 		m_handler.ShowMid(show);
 	}
 
+	public void ChangeScene(string name)
+	{
+		m_scene.ChangeScene(name);
+	}
+
 
 
 }
