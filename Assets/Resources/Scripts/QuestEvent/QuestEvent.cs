@@ -280,19 +280,19 @@ public class QuestEvent : MonoBehaviour {
 				}
 				if (line.Contains(":")){
 					string[] parts = line.Split(':');
-					if (line.Contains("x")){
+					if (line.Contains("x:")){
 						currentCharacter.xpos = int.Parse(parts[1]);
 					}
-					if (line.Contains("y")){
+					if (line.Contains("y:")){
 						currentCharacter.ypos = int.Parse(parts[1]);
 					}
-					if (line.Contains("hair")){
+					if (line.Contains("hair:")){
 						currentCharacter.hairId = int.Parse(parts[1]);
 					}
-					if (line.Contains("clothes")){
+					if (line.Contains("clothes:")){
 						currentCharacter.clothesId = int.Parse(parts[1]);
 					}
-					if (line.Contains("name")){
+					if (line.Contains("name:")){
 						currentCharacter._name = parts[1];
 					}
 				}
@@ -464,14 +464,20 @@ public class QuestEvent : MonoBehaviour {
 			case ParseMode.Choice:
 			{
 				string[] parts = dataLine.Split(new char[] {'^'});
+
 				DialogChoice newChoice = new DialogChoice();
 				newChoice.eventGroup = currentBranch;
 				newChoice.choiceOptions = new string[parts.Length];
+				newChoice.choiceCost = new int[parts.Length];
+				newChoice.choiceReward = new int[parts.Length];
 
 				int i = 0;
 
 				foreach (string choiceLine in parts){
-					newChoice.choiceOptions[i++] = choiceLine;
+					string[] lineParts = choiceLine.Split(new string[]{"::"}, System.StringSplitOptions.None);
+					newChoice.choiceCost[i] = int.Parse(lineParts[0].Split (':')[1]);
+					newChoice.choiceReward[i] = int.Parse(lineParts[2].Split (':')[1]);
+					newChoice.choiceOptions[i++] = lineParts[1];
 					maxBranch = maxBranch + i;
 					priorityQueue.Insert(0, maxBranch);
 				}
@@ -543,8 +549,9 @@ public class QuestEvent : MonoBehaviour {
 				relationShipPanel = obj.GetComponent<RelationshipUp>();
 				obj.transform.localPosition = new Vector3(0, 0, -12f);
 			}
+			Drama currentDrama = currentScene.getCurrentEvent () as Drama;
 			relationShipPanel.Initialize(gameObject, currentScene.characterList[0].hairId, currentScene.characterList[0].clothesId,
-			                             63, 135, currentScene.characterList[0]._name);
+			                             6, 6+currentDrama.relationshipBonus, currentScene.characterList[0]._name);
 			dialogBase.SetActive(false);
 			return;
 		}
@@ -567,8 +574,8 @@ public class QuestEvent : MonoBehaviour {
 			foreach (string str in choiceEvent.choiceOptions){
 				GameObject obj = NGUITools.AddChild(choiceRoot.gameObject, Resources.Load("Prefabs/Event/QuestChoice") as GameObject);
 				QuestChoiceOption choiceOption = obj.GetComponent<QuestChoiceOption>();
-				choiceOption.Initialize(gameObject, i++, str);
-
+				choiceOption.Initialize(gameObject, i, choiceEvent.choiceCost[i], str);
+				++i;
 				choiceList.Add(choiceOption);
 			}
 
@@ -613,6 +620,10 @@ public class QuestEvent : MonoBehaviour {
 		textCollider.enabled = true;
 
 		playerTextGroup.SetActive (true);
+
+		
+		Drama currentDrama = currentScene.eventList [currentScene.currentEvent] as Drama;
+		currentDrama.relationshipBonus += choiceEvent.choiceReward [selected];
 	}
 
 	void OnBubbleClicked(int selected){
@@ -761,6 +772,7 @@ public class QuestEvent : MonoBehaviour {
 //		Vector3 localScale = progressSprite.transform.localScale;
 //		localScale.x = (232)*(5f*progressRatio);
 //		progressSprite.transform.localScale = localScale;
+
 	}
 
 	void OnQuestCompleteOk()

@@ -7,12 +7,14 @@ public class QuestChoiceOption : MonoBehaviour {
 	private int						_choiceIndex;
 
 	[SerializeField]UILabel			_buttonText;
+	[SerializeField]UILabel			_energyText;
 
-	public void Initialize(GameObject rootObject, int choiceIndex, string buttonText){
+	public void Initialize(GameObject rootObject, int choiceIndex, int cost, string buttonText){
 		_rootObject = rootObject;
 		_choiceIndex = choiceIndex;
 
 		_buttonText.text = buttonText;
+		_energyText.text = cost.ToString ();
 	}
 
 	void OnClick()
