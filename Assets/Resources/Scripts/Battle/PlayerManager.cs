@@ -38,6 +38,13 @@ public class PlayerManager : MonoBehaviour {
 	bool isPlaying = true;
 	bool specialAtk = false;
 	bool attackend = false;
+
+	bool playerattack = false; // flag to determine if player has dealt damage
+
+
+	const float ranChance = 0.25f;
+
+
 	public bool isAttackComplete
 	{
 		get{ return attackend; }
@@ -146,6 +153,7 @@ public class PlayerManager : MonoBehaviour {
 
 			//StartCoroutine(ReturnCamera());
 			attackend = true;
+			playerattack = true;
 		}
 		));
 
@@ -158,21 +166,46 @@ public class PlayerManager : MonoBehaviour {
 			GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
 			obj.transform.localPosition = new Vector3 (16, 112);
 
-			// Apply Damage to player
-			Damaged(m_enemyMgr.GetCurrentEnemyAttack());
+			// Add Dodge here
+			if(!Dodge())
+			{
+				// Apply Damage to player
+				Damaged(m_enemyMgr.GetCurrentEnemyAttack());
 
-			StartCoroutine(Utility.DelayInSeconds(2, 
-												(res1)=>{
-												Service.Get<HUDService>().ShowMid(true);
-												if(attackend)
-													Service.Get<HUDService>().HUDControl.SetSpecialEnable(true);
-												l2dInterface.PlayIdleAnim();
-												}));
+				StartCoroutine(Utility.DelayInSeconds(2, 
+													(res1)=>{
+													Service.Get<HUDService>().ShowMid(true);
+													if(playerattack)
+													{
+														Service.Get<HUDService>().HUDControl.SetSpecialEnable(true);
+														playerattack = false;
+													}
+													l2dInterface.PlayIdleAnim();
+													}));
+			}
+			else
+			{
+				// move player and spawn label miss
+				StartCoroutine(Utility.DelayInSeconds(1.0f, (res1) => { m_handler.ShowDodgeBtn(false); } ) ); 
+			}											
+
 		}
 		));
 
 	}
 
+
+	bool Dodge()
+	{
+		float rand = Random.Range(0.0f, 1.0f);
+		if(rand <= ranChance)
+		{
+			// Show chance
+			m_handler.ShowDodgeBtn(true);
+			return true;
+		}
+		return false;
+	}
 	/// <summary>
 	/// Commence Attack Event
 	/// </summary>

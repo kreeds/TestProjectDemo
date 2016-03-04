@@ -24,6 +24,8 @@ public class HUDHandler : MonoBehaviour {
 	[SerializeField]UISprite 	m_heartSprite;
 	[SerializeField]UILabel		m_specialLabel;
 
+	[SerializeField]GameObject	m_dodgeBtn;
+
 	UIGauge[] HPBars;
 
 	#region Mono
@@ -40,6 +42,17 @@ public class HUDHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	 
+	}
+
+	#endregion
+
+	#region Button
+	void OnDodgeClick()
+	{
+		if(m_dodgeBtn != null)
+			m_dodgeBtn.SetActive(false);
+
+		Debug.Log("Show Dodge Button");
 	}
 	#endregion
 
@@ -118,6 +131,13 @@ public class HUDHandler : MonoBehaviour {
 		{
 			StartCoroutine(FillSprite(targetAmt));
 		}
+	}
+
+	public void ShowDodgeBtn(bool show)
+	{
+		if(m_dodgeBtn != null)
+			m_dodgeBtn.SetActive(show);
+
 	}
 
 	IEnumerator FillSprite(float targetAmt)

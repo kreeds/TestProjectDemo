@@ -18,6 +18,7 @@ public class BoardHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		//TODO: load quest win amount from somwhere
 		m_gold = 100;
 		m_exp = 100;

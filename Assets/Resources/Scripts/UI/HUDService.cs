@@ -55,6 +55,4 @@ public class HUDService : CSingleton {
 		m_scene.ChangeScene(name);
 	}
 
-
-
 }
