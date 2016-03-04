@@ -103,8 +103,6 @@ public class BattleManager : MonoBehaviour
 
 		gaugeCount = 0;
 
-		m_finishGauge.Init (gaugeCount, m_fullgaugeCount);
-
 		Service.Init();
 		m_HUDService = Service.Get<HUDService>();
 		m_HUDService.StartScene();
@@ -139,8 +137,8 @@ public class BattleManager : MonoBehaviour
 		m_phase = BattlePhase.ATTACK;
 
 		// Move Camera to view Enemy
-		Service.Get<CameraService>().TweenPos(new Vector3(1.46f, -3.76f, 0.0f),
-													new Vector3(-1.46f, -3.76f, 0.0f),
+		Service.Get<MapService>().TweenPos(new Vector3(389f, -3.76f, 0.0f),
+													new Vector3(-389f, -3.76f, 0.0f),
 													UITweener.Method.EaseInOut,
 													UITweener.Style.Once,
 													null,

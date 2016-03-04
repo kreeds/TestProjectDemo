@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour {
 
 	BattleManager m_battleMgr;
 	EnemyManager m_enemyMgr;
-	CameraService m_camService;
+	MapService m_camService;
 	HUDHandler m_handler;
 
 	[SerializeField]UIGauge m_gauge;
@@ -80,7 +80,7 @@ public class PlayerManager : MonoBehaviour {
 
 		//Create Skill Buttons
 
-		m_camService = Service.Get<CameraService>();
+		m_camService = Service.Get<MapService>();
 
 		if(m_handler != null)
 		{
@@ -108,6 +108,7 @@ public class PlayerManager : MonoBehaviour {
 			isPlaying = true;
 			// Scroll to enemy
 			TweenAttack(true);
+			l2dInterface.PlayIdleAnim();
 		}
 	}
 
@@ -160,10 +161,11 @@ public class PlayerManager : MonoBehaviour {
 			// Apply Damage to player
 			Damaged(m_enemyMgr.GetCurrentEnemyAttack());
 
-			StartCoroutine(Utility.DelayInSeconds(3, 
+			StartCoroutine(Utility.DelayInSeconds(2, 
 												(res1)=>{
 												Service.Get<HUDService>().ShowMid(true);
 												Service.Get<HUDService>().HUDControl.SetSpecialEnable(true);
+												l2dInterface.PlayIdleAnim();
 												}));
 		}
 		));
@@ -222,8 +224,8 @@ public class PlayerManager : MonoBehaviour {
 	private void TweenAttack(bool isAttacking)
 	{
 		Vector3 from, to;
-		from = (isAttacking)? new Vector3(1.46f, -3.76f, 0.0f) : new Vector3(-1.46f, -3.76f, 0.0f);
-		to = (isAttacking)? new Vector3(-1.46f, -3.76f, 0.0f) : new Vector3(1.46f, -3.76f, 0.0f);
+		from = (isAttacking)? new Vector3(389f, -3.76f, 0.0f) : new Vector3(-389f, -3.76f, 0.0f);
+		to = (isAttacking)? new Vector3(-389f, -3.76f, 0.0f) : new Vector3(389f, -3.76f, 0.0f);
 
 		m_camService.TweenPos(	from,
 								to,

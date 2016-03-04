@@ -43,7 +43,7 @@ public class Emitter : MonoBehaviour {
 		{
 			GameObject obj =  Instantiate(Resources.Load("Prefabs/CollectableItems")) as GameObject;
 			obj.transform.parent = gameObject.transform;
-			obj.transform.localScale = new Vector3(60,60,60);
+			obj.transform.localScale = Vector3.one;
 			obj.transform.localPosition = Vector3.zero;
 
 			CollectableItems item = obj.GetComponent<CollectableItems>();

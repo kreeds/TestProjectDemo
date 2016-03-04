@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraService : CSingleton {
+public class MapService : CSingleton {
 
 	GameObject m_cameraObj;
 	TweenPosition m_tweenPos;
@@ -10,9 +10,9 @@ public class CameraService : CSingleton {
 
 	void Awake()
 	{
-		m_cameraObj = GameObject.Find("MainCamera");
-		m_effectFx = m_cameraObj.GetComponentInChildren<TextureAnimation>();
+		m_cameraObj = Camera.main.gameObject;
 
+		m_effectFx = m_cameraObj.GetComponentInChildren<TextureAnimation>();
 		m_effectFx.gameObject.SetActive(false);
 
 		if(m_cameraObj != null)
