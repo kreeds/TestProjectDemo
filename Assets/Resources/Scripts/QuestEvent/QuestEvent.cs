@@ -601,6 +601,13 @@ public class QuestEvent : MonoBehaviour {
 		displayingChoice = true;
 
 		DialogChoice choiceEvent = currentDialogEvent as DialogChoice;
+		int cost = choiceEvent.choiceCost [selected];
+		if (!PlayerProfile.Get ().IsActionAvailable(cost)) {
+			return;
+		}
+
+		PlayerProfile.Get ().StartAction (cost);
+
 		if (choiceEvent.nextEvents.Count > 0){
 			currentDialogEvent = choiceEvent.nextEvents [selected];
 		}
