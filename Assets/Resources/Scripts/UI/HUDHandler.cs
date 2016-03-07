@@ -28,6 +28,9 @@ public class HUDHandler : MonoBehaviour {
 
 	UIGauge[] HPBars;
 
+	BattleManager bmgr;
+	PlayerManager pmgr;
+
 	#region Mono
 	void Awake()
 	{
@@ -44,16 +47,6 @@ public class HUDHandler : MonoBehaviour {
 	 
 	}
 
-	#endregion
-
-	#region Button
-	void OnDodgeClick()
-	{
-		if(m_dodgeBtn != null)
-			m_dodgeBtn.SetActive(false);
-
-		Debug.Log("Show Dodge Button");
-	}
 	#endregion
 
 	#region Public
@@ -73,11 +66,20 @@ public class HUDHandler : MonoBehaviour {
 		if(m_BattleBottom != null)
 			m_BattleBottom.SetActive(true);
 
+		bmgr = BattleManager.Get();
+		pmgr = PlayerManager.Get();
+
 		if(m_specialBtn != null)
 		{
 			m_specialBtn.isEnabled = false;
-			m_specialBtn.GetComponent<UIButtonMessage>().target = GameObject.Find("BattleManager");
+			m_specialBtn.GetComponent<UIButtonMessage>().target = bmgr.gameObject;
 			m_specialBtn.GetComponent<UIButtonMessage>().functionName = "OnFinishPressed";
+		}
+
+		if(m_dodgeBtn != null)
+		{
+			m_dodgeBtn.GetComponent<UIButtonMessage>().target = pmgr.gameObject;
+			m_dodgeBtn.GetComponent<UIButtonMessage>().functionName = "Dodge"; 
 		}
 	}
 

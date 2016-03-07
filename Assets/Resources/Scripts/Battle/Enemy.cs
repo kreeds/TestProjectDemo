@@ -24,7 +24,6 @@ public class Idle : FSMState
 
 	public override void OnEnter()
 	{
-		Debug.Log(enemy.name + ": Entering Idle State");
 		// Play Idle Animation
 		enemy.PlayIdleAnim ();
 	}
@@ -67,7 +66,7 @@ public class Idle : FSMState
 
 	public override void OnExit()
 	{
-		Debug.Log(enemy.name + ": Exiting Idle State");
+
 	}
 }
 
@@ -86,9 +85,6 @@ public class Damaged: FSMState
 
 	public override void OnEnter()
 	{
-		Debug.Log(enemy.name + ": Entering Damaged State");
-		// Play Attack Animation
-//		enemy.L2dModel.PlayDamageAnim();
 		enemy.PlayDamageAnim ();
 	}
 
@@ -120,7 +116,6 @@ public class Damaged: FSMState
 
 	public override void OnExit()
 	{
-		Debug.Log(enemy.name + ": Exiting Damaged State");
 	}
 
 
@@ -150,8 +145,6 @@ public class Attack : FSMState
 
 	public override void OnEnter()
 	{
-
-		Debug.Log(enemy.name + ": Entering Attack State");
 		attack = true;
 
 	}
@@ -188,11 +181,8 @@ public class Attack : FSMState
 	}
 	public override void OnExit()
 	{
-		//pmgr.Damaged(enemy.attack);	
-		//bmgr.ReduceGauge();
 		// Restart Gesture State
 		bmgr.currentGestureState = BattleManager.GestureState.START;
-		Debug.Log("Exiting Attack State");
 	}
 }
 
@@ -211,10 +201,6 @@ public class Death : FSMState
 
 	public override void OnEnter()
 	{
-		
-		Debug.Log(enemy.name + ": Entering Death State");
-		// Play Attack Animation
-		//		enemy.L2dModel.PlayAttackAnim();
 		enemy.PlayDeathAnim ();
 	}
 
@@ -245,17 +231,6 @@ public class Enemy : MonoBehaviour {
 
 	protected FiniteStateMachine enemyState;
 
-
-//	LAppModelProxy l2dInterface;
-//	public LAppModelProxy L2dModel
-//	{
-//		get{return l2dInterface;}
-//	}
-//
-//	void Awake()
-//	{
-//		l2dInterface = gameObject.GetComponent<LAppModelProxy>();
-//	}
 
 	void Start()
 	{

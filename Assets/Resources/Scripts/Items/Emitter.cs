@@ -26,7 +26,7 @@ public class Emitter : MonoBehaviour {
 		ItemType[] type = new ItemType[1];
 		type[0] = ItemType.GOLD;
 		int[] amt = new int[1];
-		amt[0] = 10;
+		amt[0] = 20;
 
 		Init(type, amt);
 
@@ -51,9 +51,9 @@ public class Emitter : MonoBehaviour {
 			Rigidbody body = obj.GetComponent<Rigidbody>();
 			colContainer.Add(obj.GetComponent<BoxCollider>());
 
-			float randomx= Random.Range(-0.4f, 0.4f);
-			float randomy = Random.Range(-1.5f, 1.5f);
-			body.AddForce(new Vector3(randomx, randomy,0), ForceMode.Impulse);
+			float randomx= Random.Range(-1f, 1f);
+			//float randomy = Random.Range(-3f, 3f);
+			body.AddForce(new Vector3(randomx, 0,0), ForceMode.Impulse);
 		}
 
 		for(int j = 0; j < colContainer.Count; ++j)

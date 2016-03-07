@@ -29,6 +29,7 @@ public class PlayerManager : MonoBehaviour {
 	EnemyManager m_enemyMgr;
 	MapService m_camService;
 	HUDHandler m_handler;
+	Coroutine m_routine;
 
 	[SerializeField]UIGauge m_gauge;
 	[SerializeField]LAppModelProxy l2dInterface;
@@ -42,7 +43,7 @@ public class PlayerManager : MonoBehaviour {
 	bool playerattack = false; // flag to determine if player has dealt damage
 
 
-	const float ranChance = 0.25f;
+	const float ranChance = 1.0f;
 
 
 	public bool isAttackComplete
@@ -119,6 +120,13 @@ public class PlayerManager : MonoBehaviour {
 		}
 	}
 
+
+	void AttackEffect(float x, float y)
+	{
+		GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
+		obj.transform.localPosition = new Vector3 (x, y);
+
+	}
 	void OnAttackEnd()
 	{
 
@@ -129,19 +137,15 @@ public class PlayerManager : MonoBehaviour {
 				if(!specialAtk)
 				{
 					m_enemyMgr.damageEnemy(m_player.atk);
-					GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
-					obj.transform.localPosition = new Vector3 (16, 112);
+					AttackEffect(16, 112);
 
 				}
 				else
 				{
-					GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
-					obj.transform.localPosition = new Vector3 (16, 112);
-					obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
-					obj.transform.localPosition = new Vector3 (-152, 112);
-					obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
-					obj.transform.localPosition = new Vector3 (-23, -137);
-					obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/FX/WhiteFader_FX") as GameObject);
+					AttackEffect(16, 112);
+					AttackEffect(-152, 112);
+					AttackEffect(-23, -137);
+					GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/FX/WhiteFader_FX") as GameObject);
 					obj.transform.localScale = new Vector3(2048f, 2048f, 0);
 					m_enemyMgr.killEnemy();
 				}
@@ -163,49 +167,93 @@ public class PlayerManager : MonoBehaviour {
 	{
 		StartCoroutine(Utility.DelayInSeconds(0.2f, (res) =>
 		{
-			GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/Attack01_Fx") as GameObject);
-			obj.transform.localPosition = new Vector3 (16, 112);
 
 			// Add Dodge here
-			if(!Dodge())
+			if(!CalculateDodgeChance())
 			{
-				// Apply Damage to player
-				Damaged(m_enemyMgr.GetCurrentEnemyAttack());
-
-				StartCoroutine(Utility.DelayInSeconds(2, 
-													(res1)=>{
-													Service.Get<HUDService>().ShowMid(true);
-													if(playerattack)
-													{
-														Service.Get<HUDService>().HUDControl.SetSpecialEnable(true);
-														playerattack = false;
-													}
-													l2dInterface.PlayIdleAnim();
-													}));
+				AttackEffect(16, 112);
+				DamageEffect();
 			}
 			else
 			{
 				// move player and spawn label miss
-				StartCoroutine(Utility.DelayInSeconds(1.0f, (res1) => { m_handler.ShowDodgeBtn(false); } ) ); 
+				m_handler.ShowDodgeBtn(true);
+
+				// Fail to press
+				m_routine = StartCoroutine(Utility.DelayInSeconds(1.0f, 
+											(res1) => 
+											{ 
+												m_handler.ShowDodgeBtn(false); 
+												AttackEffect(16, 112); 
+												DamageEffect(); 
+											} ) ); 
 			}											
 
 		}
 		));
 
 	}
-
-
-	bool Dodge()
+	bool CalculateDodgeChance()
 	{
-		float rand = Random.Range(0.0f, 1.0f);
-		if(rand <= ranChance)
-		{
-			// Show chance
-			m_handler.ShowDodgeBtn(true);
-			return true;
-		}
+//		float rand = Random.Range(0.0f, 1.0f);
+//		Debug.Log( "Random: " + rand);
+//		if(rand <= ranChance)
+//		{
+//			// Show chance
+//			m_handler.ShowDodgeBtn(true);
+//			return true;
+//		}
 		return false;
 	}
+
+	#region Dodge Mechanic
+	void Dodge()
+	{
+		TweenPosition tpos = l2dInterface.GetComponent<TweenPosition>();
+		if(tpos != null)
+			tpos.Play(true);
+
+		m_handler.ShowDodgeBtn(false);
+
+		if(m_routine != null)
+			StopCoroutine(m_routine);
+
+		StartCoroutine(Utility.DelayInSeconds(1.0f, 
+						(res1) => { 
+							if(tpos != null)
+							{
+								tpos.eventReceiver = null;
+								tpos.callWhenFinished = "";
+								tpos.Play(false);
+							}
+							Service.Get<HUDService>().ShowMid(true); 
+						} ) ); 
+	}
+
+	void DodgeAnimComplete()
+	{
+		AttackEffect(16, 112);
+	}
+	void DamageEffect()
+	{
+		// Apply Damage to player
+		Damaged(m_enemyMgr.GetCurrentEnemyAttack());
+
+		StartCoroutine(Utility.DelayInSeconds(2, 
+											(res1)=>{
+											Service.Get<HUDService>().ShowMid(true);
+											if(playerattack)
+											{
+												Service.Get<HUDService>().HUDControl.SetSpecialEnable(true);
+												playerattack = false;
+											}
+											l2dInterface.PlayIdleAnim();
+											}));
+	}
+	#endregion
+
+
+
 	/// <summary>
 	/// Commence Attack Event
 	/// </summary>
