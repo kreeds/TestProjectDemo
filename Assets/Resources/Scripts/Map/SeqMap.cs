@@ -23,6 +23,6 @@ public class SeqMap : MonoBehaviour {
 
 	void OnClothingClick()
 	{
-		fader.ChangeScene("CharaScene");
+		m_hudService.ChangeScene("CharaScene");
 	}
 }

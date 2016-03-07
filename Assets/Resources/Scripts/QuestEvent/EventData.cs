@@ -137,6 +137,8 @@ public class Scene
 
 	public int currentEvent;
 
+	public string nextSequence;
+
 	public EventBase getCurrentEvent()
 	{
 		return eventList [currentEvent];
@@ -146,12 +148,15 @@ public class Scene
 	{
 		eventList = new List<EventBase> ();
 		characterList = new List<Character> ();
+		nextScene = -1;
+		nextSequence = null;
 	}
 }
 
 public class Drama:EventBase
 {
 	public string dramaFile;
+	public bool showBond;
 //	public Vector2 loc;
 //	public Vector2 playerPos; //position of player at start of convo
 //	public int direction;
@@ -163,6 +168,7 @@ public class Drama:EventBase
 	{
 		relationshipBonus = 0;
 		eventType = SceneEventType.Drama;
+		showBond = false;
 	}
 }
 

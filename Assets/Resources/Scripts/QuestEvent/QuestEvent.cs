@@ -77,6 +77,8 @@ public class QuestEvent : MonoBehaviour {
 
 	static Scene currentScene;
 
+	static public int nextSceneID = -1;
+
 //	static Quest currentQuest; //multiple sceneFiles in one scene later
 
 	// Use this for initialization
@@ -92,8 +94,12 @@ public class QuestEvent : MonoBehaviour {
 		
 		playerChara.PlayIdleAnim ();
 //		LoadScene ("TextData/Quest2");
-		if (currentScene == null)
+		if (nextSceneID == -1) {
 			LoadScene (sceneFiles [firstQuest]);
+			nextSceneID = firstQuest;
+		}
+		else
+			LoadScene (sceneFiles [nextSceneID]);
 		InitializeScene ();
 	}
 	
@@ -222,6 +228,11 @@ public class QuestEvent : MonoBehaviour {
 				string[] parts = line.Split(':');
 				currentScene.nextScene = int.Parse(parts[1]);
 			}
+			
+			if (line.Contains("ChangeSequence:")){
+				string[] parts = line.Split(':');
+				currentScene.nextSequence = parts[1];
+			}
 
 			if (line.Contains("<CharaSetup>")){
 				parseMode = ParseMode.CharaSetup;
@@ -321,6 +332,10 @@ public class QuestEvent : MonoBehaviour {
 					}
 					if (line.Contains("id:")){
 						currentDrama.id = int.Parse (parts[1]);
+					}
+					if (line.Contains ("showBond")){
+						int bond = int.Parse (parts[1]);
+						currentDrama.showBond = bond != 0;
 					}
 				}
 				break;
@@ -541,18 +556,24 @@ public class QuestEvent : MonoBehaviour {
 	{
 		if (currentDialogEvent == null) {
 //			GoToNext ();
-
-			if (relationShipPanel == null){
-//				GameObject obj = Instantiate(Resources.Load("Prefabs/Event/RelationUpObject")) as GameObject;
-//				m_hudService.HUDControl.AttachMid(ref obj);
-				GameObject obj = NGUITools.AddChild(scenePanel.gameObject, Resources.Load("Prefabs/Event/RelationUpObject") as GameObject);
-				relationShipPanel = obj.GetComponent<RelationshipUp>();
-				obj.transform.localPosition = new Vector3(0, 0, -12f);
-			}
+			
 			Drama currentDrama = currentScene.getCurrentEvent () as Drama;
-			relationShipPanel.Initialize(gameObject, currentScene.characterList[0].hairId, currentScene.characterList[0].clothesId,
-			                             6, 6+currentDrama.relationshipBonus, currentScene.characterList[0]._name);
-			dialogBase.SetActive(false);
+
+			if (currentDrama.showBond){
+				if (relationShipPanel == null){
+					GameObject obj = Instantiate(Resources.Load("Prefabs/Event/RelationUpObject")) as GameObject;
+					m_hudService.HUDControl.AttachMid(ref obj);
+	//				GameObject obj = NGUITools.AddChild(scenePanel.gameObject, Resources.Load("Prefabs/Event/RelationUpObject") as GameObject);
+					relationShipPanel = obj.GetComponent<RelationshipUp>();
+					obj.transform.localPosition = new Vector3(0, 0, -12f);
+					obj.transform.localScale = Vector3.one;
+				}
+				relationShipPanel.Initialize(gameObject, currentScene.characterList[0].hairId, currentScene.characterList[0].clothesId,
+				                             6, 6+currentDrama.relationshipBonus, currentScene.characterList[0]._name);
+				dialogBase.SetActive(false);
+			}else{
+				GoToNext();
+			}
 			return;
 		}
 		if (currentDialogEvent.eventType == DialogBase.EventType.Dialog) {
@@ -676,8 +697,16 @@ public class QuestEvent : MonoBehaviour {
 		}
 		
 		ClearScene ();
-		LoadScene(sceneFiles[currentScene.nextScene]);
-		InitializeScene ();
+//		LoadScene(sceneFiles[currentScene.nextScene]);
+//		InitializeScene ();
+
+		if (currentScene.nextScene > 0 && currentScene.nextScene < sceneFiles.Length) {
+			nextSceneID = currentScene.nextScene;
+			Service.Get<HUDService> ().ChangeScene ("EventScene");
+		} else if (currentScene.nextSequence != null) {
+			Service.Get<HUDService> ().ChangeScene (currentScene.nextSequence);
+		}
+
 //		fader.ChangeScene ("EventScene");
 	}
 

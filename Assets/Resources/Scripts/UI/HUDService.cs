@@ -10,20 +10,32 @@ public class HUDService : CSingleton {
 	{
 		//Check if object exist in scene
 		GameObject HUDObject = GameObject.Find("HUD");
-		if(HUDObject == null)
-			HUDObject = Instantiate(Resources.Load("Prefabs/HUD")) as GameObject;
+		if (HUDObject == null) {
+			HUDObject = Instantiate (Resources.Load ("Prefabs/HUD")) as GameObject;
+		}
 		m_handler = HUDObject.GetComponentInChildren<HUDHandler>();
 
 		GameObject Transitor = GameObject.Find("LoadTransitor");
-		if(Transitor == null)
-			Transitor = Instantiate(Resources.Load("Prefabs/LoadTransitor")) as GameObject;
+		if (Transitor == null) {
+			Transitor = Instantiate (Resources.Load ("Prefabs/LoadTransitor")) as GameObject;
+			DontDestroyOnLoad(Transitor);
+		}
 		m_scene = Transitor.GetComponentInChildren<SceneFadeInOut>();
 
 	}
 
 	public HUDHandler HUDControl
 	{
-		get{ return m_handler;}
+		get{ 
+			if (m_handler == null){	
+				GameObject HUDObject = GameObject.Find("HUD");
+				if (HUDObject == null) {
+					HUDObject = Instantiate (Resources.Load ("Prefabs/HUD")) as GameObject;
+				}
+				m_handler = HUDObject.GetComponentInChildren<HUDHandler>();
+			}
+			return m_handler;
+		}
 	}
 
 	public void StartScene()
@@ -32,22 +44,26 @@ public class HUDService : CSingleton {
 	}
 	public void CreateBattleHUD()
 	{
-		m_handler.CreateBattleHUD();
+//		m_handler.CreateBattleHUD();
+		HUDControl.CreateBattleHUD ();
 	}
 
 	public void ShowTop(bool show)
 	{
-		m_handler.ShowTop(show);
+//		m_handler.ShowTop(show);
+		HUDControl.ShowTop (show);
 	}
 
 	public void ShowBottom(bool show)
 	{
-		m_handler.ShowBottom(show);
+//		m_handler.ShowBottom(show);
+		HUDControl.ShowBottom (show);
 	}
 
 	public void ShowMid(bool show)
 	{
-		m_handler.ShowMid(show);
+//		m_handler.ShowMid(show);
+		HUDControl.ShowMid (show);
 	}
 
 	public void ChangeScene(string name)

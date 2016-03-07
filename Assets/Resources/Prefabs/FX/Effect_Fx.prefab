@@ -1813,7 +1813,7 @@ MeshCollider:
   m_GameObject: {fileID: 145948}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_SmoothSphereCollisions: 1
   m_Convex: 0
@@ -1930,7 +1930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190d918d38714b446ad8b55640d0032a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: Live2DAssets/testchan/Test_model_PR.model.json
+  path: Live2DAssets/testchan0302/model.model.json
   sceneNo: 0
 --- !u!114 &11445950
 MonoBehaviour:
@@ -1945,6 +1945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scrollSpeed: 15
   m_offset: 0
+  usingNGUI: 0
 --- !u!114 &11473460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1958,6 +1959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scrollSpeed: 120
   m_offset: 0
+  usingNGUI: 0
 --- !u!114 &11479694
 MonoBehaviour:
   m_ObjectHideFlags: 1
