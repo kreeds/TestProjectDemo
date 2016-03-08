@@ -15,8 +15,16 @@ public enum ItemType
 
 public class Emitter : MonoBehaviour {
 
+	public enum EmitType
+	{
+		Impulse = 0,
+		Flow,
+		Max
+	};
+
 	Dictionary<ItemType, int> map;
 	List<BoxCollider> colContainer = new List<BoxCollider>();
+	EmitType m_type;
 
 	// Use this for initialization
 	void Start () {
@@ -26,9 +34,9 @@ public class Emitter : MonoBehaviour {
 		ItemType[] type = new ItemType[1];
 		type[0] = ItemType.GOLD;
 		int[] amt = new int[1];
-		amt[0] = 20;
+		amt[0] = 100;
 
-		Init(type, amt);
+		Init(type, amt, EmitType.Flow);
 
 	}
 	
@@ -37,7 +45,20 @@ public class Emitter : MonoBehaviour {
 	
 	}
 
-	void CreateItems(ItemType type, int amt)
+	void IgnoreCollision()
+	{
+		for(int j = 0; j < colContainer.Count; ++j)
+		{	
+			for(int k = 0; k < colContainer.Count; ++k)
+			{
+				if(colContainer[j] == colContainer[k])
+					continue;
+				Physics.IgnoreCollision(colContainer[j], colContainer[k]); 
+			}
+		}
+	}
+
+	void ImpulseFire(ItemType type, int amt)
 	{
 		for(int i = 0; i < amt; ++i)
 		{
@@ -56,18 +77,40 @@ public class Emitter : MonoBehaviour {
 			body.AddForce(new Vector3(randomx, 0,0), ForceMode.Impulse);
 		}
 
-		for(int j = 0; j < colContainer.Count; ++j)
-		{	
-			for(int k = 0; k < colContainer.Count; ++k)
-			{
-				if(colContainer[j] == colContainer[k])
-					continue;
-				Physics.IgnoreCollision(colContainer[j], colContainer[k]); 
-			}
-		}
+		IgnoreCollision();
 
 	}
-	public void Init(ItemType[] type, int[] amt)
+
+	IEnumerator CreateItemsWithInterval(ItemType type, int amt)
+	{
+		int i = 0;
+		while(i < amt)
+		{	
+			i++;
+
+			GameObject obj =  Instantiate(Resources.Load("Prefabs/CollectableItems")) as GameObject;
+			obj.transform.parent = gameObject.transform;
+			obj.transform.localScale = Vector3.one;
+			obj.transform.localPosition = Vector3.zero;
+
+			CollectableItems item = obj.GetComponent<CollectableItems>();
+			item.Init(type);
+			Rigidbody body = obj.GetComponent<Rigidbody>();
+			colContainer.Add(obj.GetComponent<BoxCollider>());
+
+			float randomx= Random.Range(0f, 30f);
+			float randomy = Random.Range(-10f, 10f);
+			body.AddForce(new Vector3(randomx, randomy,0), ForceMode.Force);
+
+			IgnoreCollision();
+
+			yield return new WaitForSeconds(0.01f);
+		}
+
+
+	}
+
+	public void Init(ItemType[] type, int[] amt, EmitType emit = EmitType.Impulse)
 	{
 		if(type.Length != amt.Length)
 		{
@@ -82,10 +125,17 @@ public class Emitter : MonoBehaviour {
 
 		List<ItemType> keys = new List<ItemType>(map.Keys);
 
+		m_type = emit;
+
 
 		foreach(ItemType tp in keys)
 		{
-			CreateItems(tp, map[tp]);
+			if(m_type == EmitType.Impulse)
+				ImpulseFire(tp, map[tp]);
+			else
+				StartCoroutine(CreateItemsWithInterval(tp, map[tp]));
 		}
+
+	
 	}
 }

@@ -5,18 +5,19 @@ public class CollectableItems : MonoBehaviour {
 
 	[SerializeField]UISprite sprite;
 	[SerializeField]UILabel label;
+	[SerializeField]TweenAlpha t_alpha;
+	[SerializeField]float 	lifeTime = 5.0f;
+	[SerializeField]float	destroyTime = 1.0f;
 
 	UIButtonMessage m_btnMsg;
 	ItemType 		m_type;
 	int				m_amt;
 
-	const float 	DEATHTIME = 5.0f;
+
 
 	void Start()
 	{
 		m_btnMsg = GetComponent<UIButtonMessage>();
-		if(label != null)
-			label.enabled = false;
 
 		AutoCollect();
 	}
@@ -62,22 +63,19 @@ public class CollectableItems : MonoBehaviour {
 				break;
 		}
 
-		StartCoroutine(Utility.DelayInSeconds(DEATHTIME, 
+		StartCoroutine(Utility.DelayInSeconds(lifeTime, 
 						(res) => 
 						{ 
 							if(label != null)
 							{
-								label.enabled = true;
+								label.gameObject.SetActive(true);
 								label.text = "+" + m_amt.ToString();
 							}
-							if(sprite != null)
+				
+							if(t_alpha != null)
 							{
-								sprite.enabled = false;
+								t_alpha.Play(true);
 							}
-//							// AddGold();
-							StartCoroutine(Utility.DelayInSeconds(3.0f, 
-											(res1) => { 
-											Destroy(gameObject); } ));
 						} 
 						));
 	}
@@ -89,6 +87,7 @@ public class CollectableItems : MonoBehaviour {
 		switch(m_type)
 		{
 			case ItemType.ENERGY:
+				label.color = Color.blue;
 				break;
 			case ItemType.GOLD:
 				label.color = Color.yellow;
@@ -101,19 +100,19 @@ public class CollectableItems : MonoBehaviour {
 
 		if(label != null)
 		{
-			label.enabled = true;
+			label.gameObject.SetActive(true);
 			label.text = "+" + m_amt.ToString();
 		}
 
-		if(sprite != null)
+		if(t_alpha != null)
 		{
-			sprite.enabled = false;
+			t_alpha.Play(true);
 		}
-
-		StartCoroutine(Utility.DelayInSeconds(1.0f, 
-												(res) => { 
-												Destroy(gameObject); } ));
 	}
 
+	void Destroy()
+	{
+		StartCoroutine(Utility.DelayInSeconds(1.0f, (res)=>{ Destroy(gameObject); } ));
+	}
 
 }
