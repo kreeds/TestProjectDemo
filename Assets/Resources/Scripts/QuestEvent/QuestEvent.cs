@@ -185,6 +185,7 @@ public class QuestEvent : MonoBehaviour {
 		nodeList.Clear ();
 
 		foreach(ActionEvent action in actionList){
+			if (action != null)
 			Destroy (action.gameObject);
 		}
 		actionList.Clear ();
@@ -739,7 +740,7 @@ public class QuestEvent : MonoBehaviour {
 				actionObj.transform.localPosition = pos;
 
 				ActionEvent actionEvent = actionObj.GetComponent<ActionEvent> ();
-				actionEvent.Initialize (i, gameObject, currentAction.desc);
+				actionEvent.Initialize (i, currentAction.staminaCost, gameObject, currentAction.desc);
 
 				actionList.Add(actionEvent);
 			}
@@ -785,13 +786,20 @@ public class QuestEvent : MonoBehaviour {
 
 	void OnAction(int actionID){
 		QuestAction action = currentQuest.actionList [actionID];
+		
+		GameObject obj = NGUITools.AddChild (scenePanel.gameObject, Resources.Load ("Prefabs/Emitter") as GameObject);
+		Emitter emitter = obj.GetComponent<Emitter> ();
+		emitter.Init (new ItemType[]{ItemType.STAR}, new int[]{action.completionAmount}, 0, 3f, -1f, 1f);
 
-		currentQuest.completedAmount += action.completionAmount;
+	}
+
+	void OnStarCollected(){
+
+		currentQuest.completedAmount ++;
 		float progressRatio = 0f;
 
 		if (currentQuest.completedAmount >= currentQuest.requiredAmount) {
 			progressRatio = 1f;
-//			GoToNext ();
 			
 			GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/QuestFinish")) as GameObject;
 			m_hudService.HUDControl.AttachMid(ref obj);
@@ -805,6 +813,7 @@ public class QuestEvent : MonoBehaviour {
 			progressRatio = currentQuest.completedAmount / (float)currentQuest.requiredAmount;
 
 		questProgress.SetProgress (progressRatio);
+
 //		Vector3 localScale = progressSprite.transform.localScale;
 //		localScale.x = (232)*(5f*progressRatio);
 //		progressSprite.transform.localScale = localScale;
