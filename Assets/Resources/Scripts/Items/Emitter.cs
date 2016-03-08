@@ -26,17 +26,23 @@ public class Emitter : MonoBehaviour {
 	List<BoxCollider> colContainer = new List<BoxCollider>();
 	EmitType m_type;
 
+	float m_rangeMinX;
+	float m_rangeMaxX;
+
+	float m_rangeMinY;
+	float m_rangeMaxY;
+
 	// Use this for initialization
 	void Start () {
 
-		Debug.Log("Starting Emitter **********");
-		map = new Dictionary<ItemType, int>();
-		ItemType[] type = new ItemType[1];
-		type[0] = ItemType.GOLD;
-		int[] amt = new int[1];
-		amt[0] = 100;
-
-		Init(type, amt, EmitType.Flow);
+//		Debug.Log("Starting Emitter **********");
+//		map = new Dictionary<ItemType, int>();
+//		ItemType[] type = new ItemType[1];
+//		type[0] = ItemType.GOLD;
+//		int[] amt = new int[1];
+//		amt[0] = 100;
+//
+//		Init(type, amt, EmitType.Flow);
 
 	}
 	
@@ -72,8 +78,8 @@ public class Emitter : MonoBehaviour {
 			Rigidbody body = obj.GetComponent<Rigidbody>();
 			colContainer.Add(obj.GetComponent<BoxCollider>());
 
-			float randomx= Random.Range(-1f, 1f);
-			//float randomy = Random.Range(-3f, 3f);
+			float randomx= Random.Range(m_rangeMinX, m_rangeMaxX);
+			float randomy = Random.Range(m_rangeMinY, m_rangeMaxY);
 			body.AddForce(new Vector3(randomx, 0,0), ForceMode.Impulse);
 		}
 
@@ -98,8 +104,8 @@ public class Emitter : MonoBehaviour {
 			Rigidbody body = obj.GetComponent<Rigidbody>();
 			colContainer.Add(obj.GetComponent<BoxCollider>());
 
-			float randomx= Random.Range(0f, 30f);
-			float randomy = Random.Range(-10f, 10f);
+			float randomx= Random.Range(m_rangeMinX, m_rangeMaxX);
+			float randomy = Random.Range(m_rangeMinY, m_rangeMaxY);
 			body.AddForce(new Vector3(randomx, randomy,0), ForceMode.Force);
 
 			IgnoreCollision();
@@ -110,7 +116,18 @@ public class Emitter : MonoBehaviour {
 
 	}
 
-	public void Init(ItemType[] type, int[] amt, EmitType emit = EmitType.Impulse)
+	/// <summary>
+	/// Init the specified type, amt, rangeminx, rangemaxx, rangeminy, rangemaxy and emit.
+	/// </summary>
+	/// <param name="type">Type.</param>
+	/// <param name="amt">Amount.</param>
+	/// <param name="rangeminx">Minimum Range of X value.</param>
+	/// <param name="rangemaxx">Maximum Range of X value.</param>
+	/// <param name="rangeminy">Minimum Range of Y value.</param>
+	/// <param name="rangemaxy">Minimum Range of Y value.</param>
+	/// <param name="emit">Type of Emission.</param>
+	public void Init(ItemType[] type, int[] amt, float rangeminx, float rangemaxx, float rangeminy, float rangemaxy, 
+						EmitType emit = EmitType.Impulse)
 	{
 		if(type.Length != amt.Length)
 		{
@@ -122,6 +139,12 @@ public class Emitter : MonoBehaviour {
 		{
 			map.Add(type[i], amt[i]);
 		}
+
+		m_rangeMinX = rangeminx;
+		m_rangeMaxX = rangemaxx;
+		m_rangeMinY = rangeminy;
+		m_rangeMaxY = rangemaxy;
+
 
 		List<ItemType> keys = new List<ItemType>(map.Keys);
 
@@ -135,6 +158,7 @@ public class Emitter : MonoBehaviour {
 			else
 				StartCoroutine(CreateItemsWithInterval(tp, map[tp]));
 		}
+
 
 	
 	}
