@@ -45,6 +45,11 @@ public class Emitter : MonoBehaviour {
 //		Init(type, amt, EmitType.Flow);
 
 	}
+
+	void Awake()
+	{
+		map = new Dictionary<ItemType, int>();
+	}
 	
 	// Update is called once per frame
 	void Update () {

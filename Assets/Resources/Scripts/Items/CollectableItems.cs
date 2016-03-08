@@ -38,7 +38,8 @@ public class CollectableItems : MonoBehaviour {
 			case ItemType.GOLD:
 				sprite.spriteName = "icon02";
 				break;
-			case ItemType.STAR:
+		case ItemType.STAR:
+			gameObject.layer = 12;
 				sprite.spriteName = "";
 				break;
 			case ItemType.XP:
@@ -76,6 +77,11 @@ public class CollectableItems : MonoBehaviour {
 							{
 								t_alpha.Play(true);
 							}
+
+			if (m_type == ItemType.STAR){
+				GameObject obj = GameObject.Find ("EventManager");
+				obj.SendMessage("OnStarCollected");
+			}
 						} 
 						));
 	}
@@ -92,7 +98,10 @@ public class CollectableItems : MonoBehaviour {
 			case ItemType.GOLD:
 				label.color = Color.yellow;
 				break;
-			case ItemType.STAR:
+		case ItemType.STAR:
+			GameObject obj = GameObject.Find ("EventManager");
+			obj.SendMessage("OnStarCollected");
+			collider.enabled = false;
 				break;
 			case ItemType.XP:
 				break;
