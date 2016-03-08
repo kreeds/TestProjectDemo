@@ -137,8 +137,8 @@ public class BattleManager : MonoBehaviour
 		m_phase = BattlePhase.ATTACK;
 
 		// Move Camera to view Enemy
-		Service.Get<MapService>().TweenPos(new Vector3(389f, -3.76f, 0.0f),
-													new Vector3(-389f, -3.76f, 0.0f),
+		Service.Get<MapService>().TweenPos(new Vector3(721f, -3.76f, 0.0f),
+													new Vector3(-721f, -3.76f, 0.0f),
 													UITweener.Method.EaseInOut,
 													UITweener.Style.Once,
 													null,
@@ -248,6 +248,13 @@ public class BattleManager : MonoBehaviour
 	{
 		GameObject obj = NGUITools.AddChild(m_itemParent, Resources.Load("Prefabs/Emitter") as GameObject);
 		obj.transform.localPosition = pos;
+
+		ItemType[] type = new ItemType[1];
+		type[0] = ItemType.GOLD;
+		int[] amt = new int[1];
+		amt[0] = 100;
+
+		obj.GetComponent<Emitter>().Init(type, amt, -50.0f, 50.0f, -100.0f, 100.0f, Emitter.EmitType.Flow);
 	}
 
 	#region Button

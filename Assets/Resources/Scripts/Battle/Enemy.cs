@@ -165,8 +165,8 @@ public class Attack : FSMState
 		if(!attack && enemy.IsAnimationComplete())
 		{
 			enemy.SetTransition(Transition.E_FINISHATTACK);
-			Service.Get<MapService>().TweenPos(new Vector3(-389.0f, 0.0f, 0.0f),
-													new Vector3(389.0f, 0.0f, 0.0f),
+			Service.Get<MapService>().TweenPos(new Vector3(-721.0f, 0.0f, 0.0f),
+													new Vector3(721.0f, 0.0f, 0.0f),
 													UITweener.Method.EaseInOut,
 													UITweener.Style.Once,
 													pmgr.gameObject,

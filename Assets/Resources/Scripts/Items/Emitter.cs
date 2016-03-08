@@ -22,7 +22,7 @@ public class Emitter : MonoBehaviour {
 		Max
 	};
 
-	Dictionary<ItemType, int> map;
+	Dictionary<ItemType, int> map = new Dictionary<ItemType, int>();
 	List<BoxCollider> colContainer = new List<BoxCollider>();
 	EmitType m_type;
 

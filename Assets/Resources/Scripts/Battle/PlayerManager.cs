@@ -306,8 +306,8 @@ public class PlayerManager : MonoBehaviour {
 	private void TweenAttack(bool isAttacking)
 	{
 		Vector3 from, to;
-		from = (isAttacking)? new Vector3(389f, -3.76f, 0.0f) : new Vector3(-389f, -3.76f, 0.0f);
-		to = (isAttacking)? new Vector3(-389f, -3.76f, 0.0f) : new Vector3(389f, -3.76f, 0.0f);
+		from = (isAttacking)? new Vector3(721f, -3.76f, 0.0f) : new Vector3(-721f, -3.76f, 0.0f);
+		to = (isAttacking)? new Vector3(-721f, -3.76f, 0.0f) : new Vector3(721f, -3.76f, 0.0f);
 
 		m_camService.TweenPos(	from,
 								to,
