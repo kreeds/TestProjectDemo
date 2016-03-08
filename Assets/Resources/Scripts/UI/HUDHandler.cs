@@ -14,6 +14,7 @@ public class HUDHandler : MonoBehaviour {
 	[SerializeField]UILabel m_goldLabel;
 	[SerializeField]UILabel m_gemLabel;
 	[SerializeField]UILabel m_lvlLabel;
+	[SerializeField]UILabel	m_refillLabel;
 
 	[SerializeField]GameObject m_Top;
 	[SerializeField]GameObject m_Bottom;
@@ -44,7 +45,26 @@ public class HUDHandler : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-	 
+		PlayerProfile.Get ().UpdateTime (Time.deltaTime);
+		int stamina = PlayerProfile.Get ().stamina;
+		int maxStamina = PlayerProfile.Get ().maxStamina;
+
+		if (stamina < maxStamina) {
+			int totalSeconds = (int)PlayerProfile.Get ().recoverAmount;
+			int minutes = totalSeconds / 60;
+			int seconds = totalSeconds % 60;
+
+			m_refillLabel.text = string.Format ("get more {0,2}:{1:D2}", minutes, seconds);
+		} else {
+			m_refillLabel.text = "";
+		}
+
+		string energyDisplayText = stamina + "/" + PlayerProfile.Get ().maxStamina;
+		m_energyLabel.text = energyDisplayText;
+
+		m_goldLabel.text = PlayerProfile.Get ().gold.ToString ();
+		m_gemLabel.text = PlayerProfile.Get ().gems.ToString ();
+		m_lvlLabel.text = PlayerProfile.Get ().level.ToString ();
 	}
 
 	#endregion

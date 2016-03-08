@@ -41,6 +41,7 @@ public class BoardHandler : MonoBehaviour {
 		}
 		else
 		{
+			QuestEvent.nextSceneID = 3;
 			Service.Get<HUDService>().ChangeScene("EventScene");
 		}
 

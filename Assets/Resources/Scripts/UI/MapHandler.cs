@@ -12,7 +12,11 @@ public class MapHandler : MonoBehaviour {
 	void LoadArea()
 	{	
 		m_areaNodeList = new List<AreaNode>();
-		m_areaNodeList.Add(CreateAreaNode(1, false, "1-4", new Vector3(1312.0f, 147.0f, -10.0f)) );
+
+		AreaNode node = CreateAreaNode (1, false, "1-4", new Vector3 (1312.0f, 147.0f, -10.0f));
+		node.callback = "OnDressShop";
+		node.receiver = gameObject;
+		m_areaNodeList.Add(node);
 		m_areaNodeList.Add(CreateAreaNode(1, true, "1-3", new Vector3(147, 170, -10.0f)) );
 	}
 
@@ -35,5 +39,11 @@ public class MapHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	void OnDressShop()
+	{
+		QuestEvent.nextSceneID = 2;
+		Service.Get<HUDService> ().ChangeScene ("EventScene");
 	}
 }
