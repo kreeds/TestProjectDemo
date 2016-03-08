@@ -260,7 +260,7 @@ public class PlayerManager : MonoBehaviour {
 	public void SpecialAttack()
 	{
 		GameObject obj = NGUITools.AddChild (m_obj, Resources.Load ("Prefabs/FX/Effect_Fx") as GameObject);
-		obj.transform.localPosition = new Vector3 (720, 0, -10f);
+		obj.transform.localPosition = new Vector3 (720, 0, -20f);
 		BattleEffect effect = obj.GetComponent<BattleEffect>();
 		if (effect != null) {
 			effect.Initialize(gameObject);
