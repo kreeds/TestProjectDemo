@@ -21,19 +21,19 @@ name:Get clothes
 startdesc:"Find nice clothes for Margie!\nReward: $200 Exp: 50"
 finishdesc:"Margie is going to look better than you now...\nReward: $200 Exp: 50"
 <QuestEvent>
-x:1521
-y:-37
+x:212
+y:69
 cost:1
 completion:6
 desc:browse sale items
 <QuestEvent>
-x:200
+x:-800
 y:-50
 cost:1
 completion:6
 desc:pick a dress
 <QuestEvent>
-x:813
+x:-504
 y:160
 cost:1
 completion:6

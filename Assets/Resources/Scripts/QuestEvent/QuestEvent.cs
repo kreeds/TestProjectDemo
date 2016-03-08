@@ -261,6 +261,9 @@ public class QuestEvent : MonoBehaviour {
 				currentScene.eventList.Add (currentDrama);
 			}
 			if (line.Contains("<QuestEnd>")){
+				if (currentQuest != null && currentQuestAction != null){
+					currentQuest.actionList.Add(currentQuestAction);
+				}
 				currentScene.eventList.Add (currentQuest);
 			}
 			if (line.Contains("<QuestEvent>")){
@@ -789,8 +792,12 @@ public class QuestEvent : MonoBehaviour {
 		QuestAction action = currentQuest.actionList [actionID];
 		
 		GameObject obj = NGUITools.AddChild (scenePanel.gameObject, Resources.Load ("Prefabs/Emitter") as GameObject);
+		Vector3 newPos = actionList [actionID].transform.localPosition;
+		newPos.x = actionList [actionID].transform.localPosition.x;
+		obj.transform.localPosition = newPos;
+
 		Emitter emitter = obj.GetComponent<Emitter> ();
-		emitter.Init (new ItemType[]{ItemType.STAR}, new int[]{action.completionAmount}, 0, 3f, -1f, 1f);
+		emitter.Init (new ItemType[]{ItemType.STAR}, new int[]{action.completionAmount}, -1.5f, 1.5f, -1f, 1f);
 
 	}
 
