@@ -72,6 +72,7 @@ public class QuestEvent : MonoBehaviour {
 	List<ActionEvent> 	actionList;
 
 	RelationshipUp					relationShipPanel;
+	QuestComplete questComplete;
 
 	static List<Character> characterList;
 
@@ -130,7 +131,7 @@ public class QuestEvent : MonoBehaviour {
 //		int i = 0;
 		sceneCharas = new List<LAppModelProxy> ();
 		foreach (Character chara in currentScene.characterList) {
-			GameObject obj = GameObject.Instantiate(Resources.Load("Live2DAssets/live2DObject")) as GameObject;
+			GameObject obj = GameObject.Instantiate(Resources.Load("Live2DAssets/EventLive2DModel")) as GameObject;
 			obj.transform.SetParent (scenePanel.transform);
 			obj.transform.localScale = new Vector3 (30f, 30f, 30f);
 			obj.transform.localPosition = new Vector3(chara.xpos, chara.ypos, -5);
@@ -334,7 +335,7 @@ public class QuestEvent : MonoBehaviour {
 					if (line.Contains("id:")){
 						currentDrama.id = int.Parse (parts[1]);
 					}
-					if (line.Contains ("showBond")){
+					if (line.Contains ("bondup:")){
 						int bond = int.Parse (parts[1]);
 						currentDrama.showBond = bond != 0;
 					}
@@ -798,7 +799,7 @@ public class QuestEvent : MonoBehaviour {
 		currentQuest.completedAmount ++;
 		float progressRatio = 0f;
 
-		if (currentQuest.completedAmount >= currentQuest.requiredAmount) {
+		if (currentQuest.completedAmount >= currentQuest.requiredAmount && questComplete == null) {
 			progressRatio = 1f;
 			
 			GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/QuestFinish")) as GameObject;
@@ -806,7 +807,7 @@ public class QuestEvent : MonoBehaviour {
 			obj.transform.localScale = Vector3.one;
 			obj.transform.localPosition = new Vector3(0, 0, -5);
 
-			QuestComplete questComplete = obj.GetComponent<QuestComplete>();
+			questComplete = obj.GetComponent<QuestComplete>();
 			questComplete.Initialize(gameObject, currentQuest.finishDesc);
 		}
 		else
