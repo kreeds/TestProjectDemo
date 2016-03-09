@@ -3,8 +3,8 @@ using System.Collections;
 
 public class AspectRatio : MonoBehaviour {
 
-	int designedHeight = 640;
-	int designedWidth = 960;
+	int designedHeight = 960;
+	int designedWidth = 640;
 	void Awake()
     {
     	UnityEngine.Debug.Log("RUNNING ASPECT RATIOÍ");
