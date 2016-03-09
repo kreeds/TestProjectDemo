@@ -16,10 +16,17 @@ public class AspectRatio : MonoBehaviour {
         		
     }
 
-    int RootScreenHeight()
-    {
-    	return designedHeight;
-    }
+	public int RootScreenHeight()
+	{
+		if ((float)Screen.height / (float)Screen.width > (float)designedHeight / (float)designedWidth)
+		{
+			return Mathf.FloorToInt((float)designedWidth / Screen.width * Screen.height);
+		}
+		else
+		{
+			return designedHeight;
+		}
+	}
 
     int RootScreenWidth()
     {
