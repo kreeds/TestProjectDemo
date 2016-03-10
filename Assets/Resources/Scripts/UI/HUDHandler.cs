@@ -178,5 +178,9 @@ public class HUDHandler : MonoBehaviour {
 
 	#endregion
 
+	void OnClothingClick()
+	{
+		Service.Get<HUDService>().ChangeScene("CharaScene");
+	}
 
 }
