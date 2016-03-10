@@ -21,7 +21,9 @@ public class QuestEvent : MonoBehaviour {
 		Dialog,
 		Choice,
 	}
-	[SerializeField]UILabel			nameLabel;
+	[SerializeField]UILabel			playerNameLabel;
+	[SerializeField]UILabel			otherNameLabel;
+
 	[SerializeField]UILabel			textLabel;
 
 	[SerializeField]UILabel			playerText;
@@ -36,7 +38,9 @@ public class QuestEvent : MonoBehaviour {
 	[SerializeField]GameObject		dialogBase;
 	[SerializeField]GameObject		bubbleGroup;
 	[SerializeField]GameObject		actionGroup;
-	[SerializeField]GameObject		playerTextGroup;	
+
+	[SerializeField]GameObject		playerTextGroup;
+	[SerializeField]GameObject		otherTextGroup;
 
 //	[SerializeField]LAppModelProxy[] eventCharas;
 
@@ -48,6 +52,9 @@ public class QuestEvent : MonoBehaviour {
 
 	[SerializeField]string[]		sceneFiles;
 	[SerializeField]int				firstQuest;
+
+	[SerializeField]TweenScale		otherTextTween;
+	[SerializeField]TweenScale		playerTextTween;
 
 	QuestProgress					questProgress;
 	
@@ -562,6 +569,11 @@ public class QuestEvent : MonoBehaviour {
 		if (currentDialogEvent == null) {
 //			GoToNext ();
 			
+			if (otherTextGroup.transform.localScale.x >= 1)
+				otherTextTween.Play(false);
+			if (playerTextGroup.transform.localScale.x >= 1)
+				playerTextTween.Play(false);
+
 			Drama currentDrama = currentScene.getCurrentEvent () as Drama;
 
 			if (currentDrama.showBond){
@@ -586,10 +598,24 @@ public class QuestEvent : MonoBehaviour {
 
 			if (dialog.characterID != 0){
 				otherText.text = dialog.dialogLine;
-				nameLabel.text = characterList[dialog.characterID]._name;
+				otherNameLabel.text = characterList[dialog.characterID]._name;
 				playerText.text = "";
+				if (playerTextGroup.transform.localScale.x >= 1)
+					playerTextTween.Play(false);
+				if (otherTextGroup.transform.localScale.x < 1)
+					otherTextTween.Play(true);
+//				playerTextGroup.SetActive (false);
+//				otherTextGroup.SetActive (true);
 			}else{
+				if (playerTextGroup.transform.localScale.x < 1)
+					playerTextTween.Play(true);
+//				playerTextGroup.SetActive (true);
+
+				playerNameLabel.text = PlayerProfile.Get ().playerName;
 				playerText.text = dialog.dialogLine;
+				//				otherTextGroup.SetActive(false);
+				if (otherTextGroup.transform.localScale.x >= 1)
+					otherTextTween.Play(false);
 			}
 
 			displayingChoice = false;
@@ -609,7 +635,7 @@ public class QuestEvent : MonoBehaviour {
 
 			textCollider.enabled = false;
 
-			playerTextGroup.SetActive (false);
+//			playerTextGroup.SetActive (false);
 		}
 	}
 
@@ -647,13 +673,15 @@ public class QuestEvent : MonoBehaviour {
 
 		choiceList.Clear ();
 
-//		ShowCurrentDialog ();
+		//		ShowCurrentDialog ();
 		textLabel.text = choiceEvent.choiceOptions [selected];
-		nameLabel.text = characterList [0]._name;
+		playerNameLabel.text = PlayerProfile.Get ().playerName;
 		textCollider.enabled = true;
 
-		playerTextGroup.SetActive (true);
-
+		playerTextTween.Play (true);
+		otherTextTween.Play (false);
+//		playerTextGroup.SetActive (true);
+//		otherTextGroup.SetActive (false);
 		
 		Drama currentDrama = currentScene.eventList [currentScene.currentEvent] as Drama;
 		currentDrama.relationshipBonus += choiceEvent.choiceReward [selected];

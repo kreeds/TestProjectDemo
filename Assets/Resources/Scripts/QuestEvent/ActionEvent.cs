@@ -5,7 +5,9 @@ public class ActionEvent : MonoBehaviour {
 	[SerializeField]TweenScale		_expandTween;
 	[SerializeField]UILabel			_actionLabel;
 	[SerializeField]UISprite		_expandedBG;
-	[SerializeField]UISlider		_progressBar;
+//	[SerializeField]UISlider		_progressBar;
+	[SerializeField]UIGauge			_progressGauge;
+	[SerializeField]BoxCollider		_buttonCollider;
 
 	private int				 		_actionId;
 	private GameObject				_rootObject;
@@ -36,12 +38,16 @@ public class ActionEvent : MonoBehaviour {
 		_expandTween.Play (false);
 
 		Vector3 scale = _expandedBG.transform.localScale;
-		scale.x = textScale.x*_actionLabel.font.size;
-		if (scale.x < 460)
-			scale.x = 460;
+		scale.x = (textScale.x * _actionLabel.transform.localScale.x) + 242;
+
+		_buttonCollider.size = scale;
+//		if (scale.x < 460)
+//			scale.x = 460;
 		_expandedBG.transform.localScale = scale;
 
-		_progressBar.sliderValue = 0;
+		_progressGauge.Init (0, required*10);
+
+//		_progressBar.sliderValue = 0;
 		_requiredAmt = required;
 		_progressAmt = 0;
 	}
@@ -54,7 +60,7 @@ public class ActionEvent : MonoBehaviour {
 	void OnButtonClick()
 	{
 		float newAmount = (float)++_progressAmt;
-		_progressBar.sliderValue = newAmount / _requiredAmt;
+		_progressGauge.reduce (-10);
 		if (_progressAmt >= _requiredAmt) {
 			_rootObject.SendMessage ("OnAction", _actionId);
 			Destroy (gameObject);
