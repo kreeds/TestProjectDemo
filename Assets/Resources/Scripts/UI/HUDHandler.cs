@@ -19,7 +19,8 @@ public class HUDHandler : MonoBehaviour {
 	[SerializeField]GameObject m_Top;
 	[SerializeField]GameObject m_Bottom;
 	[SerializeField]GameObject m_Mid;
-	[SerializeField]GameObject m_BattleBottom;
+	[SerializeField]GameObject m_bottomLeft;
+	[SerializeField]GameObject m_bottomRight;
 
 	[SerializeField]UIButton	m_specialBtn;
 	[SerializeField]UISprite 	m_heartSprite;
@@ -63,7 +64,7 @@ public class HUDHandler : MonoBehaviour {
 		m_energyLabel.text = energyDisplayText;
 
 		m_goldLabel.text = PlayerProfile.Get ().gold.ToString ();
-		m_gemLabel.text = PlayerProfile.Get ().gems.ToString ();
+		m_gemLabel.text = PlayerProfile.Get ().gems	.ToString ();
 		m_lvlLabel.text = PlayerProfile.Get ().level.ToString ();
 	}
 
@@ -73,18 +74,17 @@ public class HUDHandler : MonoBehaviour {
 	public void CreateBattleHUD()
 	{
 		HPBars = new UIGauge[2];
-		GameObject obj = NGUITools.AddChild(gameObject, Resources.Load("Prefabs/Battle/HpBar") as GameObject);
-		obj.transform.localPosition = new Vector3(-156.0f, 339.0f, 0);
-		obj.transform.localScale = new Vector3(0.6f,0.6f,0.6f);
+		GameObject obj = NGUITools.AddChild(m_Top, Resources.Load("Prefabs/Battle/HpBar") as GameObject);
+		obj.transform.localPosition = new Vector3(-73.6f, -71.7f, 0);
+		obj.transform.localScale = new Vector3(0.3f,0.3f,0.3f);
 		HPBars[(int)GAUGE.ENEMY] = obj.GetComponent<UIGauge>();
 
-		obj =  NGUITools.AddChild(gameObject, Resources.Load("Prefabs/Battle/HpBar") as GameObject);
-		obj.transform.localPosition = new Vector3(-294.0f, -355.0f, 0);
-		obj.transform.localScale = new Vector3(0.6f,0.6f,0.6f);
+		obj =  NGUITools.AddChild(m_bottomLeft, Resources.Load("Prefabs/Battle/HpBar") as GameObject);
+		obj.transform.localPosition = new Vector3(0.0f, 198.0f, 0);
 		HPBars[(int)GAUGE.PLAYER] = obj.GetComponent<UIGauge>();
 
-		if(m_BattleBottom != null)
-			m_BattleBottom.SetActive(true);
+		if(m_bottomLeft != null)
+			m_bottomLeft.SetActive(true);
 
 		bmgr = BattleManager.Get();
 		pmgr = PlayerManager.Get();

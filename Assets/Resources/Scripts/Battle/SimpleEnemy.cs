@@ -6,8 +6,8 @@ public class SimpleEnemy : Enemy {
 	[SerializeField]TweenColor 				_tweenColor;
 	[SerializeField]TweenPosition 			_tweenPosition;
 
-	[SerializeField]Animation				_deathAnimation;
-	[SerializeField]UITexture					_texture;
+	[SerializeField]Animation				_Anim;
+	[SerializeField]UITexture				_texture;
 
 	// Use this for initialization
 	void Start () {
@@ -23,19 +23,25 @@ public class SimpleEnemy : Enemy {
 
 	public override void PlayDamageAnim()
 	{
+		_tweenColor.to = Color.red;
 		_tweenColor.Play (true);
+		_Anim.clip = _Anim.GetClip("EnemyDamage");
+		_Anim.Play();
 	}
 	
 	public override void PlayAttackAnim()
 	{
+		_tweenColor.to = Color.green;
+		_tweenColor.Play(true);
 		_tweenPosition.Play (true);
+	
 	}
 	
 	public override bool IsAnimationComplete()
 	{
 		if (_tweenColor.isActiveAndEnabled || 
 		    _tweenPosition.isActiveAndEnabled ||
-		    _deathAnimation.isPlaying
+		    _Anim.isPlaying
 		    ) {
 			return false;
 		}
@@ -44,7 +50,8 @@ public class SimpleEnemy : Enemy {
 
 	public override void PlayDeathAnim()
 	{
-		_deathAnimation.Play ();
+		_Anim.clip = _Anim.GetClip("EnemyDeath");
+		_Anim.Play();
 	}
 
 	void OnDamagedAnim()

@@ -137,8 +137,8 @@ public class BattleManager : MonoBehaviour
 		m_phase = BattlePhase.ATTACK;
 
 		// Move Camera to view Enemy
-		Service.Get<MapService>().TweenPos(new Vector3(721f, -3.76f, 0.0f),
-													new Vector3(-721f, -3.76f, 0.0f),
+		Service.Get<MapService>().TweenPos(new Vector3(703f, -3.76f, 0.0f),
+													new Vector3(-703f, -3.76f, 0.0f),
 													UITweener.Method.EaseInOut,
 													UITweener.Style.Once,
 													null,
@@ -244,17 +244,12 @@ public class BattleManager : MonoBehaviour
 	}
 
 	//TODO: Add parameter to take in data for items to launch
-	public void CreateEmitter(Vector3 pos)
+	public void CreateEmitter(Vector3 pos, ref ItemType[] type, ref int[] amount, float rangeMinX, float rangeMaxX, float rangeMinY, float rangeMaxY)
 	{
 		GameObject obj = NGUITools.AddChild(m_itemParent, Resources.Load("Prefabs/Emitter") as GameObject);
 		obj.transform.localPosition = pos;
 
-		ItemType[] type = new ItemType[1];
-		type[0] = ItemType.GOLD;
-		int[] amt = new int[1];
-		amt[0] = 100;
-
-		obj.GetComponent<Emitter>().Init(type, amt, -50.0f, 50.0f, -100.0f, 100.0f, Emitter.EmitType.Flow);
+		obj.GetComponent<Emitter>().Init(type, amount, rangeMinX, rangeMaxX, rangeMinY, rangeMaxY, Emitter.EmitType.Flow);
 	}
 
 	#region Button

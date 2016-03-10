@@ -74,6 +74,7 @@ public class Damaged: FSMState
 {
 
 	Enemy enemy;
+	BattleManager bmr;
 	int hp = 0;
 
 	public Damaged(Enemy emy)
@@ -81,11 +82,24 @@ public class Damaged: FSMState
 		enemy = emy;
 		stateID = StateID.E_DAMAGED;
 		hp = emy.Hp;
+		bmr = BattleManager.Get();
 	}
 
 	public override void OnEnter()
 	{
 		enemy.PlayDamageAnim ();
+
+		Vector3 vec = new Vector3(enemy.transform.localPosition.x + 30.0f, 0 , -10);
+
+		ItemType[] m_type = new ItemType[1];
+		m_type[0] = ItemType.GOLD;
+		int[] amt = new int[1];
+		amt[0] = Random.Range(2,5);
+
+
+		bmr.CreateEmitter(vec, ref m_type, ref amt, -20.0f, 20.0f, 50.0f, 50.0f);
+
+
 	}
 
 	public override void Transit()
@@ -116,6 +130,8 @@ public class Damaged: FSMState
 
 	public override void OnExit()
 	{
+
+		
 	}
 
 
@@ -129,7 +145,7 @@ public class Attack : FSMState
 
 	int hp = 0;
 	float intervalCount = 0;
-	const float DelayCount = 2.0f;
+	const float DelayCount = 0.5f;
 	bool attack = true;
 
 
@@ -165,8 +181,8 @@ public class Attack : FSMState
 		if(!attack && enemy.IsAnimationComplete())
 		{
 			enemy.SetTransition(Transition.E_FINISHATTACK);
-			Service.Get<MapService>().TweenPos(new Vector3(-721.0f, 0.0f, 0.0f),
-													new Vector3(721.0f, 0.0f, 0.0f),
+			Service.Get<MapService>().TweenPos(new Vector3(-703.0f, 0.0f, 0.0f),
+													new Vector3(703.0f, 0.0f, 0.0f),
 													UITweener.Method.EaseInOut,
 													UITweener.Style.Once,
 													pmgr.gameObject,
@@ -215,9 +231,15 @@ public class Death : FSMState
 		{
 			bmr.CurBattlePhase = BattleManager.BattlePhase.END;
 			GameObject.DestroyObject(enemy.gameObject);
-			Vector3 vec = new Vector3(enemy.transform.localPosition.x, 0 , 0);
+			Vector3 vec = new Vector3(enemy.transform.localPosition.x, 0 , -10);
 
-			bmr.CreateEmitter(vec);
+			ItemType[] m_type = new ItemType[1];
+			m_type[0] = ItemType.GOLD;
+			int[] amt = new int[1];
+			amt[0] = 100;
+
+
+			bmr.CreateEmitter(vec, ref m_type, ref amt, -50.0f, 50.0f, -100.0f, 100.0f);
 		}
 	}
 }

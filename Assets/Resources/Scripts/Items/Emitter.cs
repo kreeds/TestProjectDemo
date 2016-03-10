@@ -85,7 +85,7 @@ public class Emitter : MonoBehaviour {
 
 			float randomx= Random.Range(m_rangeMinX, m_rangeMaxX);
 			float randomy = Random.Range(m_rangeMinY, m_rangeMaxY);
-			body.AddForce(new Vector3(randomx, 0,0), ForceMode.Impulse);
+			body.AddForce(new Vector3(randomx, randomy, 0.0f), ForceMode.Impulse);
 		}
 
 		IgnoreCollision();
@@ -111,7 +111,7 @@ public class Emitter : MonoBehaviour {
 
 			float randomx= Random.Range(m_rangeMinX, m_rangeMaxX);
 			float randomy = Random.Range(m_rangeMinY, m_rangeMaxY);
-			body.AddForce(new Vector3(randomx, randomy,0), ForceMode.Force);
+			body.AddForce(new Vector3(randomx, randomy, -10.0f), ForceMode.Force);
 
 			IgnoreCollision();
 

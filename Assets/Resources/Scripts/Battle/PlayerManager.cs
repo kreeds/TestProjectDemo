@@ -37,6 +37,7 @@ public class PlayerManager : MonoBehaviour {
 	[SerializeField]float waitinterval;
 
 	bool isPlaying = true;
+	bool isBeingAttacked = false;
 	bool specialAtk = false;
 	bool attackend = false;
 
@@ -96,6 +97,7 @@ public class PlayerManager : MonoBehaviour {
 			m_handler.AttachMid(ref obj);
 			obj.transform.localScale = new Vector3 (0.7f, 0.7f, 0.7f);
 			obj.transform.localPosition = new Vector3 (-108.0f, 188.0f, 0f);
+
 			UIButtonMessage button = obj.GetComponent<UIButtonMessage>();
 			button.functionName = "NormalAttack";
 			button.target = this.gameObject;
@@ -118,6 +120,12 @@ public class PlayerManager : MonoBehaviour {
 			TweenAttack(true);
 			l2dInterface.PlayIdleAnim();
 		}
+
+		if(isBeingAttacked && l2dInterface.IsAnimationComplete())
+		{
+			isBeingAttacked = false;
+			l2dInterface.PlayIdleAnim();
+		}
 	}
 
 
@@ -136,9 +144,15 @@ public class PlayerManager : MonoBehaviour {
 			{
 				if(!specialAtk)
 				{
-					m_enemyMgr.damageEnemy(m_player.atk);
 					AttackEffect(16, 112);
+					//m_enemyMgr.damageEnemy(m_player.atk);
+						StartCoroutine(Utility.DelayInSeconds(0.5f,
+										(res1) => {m_enemyMgr.damageEnemy(m_player.atk); 	
+										attackend = true;
+										playerattack = true; 
+										} ));
 
+		
 				}
 				else
 				{
@@ -148,6 +162,9 @@ public class PlayerManager : MonoBehaviour {
 					GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/FX/WhiteFader_FX") as GameObject);
 					obj.transform.localScale = new Vector3(2048f, 2048f, 0);
 					m_enemyMgr.killEnemy();
+
+					attackend = true;
+					playerattack = true;
 				}
 			}
 
@@ -156,8 +173,7 @@ public class PlayerManager : MonoBehaviour {
 				m_battleMgr.Correct();
 
 			//StartCoroutine(ReturnCamera());
-			attackend = true;
-			playerattack = true;
+		
 		}
 		));
 
@@ -193,6 +209,12 @@ public class PlayerManager : MonoBehaviour {
 		));
 
 	}
+
+	void OnEffectDestroy()
+	{
+		m_enemyMgr.damageEnemy(m_player.atk);
+	}
+
 	bool CalculateDodgeChance()
 	{
 //		float rand = Random.Range(0.0f, 1.0f);
@@ -229,25 +251,19 @@ public class PlayerManager : MonoBehaviour {
 							Service.Get<HUDService>().ShowMid(true); 
 						} ) ); 
 	}
-
-	void DodgeAnimComplete()
-	{
-		AttackEffect(16, 112);
-	}
 	void DamageEffect()
 	{
 		// Apply Damage to player
 		Damaged(m_enemyMgr.GetCurrentEnemyAttack());
 
-		StartCoroutine(Utility.DelayInSeconds(2, 
-											(res1)=>{
+		StartCoroutine(Utility.DelayInSeconds(2, (res1)=>{
 											Service.Get<HUDService>().ShowMid(true);
 											if(playerattack)
 											{
 												Service.Get<HUDService>().HUDControl.SetSpecialEnable(true);
 												playerattack = false;
 											}
-											l2dInterface.PlayIdleAnim();
+
 											}));
 	}
 	#endregion
@@ -293,6 +309,7 @@ public class PlayerManager : MonoBehaviour {
 		if(m_handler != null)
 			m_handler.reduce((int)GAUGE.PLAYER, damage);
 
+		isBeingAttacked = true;
 		l2dInterface.PlayDamageAnim ();
 	}
 
@@ -306,8 +323,8 @@ public class PlayerManager : MonoBehaviour {
 	private void TweenAttack(bool isAttacking)
 	{
 		Vector3 from, to;
-		from = (isAttacking)? new Vector3(721f, -3.76f, 0.0f) : new Vector3(-721f, -3.76f, 0.0f);
-		to = (isAttacking)? new Vector3(-721f, -3.76f, 0.0f) : new Vector3(721f, -3.76f, 0.0f);
+		from = (isAttacking)? new Vector3(703f, -3.76f, 0.0f) : new Vector3(-703f, -3.76f, 0.0f);
+		to = (isAttacking)? new Vector3(-703f, -3.76f, 0.0f) : new Vector3(703f, -3.76f, 0.0f);
 
 		m_camService.TweenPos(	from,
 								to,

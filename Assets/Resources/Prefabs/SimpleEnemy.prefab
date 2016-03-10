@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 247, y: -292, z: 0}
+  m_LocalPosition: {x: 1632, y: -292, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410412}
@@ -72,6 +72,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: cadb54397e503488f980b332ed415126, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: cadb54397e503488f980b332ed415126, type: 2}
+  - {fileID: 7400000, guid: d074b0ad8dcb5405f8867d5bec8f8b00, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -154,7 +155,7 @@ MonoBehaviour:
   attkInterval: 3
   _tweenColor: {fileID: 11484276}
   _tweenPosition: {fileID: 11484278}
-  _deathAnimation: {fileID: 11124962}
+  _Anim: {fileID: 11124962}
   _texture: {fileID: 11410412}
 --- !u!114 &11484276
 MonoBehaviour:
