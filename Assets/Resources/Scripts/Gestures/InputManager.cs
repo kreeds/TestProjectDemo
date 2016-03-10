@@ -243,7 +243,7 @@ public class InputManager : MonoBehaviour {
 
 
    	/// <summary>
-   	/// Draws the player input line
+   	/// Draws the player input line ( Debug/Editor Mode only)
    	/// </summary>
     void DrawLine()
     {
@@ -331,8 +331,7 @@ public class InputManager : MonoBehaviour {
             if (!WasMovementInTouch) //begin
             {
 				Vector3 pos = Camera.main.ScreenToWorldPoint(cursorPosition);
-                pos.z = 0; // Make sure the trail is visible
-                //if (trail != null) Destroy(trail);
+                pos.z = -10; // Make sure the trail is visible
                	trail = SpecialEffects.MakeTrail(pos);
 				trailList.Add(trail);
 				IsStartTrailSpawned = true;
@@ -347,8 +346,10 @@ public class InputManager : MonoBehaviour {
 
 		AttackPhaseCheck();
 		SpecialAttackPhaseCheck();
-		
+
+#if UNITY_EDITOR
 		DrawLine();
+#endif
 
     }
 

@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-//Item type to emit
+/// <summary>
+/// Type of item drops
+/// </summary>
 public enum ItemType
 {
 	GOLD = 0,
@@ -32,20 +34,6 @@ public class Emitter : MonoBehaviour {
 	float m_rangeMinY;
 	float m_rangeMaxY;
 
-	// Use this for initialization
-	void Start () {
-
-//		Debug.Log("Starting Emitter **********");
-//		map = new Dictionary<ItemType, int>();
-//		ItemType[] type = new ItemType[1];
-//		type[0] = ItemType.GOLD;
-//		int[] amt = new int[1];
-//		amt[0] = 100;
-//
-//		Init(type, amt, EmitType.Flow);
-
-	}
-
 	void Awake()
 	{
 		map = new Dictionary<ItemType, int>();
@@ -56,6 +44,9 @@ public class Emitter : MonoBehaviour {
 	
 	}
 
+	/// <summary>
+	/// Ignores the collision between items
+	/// </summary>
 	void IgnoreCollision()
 	{
 		for(int j = 0; j < colContainer.Count; ++j)
@@ -69,6 +60,11 @@ public class Emitter : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Impulse Emission.
+	/// </summary>
+	/// <param name="type">Type.</param>
+	/// <param name="amt">Amt.</param>
 	void ImpulseFire(ItemType type, int amt)
 	{
 		for(int i = 0; i < amt; ++i)
@@ -92,6 +88,12 @@ public class Emitter : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// Creates the items with interval.
+	/// </summary>
+	/// <returns>The items with interval.</returns>
+	/// <param name="type">Type.</param>
+	/// <param name="amt">Amt.</param>
 	IEnumerator CreateItemsWithInterval(ItemType type, int amt)
 	{
 		int i = 0;

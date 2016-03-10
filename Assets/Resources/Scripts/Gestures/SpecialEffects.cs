@@ -8,6 +8,7 @@ public class SpecialEffects : MonoBehaviour {
 		GameObject obj = Instantiate(Resources.Load("Prefabs/DrawPoint")) as GameObject;
 		obj.transform.position = pos;
 
+
 		return obj;
 	}
 }
