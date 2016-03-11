@@ -33,6 +33,8 @@ public class HUDHandler : MonoBehaviour {
 	BattleManager bmgr;
 	PlayerManager pmgr;
 
+	UIScrollBar cameraScrollBar;
+
 	#region Mono
 	void Awake()
 	{
@@ -160,6 +162,17 @@ public class HUDHandler : MonoBehaviour {
 		if(m_dodgeBtn != null)
 			m_dodgeBtn.SetActive(show);
 
+	}
+
+	public void SetCameraScrollBar(UIScrollBar scrollBar)
+	{
+		cameraScrollBar = scrollBar; 
+	}
+
+	public void ShowScrollBar(bool show)
+	{
+		if (cameraScrollBar != null)
+			cameraScrollBar.gameObject.SetActive (show);
 	}
 
 	IEnumerator FillSprite(float targetAmt)

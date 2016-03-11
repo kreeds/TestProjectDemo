@@ -186,6 +186,7 @@ public class QuestEvent : MonoBehaviour {
 		if (dragPanel != null)
 			dragPanel.enabled = true;
 
+
 		playerTextGroup.SetActive (true);
 	}
 
@@ -830,6 +831,7 @@ public class QuestEvent : MonoBehaviour {
 		UIDraggablePanel dragPanel = scenePanel.GetComponent<UIDraggablePanel> ();
 		if (dragPanel != null)
 			dragPanel.enabled = false;
+		m_hudService.HUDControl.ShowScrollBar (false);
 
 		if (questProgress != null) {
 			questProgress.gameObject.SetActive (false);
