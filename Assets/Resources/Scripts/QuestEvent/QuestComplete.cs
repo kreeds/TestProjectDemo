@@ -7,6 +7,7 @@ public class QuestComplete : MonoBehaviour {
 	[SerializeField]UILabel				_questDesc;
 	
 	GameObject							_rootObject;
+	UITweener							_tweener;
 	// Use this for initialization
 	void Start () {
 		
@@ -22,11 +23,19 @@ public class QuestComplete : MonoBehaviour {
 		_questDesc.text = questDesc;
 		
 		_rootObject = rootObject;
+
+		_tweener = gameObject.GetComponent<UITweener> ();
 	}
 	
 	void OnConfirm()
 	{
-		Destroy (gameObject);
+//		Destroy (gameObject);
+		_tweener.Play (false);
 		_rootObject.SendMessage ("OnQuestCompleteOk");
+	}
+
+	void OnAnimationComplete()
+	{
+		Destroy (gameObject);
 	}
 }

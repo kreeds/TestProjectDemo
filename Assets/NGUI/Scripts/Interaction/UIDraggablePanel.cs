@@ -258,6 +258,15 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
+	public void AttachHorizontalScrollBar(UIScrollBar scrollBar){
+		horizontalScrollBar = scrollBar;
+		
+		horizontalScrollBar.onChange += OnHorizontalBar;
+		horizontalScrollBar.alpha = ((showScrollBars == ShowCondition.Always) || shouldMoveHorizontally) ? 1f : 0f;
+
+		UpdateScrollbars(true);
+	}
+
 	/// <summary>
 	/// Restrict the panel's contents to be within the panel's bounds.
 	/// </summary>

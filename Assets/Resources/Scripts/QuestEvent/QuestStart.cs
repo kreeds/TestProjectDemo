@@ -7,6 +7,8 @@ public class QuestStart : MonoBehaviour {
 	[SerializeField]UILabel				_questDesc;
 
 	GameObject							_rootObject;
+
+	UITweener							_tween;
 	// Use this for initialization
 	void Start () {
 	
@@ -23,17 +25,29 @@ public class QuestStart : MonoBehaviour {
 		_questName.text = questName;
 
 		_rootObject = rootObject;
+
+		_tween = gameObject.GetComponent<UITweener> ();
 	}
 
 	void OnStart()
 	{
-		_rootObject.SendMessage ("BeginQuest");
-		Destroy (gameObject);
+		_rootObject.SendMessage ("OnBeginQuest");
+		Dismiss ();
 	}
 
 	void OnCancel()
 	{
-		Destroy (gameObject);
+		_rootObject.SendMessage ("OnDidNotBeginQuest");
+		Dismiss ();
 	}
 
+	void Dismiss()
+	{
+		_tween.Play (false);
+	}
+
+	void OnAnimationFinish()
+	{
+		Destroy (gameObject);
+	}
 }

@@ -2,7 +2,7 @@
 0:P
 1:Margie
 <Dialog>
-1^Uhm… *Player, do you have a moment…?
+1^Uhm… *<playername>, do you have a moment…?
 1^I don’t think i can make it for the school party. 
 0^Why not?
 1^Uhm… uh, well... I don’t know how to explain.
@@ -24,7 +24,7 @@ C:5::Don’t say that!::R:4^C:2::Yes, you need clothes.::R:0
 1^Really? Will that help? I doubt I will look any different though...
 <Choice>
 C:5::I will be with you!::R:5^C:2::It may be a bit tough.::R:0
-1^Oh P, you are a life-saver! Thank you so much! I feel so much better already!
+1^Oh <playername>, you are a life-saver! Thank you so much! I feel so much better already!
 <ChoiceEnd>
 1^Oh… is that so. Still, i am glad you are going with me.
 <ChoiceEnd>

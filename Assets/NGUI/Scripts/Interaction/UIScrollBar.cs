@@ -347,7 +347,7 @@ public class UIScrollBar : MonoBehaviour
 				mBG.cachedTransform.localPosition = Vector3.zero;
 				mFG.cachedTransform.localPosition = new Vector3(bg.x - fg.x + (bgs.x - fgs.x) * val, 0f, 0f);
 				mFG.cachedTransform.localScale = new Vector3(fgs.x + fg.x + fg.z, fgs.y + fg.y + fg.w, 1f);
-				if (val < 0.999f && val > 0.001f) mFG.MakePixelPerfect();
+//				if (val < 0.999f && val > 0.001f) mFG.MakePixelPerfect();
 			}
 			else
 			{
@@ -358,7 +358,7 @@ public class UIScrollBar : MonoBehaviour
 				mBG.cachedTransform.localPosition = Vector3.zero;
 				mFG.cachedTransform.localPosition = new Vector3(0f, -bg.y + fg.y - (bgs.y - fgs.y) * val, 0f);
 				mFG.cachedTransform.localScale = new Vector3(fgs.x + fg.x + fg.z, fgs.y + fg.y + fg.w, 1f);
-				if (val < 0.999f && val > 0.001f) mFG.MakePixelPerfect();
+//				if (val < 0.999f && val > 0.001f) mFG.MakePixelPerfect();
 			}
 		}
 	}

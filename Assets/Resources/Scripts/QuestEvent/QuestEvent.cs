@@ -39,6 +39,9 @@ public class QuestEvent : MonoBehaviour {
 	[SerializeField]GameObject		bubbleGroup;
 	[SerializeField]GameObject		actionGroup;
 
+	[SerializeField]GameObject		academyArrow;
+	[SerializeField]GameObject		normalArrow;
+
 	[SerializeField]GameObject		playerTextGroup;
 	[SerializeField]GameObject		otherTextGroup;
 
@@ -96,6 +99,7 @@ public class QuestEvent : MonoBehaviour {
 		m_hudService.StartScene();
 
 		m_hudService.ShowBottom (true);
+
 
 		choiceList = new List<QuestChoiceOption> ();
 		charaInSceneCount = 0;
@@ -181,6 +185,7 @@ public class QuestEvent : MonoBehaviour {
 		UIDraggablePanel dragPanel = scenePanel.GetComponent<UIDraggablePanel> ();
 		if (dragPanel != null)
 			dragPanel.enabled = true;
+
 
 		playerTextGroup.SetActive (true);
 	}
@@ -482,7 +487,7 @@ public class QuestEvent : MonoBehaviour {
 				newDialogLine.eventGroup = currentBranch;
 
 				newDialogLine.characterID = int.Parse(parts[0]);
-				newDialogLine.dialogLine = parts[1];
+				newDialogLine.dialogLine = parts[1].Replace("<playername>", PlayerProfile.Get ().playerName);
 
 				nextEvent = newDialogLine;
 			}
@@ -596,7 +601,7 @@ public class QuestEvent : MonoBehaviour {
 		if (currentDialogEvent.eventType == DialogBase.EventType.Dialog) {
 			DialogLine dialog = currentDialogEvent as DialogLine;
 
-			if (dialog.characterID != 0){
+			if (dialog.characterID > 0){
 				otherText.text = dialog.dialogLine;
 				otherNameLabel.text = characterList[dialog.characterID]._name;
 				playerText.text = "";
@@ -611,11 +616,19 @@ public class QuestEvent : MonoBehaviour {
 					playerTextTween.Play(true);
 //				playerTextGroup.SetActive (true);
 
-				playerNameLabel.text = PlayerProfile.Get ().playerName;
 				playerText.text = dialog.dialogLine;
 				//				otherTextGroup.SetActive(false);
 				if (otherTextGroup.transform.localScale.x >= 1)
 					otherTextTween.Play(false);
+
+				bool isAcademy = (dialog.characterID < 0);
+				academyArrow.SetActive(isAcademy);
+				normalArrow.SetActive(!isAcademy);
+
+				if (!isAcademy)
+					playerNameLabel.text = PlayerProfile.Get ().playerName;
+				else
+					playerNameLabel.text = "Academy";
 			}
 
 			displayingChoice = false;
@@ -632,6 +645,9 @@ public class QuestEvent : MonoBehaviour {
 			}
 
 			choiceRoot.repositionNow = true;
+
+			UITweener tween = choiceRoot.GetComponent<UITweener>();
+			tween.Play (true);
 
 			textCollider.enabled = false;
 
@@ -670,6 +686,9 @@ public class QuestEvent : MonoBehaviour {
 		foreach (QuestChoiceOption option in choiceList) {
 			Destroy(option.gameObject);
 		}
+		
+		UITweener tween = choiceRoot.GetComponent<UITweener>();
+		tween.Play (false);
 
 		choiceList.Clear ();
 
@@ -699,14 +718,12 @@ public class QuestEvent : MonoBehaviour {
 			StartDrama (currentEvent as Drama);
 		} else if (currentEvent.eventType == SceneEventType.Quest) {
 			currentQuest = currentEvent as Quest;
-//			GameObject obj = NGUITools.AddChild (scenePanel.gameObject, Resources.Load ("Prefabs/Event/QuestStart") as GameObject);
 			GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/QuestStart")) as GameObject;
 			m_hudService.HUDControl.AttachMid(ref obj);
 			obj.transform.localScale = Vector3.one;
 			obj.transform.localPosition = new Vector3(0, 0, -5);
 			QuestStart questWindow = obj.GetComponent<QuestStart>();
 			questWindow.Initialize(gameObject, currentQuest.questName, currentQuest.questDesc);
-//			StartQuest (currentEvent as Quest);
 		}
 
 	}
@@ -743,11 +760,15 @@ public class QuestEvent : MonoBehaviour {
 //		fader.ChangeScene ("EventScene");
 	}
 
-	void BeginQuest()
+	void OnBeginQuest()
 	{
 		StartQuest (currentQuest);
 	}
 
+	void OnDidNotBeginQuest()
+	{
+		bubbleGroup.SetActive (true);
+	}
 
 	void StartQuest(Quest quest) {
 
@@ -757,7 +778,7 @@ public class QuestEvent : MonoBehaviour {
 				GameObject obj = GameObject.Instantiate(Resources.Load("Prefabs/Event/QuestProgress")) as GameObject;
 				m_hudService.HUDControl.AttachMid(ref obj);
 
-				obj.transform.localPosition = new Vector3(0, -280f, 0);
+				//obj.transform.localPosition = new Vector3(0, -280f, 0);
 				obj.transform.localScale = new Vector3(1, 1, 1);
 
 				questProgress = obj.GetComponent<QuestProgress>();
@@ -810,6 +831,7 @@ public class QuestEvent : MonoBehaviour {
 		UIDraggablePanel dragPanel = scenePanel.GetComponent<UIDraggablePanel> ();
 		if (dragPanel != null)
 			dragPanel.enabled = false;
+		m_hudService.HUDControl.ShowScrollBar (false);
 
 		if (questProgress != null) {
 			questProgress.gameObject.SetActive (false);
