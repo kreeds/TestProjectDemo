@@ -100,6 +100,7 @@ public class QuestEvent : MonoBehaviour {
 
 		m_hudService.ShowBottom (true);
 
+
 		choiceList = new List<QuestChoiceOption> ();
 		charaInSceneCount = 0;
 		
@@ -644,6 +645,9 @@ public class QuestEvent : MonoBehaviour {
 
 			choiceRoot.repositionNow = true;
 
+			UITweener tween = choiceRoot.GetComponent<UITweener>();
+			tween.Play (true);
+
 			textCollider.enabled = false;
 
 //			playerTextGroup.SetActive (false);
@@ -681,6 +685,9 @@ public class QuestEvent : MonoBehaviour {
 		foreach (QuestChoiceOption option in choiceList) {
 			Destroy(option.gameObject);
 		}
+		
+		UITweener tween = choiceRoot.GetComponent<UITweener>();
+		tween.Play (false);
 
 		choiceList.Clear ();
 
