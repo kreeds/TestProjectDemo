@@ -331,6 +331,8 @@ MonoBehaviour:
   dialogBase: {fileID: 2119769545}
   bubbleGroup: {fileID: 2095825855}
   actionGroup: {fileID: 154104525}
+  academyArrow: {fileID: 1081236207}
+  normalArrow: {fileID: 456448237}
   playerTextGroup: {fileID: 855283028}
   otherTextGroup: {fileID: 1417699273}
   fader: {fileID: 0}
@@ -341,7 +343,7 @@ MonoBehaviour:
   - TextData/Quest1
   - TextData/Quest2
   - TextData/Quest3
-  firstQuest: 0
+  firstQuest: 2
   otherTextTween: {fileID: 1417699275}
   playerTextTween: {fileID: 855283030}
 --- !u!1 &399063151
@@ -731,6 +733,7 @@ Transform:
   - {fileID: 527839837}
   - {fileID: 456448238}
   - {fileID: 939293846}
+  - {fileID: 1081236208}
   m_Father: {fileID: 2119769546}
   m_RootOrder: 0
 --- !u!114 &855283030
@@ -949,6 +952,56 @@ MonoBehaviour:
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
+--- !u!1 &1081236207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 128512, guid: 2fad32834f3214f61af80a7bb7486b6e, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1081236208}
+  - 114: {fileID: 1081236209}
+  m_Layer: 12
+  m_Name: Sprite (baloon02)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1081236208
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 428512, guid: 2fad32834f3214f61af80a7bb7486b6e, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1081236207}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 162, y: -88, z: 0}
+  m_LocalScale: {x: 63, y: 140.600006, z: 1}
+  m_Children: []
+  m_Father: {fileID: 855283029}
+  m_RootOrder: 4
+--- !u!114 &1081236209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11428512, guid: 2fad32834f3214f61af80a7bb7486b6e,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1081236207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 1
+  mDepth: 2
+  mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
+  mSpriteName: baloon02
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
 --- !u!1 &1122216188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,11 +1102,11 @@ MonoBehaviour:
     e00: 479.999969
     e01: 0
     e02: 0
-    e03: -705.99408
+    e03: -705.400024
     e10: 0
     e11: 479.999969
     e12: 0
-    e13: -1499
+    e13: -1498.2417
     e20: 0
     e21: 0
     e22: 479.999969
@@ -1751,7 +1804,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1765878543}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .594075441, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -.758300781, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1122216189}

@@ -39,6 +39,9 @@ public class QuestEvent : MonoBehaviour {
 	[SerializeField]GameObject		bubbleGroup;
 	[SerializeField]GameObject		actionGroup;
 
+	[SerializeField]GameObject		academyArrow;
+	[SerializeField]GameObject		normalArrow;
+
 	[SerializeField]GameObject		playerTextGroup;
 	[SerializeField]GameObject		otherTextGroup;
 
@@ -482,7 +485,7 @@ public class QuestEvent : MonoBehaviour {
 				newDialogLine.eventGroup = currentBranch;
 
 				newDialogLine.characterID = int.Parse(parts[0]);
-				newDialogLine.dialogLine = parts[1];
+				newDialogLine.dialogLine = parts[1].Replace("<playername>", PlayerProfile.Get ().playerName);
 
 				nextEvent = newDialogLine;
 			}
@@ -596,7 +599,7 @@ public class QuestEvent : MonoBehaviour {
 		if (currentDialogEvent.eventType == DialogBase.EventType.Dialog) {
 			DialogLine dialog = currentDialogEvent as DialogLine;
 
-			if (dialog.characterID != 0){
+			if (dialog.characterID > 0){
 				otherText.text = dialog.dialogLine;
 				otherNameLabel.text = characterList[dialog.characterID]._name;
 				playerText.text = "";
@@ -611,11 +614,19 @@ public class QuestEvent : MonoBehaviour {
 					playerTextTween.Play(true);
 //				playerTextGroup.SetActive (true);
 
-				playerNameLabel.text = PlayerProfile.Get ().playerName;
 				playerText.text = dialog.dialogLine;
 				//				otherTextGroup.SetActive(false);
 				if (otherTextGroup.transform.localScale.x >= 1)
 					otherTextTween.Play(false);
+
+				bool isAcademy = (dialog.characterID < 0);
+				academyArrow.SetActive(isAcademy);
+				normalArrow.SetActive(!isAcademy);
+
+				if (!isAcademy)
+					playerNameLabel.text = PlayerProfile.Get ().playerName;
+				else
+					playerNameLabel.text = "Academy";
 			}
 
 			displayingChoice = false;
