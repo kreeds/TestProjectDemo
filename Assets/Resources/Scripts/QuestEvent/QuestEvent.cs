@@ -699,14 +699,12 @@ public class QuestEvent : MonoBehaviour {
 			StartDrama (currentEvent as Drama);
 		} else if (currentEvent.eventType == SceneEventType.Quest) {
 			currentQuest = currentEvent as Quest;
-//			GameObject obj = NGUITools.AddChild (scenePanel.gameObject, Resources.Load ("Prefabs/Event/QuestStart") as GameObject);
 			GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/QuestStart")) as GameObject;
 			m_hudService.HUDControl.AttachMid(ref obj);
 			obj.transform.localScale = Vector3.one;
 			obj.transform.localPosition = new Vector3(0, 0, -5);
 			QuestStart questWindow = obj.GetComponent<QuestStart>();
 			questWindow.Initialize(gameObject, currentQuest.questName, currentQuest.questDesc);
-//			StartQuest (currentEvent as Quest);
 		}
 
 	}
@@ -743,11 +741,15 @@ public class QuestEvent : MonoBehaviour {
 //		fader.ChangeScene ("EventScene");
 	}
 
-	void BeginQuest()
+	void OnBeginQuest()
 	{
 		StartQuest (currentQuest);
 	}
 
+	void OnDidNotBeginQuest()
+	{
+		bubbleGroup.SetActive (true);
+	}
 
 	void StartQuest(Quest quest) {
 
@@ -757,7 +759,7 @@ public class QuestEvent : MonoBehaviour {
 				GameObject obj = GameObject.Instantiate(Resources.Load("Prefabs/Event/QuestProgress")) as GameObject;
 				m_hudService.HUDControl.AttachMid(ref obj);
 
-				obj.transform.localPosition = new Vector3(0, -280f, 0);
+				//obj.transform.localPosition = new Vector3(0, -280f, 0);
 				obj.transform.localScale = new Vector3(1, 1, 1);
 
 				questProgress = obj.GetComponent<QuestProgress>();
