@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public enum GAUGE
 {
@@ -33,15 +34,15 @@ public class HUDHandler : MonoBehaviour {
 	BattleManager bmgr;
 	PlayerManager pmgr;
 
+	List<GameObject> m_actionButtonList;
+
+
 	#region Mono
 	void Awake()
 	{
 		// Keeps HUD alive
 		DontDestroyOnLoad(this);
-	}
-	// Use this for initialization
-	void Start () {
-	
+		m_actionButtonList = new List<GameObject>();
 	}
 
 	// Update is called once per frame
@@ -103,6 +104,29 @@ public class HUDHandler : MonoBehaviour {
 		}
 	}
 
+	public void AddActionButton(string funcName, GameObject target)
+	{
+		GameObject obj = Instantiate(Resources.Load ("Prefabs/ActionButton")) as GameObject;
+		obj.transform.SetParent(m_Mid.transform);
+		obj.transform.localScale = new Vector3 (0.7f, 0.7f, 0.7f);
+		obj.transform.localPosition = new Vector3 (-108.0f, 188.0f - (74 * m_actionButtonList.Count), 0f);
+
+		m_actionButtonList.Add(obj);
+
+		UIButtonMessage button = obj.GetComponent<UIButtonMessage>();
+		button.functionName = funcName;
+		button.target = target;
+
+	}
+
+	public void ShowActionButtons(bool show)
+	{
+		foreach(GameObject obj in m_actionButtonList)
+		{
+			obj.SetActive(show);
+		}
+	}
+
 	public void InitializeGauge(int index, int curVal, int totalVal, string name = "")
 	{
 		if(index < HPBars.Length && HPBars[index] != null)
@@ -120,7 +144,8 @@ public class HUDHandler : MonoBehaviour {
 	}
 	public void AttachMid(ref GameObject obj)
 	{
-		obj.transform.SetParent(m_Mid.transform);
+		if(obj != null)
+			obj.transform.SetParent(m_Mid.transform);
 	}
 	public void ShowTop(bool show)
 	{

@@ -266,7 +266,7 @@ public class BattleManager : MonoBehaviour
 //			m_gestureGenerator.DestroyGesture();
 
 		m_beginFinisher = true;
-		m_HUDService.ShowMid(false);
+		m_HUDService.HUDControl.ShowActionButtons(false);
 		m_HUDService.HUDControl.SetSpecialEnable(false);
 	}
 	#endregion

@@ -331,7 +331,7 @@ public class InputManager : MonoBehaviour {
             if (!WasMovementInTouch) //begin
             {
 				Vector3 pos = Camera.main.ScreenToWorldPoint(cursorPosition);
-                pos.z = -10; // Make sure the trail is visible
+                pos.z = -20; // Make sure the trail is visible
                	trail = SpecialEffects.MakeTrail(pos);
 				trailList.Add(trail);
 				IsStartTrailSpawned = true;

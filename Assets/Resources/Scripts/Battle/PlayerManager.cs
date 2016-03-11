@@ -93,15 +93,7 @@ public class PlayerManager : MonoBehaviour {
 
 		if(m_handler != null)
 		{
-			GameObject obj = Instantiate(Resources.Load ("Prefabs/ActionButton")) as GameObject;
-			m_handler.AttachMid(ref obj);
-			obj.transform.localScale = new Vector3 (0.7f, 0.7f, 0.7f);
-			obj.transform.localPosition = new Vector3 (-108.0f, 188.0f, 0f);
-
-			UIButtonMessage button = obj.GetComponent<UIButtonMessage>();
-			button.functionName = "NormalAttack";
-			button.target = this.gameObject;
-
+			m_handler.AddActionButton("NormalAttack", this.gameObject);
 			m_handler.InitializeGauge((int)GAUGE.PLAYER, m_player.hp, m_player.hp, "Player");
 		}
 
@@ -248,7 +240,7 @@ public class PlayerManager : MonoBehaviour {
 								tpos.callWhenFinished = "";
 								tpos.Play(false);
 							}
-							Service.Get<HUDService>().ShowMid(true); 
+							m_handler.ShowActionButtons(true);
 						} ) ); 
 	}
 	void DamageEffect()
@@ -257,7 +249,7 @@ public class PlayerManager : MonoBehaviour {
 		Damaged(m_enemyMgr.GetCurrentEnemyAttack());
 
 		StartCoroutine(Utility.DelayInSeconds(2, (res1)=>{
-											Service.Get<HUDService>().ShowMid(true);
+											m_handler.ShowActionButtons(true);
 											if(playerattack)
 											{
 												Service.Get<HUDService>().HUDControl.SetSpecialEnable(true);
@@ -292,7 +284,8 @@ public class PlayerManager : MonoBehaviour {
 	{
 		l2dInterface.PlayAttackAnim ();
 
-		Service.Get<HUDService>().ShowMid(false);
+		//Service.Get<HUDService>().ShowMid(false);
+		m_handler.ShowActionButtons(false);
 		isPlaying = attackend = specialAtk = false;
 
 
