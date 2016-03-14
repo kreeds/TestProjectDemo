@@ -10,8 +10,7 @@ GameObject:
   - 4: {fileID: 442218}
   - 114: {fileID: 11442228}
   - 114: {fileID: 11497008}
-  - 114: {fileID: 11462054}
-  m_Layer: 13
+  m_Layer: 11
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,6 +31,8 @@ GameObject:
   - 114: {fileID: 11442222}
   - 114: {fileID: 11442220}
   - 114: {fileID: 11442218}
+  - 114: {fileID: 11426620}
+  - 114: {fileID: 11488754}
   m_Layer: 5
   m_Name: ActionButton
   m_TagString: Untagged
@@ -76,6 +77,44 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 543, y: 111, z: 0}
   m_Center: {x: 0, y: 0, z: -1.50000763}
+--- !u!114 &11426620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e7459110b9666449485c40f25362a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 0
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: .100000001
+  steeperCurves: 0
+  tweenGroup: 0
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: .5, y: .5, z: .5}
+  to: {x: .699999988, y: .699999988, z: .699999988}
+  updateTable: 0
 --- !u!114 &11442218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,7 +166,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142220}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c041f61e4a9fbf4e830210f5d933ece, type: 3}
   m_Name: 
@@ -173,18 +212,20 @@ MonoBehaviour:
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
---- !u!114 &11462054
+--- !u!114 &11488754
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142218}
+  m_GameObject: {fileID: 142220}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9913a2755c5254688928de849a9a85ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   alpha: {fileID: 11497008}
+  scale: {fileID: 11426620}
+  box: {fileID: 6542218}
 --- !u!114 &11497008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,7 +256,7 @@ MonoBehaviour:
     m_PostInfinity: 2
   ignoreTimeScale: 1
   delay: 0
-  duration: .200000003
+  duration: .100000001
   steeperCurves: 0
   tweenGroup: 0
   eventReceiver: {fileID: 0}

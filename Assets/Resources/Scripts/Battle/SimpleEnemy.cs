@@ -8,11 +8,25 @@ public class SimpleEnemy : Enemy {
 
 	[SerializeField]Animation				_Anim;
 	[SerializeField]UITexture				_texture;
+	[SerializeField]UITexture				_textureInvert;
+
+	bool isAttacking = false;
+
+	/// <summary>
+	/// The interval time of changing shader
+	/// </summary>
+	[SerializeField]float					_intervalTime = 0.6f; 
+
+	/// <summary>
+	/// The life time of effect.
+	/// </summary>
+	[SerializeField]float					_lifeTIme = 0.6f;
 
 	// Use this for initialization
 	void Start () {
 		
 		InitializeStateMachine ();
+		
 		_texture.gameObject.transform.localPosition = new Vector3 (0, 211, 0);
 	}
 	
@@ -31,17 +45,17 @@ public class SimpleEnemy : Enemy {
 	
 	public override void PlayAttackAnim()
 	{
-		_tweenColor.to = Color.green;
-		_tweenColor.Play(true);
+		isAttacking = true;
+		StartCoroutine(BlinkInverted(_intervalTime, _lifeTIme));
 		_tweenPosition.Play (true);
-	
+	 
 	}
 	
 	public override bool IsAnimationComplete()
 	{
 		if (_tweenColor.isActiveAndEnabled || 
 		    _tweenPosition.isActiveAndEnabled ||
-		    _Anim.isPlaying
+		    _Anim.isPlaying || isAttacking
 		    ) {
 			return false;
 		}
@@ -66,5 +80,27 @@ public class SimpleEnemy : Enemy {
 		if (_tweenPosition.direction == AnimationOrTween.Direction.Forward) {
 			_tweenPosition.Play(false);
 		}
+	}
+
+	IEnumerator BlinkInverted(float interval, float lifeTime)
+	{
+		float timeElapsed = 0;
+		float startTime = Time.time;
+		bool changed = false;
+		while(timeElapsed < lifeTime)
+		{
+		 	timeElapsed = Time.time - startTime;
+		 	changed = !changed;
+
+		 	_texture.enabled = !changed;
+			_textureInvert.enabled = changed;
+
+			yield return new WaitForSeconds(interval);
+		}
+
+		// Switch back to normal shader
+		isAttacking = false;
+		_texture.enabled = true;
+		_textureInvert.enabled = false;
 	}
 }

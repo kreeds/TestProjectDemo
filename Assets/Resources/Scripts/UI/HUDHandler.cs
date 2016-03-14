@@ -34,7 +34,7 @@ public class HUDHandler : MonoBehaviour {
 	BattleManager bmgr;
 	PlayerManager pmgr;
 
-	List<GameObject> m_actionButtonList;
+	List<ActionButton> m_actionButtonList;
 
 	UIScrollBar cameraScrollBar;
 
@@ -43,7 +43,7 @@ public class HUDHandler : MonoBehaviour {
 	{
 		// Keeps HUD alive
 		DontDestroyOnLoad(this);
-		m_actionButtonList = new List<GameObject>();
+		m_actionButtonList = new List<ActionButton>();
 	}
 
 	// Update is called once per frame
@@ -112,7 +112,7 @@ public class HUDHandler : MonoBehaviour {
 		obj.transform.localScale = new Vector3 (0.7f, 0.7f, 0.7f);
 		obj.transform.localPosition = new Vector3 (-108.0f, 188.0f - (74 * m_actionButtonList.Count), 0f);
 
-		m_actionButtonList.Add(obj);
+		m_actionButtonList.Add(obj.GetComponentInChildren<ActionButton>());
 
 		UIButtonMessage button = obj.GetComponent<UIButtonMessage>();
 		button.functionName = funcName;
@@ -122,9 +122,9 @@ public class HUDHandler : MonoBehaviour {
 
 	public void ShowActionButtons(bool show)
 	{
-		foreach(GameObject obj in m_actionButtonList)
+		foreach(ActionButton obj in m_actionButtonList)
 		{
-			obj.SetActive(show);
+			obj.PlayTween(show);
 		}
 	}
 

@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11484274}
   - 111: {fileID: 11124962}
   - 114: {fileID: 11445446}
+  - 114: {fileID: 11491362}
   m_Layer: 11
   m_Name: SimpleEnemy
   m_TagString: Untagged
@@ -28,7 +29,22 @@ GameObject:
   - 4: {fileID: 410412}
   - 114: {fileID: 11410412}
   - 114: {fileID: 11484276}
-  - 114: {fileID: 11484278}
+  m_Layer: 11
+  m_Name: Texture
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &112500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 412500}
+  - 114: {fileID: 11412500}
   m_Layer: 11
   m_Name: Texture
   m_TagString: Untagged
@@ -43,10 +59,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1632, y: -292, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410412}
+  - {fileID: 412500}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &410412
@@ -61,6 +78,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 410410}
   m_RootOrder: 0
+--- !u!4 &412500
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112500}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 211, z: 0}
+  m_LocalScale: {x: 446.9198, y: 446.9198, z: 1}
+  m_Children: []
+  m_Father: {fileID: 410410}
+  m_RootOrder: 1
 --- !u!111 &11124962
 Animation:
   m_ObjectHideFlags: 1
@@ -98,6 +127,29 @@ MonoBehaviour:
     width: 1
     height: 1
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
+  mTexture: {fileID: 2800000, guid: 9e8a3ca48d05e441dae80455052e5ab0, type: 3}
+  mMat: {fileID: 0}
+--- !u!114 &11412500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112500}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mDepth: 1
+  mRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  mShader: {fileID: 4800000, guid: b057999e91cb04352af76560ef7857c8, type: 3}
   mTexture: {fileID: 2800000, guid: 9e8a3ca48d05e441dae80455052e5ab0, type: 3}
   mMat: {fileID: 0}
 --- !u!114 &11445446
@@ -154,9 +206,12 @@ MonoBehaviour:
   attack: 15
   attkInterval: 3
   _tweenColor: {fileID: 11484276}
-  _tweenPosition: {fileID: 11484278}
+  _tweenPosition: {fileID: 11491362}
   _Anim: {fileID: 11124962}
   _texture: {fileID: 11410412}
+  _textureInvert: {fileID: 11412500}
+  _intervalTime: .600000024
+  _lifeTIme: .600000024
 --- !u!114 &11484276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,12 +249,12 @@ MonoBehaviour:
   callWhenFinished: OnDamagedAnim
   from: {r: 1, g: 1, b: 1, a: 1}
   to: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &11484278
+--- !u!114 &11491362
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 110412}
+  m_GameObject: {fileID: 110410}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
@@ -229,8 +284,8 @@ MonoBehaviour:
   tweenGroup: 0
   eventReceiver: {fileID: 110410}
   callWhenFinished: OnAttackAnim
-  from: {x: 0, y: 211, z: 0}
-  to: {x: -100, y: 211, z: 0}
+  from: {x: -719, y: -292, z: 0}
+  to: {x: -619, y: -292, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
