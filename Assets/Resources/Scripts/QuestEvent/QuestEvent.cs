@@ -123,6 +123,12 @@ public class QuestEvent : MonoBehaviour {
 	void InitializeScene()
 	{
 		playerChara.PlayIdleAnim ();
+		playerChara.SetClothes (1);
+
+		Vector3 lscale = playerChara.transform.localScale;
+		lscale.x = -lscale.x;
+		playerChara.transform.localScale = lscale;
+
 		dialogBase.SetActive (false);
 
 		if (currentScene == null)
@@ -144,7 +150,7 @@ public class QuestEvent : MonoBehaviour {
 		foreach (Character chara in currentScene.characterList) {
 			GameObject obj = GameObject.Instantiate(Resources.Load("Live2DAssets/EventLive2DModel")) as GameObject;
 			obj.transform.SetParent (scenePanel.transform);
-			obj.transform.localScale = new Vector3 (30f, 30f, 30f);
+			obj.transform.localScale = new Vector3 (30f*chara.side, 30f, 30f);
 			obj.transform.localPosition = new Vector3(chara.xpos, chara.ypos, -5);
 
 			LAppModelProxy l2dModel = obj.GetComponent<LAppModelProxy>();
@@ -156,6 +162,8 @@ public class QuestEvent : MonoBehaviour {
 			l2dModel.SetClothes(chara.clothesId);
 
 			sceneCharas.Add(l2dModel);
+
+			l2dModel.PlayIdleAnim ();
 
 //			++i;
 		}
@@ -322,6 +330,9 @@ public class QuestEvent : MonoBehaviour {
 					}
 					if (line.Contains("name:")){
 						currentCharacter._name = parts[1];
+					}
+					if (line.Contains("side:")){
+						currentCharacter.side = int.Parse(parts[1]);
 					}
 				}
 				break;
@@ -657,7 +668,7 @@ public class QuestEvent : MonoBehaviour {
 
 	void OnNext()
 	{
-		if (displayingChoice == false) {
+		if (displayingChoice == false && currentDialogEvent != null) {
 			currentDialogEvent = currentDialogEvent.nextEvent;
 			ShowCurrentDialog ();
 		} else {
@@ -823,6 +834,10 @@ public class QuestEvent : MonoBehaviour {
 		pos.x = currentScene.playerPos.x;
 
 		playerChara.transform.localPosition = pos;
+
+		Vector3 scale = playerChara.transform.localScale;
+		scale.x *= selectedDrama.direction;
+		playerChara.transform.localScale = scale;
 
 		currentDialogEvent = openingDialogEvent; //move it to after the event dialog is loaded
 		ShowCurrentDialog ();

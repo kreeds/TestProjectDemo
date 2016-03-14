@@ -19,7 +19,7 @@ public class BackGroundDragControl : MonoBehaviour {
 			hudHandler.AttachMid(ref obj);
 			hudHandler.SetCameraScrollBar(scrollbar);
 
-			obj.transform.localPosition = new Vector3 (-250f, -340f);
+			obj.transform.localPosition = new Vector3 (-250f, -410f);
 			obj.transform.localScale = Vector3.one;
 			panel.GetComponent<UIDraggablePanel> ().AttachHorizontalScrollBar(scrollbar);
 		}

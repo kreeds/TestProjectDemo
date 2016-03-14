@@ -116,10 +116,12 @@ public class Character
 	public int ypos;
 	public int hairId;
 	public int clothesId;
+	public int side;
 	public Character(int id = 0, string name = "")
 	{
 		_id = id;
 		_name = name;
+		side = 1;
 	}
 };
 
