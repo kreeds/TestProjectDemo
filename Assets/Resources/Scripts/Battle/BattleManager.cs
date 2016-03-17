@@ -15,17 +15,17 @@ public class BattleManager : MonoBehaviour
 	PlayerManager	m_playerMgr;
 	InputManager	m_gestureHandler;
 
-
 	public int m_fullgaugeCount = 5;
 	int gaugeCount = 1;
 
+	#region Field Time Counters
 	// Measured in seconds
 	public float m_gestureInv = 3;
 	public float m_interval = 5;
 	public float m_specialInv = 3;
 	public float m_stunInv = 3;
-
 	public float m_specialCountDown = 3.0f;
+	#endregion
 
 	IEnumerator m_coroutine;
 
@@ -130,6 +130,8 @@ public class BattleManager : MonoBehaviour
 							obj.transform.parent = m_HUDService.HUDControl.transform;
 							obj.transform.localScale = new Vector3(180, 180, 1);
 						} ));
+
+
 		// Count Down till Gesture Failure
 		yield return new WaitForSeconds(m_gestureInv);
 
@@ -209,6 +211,12 @@ public class BattleManager : MonoBehaviour
 			}
 			break;
 		}
+	}
+
+
+	public void CorrectGesture()
+	{
+		
 	}
 
 	public void Correct()

@@ -11,10 +11,12 @@ public class UIGauge : MonoBehaviour {
 
 	[SerializeField]UISlider	m_sliderGreen;
 	[SerializeField]UISlider	m_sliderRed;
+	[SerializeField]UILabel		m_name;
 
 	const float 	animTime = 0.5f;
 
 	bool UIInitialized = false;
+
 
 
 	#region Mono
@@ -54,6 +56,8 @@ public class UIGauge : MonoBehaviour {
 			m_sliderGreen.sliderValue = ((float)m_currentVal/m_totalVal);
 
 		gameObject.name = name;
+		if(m_name != null)
+			m_name.text = name;
 	}
 
 	public void reduce(int damage)

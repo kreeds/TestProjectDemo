@@ -76,13 +76,14 @@ public class HUDHandler : MonoBehaviour {
 	public void CreateBattleHUD()
 	{
 		HPBars = new UIGauge[2];
-		GameObject obj = NGUITools.AddChild(m_Top, Resources.Load("Prefabs/Battle/HpBar") as GameObject);
-		obj.transform.localPosition = new Vector3(-73.6f, -71.7f, 0);
-		obj.transform.localScale = new Vector3(0.3f,0.3f,0.3f);
+		GameObject obj = NGUITools.AddChild(m_Top, Resources.Load("Prefabs/Battle/EnemyHpBar") as GameObject);
+		obj.transform.localPosition = new Vector3(22.7f, -76.2f, 0);
+		obj.transform.localScale = new Vector3(0.25f,0.25f,1f);
 		HPBars[(int)GAUGE.ENEMY] = obj.GetComponent<UIGauge>();
 
-		obj =  NGUITools.AddChild(m_bottomLeft, Resources.Load("Prefabs/Battle/HpBar") as GameObject);
-		obj.transform.localPosition = new Vector3(0.0f, 198.0f, 0);
+		obj =  NGUITools.AddChild(m_bottomLeft, Resources.Load("Prefabs/Battle/PlayerHPBar") as GameObject);
+		obj.transform.localPosition = new Vector3(423f, 127f, 0);
+		obj.transform.localScale = new Vector3(0.8f,0.8f,1f);
 		HPBars[(int)GAUGE.PLAYER] = obj.GetComponent<UIGauge>();
 
 		if(m_bottomLeft != null)

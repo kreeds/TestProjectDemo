@@ -32,6 +32,7 @@ public class PlayerManager : MonoBehaviour {
 	Coroutine m_routine;
 
 	[SerializeField]UIGauge m_gauge;
+	[SerializeField]UIGauge m_specGauge;
 	[SerializeField]LAppModelProxy l2dInterface;
 	[SerializeField]GameObject m_obj;
 	[SerializeField]float waitinterval;
@@ -41,7 +42,10 @@ public class PlayerManager : MonoBehaviour {
 	bool specialAtk = false;
 	bool attackend = false;
 
-	bool playerattack = false; // flag to determine if player has dealt damage
+	bool playerattack = false; 								// flag to determine if player has dealt damage
+
+	[SerializeField]int m_specialFullGauge = 2;				// Gauge used for special attack. If it is full use, show bb button
+	int m_specGaugeCnt = 0;									// Special counter used for special gauge Count;
 
 
 	const float ranChance = 1.0f;
@@ -260,12 +264,24 @@ public class PlayerManager : MonoBehaviour {
 	}
 	#endregion
 
+	public void AddSpecialCount()
+	{
+		m_specGaugeCnt++;
+		if(m_specGaugeCnt == m_specialFullGauge)
+		{	
+			SpecialAttack();
+			m_specGaugeCnt = 0;
+		}
+
+		//Update Gauge
+	}
+
 
 
 	/// <summary>
 	/// Commence Attack Event
 	/// </summary>
-	public void SpecialAttack()
+	void SpecialAttack()
 	{
 		GameObject obj = NGUITools.AddChild (m_obj, Resources.Load ("Prefabs/FX/Effect_Fx") as GameObject);
 		obj.transform.localPosition = new Vector3 (720, 0, -20f);

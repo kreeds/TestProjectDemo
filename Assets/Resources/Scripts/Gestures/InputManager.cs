@@ -165,7 +165,7 @@ public class InputManager : MonoBehaviour {
 					{
 						// Call Event
 						if(m_playerMgr != null)
-							m_playerMgr.SpecialAttack();
+							m_playerMgr.AddSpecialCount();
 
 					}
                     IsGestureRecognizingNeeded = false;
