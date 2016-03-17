@@ -59,7 +59,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1468, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410412}
@@ -73,8 +73,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 211, z: 0}
-  m_LocalScale: {x: 446.91983, y: 446.91983, z: 1.86216593}
+  m_LocalPosition: {x: .5, y: 211, z: 0}
+  m_LocalScale: {x: 559, y: 1024, z: 1}
   m_Children: []
   m_Father: {fileID: 410410}
   m_RootOrder: 0
@@ -85,8 +85,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 211, z: 0}
-  m_LocalScale: {x: 446.9198, y: 446.9198, z: 1}
+  m_LocalPosition: {x: .5, y: 211, z: 0}
+  m_LocalScale: {x: 559, y: 1024, z: 1}
   m_Children: []
   m_Father: {fileID: 410410}
   m_RootOrder: 1
@@ -127,7 +127,7 @@ MonoBehaviour:
     width: 1
     height: 1
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  mTexture: {fileID: 2800000, guid: 9e8a3ca48d05e441dae80455052e5ab0, type: 3}
+  mTexture: {fileID: 2800000, guid: f6714c3b340654c039ae01de04a1b726, type: 3}
   mMat: {fileID: 0}
 --- !u!114 &11412500
 MonoBehaviour:
@@ -150,7 +150,7 @@ MonoBehaviour:
     width: 1
     height: 1
   mShader: {fileID: 4800000, guid: b057999e91cb04352af76560ef7857c8, type: 3}
-  mTexture: {fileID: 2800000, guid: 9e8a3ca48d05e441dae80455052e5ab0, type: 3}
+  mTexture: {fileID: 2800000, guid: f6714c3b340654c039ae01de04a1b726, type: 3}
   mMat: {fileID: 0}
 --- !u!114 &11445446
 MonoBehaviour:
@@ -187,8 +187,8 @@ MonoBehaviour:
   tweenGroup: 0
   eventReceiver: {fileID: 0}
   callWhenFinished: 
-  from: {x: -1.25, y: 1.25, z: 1}
-  to: {x: -1.25, y: 1.17999995, z: 1}
+  from: {x: .800000012, y: .800000012, z: 1}
+  to: {x: .800000012, y: .779999971, z: 1}
   updateTable: 1
 --- !u!114 &11484274
 MonoBehaviour:

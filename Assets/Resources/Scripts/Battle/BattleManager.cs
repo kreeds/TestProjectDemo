@@ -25,6 +25,8 @@ public class BattleManager : MonoBehaviour
 	public float m_specialInv = 3;
 	public float m_stunInv = 3;
 
+	public float m_specialCountDown = 3.0f;
+
 	IEnumerator m_coroutine;
 
 	bool m_gestureStart;
@@ -121,12 +123,22 @@ public class BattleManager : MonoBehaviour
 			GestureGenerateMethod ();
 		}
 
+		StartCoroutine(Utility.DelayInSeconds(m_specialCountDown, 
+						(res) => 
+						{ 
+							GameObject obj = Instantiate(Resources.Load("Prefabs/Battle/CountDown")) as GameObject;
+							obj.transform.parent = m_HUDService.HUDControl.transform;
+							obj.transform.localScale = new Vector3(180, 180, 1);
+						} ));
 		// Count Down till Gesture Failure
 		yield return new WaitForSeconds(m_gestureInv);
 
 		// Gesture Failure, Destroy Gesture and reset State
 		if(m_gestureGenerator != null)
 			m_gestureGenerator.DestroyGesture();
+
+		if(m_gestureHandler != null)
+			m_gestureHandler.DestroyTrails();
 
 		m_gestureState = GestureState.END;
 

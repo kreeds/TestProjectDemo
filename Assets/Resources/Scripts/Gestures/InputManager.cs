@@ -331,15 +331,16 @@ public class InputManager : MonoBehaviour {
             if (!WasMovementInTouch) //begin
             {
 				Vector3 pos = Camera.main.ScreenToWorldPoint(cursorPosition);
-                pos.z = -20; // Make sure the trail is visible
+                pos.z = -1; // Make sure the trail is visible
                	trail = SpecialEffects.MakeTrail(pos);
+               	trail.transform.parent = Camera.main.transform;
 				trailList.Add(trail);
 				IsStartTrailSpawned = true;
             }
 			else if (IsMovementInTouch) //move
             {
 				Vector3 position = Camera.main.ScreenToWorldPoint(cursorPosition);
-                position.z = 0; // Make sure the trail is visible
+				position.z = -1; // Make sure the trail is visible
                 trail.transform.position = position;
             }
         }
@@ -351,6 +352,13 @@ public class InputManager : MonoBehaviour {
 		DrawLine();
 #endif
 
+    }
+
+    public void DestroyTrails()
+    {
+    	foreach(GameObject trail in trailList)
+    		Destroy(trail);
+    	trailList.Clear();
     }
 
 }
