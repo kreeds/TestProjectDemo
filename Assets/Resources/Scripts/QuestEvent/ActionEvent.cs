@@ -50,11 +50,14 @@ public class ActionEvent : MonoBehaviour {
 //		_progressBar.sliderValue = 0;
 		_requiredAmt = required;
 		_progressAmt = 0;
+
+		_isExpanded = false;
 	}
 
 	void OnExpand()
 	{
-		_expandTween.Play (true);
+		_isExpanded = !_isExpanded;
+		_expandTween.Play (_isExpanded);
 	}
 
 	void OnButtonClick()

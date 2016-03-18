@@ -174,12 +174,12 @@ MonoBehaviour:
     m_PostInfinity: 2
   ignoreTimeScale: 1
   delay: 0
-  duration: .25
+  duration: .00999999978
   steeperCurves: 0
   tweenGroup: 0
   eventReceiver: {fileID: 0}
   callWhenFinished: 
-  from: {x: 0, y: -600, z: 0}
+  from: {x: 0, y: -300, z: 0}
   to: {x: 0, y: -300, z: 0}
 --- !u!114 &11472712
 MonoBehaviour:

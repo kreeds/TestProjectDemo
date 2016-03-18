@@ -56,8 +56,11 @@ public class QuestEvent : MonoBehaviour {
 	[SerializeField]string[]		sceneFiles;
 	[SerializeField]int				firstQuest;
 
-	[SerializeField]TweenScale		otherTextTween;
-	[SerializeField]TweenScale		playerTextTween;
+	[SerializeField]TweenScale		otherTextTweenIn;
+	[SerializeField]TweenScale		playerTextTweenIn;
+
+	[SerializeField]TweenAlpha		otherTextTweenOut;
+	[SerializeField]TweenAlpha		playerTextTweenOut;
 
 	QuestProgress					questProgress;
 	
@@ -580,15 +583,39 @@ public class QuestEvent : MonoBehaviour {
 //		}
 	}
 
+	void ShowDialogBoxes(bool showPlayerBox, bool showOtherBox)
+	{
+		if (showPlayerBox) {
+			playerTextTweenIn.Play (true);
+			playerTextTweenOut.alpha = 0.5f;
+			playerTextTweenOut.Play(true);
+		} else {
+			playerTextTweenOut.from = 0;
+			playerTextTweenOut.Play(false);
+			playerTextTweenIn.Play(false);
+		}
+
+		if (showOtherBox) {
+			otherTextTweenIn.Play (true);
+			otherTextTweenOut.from = 0.5f;
+			otherTextTweenOut.Play (true);
+		} else {
+			otherTextTweenOut.from = 0;
+			otherTextTweenOut.Play (false);
+			otherTextTweenIn.Play (false);
+		}
+	}
+
 	void ShowCurrentDialog()
 	{
 		if (currentDialogEvent == null) {
 //			GoToNext ();
 			
-			if (otherTextGroup.transform.localScale.x >= 1)
-				otherTextTween.Play(false);
-			if (playerTextGroup.transform.localScale.x >= 1)
-				playerTextTween.Play(false);
+//			if (otherTextGroup.transform.localScale.x >= 1)
+//				otherTextTweenOut.Play(true);
+//			if (playerTextGroup.transform.localScale.x >= 1)
+//				playerTextTweenOut.Play (true);
+			ShowDialogBoxes(false, false);
 
 			Drama currentDrama = currentScene.getCurrentEvent () as Drama;
 
@@ -616,22 +643,22 @@ public class QuestEvent : MonoBehaviour {
 				otherText.text = dialog.dialogLine;
 				otherNameLabel.text = characterList[dialog.characterID]._name;
 				playerText.text = "";
-				if (playerTextGroup.transform.localScale.x >= 1)
-					playerTextTween.Play(false);
-				if (otherTextGroup.transform.localScale.x < 1)
-					otherTextTween.Play(true);
-//				playerTextGroup.SetActive (false);
-//				otherTextGroup.SetActive (true);
+
+				ShowDialogBoxes(false, true);
+
+//				if (playerTextGroup.transform.localScale.x >= 1)
+//					playerTextTweenIn.Play(false);
+//				if (otherTextGroup.transform.localScale.x < 1)
+//					otherTextTweenIn.Play(true);
 			}else{
-				if (playerTextGroup.transform.localScale.x < 1)
-					playerTextTween.Play(true);
-//				playerTextGroup.SetActive (true);
-
+				ShowDialogBoxes(true, false);
+//				if (playerTextGroup.transform.localScale.x < 1)
+//					playerTextTweenIn.Play(true);
+//
+//				if (otherTextGroup.transform.localScale.x >= 1)
+//					otherTextTweenIn.Play(false);
+				
 				playerText.text = dialog.dialogLine;
-				//				otherTextGroup.SetActive(false);
-				if (otherTextGroup.transform.localScale.x >= 1)
-					otherTextTween.Play(false);
-
 				bool isAcademy = (dialog.characterID < 0);
 				academyArrow.SetActive(isAcademy);
 				normalArrow.SetActive(!isAcademy);
@@ -708,10 +735,12 @@ public class QuestEvent : MonoBehaviour {
 		playerNameLabel.text = PlayerProfile.Get ().playerName;
 		textCollider.enabled = true;
 
-		playerTextTween.Play (true);
-		otherTextTween.Play (false);
+//		playerTextTweenIn.Play (true);
+//		otherTextTween.Play (false);
 //		playerTextGroup.SetActive (true);
 //		otherTextGroup.SetActive (false);
+
+		ShowDialogBoxes (true, false);
 		
 		Drama currentDrama = currentScene.eventList [currentScene.currentEvent] as Drama;
 		currentDrama.relationshipBonus += choiceEvent.choiceReward [selected];
