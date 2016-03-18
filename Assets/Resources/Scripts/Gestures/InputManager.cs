@@ -167,6 +167,9 @@ public class InputManager : MonoBehaviour {
 						if(m_playerMgr != null)
 							m_playerMgr.AddSpecialCount();
 
+						if(m_battleMgr != null)
+							m_battleMgr.CorrectGesture();
+
 					}
                     IsGestureRecognizingNeeded = false;
 					currentGesturePoints.Clear();

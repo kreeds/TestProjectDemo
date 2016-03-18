@@ -135,12 +135,7 @@ public class BattleManager : MonoBehaviour
 		// Count Down till Gesture Failure
 		yield return new WaitForSeconds(m_gestureInv);
 
-		// Gesture Failure, Destroy Gesture and reset State
-		if(m_gestureGenerator != null)
-			m_gestureGenerator.DestroyGesture();
-
-		if(m_gestureHandler != null)
-			m_gestureHandler.DestroyTrails();
+		ClearGesture();
 
 		m_gestureState = GestureState.END;
 
@@ -193,7 +188,7 @@ public class BattleManager : MonoBehaviour
 					m_gestureStart = true;
 					m_coroutine = CommenceAtkInterval();
 
-					GestureGenerateMethod = m_gestureGenerator.GenerateHardGesture;
+					GestureGenerateMethod = m_gestureGenerator.GenerateEasyGesture;
 					StartCoroutine(m_coroutine);
 				}
 			}
@@ -214,9 +209,22 @@ public class BattleManager : MonoBehaviour
 	}
 
 
+	void ClearGesture()
+	{
+		if(m_gestureGenerator != null)
+			m_gestureGenerator.DestroyGesture();
+
+		if(m_gestureHandler != null)
+			m_gestureHandler.DestroyTrails();
+	}
+
 	public void CorrectGesture()
 	{
-		
+		ClearGesture();
+
+		if (GestureGenerateMethod != null) {
+			GestureGenerateMethod ();
+		}
 	}
 
 	public void Correct()
