@@ -37,6 +37,9 @@ public class BattleManager : MonoBehaviour
 	[SerializeField]GameObject		m_winLogo;
 	[SerializeField]BoardHandler	m_boardHandler;
 	[SerializeField]GameObject		m_itemParent;
+	[SerializeField]Transform		m_bgParent;
+
+	GameObject m_FXObj;
 
 	// Battle Phases
 	public enum BattlePhase
@@ -122,6 +125,13 @@ public class BattleManager : MonoBehaviour
 		if (GestureGenerateMethod != null) {
 			GestureGenerateMethod ();
 		}
+
+		// Display Special Effect
+
+		m_FXObj = NGUITools.AddChild (m_itemParent, Resources.Load ("Prefabs/FX/Special_Attack_Fx") as GameObject);
+		m_FXObj.transform.localPosition = Vector3.zero;
+		m_FXObj.transform.localPosition = new Vector3 (720, 0, -20f);
+
 
 		StartCoroutine(Utility.DelayInSeconds(m_specialCountDown, 
 						(res) => 
@@ -216,6 +226,9 @@ public class BattleManager : MonoBehaviour
 
 		if(m_gestureHandler != null)
 			m_gestureHandler.DestroyTrails();
+
+		if(m_FXObj != null)
+			Destroy(m_FXObj);
 	}
 
 	public void CorrectGesture()
@@ -234,8 +247,7 @@ public class BattleManager : MonoBehaviour
 
 		m_gestureState = GestureState.START;
 
-		if(m_gestureGenerator != null)
-			m_gestureGenerator.DestroyGesture();
+		ClearGesture();
 
 		++gaugeCount;
 		if(gaugeCount > m_fullgaugeCount)

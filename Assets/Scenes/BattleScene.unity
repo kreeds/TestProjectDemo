@@ -158,7 +158,6 @@ MonoBehaviour:
   m_offset: 0
   m_usingNGUI: 0
   m_dir: {x: 1, y: 0}
-  m_isHorizontal: 1
 --- !u!23 &47902481
 Renderer:
   m_ObjectHideFlags: 0
@@ -568,7 +567,6 @@ MonoBehaviour:
   m_offset: 0
   m_usingNGUI: 1
   m_dir: {x: 1, y: 0}
-  m_isHorizontal: 1
 --- !u!1 &399602183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,7 +1148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_gestureGenerator: {fileID: 797400643}
   m_fullgaugeCount: 1
-  m_gestureInv: 10
+  m_gestureInv: 20
   m_interval: 3
   m_specialInv: 3
   m_stunInv: 3
@@ -1158,6 +1156,7 @@ MonoBehaviour:
   m_winLogo: {fileID: 1394381438}
   m_boardHandler: {fileID: 1394381440}
   m_itemParent: {fileID: 230716410}
+  m_bgParent: {fileID: 0}
 --- !u!4 &1099650035
 Transform:
   m_ObjectHideFlags: 0

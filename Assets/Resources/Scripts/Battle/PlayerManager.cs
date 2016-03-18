@@ -283,7 +283,7 @@ public class PlayerManager : MonoBehaviour {
 	/// </summary>
 	void SpecialAttack()
 	{
-		GameObject obj = NGUITools.AddChild (m_obj, Resources.Load ("Prefabs/FX/Effect_Fx") as GameObject);
+		GameObject obj = NGUITools.AddChild (m_obj, Resources.Load ("Prefabs/FX/Effect_FX") as GameObject);
 		obj.transform.localPosition = new Vector3 (720, 0, -20f);
 		BattleEffect effect = obj.GetComponent<BattleEffect>();
 		if (effect != null) {

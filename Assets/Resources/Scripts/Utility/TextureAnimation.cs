@@ -10,7 +10,6 @@ public class TextureAnimation : MonoBehaviour {
 	[SerializeField] bool	m_usingNGUI = false;
 
 	[SerializeField] Vector2 m_dir = new Vector2(1,0);
-	[SerializeField] bool 	m_isHorizontal = true;
 	UITexture tex;
 	#endregion
 
