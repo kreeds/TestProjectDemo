@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 420462}
   - 198: {fileID: 19820462}
   - 199: {fileID: 19920462}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SkyLines_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 420464}
   - 198: {fileID: 19820464}
   - 199: {fileID: 19920464}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SkyRays_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - 4: {fileID: 420466}
   - 198: {fileID: 19820466}
   - 199: {fileID: 19920466}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SkyLines_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - 4: {fileID: 420468}
   - 198: {fileID: 19820468}
   - 199: {fileID: 19920468}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SkyRays_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 4: {fileID: 420470}
   - 198: {fileID: 19820470}
   - 199: {fileID: 19920470}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Stars_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - 4: {fileID: 454894}
   - 198: {fileID: 19854894}
   - 199: {fileID: 19954894}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Flash
   m_TagString: FxTemporaire
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - 4: {fileID: 467432}
   - 198: {fileID: 19867432}
   - 199: {fileID: 19967432}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Stars_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - 4: {fileID: 467434}
   - 198: {fileID: 19867434}
   - 199: {fileID: 19967434}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Special_Attack_Fx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,8 +227,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: .777777791, y: 1921.35999, z: 0}
+  m_LocalScale: {x: 511, y: 511, z: 511}
   m_Children:
   - {fileID: 420464}
   - {fileID: 420462}
