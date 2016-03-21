@@ -163,12 +163,14 @@ public class InputManager : MonoBehaviour {
 					if(mgData.IsRequiredGestureRecognized(	gestureName, mgGesture.getGestureIndex)
 						 && m_battleMgr.currentGestureState != BattleManager.GestureState.END )
 					{
+
+						if(m_battleMgr != null)
+							m_battleMgr.CorrectGesture();
+
 						// Call Event
 						if(m_playerMgr != null)
 							m_playerMgr.AddSpecialCount();
 
-						if(m_battleMgr != null)
-							m_battleMgr.CorrectGesture();
 
 					}
                     IsGestureRecognizingNeeded = false;

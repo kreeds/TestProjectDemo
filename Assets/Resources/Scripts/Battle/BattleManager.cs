@@ -127,13 +127,12 @@ public class BattleManager : MonoBehaviour
 		}
 
 		// Display Special Effect
+		m_FXObj = Instantiate(Resources.Load ("Prefabs/FX/Special_Attack_Fx")) as GameObject;
+		m_FXObj.transform.SetParent(m_itemParent.transform, false);
+		m_FXObj.transform.localPosition = new Vector3(720, m_FXObj.transform.localPosition.y, -20); 
 
-		m_FXObj = NGUITools.AddChild (m_itemParent, Resources.Load ("Prefabs/FX/Special_Attack_Fx") as GameObject);
-		m_FXObj.transform.localPosition = Vector3.zero;
-		m_FXObj.transform.localPosition = new Vector3 (720, 0, -20f);
 
-
-		StartCoroutine(Utility.DelayInSeconds(m_specialCountDown, 
+		StartCoroutine(Utility.DelayInSeconds(m_gestureInv - m_specialCountDown, 
 						(res) => 
 						{ 
 							GameObject obj = Instantiate(Resources.Load("Prefabs/Battle/CountDown")) as GameObject;
@@ -146,6 +145,9 @@ public class BattleManager : MonoBehaviour
 		yield return new WaitForSeconds(m_gestureInv);
 
 		ClearGesture();
+
+		if(m_FXObj != null)
+			Destroy(m_FXObj);
 
 		m_gestureState = GestureState.END;
 
@@ -191,9 +193,9 @@ public class BattleManager : MonoBehaviour
 			break;
 			case BattlePhase.SPECIAL:
 			{
-				m_gestureHandler.DisableGesture = false;
 				if(m_gestureState == GestureState.START)
 				{
+					m_gestureHandler.DisableGesture = false;
 					m_gestureState = GestureState.SHOWING;
 					m_gestureStart = true;
 					m_coroutine = CommenceAtkInterval();
@@ -227,8 +229,7 @@ public class BattleManager : MonoBehaviour
 		if(m_gestureHandler != null)
 			m_gestureHandler.DestroyTrails();
 
-		if(m_FXObj != null)
-			Destroy(m_FXObj);
+		m_playerMgr.RemoveBB();
 	}
 
 	public void CorrectGesture()
@@ -248,6 +249,9 @@ public class BattleManager : MonoBehaviour
 		m_gestureState = GestureState.START;
 
 		ClearGesture();
+
+		if(m_FXObj != null)
+			Destroy(m_FXObj);
 
 		++gaugeCount;
 		if(gaugeCount > m_fullgaugeCount)

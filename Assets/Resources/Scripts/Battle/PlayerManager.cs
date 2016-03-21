@@ -27,6 +27,8 @@ public class PlayerManager : MonoBehaviour {
 
 	BattleManager m_battleMgr;
 	EnemyManager m_enemyMgr;
+	InputManager m_inputMgr;
+
 	MapService m_camService;
 	HUDHandler m_handler;
 	Coroutine m_routine;
@@ -49,6 +51,7 @@ public class PlayerManager : MonoBehaviour {
 
 
 	const float ranChance = 1.0f;
+	GameObject m_braveBurst;
 
 
 	public bool isAttackComplete
@@ -77,6 +80,7 @@ public class PlayerManager : MonoBehaviour {
 		m_enemyMgr = EnemyManager.Get();
 		m_battleMgr = BattleManager.Get();
 		m_handler = Service.Get<HUDService>().HUDControl;
+		m_inputMgr = InputManager.Get();
 
 
 
@@ -283,19 +287,41 @@ public class PlayerManager : MonoBehaviour {
 	/// </summary>
 	void SpecialAttack()
 	{
+		m_braveBurst = Instantiate(Resources.Load ("Prefabs/Battle/BraveBurst")) as GameObject;
+		m_braveBurst.transform.parent = Camera.main.transform;
+		m_braveBurst.transform.localScale = Vector3.one;
+		m_braveBurst.transform.localPosition = Vector3.zero;
+		m_braveBurst.layer = LayerMask.NameToLayer("EffectUI");
+
+		m_inputMgr.DisableGesture = true;
+		//GameObject obj = NGUITools.AddChild (m_handler, Resources.Load ("Prefabs/FX/Effect_FX") as GameObject);
+
+
+//		if(m_battleMgr != null)
+//			m_battleMgr.Correct();
+
+		specialAtk = true;
+	}
+
+
+	public void RemoveBB()
+	{
+		// Remove Brave Burst
+		if(m_braveBurst != null)
+			Destroy(m_braveBurst);
+	}
+
+	public void ShowSpecialEffect()
+	{
+		RemoveBB();
+
 		GameObject obj = NGUITools.AddChild (m_obj, Resources.Load ("Prefabs/FX/Effect_FX") as GameObject);
 		obj.transform.localPosition = new Vector3 (720, 0, -20f);
 		BattleEffect effect = obj.GetComponent<BattleEffect>();
 		if (effect != null) {
 			effect.Initialize(gameObject);
 		}
-
-		if(m_battleMgr != null)
-			m_battleMgr.Correct();
-
-		specialAtk = true;
 	}
-
 	public void NormalAttack()
 	{
 		l2dInterface.PlayAttackAnim ();
@@ -303,7 +329,6 @@ public class PlayerManager : MonoBehaviour {
 		//Service.Get<HUDService>().ShowMid(false);
 		m_handler.ShowActionButtons(false);
 		isPlaying = attackend = specialAtk = false;
-
 
 	}
 

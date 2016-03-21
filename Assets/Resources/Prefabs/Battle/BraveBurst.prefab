@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &120914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 420914}
+  - 114: {fileID: 11420916}
+  m_Layer: 13
+  m_Name: Sprite (Braveburst_Text)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &137714
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,8 +25,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 437714}
   - 65: {fileID: 6537718}
-  m_Layer: 5
-  m_Name: GameObject
+  m_Layer: 13
+  m_Name: Exit point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,9 +40,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 437716}
-  - 114: {fileID: 11437716}
-  m_Layer: 5
-  m_Name: Sprite (SSSSS_Quest_UI_button)
+  - 114: {fileID: 11420918}
+  m_Layer: 13
+  m_Name: BackGround PlaceHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +57,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 437718}
   - 114: {fileID: 11437718}
-  m_Layer: 5
+  - 114: {fileID: 11420914}
+  m_Layer: 13
   m_Name: Sprite (button03)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,13 +75,25 @@ GameObject:
   - 4: {fileID: 437720}
   - 65: {fileID: 6537720}
   - 114: {fileID: 11437720}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: BraveBurst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &420914
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120914}
+  m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106709}
+  m_LocalPosition: {x: 306, y: 0, z: 0}
+  m_LocalScale: {x: 490.666687, y: 150.821716, z: .496124059}
+  m_Children: []
+  m_Father: {fileID: 437720}
+  m_RootOrder: 3
 --- !u!4 &437714
 Transform:
   m_ObjectHideFlags: 1
@@ -72,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 267.5, y: .5, z: 0}
+  m_LocalPosition: {x: 306, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 437720}
@@ -83,9 +112,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137716}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106709}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 110, y: 111, z: 1}
+  m_LocalScale: {x: 640, y: 1024, z: 1}
   m_Children: []
   m_Father: {fileID: 437720}
   m_RootOrder: 0
@@ -95,9 +124,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137718}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 264, y: -4, z: .00111961365}
-  m_LocalScale: {x: 44, y: 59, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: -.707106829}
+  m_LocalPosition: {x: 191, y: 0, z: 0}
+  m_LocalScale: {x: 83.7830811, y: 344.799683, z: .485664606}
   m_Children: []
   m_Father: {fileID: 437720}
   m_RootOrder: 1
@@ -107,13 +136,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137720}
-  m_LocalRotation: {x: .0177568048, y: -.00720810704, z: .476508617, w: .878960967}
-  m_LocalPosition: {x: -5, y: -9, z: -4}
+  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
+  m_LocalPosition: {x: 0, y: 0, z: -.540000021}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 437716}
   - {fileID: 437718}
   - {fileID: 437714}
+  - {fileID: 420914}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!65 &6537718
@@ -138,14 +168,51 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 350, y: 120, z: 1}
-  m_Center: {x: 120.190002, y: 0, z: 0}
---- !u!114 &11437716
+  m_Size: {x: 500, y: 120, z: 1}
+  m_Center: {x: 107.949997, y: 0, z: 0}
+--- !u!114 &11420914
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137716}
+  m_GameObject: {fileID: 137718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 3
+  style: 2
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: .5
+  steeperCurves: 0
+  tweenGroup: 0
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: 261, y: 0, z: 0}
+  to: {x: 191, y: 0, z: 0}
+--- !u!114 &11420916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120914}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
@@ -153,14 +220,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mDepth: 31
+  mDepth: 33
   mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
-  mSpriteName: SSSSS_Quest_UI_button
+  mSpriteName: Braveburst_Text
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
+--- !u!114 &11420918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mDepth: 1
+  mRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
+  mTexture: {fileID: 2800000, guid: 43ab0c23e30b245a9972ab21cd881182, type: 3}
+  mMat: {fileID: 0}
 --- !u!114 &11437718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -176,7 +266,7 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 32
   mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
-  mSpriteName: button03
+  mSpriteName: Braveburst_Arrow
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -195,7 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_camera: {fileID: 0}
   m_pos: {fileID: 437714}
-  m_threshold: .119999997
+  m_threshold: .150000006
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
