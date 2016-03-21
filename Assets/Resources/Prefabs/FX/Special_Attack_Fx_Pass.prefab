@@ -61,6 +61,7 @@ GameObject:
   - 4: {fileID: 421786}
   - 198: {fileID: 19821786}
   - 199: {fileID: 19921786}
+  - 114: {fileID: 11465650}
   m_Layer: 11
   m_Name: Special_Attack_Fx_Pass
   m_TagString: Untagged
@@ -128,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 121786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .777777791, y: 1921.35999, z: 0}
+  m_LocalPosition: {x: 720, y: 1921.35999, z: -20}
   m_LocalScale: {x: 511, y: 511, z: 511}
   m_Children:
   - {fileID: 421776}
@@ -149,6 +150,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 421786}
   m_RootOrder: 3
+--- !u!114 &11465650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a09dad89d11389ed000e82b8d76c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeOut: 2
+  detachChildren: 0
 --- !u!198 &19821774
 ParticleSystem:
   m_ObjectHideFlags: 1

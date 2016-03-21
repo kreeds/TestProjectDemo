@@ -288,17 +288,16 @@ public class PlayerManager : MonoBehaviour {
 	void SpecialAttack()
 	{
 		m_braveBurst = Instantiate(Resources.Load ("Prefabs/Battle/BraveBurst")) as GameObject;
-		m_braveBurst.transform.parent = Camera.main.transform;
-		m_braveBurst.transform.localScale = Vector3.one;
-		m_braveBurst.transform.localPosition = Vector3.zero;
+		m_braveBurst.transform.SetParent(Camera.main.transform, false);
 		m_braveBurst.layer = LayerMask.NameToLayer("EffectUI");
 
 		m_inputMgr.DisableGesture = true;
-		//GameObject obj = NGUITools.AddChild (m_handler, Resources.Load ("Prefabs/FX/Effect_FX") as GameObject);
 
-
-//		if(m_battleMgr != null)
-//			m_battleMgr.Correct();
+		if(m_battleMgr != null)
+		{
+			m_battleMgr.StopSpecialCoroutines();
+			m_battleMgr.ClearGesture();
+		}
 
 		specialAtk = true;
 	}

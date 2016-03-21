@@ -27,7 +27,9 @@ public class BattleManager : MonoBehaviour
 	public float m_specialCountDown = 3.0f;
 	#endregion
 
+	// Coroutines
 	IEnumerator m_coroutine;
+	IEnumerator m_cntDwnRnt;					//Count Down Coroutine;
 
 	bool m_gestureStart;
 	bool m_beginFinisher;
@@ -131,19 +133,23 @@ public class BattleManager : MonoBehaviour
 		m_FXObj.transform.SetParent(m_itemParent.transform, false);
 		m_FXObj.transform.localPosition = new Vector3(720, m_FXObj.transform.localPosition.y, -20); 
 
-		StartCoroutine(Utility.DelayInSeconds(m_gestureInv - m_specialCountDown, 
+		m_cntDwnRnt = Utility.DelayInSeconds(m_gestureInv - m_specialCountDown, 
 						(res) => 
 						{ 
 							GameObject obj = Instantiate(Resources.Load("Prefabs/Battle/CountDown")) as GameObject;
 							obj.transform.parent = m_HUDService.HUDControl.transform;
 							obj.transform.localScale = new Vector3(180, 180, 1);
-						} ));
+						} );
+		StartCoroutine(m_cntDwnRnt);
 
 
 		// Count Down till Gesture Failure
 		yield return new WaitForSeconds(m_gestureInv);
 
 		ClearGesture();
+
+		m_playerMgr.RemoveBB();
+
 
 		if(m_FXObj != null)
 			Destroy(m_FXObj);
@@ -220,24 +226,38 @@ public class BattleManager : MonoBehaviour
 	}
 
 
-	void ClearGesture()
+	public void ClearGesture()
 	{
 		if(m_gestureGenerator != null)
 			m_gestureGenerator.DestroyGesture();
 
 		if(m_gestureHandler != null)
 			m_gestureHandler.DestroyTrails();
-
-		m_playerMgr.RemoveBB();
 	}
 
 	public void CorrectGesture()
 	{
 		ClearGesture();
 
+		// play effects for Correct Gestures
+		GameObject spark = Instantiate(Resources.Load("Prefabs/FX/Special_Attack_Fx_Pass")) as GameObject;
+		spark.transform.SetParent(m_itemParent.transform, false);
+
+		// Generate new Gesture
 		if (GestureGenerateMethod != null) {
 			GestureGenerateMethod ();
 		}
+	}
+
+	/// <summary>
+	/// Stops the Corountines for Special.
+	/// </summary>
+	public void StopSpecialCoroutines()
+	{
+		if(m_cntDwnRnt != null)
+			StopCoroutine(m_cntDwnRnt);
+		if(m_coroutine != null)
+			StopCoroutine(m_coroutine);
 	}
 
 	public void Correct()
@@ -247,7 +267,7 @@ public class BattleManager : MonoBehaviour
 
 		m_gestureState = GestureState.START;
 
-		ClearGesture();
+		m_playerMgr.RemoveBB();
 
 		if(m_FXObj != null)
 			Destroy(m_FXObj);
@@ -256,6 +276,7 @@ public class BattleManager : MonoBehaviour
 		if(gaugeCount > m_fullgaugeCount)
 			gaugeCount = m_fullgaugeCount;
 
+			
 		if(m_phase == BattlePhase.SPECIAL)
 		{
 			m_phase = BattlePhase.ATTACK;

@@ -46,7 +46,7 @@ public class GenerateGesture : MonoBehaviour
 
 		m_guide.layer = LayerMask.NameToLayer("UI");
 		m_guide.transform.SetParent(m_parent);
-		m_guide.transform.localPosition = new Vector3( 225, 255, -20);
+		m_guide.transform.localPosition = new Vector3( 0, 246, -20);
 		m_guide.transform.localScale = new Vector3(200, 200, 1);
 	}
 
