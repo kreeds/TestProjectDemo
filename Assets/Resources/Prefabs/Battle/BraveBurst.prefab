@@ -59,7 +59,7 @@ GameObject:
   - 114: {fileID: 11437718}
   - 114: {fileID: 11420914}
   m_Layer: 13
-  m_Name: Sprite (button03)
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
     m_PostInfinity: 2
   ignoreTimeScale: 1
   delay: 0
-  duration: .5
+  duration: .200000003
   steeperCurves: 0
   tweenGroup: 0
   eventReceiver: {fileID: 0}

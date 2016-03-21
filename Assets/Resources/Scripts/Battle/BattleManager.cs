@@ -131,7 +131,6 @@ public class BattleManager : MonoBehaviour
 		m_FXObj.transform.SetParent(m_itemParent.transform, false);
 		m_FXObj.transform.localPosition = new Vector3(720, m_FXObj.transform.localPosition.y, -20); 
 
-
 		StartCoroutine(Utility.DelayInSeconds(m_gestureInv - m_specialCountDown, 
 						(res) => 
 						{ 
