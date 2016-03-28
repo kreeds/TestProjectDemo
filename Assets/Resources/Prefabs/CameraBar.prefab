@@ -59,7 +59,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -983, y: -339, z: 0}
+  m_LocalPosition: {x: -983, y: -339, z: -3.30999994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 414118}
@@ -74,7 +74,7 @@ Transform:
   m_GameObject: {fileID: 114118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 516, y: 48, z: 1}
+  m_LocalScale: {x: 516, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 414116}
   m_RootOrder: 0
@@ -85,8 +85,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 58, y: 0, z: 0}
-  m_LocalScale: {x: 124.726555, y: 13, z: 1}
+  m_LocalPosition: {x: 27, y: 0, z: 0}
+  m_LocalScale: {x: 202.529999, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 414116}
   m_RootOrder: 1
@@ -129,7 +129,7 @@ MonoBehaviour:
   mPivot: 3
   mDepth: 4
   mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
-  mSpriteName: SSSSS_Battle_UI_HealthBar
+  mSpriteName: Rank_Bar
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -150,7 +150,7 @@ MonoBehaviour:
   mPivot: 3
   mDepth: 5
   mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
-  mSpriteName: button02
+  mSpriteName: Rank_Bar_Rank
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -172,7 +172,7 @@ MonoBehaviour:
   mDir: 0
   mInverted: 0
   mScroll: 0
-  mSize: .311816394
+  mSize: .430000007
 --- !u!114 &11414118
 MonoBehaviour:
   m_ObjectHideFlags: 1

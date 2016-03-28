@@ -819,7 +819,7 @@ public class QuestEvent : MonoBehaviour {
 				m_hudService.HUDControl.AttachMid(ref obj);
 
 				//obj.transform.localPosition = new Vector3(0, -280f, 0);
-				obj.transform.localScale = new Vector3(1, 1, 1);
+				obj.transform.localScale = new Vector3(0.5f, 0.5f, 1);
 
 				questProgress = obj.GetComponent<QuestProgress>();
 			}
