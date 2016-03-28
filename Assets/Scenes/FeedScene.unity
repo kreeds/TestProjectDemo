@@ -2333,21 +2333,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 767159261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 0
-  mRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  mShader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  mTexture: {fileID: 2800000, guid: 7d96a1e8371dd435f959026482d02449, type: 3}
-  mMat: {fileID: 0}
+  mAtlas: {fileID: 11428950, guid: 02c5fe715d3e949be805de204ab344a1, type: 2}
+  mSpriteName: bbcnews
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
 --- !u!1 &803671923
 GameObject:
   m_ObjectHideFlags: 0
@@ -5351,7 +5349,7 @@ MonoBehaviour:
   _headingText: {fileID: 2145897341}
   _bodyText: {fileID: 2000184982}
   _detailGroup: {fileID: 1966497154}
-  _listGroup: {fileID: 0}
+  _listGroup: {fileID: 767159261}
 --- !u!1 &1641874146
 GameObject:
   m_ObjectHideFlags: 0

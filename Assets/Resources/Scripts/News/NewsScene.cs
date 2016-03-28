@@ -17,7 +17,7 @@ public class NewsDataItem
 	{
 		_headLine = headLine;
 		_iconTextureName = iconTextureName;
-		_mainTextureName = "Textures/News/" + mainTextureName;
+		_mainTextureName = mainTextureName;
 
 		_newsBody = newsBody;
 	}
@@ -27,7 +27,7 @@ public class NewsDataItem
 public class NewsScene : MonoBehaviour {
 
 	[SerializeField]UITable				_listTable;
-	[SerializeField]UITexture			_newsTexture;
+	[SerializeField]UISprite			_newsTexture;
 
 	[SerializeField]UILabel				_headingText;
 	[SerializeField]UILabel				_bodyText;
@@ -71,7 +71,8 @@ public class NewsScene : MonoBehaviour {
 
 		HeadLineNewsItem headLineNews = obj.GetComponent<HeadLineNewsItem> ();
 		headLineNews.Initialize (id, gameObject, _newsDataList [id]._iconTextureName, _newsDataList [id]._headLine);
-
+		 
+		_newsTexture.spriteName = _newsDataList [id]._mainTextureName;
 		id++;
 
 		for (; id < count; ++id) {
@@ -85,7 +86,8 @@ public class NewsScene : MonoBehaviour {
 	}
 
 	void OnNewsItemClicked(int id){
-		_newsTexture.mainTexture = Resources.Load (_newsDataList [id]._mainTextureName) as Texture;
+//		_newsTexture.mainTexture = Resources.Load (_newsDataList [id]._mainTextureName) as Texture; 
+		_newsTexture.spriteName = _newsDataList [id]._mainTextureName;
 
 		_detailGroup.SetActive (true);
 		_listTable.gameObject.SetActive (false);
