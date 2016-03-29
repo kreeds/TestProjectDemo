@@ -224,14 +224,14 @@ MonoBehaviour:
   - name: emptyheart
     outer:
       serializedVersion: 2
-      x: 1764
-      y: 1793
+      x: 1944
+      y: 1973
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 1764
-      y: 1793
+      x: 1944
+      y: 1973
       width: 85
       height: 75
     rotated: 0
@@ -242,14 +242,14 @@ MonoBehaviour:
   - name: filledheart
     outer:
       serializedVersion: 2
-      x: 1857
-      y: 1793
+      x: 1944
+      y: 1890
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 1857
-      y: 1793
+      x: 1944
+      y: 1890
       width: 85
       height: 75
     rotated: 0
@@ -278,14 +278,14 @@ MonoBehaviour:
   - name: backbutton
     outer:
       serializedVersion: 2
-      x: 1944
-      y: 1990
+      x: 1764
+      y: 1402
       width: 44
       height: 58
     inner:
       serializedVersion: 2
-      x: 1944
-      y: 1990
+      x: 1764
+      y: 1402
       width: 44
       height: 58
     rotated: 0
@@ -296,16 +296,88 @@ MonoBehaviour:
   - name: emptynews
     outer:
       serializedVersion: 2
-      x: 1944
-      y: 1945
+      x: 1764
+      y: 1357
       width: 64
       height: 37
     inner:
       serializedVersion: 2
-      x: 1944
-      y: 1945
+      x: 1764
+      y: 1357
       width: 64
       height: 37
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_cos_sort_owned 1
+    outer:
+      serializedVersion: 2
+      x: 1764
+      y: 1672
+      width: 247
+      height: 94
+    inner:
+      serializedVersion: 2
+      x: 1764
+      y: 1672
+      width: 247
+      height: 94
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_cos_sort_shop 1
+    outer:
+      serializedVersion: 2
+      x: 1764
+      y: 1774
+      width: 247
+      height: 94
+    inner:
+      serializedVersion: 2
+      x: 1764
+      y: 1774
+      width: 247
+      height: 94
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_cos_sort_shop
+    outer:
+      serializedVersion: 2
+      x: 1764
+      y: 1570
+      width: 247
+      height: 94
+    inner:
+      serializedVersion: 2
+      x: 1764
+      y: 1570
+      width: 247
+      height: 94
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_cos_sort_owned
+    outer:
+      serializedVersion: 2
+      x: 1764
+      y: 1468
+      width: 247
+      height: 94
+    inner:
+      serializedVersion: 2
+      x: 1764
+      y: 1468
+      width: 247
+      height: 94
     rotated: 0
     paddingLeft: 0
     paddingRight: 0

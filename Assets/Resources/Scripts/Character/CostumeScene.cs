@@ -12,9 +12,11 @@ public class CostumeItem
 
 	public bool itemIsPremium;
 
+	public bool isLocked;
+
 	public string resourceLocation;
 
-	public CostumeItem(int unlockLv, int id, int cost, bool premium, string resourceloc)
+	public CostumeItem(int unlockLv, int id, int cost, bool premium, bool locked, string resourceloc)
 	{
 		itemUnlockLvl = unlockLv;
 		itemCost = cost;
@@ -23,6 +25,8 @@ public class CostumeItem
 		itemId = id;
 
 		resourceLocation = resourceloc;
+
+		isLocked = locked;
 	}
 }
 
@@ -79,28 +83,28 @@ public class CostumeScene : MonoBehaviour {
 		CostumeItemSet costumeSet = new CostumeItemSet ();
 		List<CostumeItem> itemList = new List<CostumeItem> ();
 
-		itemList.Add (new CostumeItem (0, 0, 50, false, "Texture/ui_cos_001"));
-		itemList.Add (new CostumeItem (0, 2, 50, true, "Texture/ui_cos_002"));
-		itemList.Add (new CostumeItem (0, 3, 50, false, "Texture/ui_cos_003"));
-		itemList.Add (new CostumeItem (0, 1, 50, true, "Texture/ui_cos_004"));
-		itemList.Add (new CostumeItem (10, -1, 50, false, "Texture/ui_cos_005"));
-		itemList.Add (new CostumeItem (10, -1, 50, true, "Texture/ui_cos_006"));
+		itemList.Add (new CostumeItem (0, 0, 50, false, false, "Texture/Costume/ui_cos_001"));
+		itemList.Add (new CostumeItem (0, 2, 50, true, false, "Texture/Costume/ui_cos_002"));
+		itemList.Add (new CostumeItem (0, 3, 50, false, false, "Texture/Costume/ui_cos_003"));
+		itemList.Add (new CostumeItem (0, 1, 50, true, false, "Texture/Costume/ui_cos_004"));
+		itemList.Add (new CostumeItem (10, -1, 50, false, true, "Texture/Costume/ui_cos_005"));
+		itemList.Add (new CostumeItem (10, -1, 50, true, true, "Texture/Costume/ui_cos_006"));
 
 		costumeSet.casualItems = itemList.ToArray ();
 
 		itemList.Clear ();
 
-		itemList.Add (new CostumeItem (0, 0, 50, false, "Texture/UI_cos_cloth03"));
+		itemList.Add (new CostumeItem (0, 0, 50, false, false, "Texture/UI_cos_cloth03"));
 
 		costumeSet.uniformItems = itemList.ToArray ();
 
 		itemList.Clear ();
 
-		itemList.Add (new CostumeItem (0, 100, 50, false, "Texture/UI_cos_hair01"));
-		itemList.Add (new CostumeItem (0, 101, 50, true, "Texture/UI_cos_hair02"));
-		itemList.Add (new CostumeItem (0, 103, 50, false, "Texture/UI_cos_hair03"));
-		itemList.Add (new CostumeItem (0, 102, 50, true, "Texture/UI_cos_hair04"));
-		itemList.Add (new CostumeItem (10, -1, 50, false, "Texture/UI_cos_hair02"));
+		itemList.Add (new CostumeItem (0, 100, 50, false, false, "Texture/Costume/UI_cos_hair01"));
+		itemList.Add (new CostumeItem (0, 101, 50, true, false, "Texture/Costume/UI_cos_hair02"));
+		itemList.Add (new CostumeItem (0, 103, 50, false, false, "Texture/Costume/UI_cos_hair03"));
+		itemList.Add (new CostumeItem (0, 102, 50, true, false, "Texture/Costume/UI_cos_hair04"));
+		itemList.Add (new CostumeItem (10, -1, 50, false, true, "Texture/Costume/UI_cos_hair02"));
 
 		costumeSet.hairItems = itemList.ToArray ();
 
@@ -120,14 +124,14 @@ public class CostumeScene : MonoBehaviour {
 
 			WardrobeItem.IconType iconType;
 
-			if (costumeItem.itemUnlockLvl > 0)
-				iconType = WardrobeItem.IconType.LOCKED;
-			else if (costumeItem.itemIsPremium)
+//			if (costumeItem.itemUnlockLvl > 0)
+//				iconType = WardrobeItem.IconType.LOCKED;
+			if (costumeItem.itemIsPremium)
 				iconType = WardrobeItem.IconType.PREMIUM;
 			else
 				iconType = WardrobeItem.IconType.GOLD;
 
-			item.Initialize(iconType, costumeItem.itemCost, costumeItem.resourceLocation, costumeItem.itemId, gameObject);
+			item.Initialize(iconType, costumeItem.itemCost, costumeItem.resourceLocation, costumeItem.isLocked, costumeItem.itemId, gameObject);
 		}
 
 		_casualGrid.Reposition ();
@@ -145,7 +149,7 @@ public class CostumeScene : MonoBehaviour {
 			else
 				iconType = WardrobeItem.IconType.GOLD;
 			
-			item.Initialize(iconType, costumeItem.itemCost, costumeItem.resourceLocation, costumeItem.itemId, gameObject);
+			item.Initialize(iconType, costumeItem.itemCost, costumeItem.resourceLocation, costumeItem.isLocked, costumeItem.itemId, gameObject);
 		}
 		
 		_uniformGrid.Reposition ();
@@ -163,7 +167,7 @@ public class CostumeScene : MonoBehaviour {
 			else
 				iconType = WardrobeItem.IconType.GOLD;
 			
-			item.Initialize(iconType, costumeItem.itemCost, costumeItem.resourceLocation, costumeItem.itemId, gameObject);
+			item.Initialize(iconType, costumeItem.itemCost, costumeItem.resourceLocation, costumeItem.isLocked, costumeItem.itemId, gameObject);
 		}
 		
 		_hairGrid.Reposition ();

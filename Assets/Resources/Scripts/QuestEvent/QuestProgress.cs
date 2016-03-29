@@ -18,15 +18,17 @@ public class QuestProgress : MonoBehaviour {
 		float progressRatio = current / max;
 
 		Vector3 localScale = progressSprite.transform.localScale;
-		localScale.x = (232)*(5f*progressRatio);
+		localScale.x = (63)*(5f*progressRatio);
 		progressSprite.transform.localScale = localScale;
 	}
 
 	public void SetProgress(float ratio){
 		float progressRatio = ratio;
 		
+		Rect rect = progressSprite.GetAtlasSprite ().outer;
+
 		Vector3 localScale = progressSprite.transform.localScale;
-		localScale.x = (232)*(5f*progressRatio);
+		localScale.x = rect.width*(5f*progressRatio);
 		progressSprite.transform.localScale = localScale;
 	}
 }

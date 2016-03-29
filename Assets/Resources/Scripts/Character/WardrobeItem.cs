@@ -13,6 +13,7 @@ public class WardrobeItem : MonoBehaviour {
 	[SerializeField]UITexture			_previewTexture;
 
 	[SerializeField]UISprite			_itemCurrencyIcon;
+	[SerializeField]UISprite			_lockIcon;
 	[SerializeField]UILabel				_itemCost;
 
 	private GameObject					_rootObject;
@@ -29,13 +30,13 @@ public class WardrobeItem : MonoBehaviour {
 	
 	}
 
-	public void Initialize(IconType iconType, int itemCost, string resourceLocation, int itemID, GameObject rootObject){
+	public void Initialize(IconType iconType, int itemCost, string resourceLocation, bool isLocked, int itemID, GameObject rootObject){
 		_previewTexture.mainTexture = Resources.Load (resourceLocation) as Texture;
 
-		if (iconType != IconType.LOCKED)
+//		if (iconType != IconType.LOCKED)
 			_itemCost.text = itemCost.ToString ();
-		else
-			_itemCost.text = "LV" + itemCost;
+//		else
+//			_itemCost.text = "LV" + itemCost;
 
 		_rootObject = rootObject;
 
@@ -43,9 +44,17 @@ public class WardrobeItem : MonoBehaviour {
 			_itemCurrencyIcon.spriteName = "icon02";
 		} else if (iconType == IconType.PREMIUM) {
 			_itemCurrencyIcon.spriteName = "icon03";
-		} else if (iconType == IconType.LOCKED) {
-			_itemCurrencyIcon.spriteName = "UI_cos_lock";
+		} 
+//		else if (iconType == IconType.LOCKED) {
+//			_itemCurrencyIcon.spriteName = "UI_cos_lock";
+//			collider.enabled = false;
+//		}
+
+		if (isLocked) {
+			_lockIcon.gameObject.SetActive (true);
 			collider.enabled = false;
+		} else {
+			_lockIcon.gameObject.SetActive (false);
 		}
 
 		_itemID = itemID;

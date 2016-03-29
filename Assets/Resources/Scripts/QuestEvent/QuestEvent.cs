@@ -794,7 +794,14 @@ public class QuestEvent : MonoBehaviour {
 			nextSceneID = currentScene.nextScene;
 			Service.Get<HUDService> ().ChangeScene ("EventScene");
 		} else if (currentScene.nextSequence != null) {
-			Service.Get<HUDService> ().ChangeScene (currentScene.nextSequence);
+			if (currentScene.nextSequence == "BattleScene"){
+				
+				GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/TransformAnim")) as GameObject;
+				m_hudService.HUDControl.AttachMid(ref obj);
+				obj.transform.localScale = Vector3.one;
+				obj.transform.localPosition = new Vector3(0, 0, -5);
+			}
+//			Service.Get<HUDService> ().ChangeScene (currentScene.nextSequence);
 		}
 
 //		fader.ChangeScene ("EventScene");

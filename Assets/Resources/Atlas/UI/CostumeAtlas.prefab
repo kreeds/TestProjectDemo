@@ -44,16 +44,16 @@ MonoBehaviour:
   - name: UI_cos_side_03
     outer:
       serializedVersion: 2
-      x: 195
-      y: 325
-      width: 187
-      height: 187
+      x: 264
+      y: 169
+      width: 166
+      height: 165
     inner:
       serializedVersion: 2
-      x: 195
-      y: 325
-      width: 187
-      height: 187
+      x: 264
+      y: 169
+      width: 166
+      height: 165
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
@@ -62,16 +62,16 @@ MonoBehaviour:
   - name: UI_cos_side_04
     outer:
       serializedVersion: 2
-      x: 195
-      y: 130
-      width: 187
-      height: 187
+      x: 443
+      y: 347
+      width: 166
+      height: 165
     inner:
       serializedVersion: 2
-      x: 195
-      y: 130
-      width: 187
-      height: 187
+      x: 443
+      y: 347
+      width: 166
+      height: 165
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
@@ -80,14 +80,14 @@ MonoBehaviour:
   - name: UI_cos_tab_02
     outer:
       serializedVersion: 2
-      x: 390
-      y: 382
+      x: 519
+      y: 31
       width: 134
       height: 130
     inner:
       serializedVersion: 2
-      x: 390
-      y: 382
+      x: 519
+      y: 31
       width: 134
       height: 130
     rotated: 0
@@ -98,14 +98,14 @@ MonoBehaviour:
   - name: UI_cos_lock
     outer:
       serializedVersion: 2
-      x: 390
-      y: 151
+      x: 746
+      y: 417
       width: 69
       height: 95
     inner:
       serializedVersion: 2
-      x: 390
-      y: 151
+      x: 746
+      y: 417
       width: 69
       height: 95
     rotated: 0
@@ -116,16 +116,16 @@ MonoBehaviour:
   - name: UI_cos_sort_shop
     outer:
       serializedVersion: 2
-      x: 265
-      y: 33
-      width: 257
-      height: 89
+      x: 0
+      y: 35
+      width: 247
+      height: 94
     inner:
       serializedVersion: 2
-      x: 265
-      y: 33
-      width: 257
-      height: 89
+      x: 0
+      y: 35
+      width: 247
+      height: 94
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
@@ -134,14 +134,14 @@ MonoBehaviour:
   - name: UI_cos_tab_01
     outer:
       serializedVersion: 2
-      x: 390
-      y: 254
+      x: 612
+      y: 219
       width: 137
       height: 120
     inner:
       serializedVersion: 2
-      x: 390
-      y: 254
+      x: 612
+      y: 219
       width: 137
       height: 120
     rotated: 0
@@ -152,16 +152,16 @@ MonoBehaviour:
   - name: UI_cos_sort_owned
     outer:
       serializedVersion: 2
-      x: 0
-      y: 33
-      width: 257
-      height: 89
+      x: 264
+      y: 67
+      width: 247
+      height: 94
     inner:
       serializedVersion: 2
-      x: 0
-      y: 33
-      width: 257
-      height: 89
+      x: 264
+      y: 67
+      width: 247
+      height: 94
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
@@ -170,16 +170,16 @@ MonoBehaviour:
   - name: UI_cos_side_02
     outer:
       serializedVersion: 2
-      x: 0
-      y: 130
-      width: 187
-      height: 187
+      x: 438
+      y: 169
+      width: 166
+      height: 165
     inner:
       serializedVersion: 2
-      x: 0
-      y: 130
-      width: 187
-      height: 187
+      x: 438
+      y: 169
+      width: 166
+      height: 165
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
@@ -188,16 +188,16 @@ MonoBehaviour:
   - name: UI_cos_side_01
     outer:
       serializedVersion: 2
-      x: 0
-      y: 325
-      width: 187
-      height: 187
+      x: 264
+      y: 342
+      width: 171
+      height: 170
     inner:
       serializedVersion: 2
-      x: 0
-      y: 325
-      width: 187
-      height: 187
+      x: 264
+      y: 342
+      width: 171
+      height: 170
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
@@ -206,13 +206,13 @@ MonoBehaviour:
   - name: UI_cos_tab_03
     outer:
       serializedVersion: 2
-      x: 532
+      x: 617
       y: 382
       width: 121
       height: 130
     inner:
       serializedVersion: 2
-      x: 532
+      x: 617
       y: 382
       width: 121
       height: 130
@@ -224,14 +224,14 @@ MonoBehaviour:
   - name: icon03
     outer:
       serializedVersion: 2
-      x: 560
-      y: 213
+      x: 754
+      y: 138
       width: 73
       height: 73
     inner:
       serializedVersion: 2
-      x: 560
-      y: 213
+      x: 754
+      y: 138
       width: 73
       height: 73
     rotated: 0
@@ -242,14 +242,14 @@ MonoBehaviour:
   - name: icon02
     outer:
       serializedVersion: 2
-      x: 530
-      y: 88
+      x: 748
+      y: 53
       width: 75
       height: 75
     inner:
       serializedVersion: 2
-      x: 530
-      y: 88
+      x: 748
+      y: 53
       width: 75
       height: 75
     rotated: 0
@@ -260,14 +260,14 @@ MonoBehaviour:
   - name: UI_cos_frame
     outer:
       serializedVersion: 2
-      x: 535
-      y: 294
+      x: 661
+      y: 48
       width: 79
       height: 80
     inner:
       serializedVersion: 2
-      x: 598
-      y: 357
+      x: 724
+      y: 111
       width: -43
       height: -45
     rotated: 0
@@ -278,14 +278,14 @@ MonoBehaviour:
   - name: SSSSS_Battle_UI_Health
     outer:
       serializedVersion: 2
-      x: 661
-      y: 395
+      x: 784
+      y: 347
       width: 21
       height: 62
     inner:
       serializedVersion: 2
-      x: 661
-      y: 395
+      x: 784
+      y: 347
       width: 21
       height: 62
     rotated: 0
@@ -296,14 +296,14 @@ MonoBehaviour:
   - name: Rank_Bar_Fill
     outer:
       serializedVersion: 2
-      x: 661
-      y: 465
+      x: 746
+      y: 362
       width: 30
       height: 47
     inner:
       serializedVersion: 2
-      x: 661
-      y: 465
+      x: 746
+      y: 362
       width: 30
       height: 47
     rotated: 0
@@ -314,14 +314,14 @@ MonoBehaviour:
   - name: white_fill
     outer:
       serializedVersion: 2
-      x: 467
-      y: 131
+      x: 757
+      y: 307
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 472
-      y: 137
+      x: 762
+      y: 313
       width: 22
       height: 20
     rotated: 0
@@ -332,14 +332,14 @@ MonoBehaviour:
   - name: FrameEdge
     outer:
       serializedVersion: 2
-      x: 530
-      y: 14
+      x: 612
+      y: 174
       width: 33
       height: 37
     inner:
       serializedVersion: 2
-      x: 534
-      y: 22
+      x: 616
+      y: 182
       width: 23
       height: 28
     rotated: 0
@@ -350,14 +350,14 @@ MonoBehaviour:
   - name: UI_bottom01
     outer:
       serializedVersion: 2
-      x: 641
-      y: 162
+      x: 823
+      y: 300
       width: 20
       height: 212
     inner:
       serializedVersion: 2
-      x: 641
-      y: 162
+      x: 823
+      y: 300
       width: 20
       height: 212
     rotated: 0
@@ -368,14 +368,14 @@ MonoBehaviour:
   - name: TabButton
     outer:
       serializedVersion: 2
-      x: 530
-      y: 59
+      x: 617
+      y: 353
       width: 75
       height: 21
     inner:
       serializedVersion: 2
-      x: 537
-      y: 62
+      x: 624
+      y: 356
       width: 60
       height: 15
     rotated: 0
@@ -386,16 +386,34 @@ MonoBehaviour:
   - name: emptyheart
     outer:
       serializedVersion: 2
-      x: 467
-      y: 171
+      x: 661
+      y: 136
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 467
-      y: 171
+      x: 661
+      y: 136
       width: 85
       height: 75
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ui_cos_bg
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 137
+      width: 256
+      height: 375
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 137
+      width: 256
+      height: 375
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
