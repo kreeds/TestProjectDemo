@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 426386}
   - 198: {fileID: 19826386}
   - 199: {fileID: 19926386}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bubble2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 426388}
   - 198: {fileID: 19826388}
   - 199: {fileID: 19926388}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bubble1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - 4: {fileID: 426392}
   - 198: {fileID: 19826392}
   - 199: {fileID: 19926392}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - 4: {fileID: 449004}
   - 198: {fileID: 19849004}
   - 199: {fileID: 19949004}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Transformation_Fx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 4: {fileID: 454006}
   - 198: {fileID: 19854006}
   - 199: {fileID: 19954006}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - 4: {fileID: 489706}
   - 198: {fileID: 19889706}
   - 199: {fileID: 19989706}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rays 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - 4: {fileID: 489704}
   - 198: {fileID: 19889704}
   - 199: {fileID: 19989704}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - 4: {fileID: 489708}
   - 198: {fileID: 19889708}
   - 199: {fileID: 19989708}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rays 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4134,7 +4134,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154006}
   lengthInSec: 1
-  startDelay: 2.5
+  startDelay: 2.20000005
   speed: 1
   randomSeed: 0
   looping: 0
@@ -4336,7 +4336,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 1
-    radius: .200000003
+    radius: .5
     angle: 1
     length: 5
     boxX: 1
@@ -5106,7 +5106,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189706}
   lengthInSec: 2
-  startDelay: 2.5
+  startDelay: 2.0999999
   speed: 1
   randomSeed: 0
   looping: 0
@@ -6053,7 +6053,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 1.5
+      scalar: 1.20000005
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6068,7 +6068,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .666666687
+          value: .666666627
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -6190,7 +6190,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 1693081599
+        rgba: 1374516479
       minMaxState: 0
     startSize:
       scalar: 1
@@ -6990,7 +6990,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 1.5
+      scalar: 1.20000005
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7005,7 +7005,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .666666687
+          value: .666666627
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -7127,7 +7127,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 1693081599
+        rgba: 1693688319
       minMaxState: 0
     startSize:
       scalar: 1
