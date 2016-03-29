@@ -46,6 +46,7 @@ public class CostumeScene : MonoBehaviour {
 
 	[SerializeField]LAppModelProxy		_l2dModel;
 
+	[SerializeField]UISprite[]			_tabBtnBackground;
 	
 	[SerializeField]SceneFadeInOut fader;
 	
@@ -64,6 +65,8 @@ public class CostumeScene : MonoBehaviour {
 		PutTestData ();
 
 		currentGroupID = costumeGroupID = 0;
+
+		_l2dModel.PlayIdleAnim ();
 	}
 	
 	// Update is called once per frame
@@ -76,12 +79,12 @@ public class CostumeScene : MonoBehaviour {
 		CostumeItemSet costumeSet = new CostumeItemSet ();
 		List<CostumeItem> itemList = new List<CostumeItem> ();
 
-		itemList.Add (new CostumeItem (0, 0, 50, false, "Texture/UI_cos_cloth00"));
-		itemList.Add (new CostumeItem (0, 2, 50, true, "Texture/UI_cos_cloth01"));
-		itemList.Add (new CostumeItem (0, 3, 50, false, "Texture/UI_cos_cloth02"));
-		itemList.Add (new CostumeItem (0, 1, 50, true, "Texture/UI_cos_cloth04"));
-		itemList.Add (new CostumeItem (10, -1, 50, false, "Texture/UI_cos_cloth07"));
-		itemList.Add (new CostumeItem (10, -1, 50, true, "Texture/UI_cos_cloth08"));
+		itemList.Add (new CostumeItem (0, 0, 50, false, "Texture/ui_cos_001"));
+		itemList.Add (new CostumeItem (0, 2, 50, true, "Texture/ui_cos_002"));
+		itemList.Add (new CostumeItem (0, 3, 50, false, "Texture/ui_cos_003"));
+		itemList.Add (new CostumeItem (0, 1, 50, true, "Texture/ui_cos_004"));
+		itemList.Add (new CostumeItem (10, -1, 50, false, "Texture/ui_cos_005"));
+		itemList.Add (new CostumeItem (10, -1, 50, true, "Texture/ui_cos_006"));
 
 		costumeSet.casualItems = itemList.ToArray ();
 
@@ -104,6 +107,8 @@ public class CostumeScene : MonoBehaviour {
 		itemList.Clear ();
 
 		Initialize (costumeSet);
+
+		OnCostumeTab ();
 	}
 
 
@@ -199,6 +204,11 @@ public class CostumeScene : MonoBehaviour {
 		}
 		_costumeGroup.SetActive (true);
 		_appearanceGroup.SetActive (false);
+
+		foreach (UISprite sprite in _tabBtnBackground) {
+			sprite.depth = 4;
+		}
+		_tabBtnBackground [0].depth = 6;
 	}
 
 	void OnMakeupTab()
@@ -206,6 +216,12 @@ public class CostumeScene : MonoBehaviour {
 		_hairGrid.gameObject.SetActive (true);
 		_costumeGroup.SetActive (false);
 		_appearanceGroup.SetActive (true);
+
+		
+		foreach (UISprite sprite in _tabBtnBackground) {
+			sprite.depth = 4;
+		}
+		_tabBtnBackground [2].depth = 6;
 	}
 
 	void OnCostumeItem(int itemID){

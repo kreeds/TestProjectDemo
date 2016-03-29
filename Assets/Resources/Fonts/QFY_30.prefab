@@ -43,9 +43,9 @@ MonoBehaviour:
   mUVRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 7.15255737e-07
     width: 1
-    height: 1
+    height: .999999285
   mFont:
     mSize: 40
     mBase: 30
@@ -1354,7 +1354,7 @@ MonoBehaviour:
       channel: 1
       kerning: 
   mSpacingX: 0
-  mSpacingY: 0
+  mSpacingY: -10
   mAtlas: {fileID: 0}
   mReplacement: {fileID: 0}
   mPixelSize: 1

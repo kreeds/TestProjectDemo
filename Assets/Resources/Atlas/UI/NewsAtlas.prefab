@@ -1,0 +1,328 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &128950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 428950}
+  - 114: {fileID: 11428950}
+  m_Layer: 0
+  m_Name: NewsAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &428950
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128950}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11428950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 5a9365e8de5f84c189e97f3b06566c4a, type: 2}
+  sprites:
+  - name: bbcnews
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1333
+      width: 1242
+      height: 715
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1333
+      width: 1242
+      height: 715
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: note
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 675
+      width: 962
+      height: 650
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 675
+      width: 962
+      height: 650
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: newspaper
+    outer:
+      serializedVersion: 2
+      x: 970
+      y: 657
+      width: 882
+      height: 668
+    inner:
+      serializedVersion: 2
+      x: 970
+      y: 657
+      width: 882
+      height: 668
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: magazine
+    outer:
+      serializedVersion: 2
+      x: 1250
+      y: 1372
+      width: 506
+      height: 676
+    inner:
+      serializedVersion: 2
+      x: 1250
+      y: 1372
+      width: 506
+      height: 676
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: top
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 525
+      width: 1242
+      height: 124
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 525
+      width: 1242
+      height: 124
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sharebar
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 423
+      width: 1189
+      height: 94
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 423
+      width: 1189
+      height: 94
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: headline
+    outer:
+      serializedVersion: 2
+      x: 1197
+      y: 431
+      width: 621
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 1197
+      y: 431
+      width: 621
+      height: 86
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mynews
+    outer:
+      serializedVersion: 2
+      x: 1250
+      y: 563
+      width: 621
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 1250
+      y: 563
+      width: 621
+      height: 86
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: portrait
+    outer:
+      serializedVersion: 2
+      x: 1826
+      y: 381
+      width: 174
+      height: 174
+    inner:
+      serializedVersion: 2
+      x: 1826
+      y: 381
+      width: 174
+      height: 174
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: LK_portrait
+    outer:
+      serializedVersion: 2
+      x: 1764
+      y: 1876
+      width: 172
+      height: 172
+    inner:
+      serializedVersion: 2
+      x: 1764
+      y: 1876
+      width: 172
+      height: 172
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: emptyheart
+    outer:
+      serializedVersion: 2
+      x: 1764
+      y: 1793
+      width: 85
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 1764
+      y: 1793
+      width: 85
+      height: 75
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: filledheart
+    outer:
+      serializedVersion: 2
+      x: 1857
+      y: 1793
+      width: 85
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 1857
+      y: 1793
+      width: 85
+      height: 75
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bar
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 410
+      width: 1241
+      height: 5
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 410
+      width: 1241
+      height: 5
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: backbutton
+    outer:
+      serializedVersion: 2
+      x: 1944
+      y: 1990
+      width: 44
+      height: 58
+    inner:
+      serializedVersion: 2
+      x: 1944
+      y: 1990
+      width: 44
+      height: 58
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: emptynews
+    outer:
+      serializedVersion: 2
+      x: 1944
+      y: 1945
+      width: 64
+      height: 37
+    inner:
+      serializedVersion: 2
+      x: 1944
+      y: 1945
+      width: 64
+      height: 37
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 128950}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

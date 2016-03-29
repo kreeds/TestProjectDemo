@@ -27,6 +27,8 @@ public class HUDHandler : MonoBehaviour {
 	[SerializeField]UISprite 	m_heartSprite;
 	[SerializeField]UILabel		m_specialLabel;
 
+	[SerializeField]UISlider	m_expBar;
+
 	[SerializeField]GameObject	m_dodgeBtn;
 
 	UIGauge[] HPBars;
@@ -44,6 +46,8 @@ public class HUDHandler : MonoBehaviour {
 		// Keeps HUD alive
 		DontDestroyOnLoad(this);
 		m_actionButtonList = new List<ActionButton>();
+
+		m_expBar.sliderValue = 0.4f;
 	}
 
 	// Update is called once per frame

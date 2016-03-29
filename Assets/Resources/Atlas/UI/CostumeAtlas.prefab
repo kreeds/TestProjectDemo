@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: UI_cos_side_03
     outer:
       serializedVersion: 2
-      x: 0
-      y: 114
+      x: 195
+      y: 325
       width: 187
       height: 187
     inner:
       serializedVersion: 2
-      x: 0
-      y: 114
+      x: 195
+      y: 325
       width: 187
       height: 187
     rotated: 0
@@ -62,14 +62,14 @@ MonoBehaviour:
   - name: UI_cos_side_04
     outer:
       serializedVersion: 2
-      x: 206
-      y: 325
+      x: 195
+      y: 130
       width: 187
       height: 187
     inner:
       serializedVersion: 2
-      x: 206
-      y: 325
+      x: 195
+      y: 130
       width: 187
       height: 187
     rotated: 0
@@ -80,32 +80,32 @@ MonoBehaviour:
   - name: UI_cos_tab_02
     outer:
       serializedVersion: 2
-      x: 206
-      y: 6
+      x: 390
+      y: 382
       width: 134
       height: 130
     inner:
       serializedVersion: 2
-      x: 206
-      y: 6
+      x: 390
+      y: 382
       width: 134
       height: 130
     rotated: 0
-    paddingLeft: .417910457
-    paddingRight: .335820884
+    paddingLeft: 0
+    paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: UI_cos_lock
     outer:
       serializedVersion: 2
-      x: 0
-      y: 18
+      x: 390
+      y: 151
       width: 69
       height: 95
     inner:
       serializedVersion: 2
-      x: 0
-      y: 18
+      x: 390
+      y: 151
       width: 69
       height: 95
     rotated: 0
@@ -116,14 +116,14 @@ MonoBehaviour:
   - name: UI_cos_sort_shop
     outer:
       serializedVersion: 2
-      x: 582
-      y: 423
+      x: 265
+      y: 33
       width: 257
       height: 89
     inner:
       serializedVersion: 2
-      x: 582
-      y: 423
+      x: 265
+      y: 33
       width: 257
       height: 89
     rotated: 0
@@ -134,32 +134,32 @@ MonoBehaviour:
   - name: UI_cos_tab_01
     outer:
       serializedVersion: 2
-      x: 394
-      y: 24
-      width: 138
-      height: 121
+      x: 390
+      y: 254
+      width: 137
+      height: 120
     inner:
       serializedVersion: 2
-      x: 394
-      y: 24
-      width: 138
-      height: 121
+      x: 390
+      y: 254
+      width: 137
+      height: 120
     rotated: 0
-    paddingLeft: .405797094
-    paddingRight: .297101438
-    paddingTop: .0247933883
-    paddingBottom: .0495867766
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: UI_cos_sort_owned
     outer:
       serializedVersion: 2
-      x: 582
-      y: 333
+      x: 0
+      y: 33
       width: 257
       height: 89
     inner:
       serializedVersion: 2
-      x: 582
-      y: 333
+      x: 0
+      y: 33
       width: 257
       height: 89
     rotated: 0
@@ -170,14 +170,14 @@ MonoBehaviour:
   - name: UI_cos_side_02
     outer:
       serializedVersion: 2
-      x: 206
-      y: 137
+      x: 0
+      y: 130
       width: 187
       height: 187
     inner:
       serializedVersion: 2
-      x: 206
-      y: 137
+      x: 0
+      y: 130
       width: 187
       height: 187
     rotated: 0
@@ -188,13 +188,13 @@ MonoBehaviour:
   - name: UI_cos_side_01
     outer:
       serializedVersion: 2
-      x: 394
+      x: 0
       y: 325
       width: 187
       height: 187
     inner:
       serializedVersion: 2
-      x: 394
+      x: 0
       y: 325
       width: 187
       height: 187
@@ -206,57 +206,201 @@ MonoBehaviour:
   - name: UI_cos_tab_03
     outer:
       serializedVersion: 2
-      x: 582
-      y: 202
-      width: 122
+      x: 532
+      y: 382
+      width: 121
       height: 130
     inner:
       serializedVersion: 2
-      x: 582
-      y: 202
-      width: 122
+      x: 532
+      y: 382
+      width: 121
       height: 130
     rotated: 0
-    paddingLeft: .467213124
-    paddingRight: .459016383
+    paddingLeft: 0
+    paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon03
     outer:
       serializedVersion: 2
-      x: 394
-      y: 146
-      width: 168
-      height: 178
+      x: 560
+      y: 213
+      width: 73
+      height: 73
     inner:
       serializedVersion: 2
-      x: 394
-      y: 146
-      width: 168
-      height: 178
+      x: 560
+      y: 213
+      width: 73
+      height: 73
     rotated: 0
-    paddingLeft: .267857134
-    paddingRight: .255952388
-    paddingTop: .21348314
-    paddingBottom: .224719107
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: icon02
     outer:
       serializedVersion: 2
-      x: 0
-      y: 302
-      width: 205
-      height: 210
+      x: 530
+      y: 88
+      width: 75
+      height: 75
     inner:
       serializedVersion: 2
-      x: 0
-      y: 302
-      width: 205
-      height: 210
+      x: 530
+      y: 88
+      width: 75
+      height: 75
     rotated: 0
-    paddingLeft: .126829267
-    paddingRight: .121951222
-    paddingTop: .114285715
-    paddingBottom: .104761906
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_cos_frame
+    outer:
+      serializedVersion: 2
+      x: 535
+      y: 294
+      width: 79
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 598
+      y: 357
+      width: -43
+      height: -45
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: SSSSS_Battle_UI_Health
+    outer:
+      serializedVersion: 2
+      x: 661
+      y: 395
+      width: 21
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 661
+      y: 395
+      width: 21
+      height: 62
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Rank_Bar_Fill
+    outer:
+      serializedVersion: 2
+      x: 661
+      y: 465
+      width: 30
+      height: 47
+    inner:
+      serializedVersion: 2
+      x: 661
+      y: 465
+      width: 30
+      height: 47
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: white_fill
+    outer:
+      serializedVersion: 2
+      x: 467
+      y: 131
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 472
+      y: 137
+      width: 22
+      height: 20
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: FrameEdge
+    outer:
+      serializedVersion: 2
+      x: 530
+      y: 14
+      width: 33
+      height: 37
+    inner:
+      serializedVersion: 2
+      x: 534
+      y: 22
+      width: 23
+      height: 28
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_bottom01
+    outer:
+      serializedVersion: 2
+      x: 641
+      y: 162
+      width: 20
+      height: 212
+    inner:
+      serializedVersion: 2
+      x: 641
+      y: 162
+      width: 20
+      height: 212
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TabButton
+    outer:
+      serializedVersion: 2
+      x: 530
+      y: 59
+      width: 75
+      height: 21
+    inner:
+      serializedVersion: 2
+      x: 537
+      y: 62
+      width: 60
+      height: 15
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: emptyheart
+    outer:
+      serializedVersion: 2
+      x: 467
+      y: 171
+      width: 85
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 467
+      y: 171
+      width: 85
+      height: 75
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
