@@ -743,7 +743,7 @@ MonoBehaviour:
   - TextData/Quest1
   - TextData/Quest2
   - TextData/Quest3
-  firstQuest: 1
+  firstQuest: 2
   otherTextTweenIn: {fileID: 1417699275}
   playerTextTweenIn: {fileID: 855283030}
   otherTextTweenOut: {fileID: 1417699276}
@@ -3643,46 +3643,6 @@ Transform:
   - {fileID: 1272179675}
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!114 &1425983961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11497690, guid: 77d152f317652488082a5d49cd22ece4,
-    type: 2}
-  m_PrefabInternal: {fileID: 2112021394}
-  m_GameObject: {fileID: 1425983958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortByDepth: 1
-  showInPanelTool: 1
-  generateNormals: 0
-  depthPass: 0
-  widgetsAreStatic: 0
-  cullWhileDragging: 0
-  worldToLocal:
-    e00: 479.999969
-    e01: 0
-    e02: 0
-    e03: 0
-    e10: 0
-    e11: 479.999969
-    e12: 0
-    e13: 0
-    e20: 0
-    e21: 0
-    e22: 479.999969
-    e23: 0
-    e30: 0
-    e31: 0
-    e32: 0
-    e33: 1
-  mAlpha: 1
-  mDebugInfo: 1
-  mClipping: 0
-  mClipRange: {x: 0, y: 0, z: 0, w: 0}
-  mClipSoftness: {x: 40, y: 40}
 --- !u!1 &1467538849
 GameObject:
   m_ObjectHideFlags: 0
