@@ -5,7 +5,8 @@ public class TransformAnim : MonoBehaviour {
 
 	[SerializeField]Collider collider;
 
-	[SerializeField]UISprite spriteAnim;
+	[SerializeField]float fadeOutTime;
+	[SerializeField]float finishTime;
 	[SerializeField]UILabel clickMessage;
 	// Use this for initialization
 
@@ -13,7 +14,7 @@ public class TransformAnim : MonoBehaviour {
 
 	float counter;
 	void Start () {
-		StartCoroutine (EnableCollider (0.2f));
+		StartCoroutine (EnableCollider (1.2f));
 	}
 	
 	// Update is called once per frame
@@ -26,8 +27,8 @@ public class TransformAnim : MonoBehaviour {
 
 		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Fx") as GameObject);
 		obj.transform.localPosition = new Vector3 (0, 0, -10f);
-		StartCoroutine (FinishAnim (2f));
-		obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/WhiteFader_FX") as GameObject);
+		StartCoroutine (FinishAnim (finishTime));
+		StartCoroutine (WhiteOut (fadeOutTime));
 	}
 
 	IEnumerator EnableCollider(float seconds)
@@ -43,5 +44,12 @@ public class TransformAnim : MonoBehaviour {
 		if (Application.loadedLevelName != "TestTransform")
 			Service.Get<HUDService> ().ChangeScene ("BattleScene");
 		Destroy (gameObject);
+	}
+
+	IEnumerator WhiteOut(float seconds)
+	{
+		yield return new WaitForSeconds(seconds);
+		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/WhiteFader_FX") as GameObject);
+		obj.transform.localScale = new Vector3 (2048, 2048);
 	}
 }
