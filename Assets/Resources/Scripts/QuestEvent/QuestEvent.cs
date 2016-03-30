@@ -801,7 +801,8 @@ public class QuestEvent : MonoBehaviour {
 				obj.transform.localScale = Vector3.one;
 				obj.transform.localPosition = new Vector3(0, 0, -5);
 			}
-//			Service.Get<HUDService> ().ChangeScene (currentScene.nextSequence);
+			else
+				Service.Get<HUDService> ().ChangeScene (currentScene.nextSequence);
 		}
 
 //		fader.ChangeScene ("EventScene");
@@ -826,7 +827,7 @@ public class QuestEvent : MonoBehaviour {
 				m_hudService.HUDControl.AttachMid(ref obj);
 
 				//obj.transform.localPosition = new Vector3(0, -280f, 0);
-				obj.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+				obj.transform.localScale = new Vector3(0.75f, 0.75f, 1);
 
 				questProgress = obj.GetComponent<QuestProgress>();
 			}
@@ -851,13 +852,14 @@ public class QuestEvent : MonoBehaviour {
 		float dialogLoc = selectedDrama.loc.x;
 
 		Vector3 pos = scenePanel.transform.localPosition;
-		float diff = pos.x - dialogLoc;
+//		float diff = pos.x - dialogLoc;
 		pos.x = -dialogLoc;
-		scenePanel.transform.localPosition = pos;
-
-		Vector4 clipPos = scenePanel.clipRange;
-		clipPos.x = dialogLoc;
-		scenePanel.clipRange = clipPos;
+		SpringPanel.Begin (scenePanel.gameObject, pos, 8f);
+//		scenePanel.transform.localPosition = pos;
+//
+//		Vector4 clipPos = scenePanel.clipRange;
+//		clipPos.x = dialogLoc;
+//		scenePanel.clipRange = clipPos;
 
 		LoadDialog (selectedDrama.dramaFile);
 
@@ -900,6 +902,14 @@ public class QuestEvent : MonoBehaviour {
 		Emitter emitter = obj.GetComponent<Emitter> ();
 		emitter.Init (new ItemType[]{ItemType.STAR}, new int[]{action.completionAmount}, -1.5f, 1.5f, -1f, 1f);
 
+	}
+
+	void OnExpandAction(int actionID){
+		float newPosX = actionList [actionID].expandedCenter.x;
+		Vector3 pos = scenePanel.transform.localPosition;
+//
+		pos.x = -newPosX;
+		SpringPanel.Begin (scenePanel.gameObject, pos, 8f);
 	}
 
 	void OnStarCollected(){

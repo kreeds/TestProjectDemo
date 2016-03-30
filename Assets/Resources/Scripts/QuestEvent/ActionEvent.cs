@@ -15,6 +15,8 @@ public class ActionEvent : MonoBehaviour {
 
 	private int						_requiredAmt;
 	private int						_progressAmt;
+
+	public Vector3					expandedCenter;
 	// Use this for initialization
 	void Start () {
 		
@@ -40,6 +42,9 @@ public class ActionEvent : MonoBehaviour {
 		Vector3 scale = _expandedBG.transform.localScale;
 		scale.x = (textScale.x * _actionLabel.transform.localScale.x) + 242;
 
+		expandedCenter = transform.localPosition;
+		expandedCenter.x += scale.x / 2;
+
 		_buttonCollider.size = scale;
 //		if (scale.x < 460)
 //			scale.x = 460;
@@ -58,6 +63,7 @@ public class ActionEvent : MonoBehaviour {
 	{
 		_isExpanded = !_isExpanded;
 		_expandTween.Play (_isExpanded);
+		_rootObject.SendMessage ("OnExpandAction", _actionId);
 	}
 
 	void OnButtonClick()

@@ -13,7 +13,7 @@ public class TransformAnim : MonoBehaviour {
 
 	float counter;
 	void Start () {
-		StartCoroutine (EnableCollider (1f));
+		StartCoroutine (EnableCollider (0.2f));
 	}
 	
 	// Update is called once per frame
@@ -27,6 +27,7 @@ public class TransformAnim : MonoBehaviour {
 		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Fx") as GameObject);
 		obj.transform.localPosition = new Vector3 (0, 0, -10f);
 		StartCoroutine (FinishAnim (2f));
+		obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/WhiteFader_FX") as GameObject);
 	}
 
 	IEnumerator EnableCollider(float seconds)
@@ -39,7 +40,7 @@ public class TransformAnim : MonoBehaviour {
 	IEnumerator FinishAnim(float seconds)
 	{
 		yield return new WaitForSeconds(seconds);
-		Service.Get<HUDService> ().ChangeScene ("EventScene");
+		Service.Get<HUDService> ().ChangeScene ("BattleScene");
 		Destroy (gameObject);
 	}
 }
