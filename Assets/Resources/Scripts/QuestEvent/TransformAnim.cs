@@ -10,11 +10,17 @@ public class TransformAnim : MonoBehaviour {
 	[SerializeField]UILabel clickMessage;
 	// Use this for initialization
 
+	GameObject fgObj;
+
 	GameObject	rootObject;
 
 	float counter;
 	void Start () {
 		StartCoroutine (EnableCollider (1.2f));
+		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Bg_Fx") as GameObject);
+		obj.transform.localPosition = new Vector3 (0, 0, 2f);
+
+
 	}
 	
 	// Update is called once per frame
@@ -26,7 +32,10 @@ public class TransformAnim : MonoBehaviour {
 		collider.enabled = false;
 
 		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Fx") as GameObject);
-		obj.transform.localPosition = new Vector3 (0, 0, -10f);
+		obj.transform.localPosition = new Vector3 (0, -140, -10f);
+
+		Destroy (fgObj);
+
 		StartCoroutine (FinishAnim (finishTime));
 		StartCoroutine (WhiteOut (fadeOutTime));
 	}
@@ -36,6 +45,8 @@ public class TransformAnim : MonoBehaviour {
 		yield return new WaitForSeconds(seconds);
 		clickMessage.enabled = true;
 		collider.enabled = true;
+		fgObj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Fg_Fx") as GameObject);
+		fgObj.transform.localPosition = new Vector3 (0, -140f, -2f);
 	}
 
 	IEnumerator FinishAnim(float seconds)
