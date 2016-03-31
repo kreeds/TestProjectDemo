@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-struct Skill
+public struct Skill
 {
 	public string name;
 	public int id;
@@ -23,7 +23,7 @@ struct PlayerStats
 public class PlayerManager : MonoBehaviour {
 
 	PlayerStats m_player;
-	Skill m_skills;
+	Skill[] m_skills;
 
 	BattleManager m_battleMgr;
 	EnemyManager m_enemyMgr;
@@ -68,6 +68,11 @@ public class PlayerManager : MonoBehaviour {
 		return _instance;
 	}
 
+	public LAppModelProxy Model
+	{
+		get{return l2dInterface;}
+	}
+
 	void Awake()
 	{
 		if(_instance == null)
@@ -90,10 +95,16 @@ public class PlayerManager : MonoBehaviour {
 		m_player.hp = 100;
 		m_player.bravebar = 0;
 
-		m_skills = new Skill();
-		m_skills.name = "SMOTHER FRIES";
-		m_skills.energyCost = 4;
-		m_skills.id = 1;
+		m_skills = new Skill[3];
+		m_skills[0].name = "Lady Knight Kick";
+		m_skills[0].energyCost = 8;
+		m_skills[0].id = 1;
+		m_skills[1].name = "Lady Knight Kick";
+		m_skills[1].energyCost = 8;
+		m_skills[1].id = 1;
+		m_skills[2].name = "Lady Knight Kick";
+		m_skills[2].energyCost = 8;
+		m_skills[2].id = 1;
 
 		//Create Skill Buttons
 
@@ -101,7 +112,10 @@ public class PlayerManager : MonoBehaviour {
 
 		if(m_handler != null)
 		{
-			m_handler.AddActionButton("NormalAttack", this.gameObject);
+			m_handler.AddActionButton("NormalAttack", this.gameObject, m_skills[0]);
+			m_handler.AddActionButton("NormalAttack", this.gameObject, m_skills[1]);
+			m_handler.AddActionButton("NormalAttack", this.gameObject, m_skills[2]);
+
 			m_handler.InitializeGauge((int)GAUGE.PLAYER, m_player.hp, m_player.hp, "Player");
 		}
 

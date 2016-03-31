@@ -31,6 +31,9 @@ public class HUDHandler : MonoBehaviour {
 
 	[SerializeField]GameObject	m_dodgeBtn;
 	[SerializeField]GameObject  m_sparkle;
+	[SerializeField]GameObject	m_lvlbar;
+	[SerializeField]GameObject 	m_pauseBtn;
+	[SerializeField]GameObject	m_heartObj;
 
 	UIGauge[] HPBars;
 
@@ -40,6 +43,7 @@ public class HUDHandler : MonoBehaviour {
 	List<ActionButton> m_actionButtonList;
 
 	UIScrollBar cameraScrollBar;
+
 
 	#region Mono
 	void Awake()
@@ -118,14 +122,32 @@ public class HUDHandler : MonoBehaviour {
 		obj =  Instantiate( Resources.Load("Prefabs/Battle/QuestTimer")) as GameObject;
 		obj.transform.SetParent(m_Top.transform, false);
 
+
+		// Initialize lvl bar
+		if(m_lvlbar != null)
+			m_lvlbar.SetActive(false);
+
+		if(m_pauseBtn != null)
+			m_pauseBtn.SetActive(true);
+		
 	}
 
-	public void AddActionButton(string funcName, GameObject target)
+	public void RemoveBattleHUD()
+	{
+		// Initialize lvl bar
+		if(m_lvlbar != null)
+			m_lvlbar.SetActive(true);
+
+		if(m_pauseBtn != null)
+			m_pauseBtn.SetActive(false);
+	}
+
+	public void AddActionButton(string funcName, GameObject target, Skill playerskill)
 	{
 		GameObject obj = Instantiate(Resources.Load ("Prefabs/ActionButton")) as GameObject;
 		obj.transform.SetParent(m_Mid.transform);
-		obj.transform.localScale = new Vector3 (0.7f, 0.7f, 0.7f);
-		obj.transform.localPosition = new Vector3 (-108.0f, 188.0f - (74 * m_actionButtonList.Count), 0f);
+		obj.transform.localScale = new Vector3 (0.6f, 0.6f, 0.6f);
+		obj.transform.localPosition = new Vector3 (-108.0f, -8.0f - (100 * m_actionButtonList.Count), 0f);
 
 		m_actionButtonList.Add(obj.GetComponentInChildren<ActionButton>());
 
@@ -184,6 +206,8 @@ public class HUDHandler : MonoBehaviour {
 		{
 			gauge.gameObject.SetActive(show);
 		}
+
+		m_heartObj.SetActive(show);
 	}
 
 	public void SetSpecialEnable(bool enable)

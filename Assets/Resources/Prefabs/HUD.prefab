@@ -524,7 +524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &146546
 GameObject:
   m_ObjectHideFlags: 1
@@ -1791,6 +1791,9 @@ MonoBehaviour:
   m_expBar: {fileID: 11493732}
   m_dodgeBtn: {fileID: 115578}
   m_sparkle: {fileID: 136868}
+  m_lvlbar: {fileID: 156814}
+  m_pauseBtn: {fileID: 138366}
+  m_heartObj: {fileID: 146548}
 --- !u!114 &11415574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2748,7 +2751,7 @@ MonoBehaviour:
   hover: {r: 1, g: 1, b: 1, a: 1}
   pressed: {r: .5, g: .5, b: .5, a: 1}
   duration: .200000003
-  disabledColor: {r: .5, g: .5, b: .5, a: 1}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &11446554
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -173,6 +173,11 @@ public class InputManager : MonoBehaviour {
 
 
 					}
+					else // Incorrect Gesture
+					{
+						if(m_playerMgr != null)
+							m_playerMgr.Model.PlayDamageAnim();
+					}
                     IsGestureRecognizingNeeded = false;
 					currentGesturePoints.Clear();
                 }

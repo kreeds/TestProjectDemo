@@ -134,7 +134,7 @@ public class BattleManager : MonoBehaviour
 		m_FXObj.transform.localPosition = new Vector3(720, m_FXObj.transform.localPosition.y, -20); 
 
 		// Remove HP Bar
-		m_HUDService.HUDControl.SetSpecialEnable(false);
+		m_HUDService.HUDControl.ShowHPBars(false);
 
 
 		m_cntDwnRnt = Utility.DelayInSeconds(m_gestureInv - m_specialCountDown, 
@@ -153,7 +153,7 @@ public class BattleManager : MonoBehaviour
 		ClearGesture();
 
 		m_playerMgr.RemoveBB();
-		m_HUDService.HUDControl.SetSpecialEnable(true);
+		m_HUDService.HUDControl.ShowHPBars(true);
 
 		if(m_FXObj != null)
 			Destroy(m_FXObj);
@@ -272,6 +272,8 @@ public class BattleManager : MonoBehaviour
 		m_gestureState = GestureState.START;
 
 		m_playerMgr.RemoveBB();
+
+		m_HUDService.HUDControl.ShowHPBars(true);
 
 		if(m_FXObj != null)
 			Destroy(m_FXObj);
