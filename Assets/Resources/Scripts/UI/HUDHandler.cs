@@ -183,7 +183,7 @@ public class HUDHandler : MonoBehaviour {
 	public void AttachMid(ref GameObject obj)
 	{
 		if(obj != null)
-			obj.transform.SetParent(m_Mid.transform);
+			obj.transform.SetParent(m_Mid.transform, false);
 	}
 	public void ShowTop(bool show)
 	{

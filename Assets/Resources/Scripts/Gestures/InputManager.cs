@@ -163,7 +163,7 @@ public class InputManager : MonoBehaviour {
 					if(mgData.IsRequiredGestureRecognized(	gestureName, mgGesture.getGestureIndex)
 						 && m_battleMgr.currentGestureState != BattleManager.GestureState.END )
 					{
-
+					 
 						if(m_battleMgr != null)
 							m_battleMgr.CorrectGesture();
 
@@ -175,8 +175,9 @@ public class InputManager : MonoBehaviour {
 					}
 					else // Incorrect Gesture
 					{
-						if(m_playerMgr != null)
-							m_playerMgr.Model.PlayDamageAnim();
+						GameObject obj = Instantiate(Resources.Load("Prefabs/Battle/MISS")) as GameObject;
+						Service.Get<HUDService>().HUDControl.AttachMid(ref obj);
+
 					}
                     IsGestureRecognizingNeeded = false;
 					currentGesturePoints.Clear();

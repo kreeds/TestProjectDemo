@@ -42,36 +42,6 @@ public class CountDown : MonoBehaviour {
 		}
 	}
 
-	IEnumerator AlphaIn()
-	{
-		// Control alpha from Sprite Renderer
-		float t = 0;
-		m_renderer.color = Color.clear;
-		while(t < 1)
-    	{
-			t += Time.deltaTime/m_duration;
-			m_renderer.color = Color.Lerp(Color.clear, Color.white, t);
-			yield return null;
-		}
-		m_renderer.color = Color.white;
-
-		yield return StartCoroutine(AlphaOut());
-	}
-
-	IEnumerator AlphaOut()
-	{
-		float t = 0;
-		// Control alpha from Sprite Renderer
-		while(t < 1) 
-    	{
-    		t += Time.deltaTime/m_duration;
-			m_renderer.color = Color.Lerp(Color.white, Color.clear, t);
-			yield return null;
-		}
-
-		m_renderer.color = Color.clear;
-	}
-
 	void ShowCount()
 	{
 		if(m_countdown < 1)
@@ -80,7 +50,7 @@ public class CountDown : MonoBehaviour {
 		m_renderer.sprite = m_sprites[System.Convert.ToInt32(m_countdown-1)];
 		m_countdown -= 1;
 
-		StartCoroutine(AlphaIn());
+		StartCoroutine(Utility.AlphaInOut(this, m_renderer.material, m_duration, m_duration));
 
 	}
 }
