@@ -122,8 +122,8 @@ public class BattleManager : MonoBehaviour
 
 	IEnumerator CommenceAtkInterval()
 	{	
-		//Testing for Emiko's Proposal		
-		//yield return new WaitForSeconds(m_interval);
+		// Testing for Emiko's Proposal		
+		// yield return new WaitForSeconds(m_interval);
 		if (GestureGenerateMethod != null) {
 			GestureGenerateMethod ();
 		}
@@ -133,11 +133,15 @@ public class BattleManager : MonoBehaviour
 		m_FXObj.transform.SetParent(m_itemParent.transform, false);
 		m_FXObj.transform.localPosition = new Vector3(720, m_FXObj.transform.localPosition.y, -20); 
 
+		// Remove HP Bar
+		m_HUDService.HUDControl.SetSpecialEnable(false);
+
+
 		m_cntDwnRnt = Utility.DelayInSeconds(m_gestureInv - m_specialCountDown, 
 						(res) => 
 						{ 
 							GameObject obj = Instantiate(Resources.Load("Prefabs/Battle/CountDown")) as GameObject;
-							obj.transform.parent = m_HUDService.HUDControl.transform;
+							obj.transform.SetParent(m_HUDService.HUDControl.transform, false);
 							obj.transform.localScale = new Vector3(180, 180, 1);
 						} );
 		StartCoroutine(m_cntDwnRnt);
@@ -149,7 +153,7 @@ public class BattleManager : MonoBehaviour
 		ClearGesture();
 
 		m_playerMgr.RemoveBB();
-
+		m_HUDService.HUDControl.SetSpecialEnable(true);
 
 		if(m_FXObj != null)
 			Destroy(m_FXObj);

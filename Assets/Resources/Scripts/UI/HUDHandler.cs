@@ -30,6 +30,7 @@ public class HUDHandler : MonoBehaviour {
 	[SerializeField]UISlider	m_expBar;
 
 	[SerializeField]GameObject	m_dodgeBtn;
+	[SerializeField]GameObject  m_sparkle;
 
 	UIGauge[] HPBars;
 
@@ -48,6 +49,7 @@ public class HUDHandler : MonoBehaviour {
 		m_actionButtonList = new List<ActionButton>();
 
 		m_expBar.sliderValue = 0.4f;
+		m_sparkle.SetActive(false);
 	}
 
 	// Update is called once per frame
@@ -79,9 +81,10 @@ public class HUDHandler : MonoBehaviour {
 	#region Public
 	public void CreateBattleHUD()
 	{
+		// Create Hp Bars
 		HPBars = new UIGauge[2];
 		GameObject obj = NGUITools.AddChild(m_Top, Resources.Load("Prefabs/Battle/EnemyHpBar") as GameObject);
-		obj.transform.localPosition = new Vector3(22.7f, -76.2f, 0);
+		obj.transform.localPosition = new Vector3(22.7f, -55.2f, 0);
 		obj.transform.localScale = new Vector3(0.25f,0.25f,1f);
 		HPBars[(int)GAUGE.ENEMY] = obj.GetComponent<UIGauge>();
 
@@ -93,9 +96,11 @@ public class HUDHandler : MonoBehaviour {
 		if(m_bottomLeft != null)
 			m_bottomLeft.SetActive(true);
 
+		// Initialize Managers
 		bmgr = BattleManager.Get();
 		pmgr = PlayerManager.Get();
 
+		// Initialize Buttons
 		if(m_specialBtn != null)
 		{
 			m_specialBtn.isEnabled = false;
@@ -108,6 +113,11 @@ public class HUDHandler : MonoBehaviour {
 			m_dodgeBtn.GetComponent<UIButtonMessage>().target = pmgr.gameObject;
 			m_dodgeBtn.GetComponent<UIButtonMessage>().functionName = "Dodge"; 
 		}
+
+		// Initialize Battle End Timer
+		obj =  Instantiate( Resources.Load("Prefabs/Battle/QuestTimer")) as GameObject;
+		obj.transform.SetParent(m_Top.transform, false);
+
 	}
 
 	public void AddActionButton(string funcName, GameObject target)
@@ -167,6 +177,15 @@ public class HUDHandler : MonoBehaviour {
 		m_Mid.SetActive(show);
 	}
 
+	// Only used in Battle
+	public void ShowHPBars(bool show)
+	{
+		foreach(UIGauge gauge in HPBars)
+		{
+			gauge.gameObject.SetActive(show);
+		}
+	}
+
 	public void SetSpecialEnable(bool enable)
 	{
 		Debug.Log("*********Special Enable: " + enable);
@@ -182,6 +201,15 @@ public class HUDHandler : MonoBehaviour {
 	{
 		if(m_heartSprite != null)
 		{
+			// Target Amount is full
+			if(targetAmt == 1.0f)
+			{
+				m_sparkle.SetActive(true);
+			}
+			else
+			{
+				m_sparkle.SetActive(false);
+			}
 			StartCoroutine(FillSprite(targetAmt));
 		}
 	}
