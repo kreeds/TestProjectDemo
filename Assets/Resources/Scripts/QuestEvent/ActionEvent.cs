@@ -43,7 +43,7 @@ public class ActionEvent : MonoBehaviour {
 		scale.x = (textScale.x * _actionLabel.transform.localScale.x) + 242;
 
 		expandedCenter = transform.localPosition;
-		expandedCenter.x += scale.x / 2;
+//		expandedCenter.x += scale.x / 4;
 
 		_buttonCollider.size = scale;
 //		if (scale.x < 460)
