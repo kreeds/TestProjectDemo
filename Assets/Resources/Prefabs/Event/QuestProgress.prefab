@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 433086}
   - 114: {fileID: 11433088}
+  - 114: {fileID: 11416428}
   m_Layer: 5
   m_Name: Sprite (icon04)
   m_TagString: Untagged
@@ -202,6 +203,44 @@ Transform:
   - {fileID: 493972}
   m_Father: {fileID: 493970}
   m_RootOrder: 1
+--- !u!114 &11416428
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133086}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e7459110b9666449485c40f25362a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 0
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: .5
+  steeperCurves: 0
+  tweenGroup: 0
+  eventReceiver: {fileID: 193970}
+  callWhenFinished: OnScaleFinished
+  from: {x: 63, y: 63, z: 1}
+  to: {x: 63, y: 63, z: 1}
+  updateTable: 0
 --- !u!114 &11428908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -331,6 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressSprite: {fileID: 11433088}
   questNameLabel: {fileID: 11472712}
+  progressScale: {fileID: 11416428}
 --- !u!114 &11493972
 MonoBehaviour:
   m_ObjectHideFlags: 1

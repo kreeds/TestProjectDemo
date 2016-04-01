@@ -9,7 +9,7 @@ public class BackGroundDragControl : MonoBehaviour {
 	void Start () {
 		if(panel != null)
 		{
-			panel.clipRange = new Vector4(panel.clipRange.x, panel.clipRange.y, 640, 960);
+			panel.clipRange = new Vector4(panel.clipRange.x, panel.clipRange.y, 640, 1152);
 
 			GameObject obj = Instantiate (Resources.Load ("Prefabs/CameraBar")) as GameObject;
 
