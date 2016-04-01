@@ -8,6 +8,7 @@ public class CollectableItems : MonoBehaviour {
 	[SerializeField]TweenAlpha t_alpha;
 	[SerializeField]float 	lifeTime = 5.0f;
 	[SerializeField]float	destroyTime = 1.0f;
+	[SerializeField]GameObject m_sparkle;
 
 	UIButtonMessage m_btnMsg;
 	ItemType 		m_type;
@@ -61,6 +62,7 @@ public class CollectableItems : MonoBehaviour {
 				break;
 			case ItemType.GOLD:
 				label.color = Color.yellow;
+
 				break;
 			case ItemType.STAR:
 				break;
@@ -82,10 +84,14 @@ public class CollectableItems : MonoBehaviour {
 								t_alpha.Play(true);
 							}
 
-			if (m_type == ItemType.STAR){
-				GameObject obj = GameObject.Find ("EventManager");
-				obj.SendMessage("OnStarCollected");
-			}
+							if (m_type == ItemType.STAR){
+								GameObject obj = GameObject.Find ("EventManager");
+								obj.SendMessage("OnStarCollected");
+							}
+							else if(m_type == ItemType.GOLD)
+							{
+								m_sparkle.SetActive(true);
+							}
 						} 
 						));
 	}
@@ -101,6 +107,7 @@ public class CollectableItems : MonoBehaviour {
 				break;
 			case ItemType.GOLD:
 				label.color = Color.yellow;
+				m_sparkle.SetActive(true);
 				break;
 		case ItemType.STAR:
 			GameObject obj = GameObject.Find ("EventManager");
@@ -121,6 +128,9 @@ public class CollectableItems : MonoBehaviour {
 		{
 			t_alpha.Play(true);
 		}
+
+
+
 	}
 
 	void Destroy()
