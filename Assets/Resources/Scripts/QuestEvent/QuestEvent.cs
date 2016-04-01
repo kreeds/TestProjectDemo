@@ -842,6 +842,7 @@ public class QuestEvent : MonoBehaviour {
 
 				Vector3 pos = new Vector3 (currentAction.loc.x, currentAction.loc.y, -7);
 				actionObj.transform.localPosition = pos;
+				actionObj.transform.localScale = new Vector3(0.75f, 0.75f, 1);
 
 				ActionEvent actionEvent = actionObj.GetComponent<ActionEvent> ();
 				actionEvent.Initialize (i, currentAction.staminaCost, gameObject, currentAction.desc);
@@ -928,6 +929,8 @@ public class QuestEvent : MonoBehaviour {
 		m_hudService.HUDControl.AttachMid(ref obj);
 		obj.transform.localScale = Vector3.one;
 		obj.transform.localPosition = new Vector3(0, 0, -5);
+
+		m_hudService.HUDControl.ShowBottom (false);
 	}
 
 	void OnStarCollected(){

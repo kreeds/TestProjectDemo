@@ -210,8 +210,8 @@ MonoBehaviour:
   _Anim: {fileID: 11124962}
   _texture: {fileID: 11410412}
   _textureInvert: {fileID: 11412500}
-  _intervalTime: .600000024
-  _lifeTIme: .600000024
+  _intervalTime: .200000003
+  _lifeTIme: .200000003
 --- !u!114 &11484276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -279,13 +279,13 @@ MonoBehaviour:
     m_PostInfinity: 2
   ignoreTimeScale: 1
   delay: 0
-  duration: .200000003
+  duration: .100000001
   steeperCurves: 0
   tweenGroup: 0
   eventReceiver: {fileID: 110410}
   callWhenFinished: OnAttackAnim
-  from: {x: -719, y: -292, z: 0}
-  to: {x: -619, y: -292, z: 0}
+  from: {x: -719, y: -221, z: 0}
+  to: {x: -619, y: -221, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -3,7 +3,7 @@
 	"name": "model",
 	"model": "model.moc",
 	"textures": [
-		"texture_2048.png",
+		"texture_00-1.png",
 		"texture02.png",
 		"texture04.png"
 	],
@@ -12,7 +12,7 @@
 			{"file":"idol00.mtn","fade_in":200, "fade_out":200}
 		],
 		"idle":[
-			{"file":"idol01.mtn","fade_in":200, "fade_out":200}
+			{"file":"idol01.mtn","fade_in":0, "fade_out":200}
 		],
 		"idle_npc":[
 			{"file":"idol02.mtn","fade_in":200, "fade_out":200}
@@ -27,7 +27,7 @@
 			{"file":"atk01.mtn","fade_in":200, "fade_out":200}
 		],
 		"damaged":[
-			{"file":"damage.mtn","fade_in":200, "fade_out":200}
+			{"file":"damage.mtn","fade_in":200, "fade_out":20}
 		],
 		"win":[
 			{"file":"win00.mtn","fade_in":200, "fade_out":200}

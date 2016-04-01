@@ -14,7 +14,10 @@ public class CollectableItems : MonoBehaviour {
 	int				m_amt;
 
 
-
+	public float LifeTime
+	{
+		get{ return lifeTime;}
+	}
 	void Start()
 	{
 		m_btnMsg = GetComponent<UIButtonMessage>();

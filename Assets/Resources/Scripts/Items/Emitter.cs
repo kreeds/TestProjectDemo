@@ -24,6 +24,8 @@ public class Emitter : MonoBehaviour {
 		Max
 	};
 
+	public float spread = 50.0f;
+
 	Dictionary<ItemType, int> map = new Dictionary<ItemType, int>();
 	List<BoxCollider> colContainer = new List<BoxCollider>();
 	EmitType m_type;
@@ -67,24 +69,30 @@ public class Emitter : MonoBehaviour {
 	/// <param name="amt">Amt.</param>
 	void ImpulseFire(ItemType type, int amt)
 	{
+		float lifetime = 0.0f;
 		for(int i = 0; i < amt; ++i)
 		{
 			GameObject obj =  Instantiate(Resources.Load("Prefabs/CollectableItems")) as GameObject;
 			obj.transform.parent = gameObject.transform;
 			obj.transform.localScale = Vector3.one;
-			obj.transform.localPosition = Vector3.zero;
+			float rangeXY = Random.Range(-spread, spread);
+
+			obj.transform.localPosition = new Vector3(rangeXY, rangeXY, 0);
 
 			CollectableItems item = obj.GetComponent<CollectableItems>();
+			lifetime = item.LifeTime;
 			item.Init(type);
 			Rigidbody body = obj.GetComponent<Rigidbody>();
 			colContainer.Add(obj.GetComponent<BoxCollider>());
 
 			float randomx= Random.Range(m_rangeMinX, m_rangeMaxX);
 			float randomy = Random.Range(m_rangeMinY, m_rangeMaxY);
-			body.AddForce(new Vector3(randomx, randomy, 0.0f), ForceMode.Impulse);
+			body.AddForce(new Vector3(randomx, randomy, randomx), ForceMode.Impulse);
 		}
 
 		IgnoreCollision();
+
+		StartCoroutine(Utility.DelayInSeconds(lifetime, (res) =>{ Destroy(this); } ));
 
 	}
 
@@ -97,6 +105,7 @@ public class Emitter : MonoBehaviour {
 	IEnumerator CreateItemsWithInterval(ItemType type, int amt)
 	{
 		int i = 0;
+		float lifetime = 0.0f;
 		while(i < amt)
 		{	
 			i++;
@@ -104,9 +113,12 @@ public class Emitter : MonoBehaviour {
 			GameObject obj =  Instantiate(Resources.Load("Prefabs/CollectableItems")) as GameObject;
 			obj.transform.parent = gameObject.transform;
 			obj.transform.localScale = Vector3.one;
-			obj.transform.localPosition = Vector3.zero;
+			float rangeXY = Random.Range(-spread, spread);
+
+			obj.transform.localPosition = new Vector3(rangeXY, rangeXY, 0);
 
 			CollectableItems item = obj.GetComponent<CollectableItems>();
+			lifetime = item.LifeTime;
 			item.Init(type);
 			Rigidbody body = obj.GetComponent<Rigidbody>();
 			colContainer.Add(obj.GetComponent<BoxCollider>());
@@ -117,10 +129,10 @@ public class Emitter : MonoBehaviour {
 
 			IgnoreCollision();
 
-			yield return new WaitForSeconds(0.01f);
+			yield return new WaitForSeconds(0.005f);
 		}
 
-
+		yield return StartCoroutine(Utility.DelayInSeconds(lifetime, (res) =>{ Destroy(this); } ));
 	}
 
 	/// <summary>

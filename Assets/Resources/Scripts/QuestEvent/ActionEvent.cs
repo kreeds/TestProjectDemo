@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ActionEvent : MonoBehaviour {
 	[SerializeField]TweenScale		_expandTween;
+	[SerializeField]TweenScale		_expandFill;
+
 	[SerializeField]UILabel			_actionLabel;
 
 	[SerializeField]UISprite		_expandedBG;
@@ -14,8 +16,6 @@ public class ActionEvent : MonoBehaviour {
 
 	[SerializeField]UISprite		_baseBG;
 
-//	[SerializeField]UISlider		_progressBar;
-	[SerializeField]UIGauge			_progressGauge;
 	[SerializeField]BoxCollider		_buttonCollider;
 
 	[SerializeField]TweenColor		_alphaTween;
@@ -29,6 +29,10 @@ public class ActionEvent : MonoBehaviour {
 	private int						_progressAmt;
 
 	public Vector3					expandedCenter;
+
+	Vector3					nextScale;
+	float 					fillWidth;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -63,7 +67,6 @@ public class ActionEvent : MonoBehaviour {
 //		if (scale.x < 460)
 //			scale.x = 460;
 		_expandedBG.transform.localScale = scale;
-		_fillBG.transform.localScale = scale;
 
 		scale.y = _frameBG.transform.localScale.y;
 
@@ -77,13 +80,20 @@ public class ActionEvent : MonoBehaviour {
 
 		_frameBG.transform.localScale = scale;
 
-		_progressGauge.Init (0, required*10);
+//		_progressGauge.Init (0, required*10);
 
 //		_progressBar.sliderValue = 0;
 		_requiredAmt = required;
 		_progressAmt = 0;
 
 		_isExpanded = false;
+
+		fillWidth = scale.x;
+
+		_expandFill.from = scale;
+		_expandFill.from.x = 0;
+
+ 		_fillBG.transform.localScale = Vector3.zero;
 	}
 
 	void OnExpand()
@@ -111,13 +121,24 @@ public class ActionEvent : MonoBehaviour {
 		_expandedBG.enabled = false;
 	}
 
-	void OnButtonClick()
+	void OnFillFinish()
 	{
-		float newAmount = (float)++_progressAmt;
-		_progressGauge.reduce (-10);
+		_expandFill.from = _expandFill.to;
+		_expandFill.Reset ();
+
 		if (_progressAmt >= _requiredAmt) {
 			_rootObject.SendMessage ("OnAction", _actionId);
 			Destroy (gameObject);
 		}
+	}
+
+	void OnButtonClick()
+	{
+		float newAmount = (float)++_progressAmt;
+
+		_expandFill.to = _expandFill.from;
+		_expandFill.to.x = fillWidth * newAmount / _requiredAmt;
+
+		_expandFill.Play (true);
 	}
 }
