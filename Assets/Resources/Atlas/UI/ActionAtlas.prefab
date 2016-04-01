@@ -117,13 +117,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2009
-      y: 1875
+      y: 1938
       width: 21
       height: 62
     inner:
       serializedVersion: 2
       x: 2009
-      y: 1875
+      y: 1938
       width: 21
       height: 62
     rotated: 0
@@ -188,14 +188,14 @@ MonoBehaviour:
   - name: SSSSS_Quest_UI_button_3Coin
     outer:
       serializedVersion: 2
-      x: 1096
-      y: 778
+      x: 1149
+      y: 669
       width: 334
       height: 80
     inner:
       serializedVersion: 2
-      x: 1096
-      y: 778
+      x: 1149
+      y: 669
       width: 334
       height: 80
     rotated: 0
@@ -206,14 +206,14 @@ MonoBehaviour:
   - name: SSSSS_Quest_UI_button_4Gem
     outer:
       serializedVersion: 2
-      x: 1431
-      y: 783
+      x: 1484
+      y: 674
       width: 327
       height: 75
     inner:
       serializedVersion: 2
-      x: 1431
-      y: 783
+      x: 1484
+      y: 674
       width: 327
       height: 75
     rotated: 0
@@ -224,14 +224,14 @@ MonoBehaviour:
   - name: SSSSS_Quest_UI_button_2Energy
     outer:
       serializedVersion: 2
-      x: 1433
-      y: 867
+      x: 1548
+      y: 776
       width: 332
       height: 82
     inner:
       serializedVersion: 2
-      x: 1433
-      y: 867
+      x: 1548
+      y: 776
       width: 332
       height: 82
     rotated: 0
@@ -261,13 +261,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 592
-      y: 39
+      y: 27
       width: 136
       height: 102
     inner:
       serializedVersion: 2
       x: 592
-      y: 39
+      y: 27
       width: 136
       height: 102
     rotated: 0
@@ -333,13 +333,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 729
-      y: 33
+      y: 21
       width: 121
       height: 108
     inner:
       serializedVersion: 2
       x: 729
-      y: 33
+      y: 21
       width: 121
       height: 108
     rotated: 0
@@ -386,13 +386,13 @@ MonoBehaviour:
   - name: icon05
     outer:
       serializedVersion: 2
-      x: 902
+      x: 1354
       y: 750
       width: 193
       height: 199
     inner:
       serializedVersion: 2
-      x: 902
+      x: 1354
       y: 750
       width: 193
       height: 199
@@ -440,14 +440,14 @@ MonoBehaviour:
   - name: icon07
     outer:
       serializedVersion: 2
-      x: 592
-      y: 142
+      x: 1149
+      y: 750
       width: 204
       height: 199
     inner:
       serializedVersion: 2
-      x: 592
-      y: 142
+      x: 1149
+      y: 750
       width: 204
       height: 199
     rotated: 0
@@ -476,14 +476,14 @@ MonoBehaviour:
   - name: icon04
     outer:
       serializedVersion: 2
-      x: 592
-      y: 342
+      x: 902
+      y: 77
       width: 232
       height: 221
     inner:
       serializedVersion: 2
-      x: 592
-      y: 342
+      x: 902
+      y: 77
       width: 232
       height: 221
     rotated: 0
@@ -513,13 +513,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 902
-      y: 692
+      y: 19
       width: 147
       height: 57
     inner:
       serializedVersion: 2
       x: 902
-      y: 692
+      y: 19
       width: 147
       height: 57
     rotated: 0
@@ -602,13 +602,13 @@ MonoBehaviour:
   - name: UI_top00
     outer:
       serializedVersion: 2
-      x: 1096
+      x: 1548
       y: 859
       width: 336
       height: 90
     inner:
       serializedVersion: 2
-      x: 1112
+      x: 1564
       y: 872
       width: 307
       height: 63
@@ -675,13 +675,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2009
-      y: 1938
+      y: 1875
       width: 21
       height: 62
     inner:
       serializedVersion: 2
       x: 2009
-      y: 1938
+      y: 1875
       width: 21
       height: 62
     rotated: 0
@@ -878,10 +878,10 @@ MonoBehaviour:
       height: 267
     inner:
       serializedVersion: 2
-      x: 1743
-      y: 1781
-      width: 265
-      height: 267
+      x: 1875
+      y: 1922
+      width: 19
+      height: 8
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
@@ -926,14 +926,14 @@ MonoBehaviour:
   - name: Quest_Bar_XP_Empty
     outer:
       serializedVersion: 2
-      x: 825
-      y: 500
+      x: 1932
+      y: 996
       width: 63
       height: 63
     inner:
       serializedVersion: 2
-      x: 825
-      y: 500
+      x: 1932
+      y: 996
       width: 63
       height: 63
     rotated: 0
@@ -962,14 +962,14 @@ MonoBehaviour:
   - name: Rank_Bar_Rank
     outer:
       serializedVersion: 2
-      x: 902
-      y: 627
+      x: 1885
+      y: 885
       width: 118
       height: 64
     inner:
       serializedVersion: 2
-      x: 930
-      y: 627
+      x: 1913
+      y: 885
       width: 54
       height: 64
     rotated: 0
@@ -1058,9 +1058,9 @@ MonoBehaviour:
       height: 132
     inner:
       serializedVersion: 2
-      x: 1333
+      x: 1401
       y: 1344
-      width: 542
+      width: 417
       height: 132
     rotated: 0
     paddingLeft: 0
@@ -1070,15 +1070,15 @@ MonoBehaviour:
   - name: Battle_Bar_BG
     outer:
       serializedVersion: 2
-      x: 914
-      y: 950
-      width: 519
+      x: 1446
+      y: 1062
+      width: 542
       height: 109
     inner:
       serializedVersion: 2
-      x: 914
-      y: 950
-      width: 519
+      x: 1446
+      y: 1062
+      width: 542
       height: 109
     rotated: 0
     paddingLeft: 0
@@ -1088,21 +1088,111 @@ MonoBehaviour:
   - name: Battle_Bar_BG_Fill
     outer:
       serializedVersion: 2
-      x: 1457
-      y: 1062
-      width: 519
+      x: 902
+      y: 950
+      width: 542
       height: 109
     inner:
       serializedVersion: 2
-      x: 1457
-      y: 1062
-      width: 519
+      x: 902
+      y: 950
+      width: 542
       height: 109
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: .119266056
     paddingBottom: .0917431191
+  - name: UI_4_News
+    outer:
+      serializedVersion: 2
+      x: 592
+      y: 347
+      width: 246
+      height: 216
+    inner:
+      serializedVersion: 2
+      x: 592
+      y: 347
+      width: 246
+      height: 216
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_3_Costume
+    outer:
+      serializedVersion: 2
+      x: 592
+      y: 130
+      width: 246
+      height: 216
+    inner:
+      serializedVersion: 2
+      x: 592
+      y: 130
+      width: 246
+      height: 216
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_2_Friends
+    outer:
+      serializedVersion: 2
+      x: 902
+      y: 733
+      width: 246
+      height: 216
+    inner:
+      serializedVersion: 2
+      x: 902
+      y: 733
+      width: 246
+      height: 216
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_1_Academia
+    outer:
+      serializedVersion: 2
+      x: 902
+      y: 516
+      width: 246
+      height: 216
+    inner:
+      serializedVersion: 2
+      x: 902
+      y: 516
+      width: 246
+      height: 216
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_5_Quests
+    outer:
+      serializedVersion: 2
+      x: 902
+      y: 299
+      width: 246
+      height: 216
+    inner:
+      serializedVersion: 2
+      x: 902
+      y: 299
+      width: 246
+      height: 216
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

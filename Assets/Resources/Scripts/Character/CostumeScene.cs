@@ -242,6 +242,6 @@ public class CostumeScene : MonoBehaviour {
 
 	void OnHomeClick()
 	{
-		fader.ChangeScene("MainMenu");
+		Service.Get<HUDService> ().ReturnToHome ();
 	}
 }
