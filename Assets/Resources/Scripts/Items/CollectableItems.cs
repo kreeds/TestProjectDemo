@@ -44,7 +44,7 @@ public class CollectableItems : MonoBehaviour {
 		case ItemType.STAR:
 			gameObject.layer = 12;
 			label.gameObject.layer = 12;
-			sprite.spriteName = "icon04";
+			sprite.spriteName = "Quest_Bar_XP";
 				break;
 			case ItemType.XP:
 				sprite.spriteName = "";

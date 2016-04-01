@@ -795,11 +795,13 @@ public class QuestEvent : MonoBehaviour {
 			Service.Get<HUDService> ().ChangeScene ("EventScene");
 		} else if (currentScene.nextSequence != null) {
 			if (currentScene.nextSequence == "BattleScene"){
-				
-				GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/TransformAnim")) as GameObject;
+				GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/BattleStart")) as GameObject;
 				m_hudService.HUDControl.AttachMid(ref obj);
 				obj.transform.localScale = Vector3.one;
 				obj.transform.localPosition = new Vector3(0, 0, -5);
+
+				BattleStart battleDialog = obj.GetComponent<BattleStart>();
+				battleDialog.Initialize(gameObject, "Mirror Monster");
 			}
 			else
 				Service.Get<HUDService> ().ChangeScene (currentScene.nextSequence);
@@ -830,6 +832,7 @@ public class QuestEvent : MonoBehaviour {
 				obj.transform.localScale = new Vector3(0.75f, 0.75f, 1);
 
 				questProgress = obj.GetComponent<QuestProgress>();
+				questProgress.Initialize(currentQuest.questName, "");
 			}
 			questProgress.gameObject.SetActive (true);
 			questProgress.SetProgress (0);
@@ -905,11 +908,26 @@ public class QuestEvent : MonoBehaviour {
 	}
 
 	void OnExpandAction(int actionID){
+
+		for (int i = 0; i < actionList.Count; ++i) {
+			if (i == actionID)
+				continue;
+
+			actionList[i].Close ();
+		}
 		float newPosX = actionList [actionID].expandedCenter.x;
 		Vector3 pos = scenePanel.transform.localPosition;
 //
 		pos.x = -newPosX;
 		SpringPanel.Begin (scenePanel.gameObject, pos, 8f);
+	}
+
+	void OnBeginBattle()
+	{
+		GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/TransformAnim")) as GameObject;
+		m_hudService.HUDControl.AttachMid(ref obj);
+		obj.transform.localScale = Vector3.one;
+		obj.transform.localPosition = new Vector3(0, 0, -5);
 	}
 
 	void OnStarCollected(){

@@ -71,4 +71,9 @@ public class HUDService : CSingleton {
 		m_scene.ChangeScene(name);
 	}
 
+	public void ReturnToHome()
+	{
+		QuestEvent.nextSceneID = 0;
+		ChangeScene ("EventScene");
+	}
 }

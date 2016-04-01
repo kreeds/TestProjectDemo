@@ -271,10 +271,24 @@ public class HUDHandler : MonoBehaviour {
 	}	
 
 	#endregion
+	
+	void OnHomeClick()
+	{
+		Service.Get<HUDService> ().ReturnToHome ();
+	}
+
+	void OnFriendClick()
+	{
+//		Service.Get<HUDService> ().ChangeScene ("");
+	}
 
 	void OnClothingClick()
 	{
-		Service.Get<HUDService>().ChangeScene("CharaScene");
+		Service.Get<HUDService>().ChangeScene("CostumeScene");
 	}
 
+	void OnNewsClick()
+	{
+		Service.Get<HUDService>().ChangeScene("FeedScene");
+	}
 }
