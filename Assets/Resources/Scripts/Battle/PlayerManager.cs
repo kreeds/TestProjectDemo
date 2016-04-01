@@ -132,13 +132,13 @@ public class PlayerManager : MonoBehaviour {
 			isPlaying = true;
 			// Scroll to enemy
 			TweenAttack(true);
-			l2dInterface.PlayIdleAnim();
+			l2dInterface.PlayCombatIdleAnim();
 		}
 
 		if(isBeingAttacked && l2dInterface.IsAnimationComplete())
 		{
 			isBeingAttacked = false;
-			l2dInterface.PlayIdleAnim();
+			l2dInterface.PlayCombatIdleAnim();
 		}
 	}
 
