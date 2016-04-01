@@ -314,12 +314,14 @@ public class BattleManager : MonoBehaviour
 	}
 
 	//TODO: Add parameter to take in data for items to launch
-	public void CreateEmitter(Vector3 pos, ref ItemType[] type, ref int[] amount, float rangeMinX, float rangeMaxX, float rangeMinY, float rangeMaxY)
+	public void CreateEmitter(Vector3 pos, ref ItemType[] type, ref int[] amount, 
+								float rangeMinX, float rangeMaxX, float rangeMinY, 
+								float rangeMaxY, Emitter.EmitType mytype = Emitter.EmitType.Flow)
 	{
 		GameObject obj = NGUITools.AddChild(m_itemParent, Resources.Load("Prefabs/Emitter") as GameObject);
 		obj.transform.localPosition = pos;
 
-		obj.GetComponent<Emitter>().Init(type, amount, rangeMinX, rangeMaxX, rangeMinY, rangeMaxY, Emitter.EmitType.Flow);
+		obj.GetComponent<Emitter>().Init(type, amount, rangeMinX, rangeMaxX, rangeMinY, rangeMaxY, mytype);
 	}
 
 	#region Button

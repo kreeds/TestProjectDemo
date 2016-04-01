@@ -239,7 +239,8 @@ public class Death : FSMState
 			amt[0] = 100;
 
 
-			bmr.CreateEmitter(vec, ref m_type, ref amt, -50.0f, 50.0f, -100.0f, 100.0f);
+			//bmr.CreateEmitter(vec, ref m_type, ref amt, -50.0f, 50.0f, -100.0f, 100.0f);
+			bmr.CreateEmitter(vec, ref m_type, ref amt, -1.0f, 1.0f, -2.0f, 2.0f, Emitter.EmitType.Impulse);
 		}
 	}
 }
