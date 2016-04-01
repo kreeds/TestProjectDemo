@@ -4,6 +4,7 @@ using System.Collections;
 public class QuestProgress : MonoBehaviour {
 
 	[SerializeField]UISprite progressSprite;
+	[SerializeField]UILabel questNameLabel;
 	// Use this for initialization
 	void Start () {
 	
@@ -30,5 +31,9 @@ public class QuestProgress : MonoBehaviour {
 		Vector3 localScale = progressSprite.transform.localScale;
 		localScale.x = rect.width*(5f*progressRatio);
 		progressSprite.transform.localScale = localScale;
+	}
+
+	public void Initialize(string questName, string time){
+		questNameLabel.text = questName;
 	}
 }

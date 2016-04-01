@@ -48,6 +48,7 @@ public class QuestStart : MonoBehaviour {
 
 	void OnAnimationFinish()
 	{
-		Destroy (gameObject);
+		if (_tween.direction != AnimationOrTween.Direction.Forward)
+			Destroy (gameObject);
 	}
 }

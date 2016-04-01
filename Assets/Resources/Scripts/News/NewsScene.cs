@@ -39,6 +39,8 @@ public class NewsScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Service.Init();	
+		Service.Get<HUDService>().StartScene();
 		_newsDataList = new List<NewsDataItem> ();
 
 		InitializeDummy ();
@@ -102,6 +104,7 @@ public class NewsScene : MonoBehaviour {
 			_listTable.gameObject.SetActive(true);
 			_detailGroup.SetActive(false);
 		} else {
+			Service.Get<HUDService> ().ReturnToHome ();
 			//go back to previous scene
 		}
 	}

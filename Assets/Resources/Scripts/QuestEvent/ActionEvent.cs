@@ -88,12 +88,22 @@ public class ActionEvent : MonoBehaviour {
 
 	void OnExpand()
 	{
-		_baseBG.enabled = false;
+		_baseBG.enabled = _isExpanded;
 		_isExpanded = !_isExpanded;
 		_expandTween.Play (_isExpanded);
-		_alphaTween.Play (_isExpanded);
-		_scaleTween.Play (_isExpanded);
+//		_alphaTween.Play (_isExpanded);
+//		_scaleTween.Play (_isExpanded);
 		_rootObject.SendMessage ("OnExpandAction", _actionId);
+	}
+
+	public void Close()
+	{
+		if (_isExpanded == false)
+			return;
+
+		_baseBG.enabled = true;
+		_isExpanded = false;
+		_expandTween.Play (_isExpanded);
 	}
 
 	void OnExpandFinish()

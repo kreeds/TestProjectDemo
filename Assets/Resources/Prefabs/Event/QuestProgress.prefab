@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 433086}
   - 114: {fileID: 11433088}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: Sprite (icon04)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 433088}
   - 114: {fileID: 11433086}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: TimeLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 472712}
   - 114: {fileID: 11472712}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: QuestNameLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 493968}
   - 114: {fileID: 11493972}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 493972}
   - 114: {fileID: 11493974}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: Sprite (icon04)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 306, y: -23.7000008, z: -1}
+  m_LocalPosition: {x: 269, y: -24, z: -1}
   m_LocalScale: {x: 55, y: 55, z: 2.11106181}
   m_Children: []
   m_Father: {fileID: 493970}
@@ -143,7 +143,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -259, y: 30, z: -1}
+  m_LocalPosition: {x: -251.399994, y: 30, z: -1}
   m_LocalScale: {x: 55.0003166, y: 55.0003166, z: 2.11103988}
   m_Children: []
   m_Father: {fileID: 493970}
@@ -156,7 +156,7 @@ Transform:
   m_GameObject: {fileID: 193968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .5, y: .5, z: 0}
-  m_LocalScale: {x: 653, y: 125, z: 1}
+  m_LocalScale: {x: 560.200012, y: 125, z: 1}
   m_Children: []
   m_Father: {fileID: 493970}
   m_RootOrder: 0
@@ -167,8 +167,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -565.900024, y: 286.559998, z: -6}
-  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_LocalPosition: {x: 40.1300011, y: 286.559998, z: -6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 493968}
   - {fileID: 493974}
@@ -195,7 +195,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -270, y: -24, z: 0}
+  m_LocalPosition: {x: -251.399994, y: -24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433086}
@@ -237,8 +237,8 @@ MonoBehaviour:
   tweenGroup: 0
   eventReceiver: {fileID: 0}
   callWhenFinished: 
-  from: {x: 78, y: 400, z: 0}
-  to: {x: 78, y: 400, z: 0}
+  from: {x: 110, y: 400, z: 0}
+  to: {x: 110, y: 400, z: 0}
 --- !u!114 &11433086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -304,7 +304,7 @@ MonoBehaviour:
   mPivot: 3
   mDepth: 2
   mFont: {fileID: 11436730, guid: 0b148944a0ce64b5d9a909933a380543, type: 2}
-  mText: 2h 30 min
+  mText: Name
   mMaxLineWidth: 0
   mMaxLineHeight: 0
   mEncoding: 1
@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressSprite: {fileID: 11433088}
+  questNameLabel: {fileID: 11472712}
 --- !u!114 &11493972
 MonoBehaviour:
   m_ObjectHideFlags: 1
