@@ -153,7 +153,7 @@ public class QuestEvent : MonoBehaviour {
 		foreach (Character chara in currentScene.characterList) {
 			GameObject obj = GameObject.Instantiate(Resources.Load("Live2DAssets/EventLive2DModel")) as GameObject;
 			obj.transform.SetParent (scenePanel.transform);
-			obj.transform.localScale = new Vector3 (30f*chara.side, 30f, 30f);
+			obj.transform.localScale = new Vector3 (37f*chara.side, 1, 37f);
 			obj.transform.localPosition = new Vector3(chara.xpos, chara.ypos, -5);
 
 			LAppModelProxy l2dModel = obj.GetComponent<LAppModelProxy>();
