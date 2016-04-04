@@ -126,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -300}
+  m_LocalPosition: {x: 0, y: -150, z: -300}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 416166}
@@ -2325,7 +2325,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .666666627
+          value: .5
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -3102,12 +3102,12 @@ ParticleSystem:
   randomSeed: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   moveWithTransform: 1
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: .300000012
+      scalar: .5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3354,7 +3354,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    cnt0: 2
+    cnt0: 3
     cnt1: 30
     cnt2: 30
     cnt3: 30
@@ -4114,12 +4114,12 @@ ParticleSystem:
   randomSeed: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   moveWithTransform: 1
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: .300000012
+      scalar: .5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7172,7 +7172,7 @@ ParticleSystemRenderer:
   m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
-  m_LengthScale: 3
+  m_LengthScale: 2
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_SortMode: 1
@@ -7204,7 +7204,7 @@ ParticleSystemRenderer:
   m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
-  m_LengthScale: 3
+  m_LengthScale: 2
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_SortMode: 1
