@@ -41,55 +41,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 5a9365e8de5f84c189e97f3b06566c4a, type: 2}
   sprites:
-  - name: bbcnews
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 1333
-      width: 1242
-      height: 715
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 1333
-      width: 1242
-      height: 715
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: note
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 675
-      width: 962
-      height: 650
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 675
-      width: 962
-      height: 650
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
   - name: newspaper
     outer:
       serializedVersion: 2
-      x: 970
-      y: 657
-      width: 882
-      height: 668
+      x: 0
+      y: 1115
+      width: 776
+      height: 466
     inner:
       serializedVersion: 2
-      x: 970
-      y: 657
-      width: 882
-      height: 668
+      x: 0
+      y: 1115
+      width: 776
+      height: 466
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
@@ -98,16 +62,16 @@ MonoBehaviour:
   - name: magazine
     outer:
       serializedVersion: 2
-      x: 1250
-      y: 1372
-      width: 506
-      height: 676
+      x: 0
+      y: 648
+      width: 776
+      height: 466
     inner:
       serializedVersion: 2
-      x: 1250
-      y: 1372
-      width: 506
-      height: 676
+      x: 0
+      y: 648
+      width: 776
+      height: 466
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
@@ -116,14 +80,14 @@ MonoBehaviour:
   - name: top
     outer:
       serializedVersion: 2
-      x: 0
-      y: 525
+      x: 777
+      y: 1457
       width: 1242
       height: 124
     inner:
       serializedVersion: 2
-      x: 0
-      y: 525
+      x: 777
+      y: 1457
       width: 1242
       height: 124
     rotated: 0
@@ -134,14 +98,14 @@ MonoBehaviour:
   - name: sharebar
     outer:
       serializedVersion: 2
-      x: 0
-      y: 423
+      x: 777
+      y: 1362
       width: 1189
       height: 94
     inner:
       serializedVersion: 2
-      x: 0
-      y: 423
+      x: 777
+      y: 1362
       width: 1189
       height: 94
     rotated: 0
@@ -152,14 +116,14 @@ MonoBehaviour:
   - name: headline
     outer:
       serializedVersion: 2
-      x: 1197
-      y: 431
+      x: 0
+      y: 561
       width: 621
       height: 86
     inner:
       serializedVersion: 2
-      x: 1197
-      y: 431
+      x: 0
+      y: 561
       width: 621
       height: 86
     rotated: 0
@@ -170,14 +134,14 @@ MonoBehaviour:
   - name: mynews
     outer:
       serializedVersion: 2
-      x: 1250
-      y: 563
+      x: 0
+      y: 474
       width: 621
       height: 86
     inner:
       serializedVersion: 2
-      x: 1250
-      y: 563
+      x: 0
+      y: 474
       width: 621
       height: 86
     rotated: 0
@@ -188,14 +152,14 @@ MonoBehaviour:
   - name: portrait
     outer:
       serializedVersion: 2
-      x: 1826
-      y: 381
+      x: 1554
+      y: 1874
       width: 174
       height: 174
     inner:
       serializedVersion: 2
-      x: 1826
-      y: 381
+      x: 1554
+      y: 1874
       width: 174
       height: 174
     rotated: 0
@@ -206,14 +170,14 @@ MonoBehaviour:
   - name: LK_portrait
     outer:
       serializedVersion: 2
-      x: 1764
-      y: 1876
+      x: 1554
+      y: 1701
       width: 172
       height: 172
     inner:
       serializedVersion: 2
-      x: 1764
-      y: 1876
+      x: 1554
+      y: 1701
       width: 172
       height: 172
     rotated: 0
@@ -224,14 +188,14 @@ MonoBehaviour:
   - name: emptyheart
     outer:
       serializedVersion: 2
-      x: 1944
-      y: 1973
+      x: 1554
+      y: 1625
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 1944
-      y: 1973
+      x: 1554
+      y: 1625
       width: 85
       height: 75
     rotated: 0
@@ -242,14 +206,14 @@ MonoBehaviour:
   - name: filledheart
     outer:
       serializedVersion: 2
-      x: 1944
-      y: 1890
+      x: 1640
+      y: 1625
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 1944
-      y: 1890
+      x: 1640
+      y: 1625
       width: 85
       height: 75
     rotated: 0
@@ -260,14 +224,14 @@ MonoBehaviour:
   - name: bar
     outer:
       serializedVersion: 2
-      x: 0
-      y: 410
+      x: 777
+      y: 1356
       width: 1241
       height: 5
     inner:
       serializedVersion: 2
-      x: 0
-      y: 410
+      x: 777
+      y: 1356
       width: 1241
       height: 5
     rotated: 0
@@ -278,14 +242,14 @@ MonoBehaviour:
   - name: backbutton
     outer:
       serializedVersion: 2
-      x: 1764
-      y: 1402
+      x: 1977
+      y: 1990
       width: 44
       height: 58
     inner:
       serializedVersion: 2
-      x: 1764
-      y: 1402
+      x: 1977
+      y: 1990
       width: 44
       height: 58
     rotated: 0
@@ -296,14 +260,14 @@ MonoBehaviour:
   - name: emptynews
     outer:
       serializedVersion: 2
-      x: 1764
-      y: 1357
+      x: 1554
+      y: 1587
       width: 64
       height: 37
     inner:
       serializedVersion: 2
-      x: 1764
-      y: 1357
+      x: 1554
+      y: 1587
       width: 64
       height: 37
     rotated: 0
@@ -314,14 +278,14 @@ MonoBehaviour:
   - name: UI_cos_sort_owned 1
     outer:
       serializedVersion: 2
-      x: 1764
-      y: 1672
+      x: 1729
+      y: 1954
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 1764
-      y: 1672
+      x: 1729
+      y: 1954
       width: 247
       height: 94
     rotated: 0
@@ -332,14 +296,14 @@ MonoBehaviour:
   - name: UI_cos_sort_shop 1
     outer:
       serializedVersion: 2
-      x: 1764
-      y: 1774
+      x: 1729
+      y: 1859
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 1764
-      y: 1774
+      x: 1729
+      y: 1859
       width: 247
       height: 94
     rotated: 0
@@ -350,14 +314,14 @@ MonoBehaviour:
   - name: UI_cos_sort_shop
     outer:
       serializedVersion: 2
-      x: 1764
-      y: 1570
+      x: 1729
+      y: 1764
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 1764
-      y: 1570
+      x: 1729
+      y: 1764
       width: 247
       height: 94
     rotated: 0
@@ -368,16 +332,52 @@ MonoBehaviour:
   - name: UI_cos_sort_owned
     outer:
       serializedVersion: 2
-      x: 1764
-      y: 1468
+      x: 1729
+      y: 1669
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 1764
-      y: 1468
+      x: 1729
+      y: 1669
       width: 247
       height: 94
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tvnews
+    outer:
+      serializedVersion: 2
+      x: 777
+      y: 1582
+      width: 776
+      height: 466
+    inner:
+      serializedVersion: 2
+      x: 777
+      y: 1582
+      width: 776
+      height: 466
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: thankyounote
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1582
+      width: 776
+      height: 466
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1582
+      width: 776
+      height: 466
     rotated: 0
     paddingLeft: 0
     paddingRight: 0

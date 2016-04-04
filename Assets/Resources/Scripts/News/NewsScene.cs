@@ -53,11 +53,10 @@ public class NewsScene : MonoBehaviour {
 
 	void InitializeDummy()
 	{
-		_newsDataList.Add (new NewsDataItem ("Although, it is quite the feat that you survived this long. ", "portrait", "newspaper", "After seeing the boost in my levees from the bishopric, I revoke the city title as well. " +
-			"The maximum levees I can field now are doubled from just a couple years ago. We now outnumber several of the smaller realms around."));
-		_newsDataList.Add (new NewsDataItem ("Given how much his son hates him, I'm surprised nothing has come of it.", "portrait", "newspaper"));
-		_newsDataList.Add (new NewsDataItem ("[CAUTION]Fake lady knight", "portrait", "newspaper"));
-		_newsDataList.Add (new NewsDataItem ("Thank you", "portrait", "note"));
+		_newsDataList.Add (new NewsDataItem ("Placeholder", "portrait", "newspaper"));
+		_newsDataList.Add (new NewsDataItem ("Placeholder", "portrait", "tvnews"));
+		_newsDataList.Add (new NewsDataItem ("[CAUTION]Fake lady knight", "portrait", "tvnews"));
+		_newsDataList.Add (new NewsDataItem ("Thank you", "portrait", "thankyounote"));
 
 		InitializeNews ();
 	}
