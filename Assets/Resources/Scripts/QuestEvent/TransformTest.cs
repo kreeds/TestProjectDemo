@@ -22,4 +22,14 @@ public class TransformTest : MonoBehaviour {
 		obj.transform.localScale = Vector3.one;
 		obj.transform.localPosition = new Vector3(0, 0, -5);
 	}
+
+	void OnBattleTest(){
+		GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/BattleStart")) as GameObject;
+		m_hudService.HUDControl.AttachMid(ref obj);
+		obj.transform.localScale = Vector3.one;
+		obj.transform.localPosition = new Vector3(0, 0, -5);
+		
+		BattleStart battleDialog = obj.GetComponent<BattleStart>();
+		battleDialog.Initialize(gameObject, "Mirror Monster");
+	}
 }

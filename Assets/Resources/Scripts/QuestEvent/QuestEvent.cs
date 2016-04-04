@@ -905,13 +905,12 @@ public class QuestEvent : MonoBehaviour {
 
 		Emitter emitter = obj.GetComponent<Emitter> ();
 		emitter.Init (new ItemType[]{ItemType.STAR}, new int[]{action.completionAmount}, -1.5f, 1.5f, -1f, 1f);
-
 	}
 
 	void OnExpandAction(int actionID){
 
 		for (int i = 0; i < actionList.Count; ++i) {
-			if (i == actionID)
+			if (i == actionID || actionList[i] == null)
 				continue;
 
 			actionList[i].Close ();

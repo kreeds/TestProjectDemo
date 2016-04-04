@@ -29,7 +29,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 410320}
   - 114: {fileID: 11410306}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 410324}
   - 114: {fileID: 11410314}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 410326}
   - 114: {fileID: 11410316}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - 4: {fileID: 439822}
   - 114: {fileID: 11439822}
   - 114: {fileID: 11436356}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 447136}
   - 114: {fileID: 11447136}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 447138}
   - 114: {fileID: 11447138}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Sprite (icon00)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 459916}
   - 114: {fileID: 11459916}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
