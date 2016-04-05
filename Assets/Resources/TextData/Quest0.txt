@@ -11,32 +11,32 @@ name:Finish your essay!
 startdesc:"Finish your essay.\nReward: $200 Exp: 50"
 finishdesc:"May not win any awards, \nbut definitely an A!\nReward: $200 Exp: 50"
 <QuestEvent>
-x:616
-y:-37
+x:20
+y:240
 cost:1
 completion:6
 desc:Research from books
 <QuestEvent>
-x:470
-y:-50
+x:-764
+y:11
 cost:3
 completion:6
 desc:Find a topic
 <QuestEvent>
-x:13
-y:160
+x:615
+y:270
 cost:1
 completion:6
 desc:Look at something green
 <QuestEvent>
-x:-390
+x:-300
 y:100
 cost:4
 completion:6
 desc:Write draft
 <QuestEvent>
-x:500
-y:100
+x:30
+y:30
 cost:5
 completion:6
 desc:Write essay

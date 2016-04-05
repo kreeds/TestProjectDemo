@@ -933,6 +933,10 @@ public class QuestEvent : MonoBehaviour {
 	}
 
 	void OnStarCollected(){
+		if (currentQuest.completedAmount > currentQuest.requiredAmount) {
+			questProgress.SetProgress (1);
+			return;
+		}
 
 		currentQuest.completedAmount ++;
 		float progressRatio = 0f;

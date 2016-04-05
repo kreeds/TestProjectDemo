@@ -144,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -251.399994, y: 30, z: -1}
+  m_LocalPosition: {x: -250, y: 30, z: -1}
   m_LocalScale: {x: 55.0003166, y: 55.0003166, z: 2.11103988}
   m_Children: []
   m_Father: {fileID: 493970}
@@ -168,8 +168,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.1300011, y: 286.559998, z: -6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 230.300003, y: 400.399994, z: -6}
+  m_LocalScale: {x: .75, y: .75, z: 1}
   m_Children:
   - {fileID: 493968}
   - {fileID: 493974}
@@ -196,7 +196,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -251.399994, y: -24, z: 0}
+  m_LocalPosition: {x: -260, y: -24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433086}
@@ -276,15 +276,15 @@ MonoBehaviour:
   tweenGroup: 0
   eventReceiver: {fileID: 0}
   callWhenFinished: 
-  from: {x: 110, y: 400, z: 0}
-  to: {x: 110, y: 400, z: 0}
+  from: {x: 270, y: 440, z: 0}
+  to: {x: 270, y: 440, z: 0}
 --- !u!114 &11433086
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133088}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
@@ -343,7 +343,7 @@ MonoBehaviour:
   mPivot: 3
   mDepth: 2
   mFont: {fileID: 11436730, guid: 0b148944a0ce64b5d9a909933a380543, type: 2}
-  mText: Name
+  mText: 2h 30 min
   mMaxLineWidth: 0
   mMaxLineHeight: 0
   mEncoding: 1
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressSprite: {fileID: 11433088}
-  questNameLabel: {fileID: 11472712}
+  questNameLabel: {fileID: 11433086}
   progressScale: {fileID: 11416428}
 --- !u!114 &11493972
 MonoBehaviour:
