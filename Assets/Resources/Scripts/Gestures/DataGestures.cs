@@ -68,6 +68,32 @@ public class DataGestures : MonoBehaviour {
 		}
     }
 
+	public static void WriteGesture(PDollarGestureRecognizer.Point[] points, string gestureName, string fileName)
+        {
+            using (StreamWriter sw = new StreamWriter(fileName))
+            {
+                sw.WriteLine("<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>");
+                sw.WriteLine("<Gesture Name = \"{0}\">", gestureName);
+                int currentStroke = -1;
+                for (int i = 0; i < points.Length; i++)
+                {
+                    if (points[i].StrokeID != currentStroke)
+                    {
+                        if (i > 0)
+                            sw.WriteLine("\t</Stroke>");
+                        sw.WriteLine("\t<Stroke>");
+                        currentStroke = points[i].StrokeID;
+                    }
+
+                    sw.WriteLine("\t\t<Point X = \"{0}\" Y = \"{1}\" T = \"0\" Pressure = \"0\" />",
+                        points[i].X, points[i].Y
+                    );
+                }
+                sw.WriteLine("\t</Stroke>");
+                sw.WriteLine("</Gesture>");
+            }
+        }
+
     /// <summary>
     /// Loads the gestures data from XML file
     /// </summary>
