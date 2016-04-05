@@ -15,8 +15,8 @@ side:-1
 <Quest>
 x:-100
 y:-50
-side:1
-completion:10
+side:-1
+completion:11
 id:0
 name:Get Clothes For Margie!
 startdesc:"Find nice clothes for Margie!\nReward: $200 Exp: 50"
@@ -24,20 +24,20 @@ finishdesc:"Margie is going to look better than you now...\nReward: $200 Exp: 50
 <QuestEvent>
 x:212
 y:69
-cost:1
-completion:6
+cost:3
+completion:3
 desc:browse sale items
 <QuestEvent>
 x:-800
 y:-50
-cost:1
-completion:6
+cost:4
+completion:4
 desc:pick a dress
 <QuestEvent>
 x:-565
 y:245
-cost:1
-completion:6
+cost:4
+completion:4
 desc:pick a blouse
 <QuestEnd>
 <Drama>

@@ -381,7 +381,7 @@ public class QuestEvent : MonoBehaviour {
 						currentQuest.loc.y = int.Parse(parts[1]);
 					}
 					if (line.Contains("side")){
-//						currentQuest.direction = int.Parse(parts[1]);
+						currentQuest.direction = int.Parse(parts[1]);
 					}
 					if (line.Contains ("completion")){
 						currentQuest.requiredAmount = int.Parse (parts[1]);

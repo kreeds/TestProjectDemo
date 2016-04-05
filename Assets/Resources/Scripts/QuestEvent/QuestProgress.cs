@@ -53,6 +53,9 @@ public class QuestProgress : MonoBehaviour {
 
 	public void Initialize(string questName, string time){
 		questNameLabel.text = questName;
+		Vector3 scale = progressSprite.transform.localScale;
+		scale.x = 0;
+		progressSprite.transform.localScale = scale;
 	}
 
 	void OnScaleFinished()
