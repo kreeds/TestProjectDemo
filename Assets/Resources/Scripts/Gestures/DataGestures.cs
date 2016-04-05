@@ -114,24 +114,46 @@ public class DataGestures : MonoBehaviour {
         return gestures.ToArray();
     }
 
-    /// <summary>
+	/// <summary>
     /// Reads the gesture data string.
     /// </summary>
     /// <returns>The gesture data string.</returns>
     /// <param name="data">Data.</param>
     public static Gesture ReadGestureDataString(string data)
     {
+		XmlTextReader xmlReader = null;
+		System.IO.StringReader stringReader = new System.IO.StringReader(data);
+		xmlReader = new XmlTextReader(stringReader);
+		return ReadGesture(xmlReader);
+    }
 
-		Debug.Log("Reading Gesture Data: " + data);
+	public static Gesture ReadGestureDataFromFile(string fileName) 
+	{
+
+		XmlTextReader xmlReader = null;
+		Gesture gesture = null;
+		
+		try {
+			
+			xmlReader = new XmlTextReader(File.OpenText(fileName));
+			gesture = ReadGesture(xmlReader);
+				
+		} finally {
+			
+			if (xmlReader != null)
+				xmlReader.Close();
+		}
+		
+		return gesture;
+	}
+
+	private static Gesture ReadGesture(XmlTextReader xmlReader)
+    {
         List<Point> points = new List<Point>();
-        XmlTextReader xmlReader = null;
         int currentStrokeIndex = -1;
         string gestureName = "";
         try
         {
-            System.IO.StringReader stringReader = new System.IO.StringReader(data);
-
-            xmlReader = new XmlTextReader(stringReader);
             while (xmlReader.Read())
             {
                 if (xmlReader.NodeType != XmlNodeType.Element) continue;
@@ -157,20 +179,14 @@ public class DataGestures : MonoBehaviour {
                 }
             }
         }
-        catch (Exception Ex)
-		{
-            Debug.Log("EXCEPTION: " + Ex.GetType().ToString());
-            Debug.Log(Ex.Message);
-        }
         finally
         {
             if (xmlReader != null)
                 xmlReader.Close();
         }
-
-		Debug.Log("Reading Completed");
         return new Gesture(points.ToArray(), gestureName);
     }
+
 
     public int GetGestureCount()
     {

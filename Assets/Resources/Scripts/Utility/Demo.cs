@@ -42,7 +42,9 @@ public class Demo : MonoBehaviour {
 		//Load user custom gestures
 		string[] filePaths = Directory.GetFiles(Application.persistentDataPath, "*.xml");
 		foreach (string filePath in filePaths)
-			trainingSet.Add(DataGestures.ReadGestureDataString(filePath));
+		{
+			trainingSet.Add(DataGestures.ReadGestureDataFromFile(filePath));
+		}
 	}
 
 	void Update () {
@@ -120,9 +122,10 @@ public class Demo : MonoBehaviour {
 		if (GUI.Button(new Rect(Screen.width - 50, 150, 50, 30), "Add") && points.Count > 0 && newGestureName != "") {
 
 			string fileName = String.Format("{0}/{1}-{2}.xml", Application.persistentDataPath, newGestureName, DateTime.Now.ToFileTime());
+			Debug.Log(Application.persistentDataPath);
 
 			#if !UNITY_WEBPLAYER
-				DataGestures.WriteGesture(points.ToArray(), newGestureName, fileName);
+				DataGestures.Save(points, strokeId, fileName, newGestureName );
 			#endif
 
 			trainingSet.Add(new Gesture(points.ToArray(), newGestureName));
