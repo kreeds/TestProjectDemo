@@ -125,7 +125,7 @@ public class Demo : MonoBehaviour {
 			Debug.Log(Application.persistentDataPath);
 
 			#if !UNITY_WEBPLAYER
-				DataGestures.Save(points, strokeId, fileName, newGestureName );
+				DataGestures.Save(points, strokeId+1, fileName, newGestureName );
 			#endif
 
 			trainingSet.Add(new Gesture(points.ToArray(), newGestureName));
