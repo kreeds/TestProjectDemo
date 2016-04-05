@@ -95,6 +95,8 @@ public class RelationshipUp : MonoBehaviour {
 		_rootObject = rootObject;
 
 		_isAnimating = true;
+
+		_model.PlayIdleAnim ();
 	}
 
 	void OnSkip()

@@ -27,7 +27,7 @@ GameObject:
   - 114: {fileID: 11414112}
   - 65: {fileID: 6514118}
   - 114: {fileID: 11414118}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - 114: {fileID: 11414114}
   - 65: {fileID: 6514120}
   - 114: {fileID: 11414120}
-  m_Layer: 12
+  m_Layer: 5
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ Transform:
   m_GameObject: {fileID: 114118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 516, y: 20, z: 1}
+  m_LocalScale: {x: 580, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 414116}
   m_RootOrder: 0
@@ -85,8 +85,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27, y: 0, z: 0}
-  m_LocalScale: {x: 202.529999, y: 20, z: 1}
+  m_LocalPosition: {x: 7, y: 0, z: 0}
+  m_LocalScale: {x: 215.860001, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 414116}
   m_RootOrder: 1

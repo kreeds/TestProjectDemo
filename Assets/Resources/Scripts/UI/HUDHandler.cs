@@ -75,7 +75,16 @@ public class HUDHandler : MonoBehaviour {
 		string energyDisplayText = stamina + "/" + PlayerProfile.Get ().maxStamina;
 		m_energyLabel.text = energyDisplayText;
 
-		m_goldLabel.text = PlayerProfile.Get ().gold.ToString ();
+		int gold = PlayerProfile.Get ().gold;
+		gold = 30000;
+		if (gold > 99999)
+			m_goldLabel.text = string.Format("{0,2:F1}M", gold/1000000f);
+		else if (gold > 999)
+			m_goldLabel.text = string.Format("{0,2:F1}K", gold/1000f);
+		else
+			m_goldLabel.text = gold.ToString ();
+
+
 		m_gemLabel.text = PlayerProfile.Get ().gems	.ToString ();
 		m_lvlLabel.text = PlayerProfile.Get ().level.ToString ();
 	}
