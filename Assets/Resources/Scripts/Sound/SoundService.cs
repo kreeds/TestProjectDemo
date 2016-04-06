@@ -24,9 +24,9 @@ public class SoundService : CSingleton {
 		}
 
 		m_SFXContainer = GameObject.Find("SFXContainer");
-		if(m_BGMContainer == null)
+		if(m_SFXContainer == null)
 		{
-			m_BGMContainer = Instantiate(Resources.Load("Prefabs/SFX/SFXContainer")) as GameObject;
+			m_SFXContainer = Instantiate(Resources.Load("Prefabs/SFX/SFXContainer")) as GameObject;
 		}
 
 		m_BGMSource = new AudioSource[MAX_BGMCIP];
