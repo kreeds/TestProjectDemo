@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: newspaper
     outer:
       serializedVersion: 2
-      x: 0
-      y: 1115
+      x: 777
+      y: 1582
       width: 776
       height: 466
     inner:
       serializedVersion: 2
-      x: 0
-      y: 1115
+      x: 777
+      y: 1582
       width: 776
       height: 466
     rotated: 0
@@ -63,13 +63,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 648
+      y: 1115
       width: 776
       height: 466
     inner:
       serializedVersion: 2
       x: 0
-      y: 648
+      y: 1115
       width: 776
       height: 466
     rotated: 0
@@ -188,13 +188,13 @@ MonoBehaviour:
   - name: emptyheart
     outer:
       serializedVersion: 2
-      x: 1554
+      x: 1640
       y: 1625
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 1554
+      x: 1640
       y: 1625
       width: 85
       height: 75
@@ -206,13 +206,13 @@ MonoBehaviour:
   - name: filledheart
     outer:
       serializedVersion: 2
-      x: 1640
+      x: 1554
       y: 1625
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 1640
+      x: 1554
       y: 1625
       width: 85
       height: 75
@@ -261,15 +261,15 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1554
-      y: 1587
-      width: 64
-      height: 37
+      y: 1592
+      width: 32
+      height: 32
     inner:
       serializedVersion: 2
       x: 1554
-      y: 1587
-      width: 64
-      height: 37
+      y: 1592
+      width: 32
+      height: 32
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
@@ -279,13 +279,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1729
-      y: 1954
+      y: 1669
       width: 247
       height: 94
     inner:
       serializedVersion: 2
       x: 1729
-      y: 1954
+      y: 1669
       width: 247
       height: 94
     rotated: 0
@@ -297,13 +297,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1729
-      y: 1859
+      y: 1764
       width: 247
       height: 94
     inner:
       serializedVersion: 2
       x: 1729
-      y: 1859
+      y: 1764
       width: 247
       height: 94
     rotated: 0
@@ -315,13 +315,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1729
-      y: 1764
+      y: 1859
       width: 247
       height: 94
     inner:
       serializedVersion: 2
       x: 1729
-      y: 1764
+      y: 1859
       width: 247
       height: 94
     rotated: 0
@@ -333,13 +333,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1729
-      y: 1669
+      y: 1954
       width: 247
       height: 94
     inner:
       serializedVersion: 2
       x: 1729
-      y: 1669
+      y: 1954
       width: 247
       height: 94
     rotated: 0
@@ -350,14 +350,14 @@ MonoBehaviour:
   - name: tvnews
     outer:
       serializedVersion: 2
-      x: 777
-      y: 1582
+      x: 0
+      y: 648
       width: 776
       height: 466
     inner:
       serializedVersion: 2
-      x: 777
-      y: 1582
+      x: 0
+      y: 648
       width: 776
       height: 466
     rotated: 0

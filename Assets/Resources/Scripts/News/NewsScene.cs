@@ -53,10 +53,10 @@ public class NewsScene : MonoBehaviour {
 
 	void InitializeDummy()
 	{
-		_newsDataList.Add (new NewsDataItem ("Placeholder", "portrait", "newspaper"));
-		_newsDataList.Add (new NewsDataItem ("Placeholder", "portrait", "tvnews"));
-		_newsDataList.Add (new NewsDataItem ("[CAUTION]Fake lady knight", "portrait", "tvnews"));
-		_newsDataList.Add (new NewsDataItem ("Thank you", "portrait", "thankyounote"));
+		_newsDataList.Add (new NewsDataItem ("A new hero is in town!", "LK_portrait", "newspaper"));
+		_newsDataList.Add (new NewsDataItem ("Mysterious girl saves town! Who can she be?", "LK_portrait", "tvnews"));
+		_newsDataList.Add (new NewsDataItem ("[Caution] Fake Lady Knights", "LK_portrait", "tvnews"));
+		_newsDataList.Add (new NewsDataItem ("Thank you!", "portrait", "thankyounote"));
 
 		InitializeNews ();
 	}

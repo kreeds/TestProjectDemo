@@ -68,7 +68,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &180272
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 114112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 207.800003, y: 64, z: 1}
+  m_LocalScale: {x: 131.852127, y: 73.9658279, z: .401988208}
   m_Children: []
   m_Father: {fileID: 414110}
   m_RootOrder: 0
@@ -203,7 +203,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 113, z: -1}
+  m_LocalPosition: {x: 0, y: 103, z: -1}
   m_LocalScale: {x: 65, y: 65, z: .999839962}
   m_Children: []
   m_Father: {fileID: 480272}
@@ -264,9 +264,9 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 6
   mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
-  mSpriteName: SSSSS_Battle_UI_HealthBar
+  mSpriteName: UI_Button_OK
   mFillCenter: 1
-  mType: 1
+  mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -441,7 +441,7 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 0
   mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
-  mSpriteName: baloon01
+  mSpriteName: UI_frame_icon
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
