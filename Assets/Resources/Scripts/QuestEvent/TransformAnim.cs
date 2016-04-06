@@ -38,6 +38,8 @@ public class TransformAnim : MonoBehaviour {
 
 		StartCoroutine (FinishAnim (finishTime));
 		StartCoroutine (WhiteOut (fadeOutTime));
+
+		clickMessage.enabled = false;
 	}
 
 	IEnumerator EnableCollider(float seconds)

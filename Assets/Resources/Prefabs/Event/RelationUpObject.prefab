@@ -180,7 +180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &164714
 GameObject:
   m_ObjectHideFlags: 1
@@ -291,7 +291,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -757, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 458968}
@@ -324,7 +324,7 @@ Transform:
   m_GameObject: {fileID: 158970}
   m_LocalRotation: {x: .70710659, y: 0, z: 0, w: -.707106948}
   m_LocalPosition: {x: -111.769997, y: -55, z: -1}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalScale: {x: -20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 458966}
   m_RootOrder: 2
@@ -347,8 +347,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 190.300003, z: -.999838829}
-  m_LocalScale: {x: 65, y: 65, z: .999839962}
+  m_LocalPosition: {x: 0, y: 190.300003, z: -2}
+  m_LocalScale: {x: 57, y: 57, z: .999839962}
   m_Children: []
   m_Father: {fileID: 458966}
   m_RootOrder: 4
@@ -385,7 +385,7 @@ Transform:
   m_GameObject: {fileID: 164714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 207.800003, y: 64, z: 1}
+  m_LocalScale: {x: 141.670532, y: 79.4737091, z: .431922317}
   m_Children: []
   m_Father: {fileID: 464716}
   m_RootOrder: 0
@@ -396,7 +396,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 72, y: -165, z: -2}
+  m_LocalPosition: {x: 72, y: -180, z: -2}
   m_LocalScale: {x: .999839962, y: .999839962, z: .999839962}
   m_Children:
   - {fileID: 464714}
@@ -464,7 +464,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 150, y: 39.999958, z: 0}
+  m_Size: {x: 140, y: 80, z: 0}
   m_Center: {x: -7.62939453e-06, y: 1.52587891e-05, z: -2}
 --- !u!114 &11443120
 MonoBehaviour:
@@ -562,7 +562,7 @@ MonoBehaviour:
     e00: 511
     e01: 0
     e02: 0
-    e03: 771.599976
+    e03: 14.6000004
     e10: 0
     e11: 511
     e12: 0
@@ -624,7 +624,7 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 0
   mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
-  mSpriteName: baloon01
+  mSpriteName: UI_frame_icon
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -745,9 +745,9 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 6
   mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
-  mSpriteName: SSSSS_Battle_UI_HealthBar
+  mSpriteName: UI_Button_OK
   mFillCenter: 1
-  mType: 1
+  mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tweenTarget: {fileID: 164714}
-  hover: {r: .600000024, g: 1, b: .200000003, a: 1}
+  hover: {r: 1, g: 1, b: 1, a: 1}
   pressed: {r: .5, g: .5, b: .5, a: 1}
   duration: .200000003
   disabledColor: {r: .5, g: .5, b: .5, a: 1}
@@ -848,7 +848,7 @@ MonoBehaviour:
     e00: 511
     e01: 0
     e02: 0
-    e03: 757
+    e03: 0
     e10: 0
     e11: 511
     e12: 0
