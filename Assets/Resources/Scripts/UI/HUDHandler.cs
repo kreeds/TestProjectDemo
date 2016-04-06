@@ -275,6 +275,11 @@ public class HUDHandler : MonoBehaviour {
 			yield return null;
 		}
 		m_heartSprite.fillAmount = targetAmt;
+		if(targetAmt == 1)
+		{
+			SoundService ss = Service.Get<SoundService>();
+			ss.PlaySound(ss.GetSFX("gaugefull"), false);
+		}
 		//m_specialBtn.isEnabled = (m_heartSprite.fillAmount == 1)? true: false;
 
 	}	

@@ -173,6 +173,7 @@ public class Attack : FSMState
 			if(intervalCount > DelayCount)
 			{
 				enemy.PlayAttackAnim();
+				Service.Get<SoundService>().PlaySound(Service.Get<SoundService>().GetSFX("enemyattack"), false);
 				intervalCount = 0;
 				attack = false;
 			}
@@ -187,6 +188,7 @@ public class Attack : FSMState
 													UITweener.Style.Once,
 													pmgr.gameObject,
 													"OnMovementEnd");
+			Service.Get<SoundService>().PlaySound(Service.Get<SoundService>().GetSFX("sceneswish"), false);
 
 		}
 	}

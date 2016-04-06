@@ -53,6 +53,8 @@ public class PlayerManager : MonoBehaviour {
 	const float ranChance = 1.0f;
 	GameObject m_braveBurst;
 
+	SoundService m_soundService;
+
 
 	public bool isAttackComplete
 	{
@@ -123,6 +125,8 @@ public class PlayerManager : MonoBehaviour {
 
 		l2dInterface.GetModel ().StopBasicMotion (true);
 		l2dInterface.PlayCombatIdleAnim ();
+
+		m_soundService = Service.Get<SoundService>();
 	}
 
 	// Update is called once per frame
@@ -132,6 +136,7 @@ public class PlayerManager : MonoBehaviour {
 			isPlaying = true;
 			// Scroll to enemy
 			TweenAttack(true);
+
 			l2dInterface.PlayCombatIdleAnim();
 		}
 
@@ -164,6 +169,7 @@ public class PlayerManager : MonoBehaviour {
 										(res1) => {m_enemyMgr.damageEnemy(m_player.atk); 	
 										attackend = true;
 										playerattack = true; 
+										m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
 										} ));
 
 		
@@ -175,10 +181,17 @@ public class PlayerManager : MonoBehaviour {
 					AttackEffect(-23, -137);
 					GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/FX/WhiteFader_FX") as GameObject);
 					obj.transform.localScale = new Vector3(2048f, 2048f, 0);
-					m_enemyMgr.killEnemy();
-
-					attackend = true;
-					playerattack = true;
+					StartCoroutine(Utility.DelayInSeconds(0.5f,
+									(res1) => 
+									{
+										m_enemyMgr.killEnemy();
+										m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
+										m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
+										m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
+										attackend = true;
+										playerattack = true;
+									} ));
+					
 				}
 			}
 
@@ -216,9 +229,11 @@ public class PlayerManager : MonoBehaviour {
 												m_handler.ShowDodgeBtn(false); 
 												AttackEffect(16, 112); 
 												DamageEffect(); 
+
 											} ) ); 
 			}											
 
+			m_soundService.PlaySound(m_soundService.GetSFX("attack01"), false);
 		}
 		));
 
@@ -313,6 +328,8 @@ public class PlayerManager : MonoBehaviour {
 			m_battleMgr.ClearGesture();
 		}
 
+		m_soundService.PlaySound(m_soundService.GetSFX("finalstrokeappear"), false);
+
 		specialAtk = true;
 	}
 
@@ -333,12 +350,13 @@ public class PlayerManager : MonoBehaviour {
 		BattleEffect effect = obj.GetComponent<BattleEffect>();
 		if (effect != null) {
 			effect.Initialize(gameObject);
+			m_soundService.PlaySound(m_soundService.GetSFX("supermove"), false);
 		}
 	}
 	public void NormalAttack()
 	{
 		l2dInterface.PlayAttackAnim ();
-
+		m_soundService.PlaySound(m_soundService.GetSFX("playermoveattack"), false);
 		//Service.Get<HUDService>().ShowMid(false);
 		m_handler.ShowActionButtons(false);
 		isPlaying = attackend = specialAtk = false;
@@ -379,6 +397,7 @@ public class PlayerManager : MonoBehaviour {
 								UITweener.Style.Once,
 								gameObject,
 								"OnAttackEnd");
+		m_soundService.PlaySound(m_soundService.GetSFX("sceneswish"), false);
 	}
 	#region IEnumurators
 	IEnumerator ReturnCamera()

@@ -35,14 +35,18 @@ public class BattleManager : MonoBehaviour
 	bool m_beginFinisher;
 
 	HUDService m_HUDService;
+	SoundService m_soundService;
 
 	[SerializeField]GameObject		m_winLogo;
 	[SerializeField]BoardHandler	m_boardHandler;
 	[SerializeField]GameObject		m_itemParent;
 	[SerializeField]Transform		m_bgParent;
+	[SerializeField]string			m_bgmMusic;
 
 	GameObject m_FXObj;
 
+	AudioClip m_BGM;
+	AudioClip m_SPECIAL;
 	// Battle Phases
 	public enum BattlePhase
 	{
@@ -118,6 +122,19 @@ public class BattleManager : MonoBehaviour
 		m_HUDService.CreateBattleHUD();
 		m_HUDService.ShowBottom(false);
 		m_HUDService.HUDControl.SetSpecialEnable(false);
+
+		// Create Sound Service
+		m_soundService = Service.Get<SoundService>();
+		m_soundService.PreloadSFXResource(new string[11]{"attack01", "attack02", "attack03", 
+															"countdown", "enemyattack", "finalstrokeappear", 
+															"gaugefull", "magicnotecorrect", "playermoveattack", 
+															"sceneswish", "supermove"});
+
+		m_BGM = Resources.Load("Music/" + m_bgmMusic) as AudioClip;
+		m_SPECIAL = Resources.Load("Music/supermove_jingle" ) as AudioClip;
+		m_soundService.PlayMusic(m_BGM, true);
+		// Create Battle HUD
+
 	}
 
 	IEnumerator CommenceAtkInterval()
@@ -154,6 +171,8 @@ public class BattleManager : MonoBehaviour
 
 		m_playerMgr.RemoveBB();
 		m_HUDService.HUDControl.ShowHPBars(true);
+		m_soundService.StopMusic(m_SPECIAL);
+		m_soundService.PlayMusic(m_BGM, true);
 
 		if(m_FXObj != null)
 			Destroy(m_FXObj);
@@ -247,6 +266,8 @@ public class BattleManager : MonoBehaviour
 		GameObject spark = Instantiate(Resources.Load("Prefabs/FX/Special_Attack_Fx_Pass")) as GameObject;
 		spark.transform.SetParent(m_itemParent.transform, false);
 
+	
+		m_soundService.PlaySound(m_soundService.GetSFX("magicnotecorrect"), false);
 		// Generate new Gesture
 		if (GestureGenerateMethod != null) {
 			GestureGenerateMethod ();
@@ -262,6 +283,7 @@ public class BattleManager : MonoBehaviour
 			StopCoroutine(m_cntDwnRnt);
 		if(m_coroutine != null)
 			StopCoroutine(m_coroutine);
+		
 	}
 
 	public void Correct()
@@ -288,6 +310,9 @@ public class BattleManager : MonoBehaviour
 			m_phase = BattlePhase.ATTACK;
 			gaugeCount = 0;
 			ResetGauge();
+
+			m_soundService.StopMusic(m_SPECIAL);
+			m_soundService.PlayMusic(m_BGM, true);
 		}
 		else
 		{
@@ -331,11 +356,12 @@ public class BattleManager : MonoBehaviour
 			StopCoroutine(m_coroutine);
 
 		m_gestureState = GestureState.START;
-	
-		ResetGauge();
 
-//		if(m_gestureGenerator != null)
-//			m_gestureGenerator.DestroyGesture();
+		m_soundService.StopMusic(m_BGM);
+		m_soundService.PlayMusic(m_SPECIAL, true);
+
+
+		ResetGauge();
 
 		m_beginFinisher = true;
 		m_HUDService.HUDControl.ShowActionButtons(false);
