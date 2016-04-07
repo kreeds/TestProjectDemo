@@ -5,6 +5,7 @@ public class HUDService : CSingleton {
 
 	HUDHandler m_handler = null;
 	SceneFadeInOut m_scene = null;
+	SoundService m_sound = null;
 
 	void Awake()
 	{
@@ -21,6 +22,7 @@ public class HUDService : CSingleton {
 			DontDestroyOnLoad(Transitor);
 		}
 		m_scene = Transitor.GetComponentInChildren<SceneFadeInOut>();
+		m_sound = Service.Get<SoundService>();
 
 	}
 
@@ -68,6 +70,7 @@ public class HUDService : CSingleton {
 
 	public void ChangeScene(string name)
 	{
+		m_sound.StopMusic(0);
 		m_scene.ChangeScene(name);
 	}
 

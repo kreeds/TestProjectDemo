@@ -121,6 +121,12 @@ public class SoundService : CSingleton {
 		}
 	}
 
+	public void StopMusic(int channel)
+	{
+		if(m_BGMSource != null && m_BGMSource.Length > channel)
+			m_BGMSource[channel].Stop();	
+	}
+
 	/// <summary>
 	/// Sets the volume of the audio source
 	/// </summary>
