@@ -189,6 +189,11 @@ public class HUDHandler : MonoBehaviour {
 			HPBars[index].reduce(damage);
 		}
 	}
+	public void AttachTop(ref GameObject obj)
+	{
+		if(obj != null)
+			obj.transform.SetParent(m_Top.transform, false);
+	}
 	public void AttachMid(ref GameObject obj)
 	{
 		if(obj != null)

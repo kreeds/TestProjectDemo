@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 
 public class ImmersiveModeEnabler : MonoBehaviour {
-
+#if UNITY_ANDROID
 	AndroidJavaObject unityActivity;
 	AndroidJavaObject javaObj;
 	AndroidJavaClass javaClass;
@@ -95,5 +96,6 @@ public class ImmersiveModeEnabler : MonoBehaviour {
 			javaObj.CallStatic("DisableAppPin",unityActivity);
 		}
 	}
-
+	
+	#endif
 }

@@ -831,10 +831,10 @@ public class QuestEvent : MonoBehaviour {
 			currentQuest = quest;
 			if (questProgress == null){
 				GameObject obj = GameObject.Instantiate(Resources.Load("Prefabs/Event/QuestProgress")) as GameObject;
-				m_hudService.HUDControl.AttachMid(ref obj);
+				m_hudService.HUDControl.AttachTop(ref obj);
 
 				//obj.transform.localPosition = new Vector3(0, -280f, 0);
-				obj.transform.localScale = new Vector3(0.75f, 0.75f, 1);
+				obj.transform.localScale = new Vector3(0.35f, 0.35f, 1);
 
 				questProgress = obj.GetComponent<QuestProgress>();
 				questProgress.Initialize(currentQuest.questName, "");
@@ -909,7 +909,7 @@ public class QuestEvent : MonoBehaviour {
 		obj.transform.localPosition = newPos;
 
 		Emitter emitter = obj.GetComponent<Emitter> ();
-		emitter.Init (new ItemType[]{ItemType.STAR}, new int[]{action.completionAmount}, -1.5f, 1.5f, -1f, 1f);
+		emitter.Init (new ItemType[]{ItemType.STAR}, new int[]{action.completionAmount}, -1.5f, 1.5f, -1f, 1f, Emitter.EmitType.Flow);
 	}
 
 	void OnExpandAction(int actionID){
