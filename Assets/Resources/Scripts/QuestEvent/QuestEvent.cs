@@ -909,7 +909,7 @@ public class QuestEvent : MonoBehaviour {
 		obj.transform.localPosition = newPos;
 
 		Emitter emitter = obj.GetComponent<Emitter> ();
-		emitter.Init (new ItemType[]{ItemType.STAR}, new int[]{action.completionAmount}, -1.5f, 1.5f, -1f, 1f, Emitter.EmitType.Flow);
+		emitter.Init (new ItemType[]{ItemType.STAR}, new int[]{action.completionAmount}, -20f, 20f, 60f, 60f, Emitter.EmitType.Flow);
 	}
 
 	void OnExpandAction(int actionID){
