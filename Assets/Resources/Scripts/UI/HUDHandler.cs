@@ -303,7 +303,7 @@ public class HUDHandler : MonoBehaviour {
 
 	void OnFriendClick()
 	{
-//		Service.Get<HUDService> ().ChangeScene ("");
+		Service.Get<HUDService> ().ChangeScene ("FriendScene");
 	}
 
 	void OnClothingClick()
