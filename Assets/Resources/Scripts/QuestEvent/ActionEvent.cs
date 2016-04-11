@@ -136,6 +136,8 @@ public class ActionEvent : MonoBehaviour {
 	{
 		float newAmount = (float)++_progressAmt;
 
+		_costLabel.text = (_requiredAmt-_progressAmt).ToString ();
+
 		_expandFill.to = _expandFill.from;
 		_expandFill.to.x = fillWidth * newAmount / _requiredAmt;
 

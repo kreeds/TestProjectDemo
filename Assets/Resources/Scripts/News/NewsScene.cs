@@ -88,13 +88,13 @@ public class NewsScene : MonoBehaviour {
 
 	void OnNewsItemClicked(int id){
 //		_newsTexture.mainTexture = Resources.Load (_newsDataList [id]._mainTextureName) as Texture; 
-		_newsTexture.spriteName = _newsDataList [id]._mainTextureName;
-
-		_detailGroup.SetActive (true);
-		_listTable.gameObject.SetActive (false);
-
-		_bodyText.text = _newsDataList [id]._newsBody;
-		_headingText.text = _newsDataList [id]._headLine;
+//		_newsTexture.spriteName = _newsDataList [id]._mainTextureName;
+//
+//		_detailGroup.SetActive (true);
+//		_listTable.gameObject.SetActive (false);
+//
+//		_bodyText.text = _newsDataList [id]._newsBody;
+//		_headingText.text = _newsDataList [id]._headLine;
 	}
 
 	void OnBack()

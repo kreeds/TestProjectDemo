@@ -23,10 +23,11 @@ public class BattleStart : MonoBehaviour {
 
 		_dialogObject.transform.localScale = Vector3.zero;
 
-		GameObject obj1 = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Speedline_Fx") as GameObject);
-		obj1.transform.localScale = new Vector3 (100, 200);
-
-		obj1 = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/WarningExclaim_Fx") as GameObject);
+//		GameObject obj1 = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Speedline_Fx") as GameObject);
+//		obj1.transform.localScale = new Vector3 (100, 200);
+//
+//		obj1 = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/WarningExclaim_Fx") as GameObject);
+		GameObject obj1 = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Caution_Fx") as GameObject);
 		DestroyObject (obj1, obj1.particleSystem.duration);
 
 		StartCoroutine (ShowDialog (obj1.particleSystem.duration));

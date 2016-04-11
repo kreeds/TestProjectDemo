@@ -95,7 +95,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161276}
-  lengthInSec: 10
+  lengthInSec: 5
   startDelay: 0
   speed: 1
   randomSeed: 0
@@ -106,7 +106,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 10
+      scalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1067,18 +1067,18 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161278}
-  lengthInSec: 10
-  startDelay: .300000012
+  lengthInSec: 1
+  startDelay: 0
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 1
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 10
+      scalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1215,7 +1215,7 @@ ParticleSystem:
         rgba: 3023874815
       maxColor:
         serializedVersion: 2
-        rgba: 3706777840
+        rgba: 4294967295
       minMaxState: 0
     startSize:
       scalar: 3
@@ -1265,7 +1265,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 1
+    maxNumParticles: 2
   ShapeModule:
     serializedVersion: 2
     enabled: 0
@@ -1283,7 +1283,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 0
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1323,7 +1323,7 @@ ParticleSystem:
     time1: .0500000007
     time2: .100000001
     time3: 0
-    m_BurstCount: 1
+    m_BurstCount: 0
   SizeModule:
     enabled: 1
     curve:
@@ -1333,8 +1333,8 @@ ParticleSystem:
         m_Curve:
         - time: 0
           value: 1
-          inSlope: 0
-          outSlope: 0
+          inSlope: .0227336884
+          outSlope: .0227336884
           tangentMode: 0
         - time: 1
           value: 1
@@ -1362,7 +1362,7 @@ ParticleSystem:
   RotationModule:
     enabled: 1
     curve:
-      scalar: .610865235
+      scalar: .52359879
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1377,7 +1377,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .571428537
+          value: .666666627
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1421,8 +1421,8 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 6554
-        atime2: 58982
+        atime1: 9830
+        atime2: 55705
         atime3: 65535
         atime4: 65535
         atime5: 0
@@ -2039,18 +2039,18 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161280}
-  lengthInSec: 10
+  lengthInSec: 4
   startDelay: 0
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 1
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 10
+      scalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2187,7 +2187,7 @@ ParticleSystem:
         rgba: 3023874815
       maxColor:
         serializedVersion: 2
-        rgba: 3790663920
+        rgba: 4293980400
       minMaxState: 0
     startSize:
       scalar: 3
@@ -2237,7 +2237,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 1
+    maxNumParticles: 2
   ShapeModule:
     serializedVersion: 2
     enabled: 0
@@ -2255,7 +2255,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 0
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2291,11 +2291,11 @@ ParticleSystem:
     cnt1: 1
     cnt2: 1
     cnt3: 30
-    time0: 0
-    time1: .0500000007
-    time2: .100000001
+    time0: .5
+    time1: .800000012
+    time2: 2.9000001
     time3: 0
-    m_BurstCount: 1
+    m_BurstCount: 0
   SizeModule:
     enabled: 1
     curve:
@@ -2334,7 +2334,7 @@ ParticleSystem:
   RotationModule:
     enabled: 1
     curve:
-      scalar: .610865235
+      scalar: .34906584
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2349,7 +2349,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: -.571428537
+          value: -.75000006
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -2393,8 +2393,8 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 6554
-        atime2: 58982
+        atime1: 9830
+        atime2: 55705
         atime3: 65535
         atime4: 0
         atime5: 0
