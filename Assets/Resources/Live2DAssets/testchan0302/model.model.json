@@ -4,21 +4,25 @@
 	"model": "model.moc",
 	"textures": [
 		"texture_00-1.png",
+		"texture02-1.png",
 		"texture02.png",
 		"texture04.png"
 	],
 	"motions":{
+		"expression":[
+			{"file":"ex00_normal.mtn","fade_in":200, "fade_out":200}
+		],
 		"change":[
 			{"file":"idol00.mtn","fade_in":200, "fade_out":200}
 		],
 		"idle":[
-			{"file":"idol01.mtn","fade_in":200, "fade_out":200}
+			{"file":"idol_01.mtn","fade_in":200, "fade_out":200}
 		],
 		"idle_npc":[
-			{"file":"idol02.mtn","fade_in":200, "fade_out":200}
+			{"file":"idol_01.mtn","fade_in":200, "fade_out":200}
 		],
 		"idle_battle":[
-			{"file":"idol03.mtn","fade_in":200, "fade_out":200}
+			{"file":"idol_00.mtn","fade_in":200, "fade_out":200}
 		],
 		"attack":[
 			{"file":"atk00.mtn","fade_in":200, "fade_out":200}
