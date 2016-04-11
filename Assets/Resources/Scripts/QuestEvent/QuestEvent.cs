@@ -131,7 +131,8 @@ public class QuestEvent : MonoBehaviour {
 	void InitializeScene()
 	{
 		playerChara.PlayIdleAnim ();
-		playerChara.SetClothes (1);
+		playerChara.SetClothes (2);
+		playerChara.SetHair (1);
 
 		Vector3 lscale = playerChara.transform.localScale;
 		lscale.x = -lscale.x;

@@ -70,7 +70,7 @@ public class CostumeScene : MonoBehaviour {
 
 		currentGroupID = costumeGroupID = 0;
 
-		_l2dModel.PlayIdleAnim ();
+		_l2dModel.PlayIdleFrontFaceAnim ();
 	}
 	
 	// Update is called once per frame
