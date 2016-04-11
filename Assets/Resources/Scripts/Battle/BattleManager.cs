@@ -152,6 +152,8 @@ public class BattleManager : MonoBehaviour
 
 		// Remove HP Bar
 		m_HUDService.HUDControl.ShowHPBars(false);
+		m_HUDService.ShowQuestTime(false);
+
 
 
 		m_cntDwnRnt = Utility.DelayInSeconds(m_gestureInv - m_specialCountDown, 
@@ -171,6 +173,7 @@ public class BattleManager : MonoBehaviour
 
 		m_playerMgr.RemoveBB();
 		m_HUDService.HUDControl.ShowHPBars(true);
+		m_HUDService.ShowQuestTime(true);
 		m_soundService.StopMusic(m_SPECIAL);
 		m_soundService.PlayMusic(m_BGM, true);
 
@@ -296,6 +299,7 @@ public class BattleManager : MonoBehaviour
 		m_playerMgr.RemoveBB();
 
 		m_HUDService.HUDControl.ShowHPBars(true);
+		m_HUDService.ShowQuestTime(true);
 
 		if(m_FXObj != null)
 			Destroy(m_FXObj);

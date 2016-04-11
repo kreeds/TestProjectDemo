@@ -67,6 +67,10 @@ public class HUDService : CSingleton {
 //		m_handler.ShowMid(show);
 		HUDControl.ShowMid (show);
 	}
+	public void ShowQuestTime(bool show)
+	{
+		HUDControl.ShowQuestTime(show);
+	}
 
 	public void ChangeScene(string name)
 	{

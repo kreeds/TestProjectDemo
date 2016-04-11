@@ -360,6 +360,7 @@ public class PlayerManager : MonoBehaviour {
 		//Service.Get<HUDService>().ShowMid(false);
 		m_handler.ShowActionButtons(false);
 		isPlaying = attackend = specialAtk = false;
+		Service.Get<HUDService>().HUDControl.SetSpecialEnable(false);
 
 	}
 
@@ -398,6 +399,9 @@ public class PlayerManager : MonoBehaviour {
 								gameObject,
 								"OnAttackEnd");
 		m_soundService.PlaySound(m_soundService.GetSFX("sceneswish"), false);
+
+		// When attack tweening is happening, special attack should not be active
+		Service.Get<HUDService>().HUDControl.SetSpecialEnable(false);
 	}
 	#region IEnumurators
 	IEnumerator ReturnCamera()

@@ -44,6 +44,8 @@ public class HUDHandler : MonoBehaviour {
 
 	UIScrollBar cameraScrollBar;
 
+	GameObject m_QuestTImer;
+
 
 	#region Mono
 	void Awake()
@@ -128,8 +130,8 @@ public class HUDHandler : MonoBehaviour {
 		}
 
 		// Initialize Battle End Timer
-		obj =  Instantiate( Resources.Load("Prefabs/Battle/QuestTimer")) as GameObject;
-		obj.transform.SetParent(m_Top.transform, false);
+		m_QuestTImer =  Instantiate( Resources.Load("Prefabs/Battle/QuestTimer")) as GameObject;
+		m_QuestTImer.transform.SetParent(m_Top.transform, false);
 
 
 		// Initialize lvl bar
@@ -227,6 +229,12 @@ public class HUDHandler : MonoBehaviour {
 		}
 
 		m_heartObj.SetActive(show);
+	}
+
+	public void ShowQuestTime(bool show)
+	{
+		if(m_QuestTImer != null)
+			m_QuestTImer.SetActive(show);
 	}
 
 	public void SetSpecialEnable(bool enable)
