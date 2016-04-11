@@ -95,7 +95,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161276}
-  lengthInSec: 10
+  lengthInSec: 5
   startDelay: 0
   speed: 1
   randomSeed: 0
@@ -106,7 +106,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 10
+      scalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1067,7 +1067,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161278}
-  lengthInSec: 3
+  lengthInSec: 1
   startDelay: 0
   speed: 1
   randomSeed: 0
@@ -1078,7 +1078,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 3
+      scalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1362,7 +1362,7 @@ ParticleSystem:
   RotationModule:
     enabled: 1
     curve:
-      scalar: .610865235
+      scalar: .52359879
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1377,7 +1377,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .571428537
+          value: .666666627
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -2039,7 +2039,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161280}
-  lengthInSec: 3
+  lengthInSec: 4
   startDelay: 0
   speed: 1
   randomSeed: 0
@@ -2334,7 +2334,7 @@ ParticleSystem:
   RotationModule:
     enabled: 1
     curve:
-      scalar: .610865235
+      scalar: .34906584
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2349,7 +2349,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: -.571428537
+          value: -.75000006
           inSlope: 0
           outSlope: 0
           tangentMode: 0
