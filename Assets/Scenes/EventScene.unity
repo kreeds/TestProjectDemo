@@ -1019,6 +1019,8 @@ MonoBehaviour:
   playerText: {fileID: 527839838}
   otherText: {fileID: 311338835}
   backgroundTexture: {fileID: 126112586}
+  choiceTweenPos: {fileID: 326528642}
+  choiceTweenAlpha: {fileID: 326528641}
   choiceRoot: {fileID: 761566646}
   textCollider: {fileID: 2119769548}
   dialogBase: {fileID: 2119769545}
@@ -1036,11 +1038,156 @@ MonoBehaviour:
   - TextData/Quest1
   - TextData/Quest2
   - TextData/Quest3
-  firstQuest: 0
+  firstQuest: 1
   otherTextTweenIn: {fileID: 1417699275}
   playerTextTweenIn: {fileID: 855283030}
   otherTextTweenOut: {fileID: 1417699276}
   playerTextTweenOut: {fileID: 855283031}
+--- !u!1 &326528638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 194930, guid: 77d152f317652488082a5d49cd22ece4, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 326528639}
+  - 114: {fileID: 326528642}
+  - 114: {fileID: 326528641}
+  - 114: {fileID: 326528640}
+  m_Layer: 5
+  m_Name: ChoicePanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &326528639
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 494930, guid: 77d152f317652488082a5d49cd22ece4, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 326528638}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.59887048e-05, y: 2.14996617e-05, z: .000150497639}
+  m_LocalScale: {x: .999839962, y: .999839962, z: .999839962}
+  m_Children:
+  - {fileID: 761566645}
+  m_Father: {fileID: 2119769546}
+  m_RootOrder: 2
+--- !u!114 &326528640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 326528638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortByDepth: 0
+  showInPanelTool: 1
+  generateNormals: 0
+  depthPass: 0
+  widgetsAreStatic: 0
+  cullWhileDragging: 0
+  worldToLocal:
+    e00: 480.076813
+    e01: 0
+    e02: 0
+    e03: -.64522326
+    e10: 0
+    e11: 480.076813
+    e12: 0
+    e13: -2646.67017
+    e20: 0
+    e21: 0
+    e22: 480.076813
+    e23: 12.2131538
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  mAlpha: 1
+  mDebugInfo: 1
+  mClipping: 0
+  mClipRange: {x: 0, y: 0, z: 0, w: 0}
+  mClipSoftness: {x: 40, y: 40}
+--- !u!114 &326528641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 326528638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 0
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: .125
+  steeperCurves: 0
+  tweenGroup: 0
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: 0
+  to: 1
+--- !u!114 &326528642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11497706, guid: 77d152f317652488082a5d49cd22ece4,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 326528638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 0
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: .125
+  steeperCurves: 0
+  tweenGroup: 0
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: 0, y: -300, z: 0}
+  to: {x: 0, y: -100, z: 0}
 --- !u!1 &341795101
 GameObject:
   m_ObjectHideFlags: 0
@@ -3111,7 +3258,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 761566645}
   - 114: {fileID: 761566646}
-  - 114: {fileID: 761566647}
   m_Layer: 5
   m_Name: ChoiceRoot
   m_TagString: Untagged
@@ -3126,11 +3272,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 761566644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 5.59416694e-05, y: 0, z: -.000150521737}
+  m_LocalScale: {x: 1.0001601, y: 1.0001601, z: 1.0001601}
   m_Children: []
-  m_Father: {fileID: 2119769546}
-  m_RootOrder: 2
+  m_Father: {fileID: 326528639}
+  m_RootOrder: 0
 --- !u!114 &761566646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3150,44 +3296,6 @@ MonoBehaviour:
   repositionNow: 0
   sorted: 0
   hideInactive: 1
---- !u!114 &761566647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11497706, guid: 77d152f317652488082a5d49cd22ece4,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 761566644}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 0
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  ignoreTimeScale: 1
-  delay: 0
-  duration: .125
-  steeperCurves: 0
-  tweenGroup: 0
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: {x: 0, y: -500, z: 0}
-  to: {x: 0, y: -100, z: 0}
 --- !u!1 &772104876
 GameObject:
   m_ObjectHideFlags: 0
@@ -8826,7 +8934,7 @@ Transform:
   m_Children:
   - {fileID: 855283029}
   - {fileID: 1417699274}
-  - {fileID: 761566645}
+  - {fileID: 326528639}
   m_Father: {fileID: 101041896}
   m_RootOrder: 0
 --- !u!114 &2119769547

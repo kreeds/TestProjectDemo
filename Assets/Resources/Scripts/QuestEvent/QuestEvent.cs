@@ -31,6 +31,9 @@ public class QuestEvent : MonoBehaviour {
 
 	[SerializeField]UITexture		backgroundTexture;
 
+	[SerializeField]TweenPosition	choiceTweenPos;
+	[SerializeField]TweenAlpha		choiceTweenAlpha;
+	
 	[SerializeField]UIGrid			choiceRoot;
 
 	[SerializeField]Collider		textCollider;
@@ -81,6 +84,8 @@ public class QuestEvent : MonoBehaviour {
 
 	bool 				displayingChoice;
 
+	bool				isDisplayingBattleStart;
+
 	List<QuestChoiceOption>  choiceList;
 
 	List<AreaNode>		nodeList;
@@ -121,6 +126,8 @@ public class QuestEvent : MonoBehaviour {
 		else
 			LoadScene (sceneFiles [nextSceneID]);
 		InitializeScene ();
+
+		isDisplayingBattleStart = false;
 	}
 	
 	// Update is called once per frame
@@ -691,8 +698,10 @@ public class QuestEvent : MonoBehaviour {
 
 			choiceRoot.repositionNow = true;
 
-			UITweener tween = choiceRoot.GetComponent<UITweener>();
-			tween.Play (true);
+//			UITweener tween = choiceRoot.GetComponent<UITweener>();
+//			tween.Play (true);
+			choiceTweenPos.Play (true);
+			choiceTweenAlpha.Play (true);
 
 			textCollider.enabled = false;
 
@@ -732,8 +741,10 @@ public class QuestEvent : MonoBehaviour {
 			Destroy(option.gameObject);
 		}
 		
-		UITweener tween = choiceRoot.GetComponent<UITweener>();
-		tween.Play (false);
+//		UITweener tween = choiceRoot.GetComponent<UITweener>();
+//		tween.Play (false);
+		choiceTweenAlpha.Play (false);
+		choiceTweenPos.Play (false);
 
 		choiceList.Clear ();
 
@@ -802,13 +813,20 @@ public class QuestEvent : MonoBehaviour {
 			Service.Get<HUDService> ().ChangeScene ("EventScene");
 		} else if (currentScene.nextSequence != null) {
 			if (currentScene.nextSequence == "BattleScene"){
-				GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/BattleStart")) as GameObject;
-				m_hudService.HUDControl.AttachMid(ref obj);
-				obj.transform.localScale = Vector3.one;
-				obj.transform.localPosition = new Vector3(0, 0, -5);
 
-				BattleStart battleDialog = obj.GetComponent<BattleStart>();
-				battleDialog.Initialize(gameObject, "Mirror Monster");
+				if (isDisplayingBattleStart == false){
+					textCollider.enabled = false;
+
+					GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/BattleStart")) as GameObject;
+					m_hudService.HUDControl.AttachMid(ref obj);
+					obj.transform.localScale = Vector3.one;
+					obj.transform.localPosition = new Vector3(0, 0, -5);
+
+					BattleStart battleDialog = obj.GetComponent<BattleStart>();
+					battleDialog.Initialize(gameObject, "Mirror Monster");
+
+					isDisplayingBattleStart = true;
+				}
 			}
 			else
 				Service.Get<HUDService> ().ChangeScene (currentScene.nextSequence);

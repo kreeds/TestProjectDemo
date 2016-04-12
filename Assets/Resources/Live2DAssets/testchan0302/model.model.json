@@ -13,16 +13,16 @@
 			{"file":"ex00_normal.mtn","fade_in":200, "fade_out":200}
 		],
 		"change":[
-			{"file":"idol00.mtn","fade_in":200, "fade_out":200}
+			{"file":"idol00.mtn","fade_in":2000, "fade_out":200}
 		],
 		"frontface":[
-			{"file":"idol_00.mtn","fade_in":200, "fade_out":200}
+			{"file":"idol_00.mtn","fade_in":50, "fade_out":200}
 		],
 		"idle":[
-			{"file":"idol_01.mtn","fade_in":200, "fade_out":200}
+			{"file":"idol_01.mtn","fade_in":20, "fade_out":200}
 		],
 		"idle_npc":[
-			{"file":"idol_01.mtn","fade_in":200, "fade_out":200}
+			{"file":"idol_01.mtn","fade_in":20, "fade_out":200}
 		],
 		"idle_battle":[
 			{"file":"idol03.mtn","fade_in":200, "fade_out":200}
