@@ -159,7 +159,7 @@ public class QuestEvent : MonoBehaviour {
 		foreach (Character chara in currentScene.characterList) {
 			GameObject obj = GameObject.Instantiate(Resources.Load("Live2DAssets/EventLive2DModel")) as GameObject;
 			obj.transform.SetParent (scenePanel.transform);
-			obj.transform.localScale = new Vector3 (37f*chara.side, 1, 37f);
+			obj.transform.localScale = new Vector3 (45f*chara.side, 1, 45f);
 			obj.transform.localPosition = new Vector3(chara.xpos, chara.ypos, -5);
 
 			LAppModelProxy l2dModel = obj.GetComponent<LAppModelProxy>();
@@ -224,6 +224,7 @@ public class QuestEvent : MonoBehaviour {
 			Destroy (questProgress.gameObject);
 
 		foreach (LAppModelProxy l2d in sceneCharas) {
+			if (l2d != null)
 			Destroy (l2d.gameObject);
 		}
 	}
@@ -859,7 +860,7 @@ public class QuestEvent : MonoBehaviour {
 	}
 
 	void StartDrama(Drama selectedDrama) {
-		float dialogLoc = selectedDrama.loc.x;
+		float dialogLoc = selectedDrama.loc.x + 50f;
 
 		Vector3 pos = scenePanel.transform.localPosition;
 //		float diff = pos.x - dialogLoc;
@@ -873,9 +874,9 @@ public class QuestEvent : MonoBehaviour {
 
 		LoadDialog (selectedDrama.dramaFile);
 
-		pos = dialogBase.transform.localPosition;
-		pos.x = dialogLoc;
-		dialogBase.transform.localPosition = pos;
+//		pos = dialogBase.transform.localPosition;
+//		pos.x = dialogLoc;
+//		dialogBase.transform.localPosition = pos;
 		dialogBase.SetActive (true);
 
 		pos = playerChara.transform.localPosition;

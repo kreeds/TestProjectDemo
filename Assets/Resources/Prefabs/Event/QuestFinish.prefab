@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &106196
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -18,7 +18,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &114110
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -69,6 +69,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &124658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 424658}
+  - 114: {fileID: 11424656}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &180272
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,6 +95,7 @@ GameObject:
   - 4: {fileID: 480272}
   - 114: {fileID: 11422682}
   - 114: {fileID: 11473624}
+  - 114: {fileID: 11424658}
   m_Layer: 5
   m_Name: QuestFinish
   m_TagString: Untagged
@@ -88,7 +105,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &180274
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -104,7 +121,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &180278
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -125,10 +142,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -184, y: 40.2200012, z: 0}
+  m_LocalPosition: {x: -184, y: 40.2201195, z: 0}
   m_LocalScale: {x: 40, y: 40, z: 1}
   m_Children: []
-  m_Father: {fileID: 480272}
+  m_Father: {fileID: 424658}
   m_RootOrder: 2
 --- !u!4 &414110
 Transform:
@@ -137,12 +154,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -91.4000015, z: 0}
+  m_LocalPosition: {x: -0, y: -91.3999939, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 414112}
   - {fileID: 414114}
-  m_Father: {fileID: 480272}
+  m_Father: {fileID: 424658}
   m_RootOrder: 3
 --- !u!4 &414112
 Transform:
@@ -168,6 +185,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 414110}
   m_RootOrder: 1
+--- !u!4 &424658
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 480274}
+  - {fileID: 480278}
+  - {fileID: 406196}
+  - {fileID: 414110}
+  m_Father: {fileID: 480272}
+  m_RootOrder: 0
 --- !u!4 &480272
 Transform:
   m_ObjectHideFlags: 1
@@ -178,10 +211,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -2.27999997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 480274}
-  - {fileID: 480278}
-  - {fileID: 406196}
-  - {fileID: 414110}
+  - {fileID: 424658}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &480274
@@ -191,10 +221,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 500, y: 350, z: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 499.999969, y: 350, z: 1}
   m_Children: []
-  m_Father: {fileID: 480272}
+  m_Father: {fileID: 424658}
   m_RootOrder: 0
 --- !u!4 &480278
 Transform:
@@ -203,10 +233,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 103.900002, z: -1}
+  m_LocalPosition: {x: -0, y: 103.899948, z: -1}
   m_LocalScale: {x: 57.5, y: 57, z: .999839962}
   m_Children: []
-  m_Father: {fileID: 480272}
+  m_Father: {fileID: 424658}
   m_RootOrder: 1
 --- !u!65 &6514114
 BoxCollider:
@@ -373,6 +403,82 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _questName: {fileID: 0}
   _questDesc: {fileID: 11406196}
+--- !u!114 &11424656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortByDepth: 0
+  showInPanelTool: 1
+  generateNormals: 0
+  depthPass: 0
+  widgetsAreStatic: 0
+  cullWhileDragging: 0
+  worldToLocal:
+    e00: 511
+    e01: 0
+    e02: 0
+    e03: -.686843574
+    e10: 0
+    e11: 511
+    e12: 0
+    e13: -2887.15015
+    e20: 0
+    e21: 0
+    e22: 511
+    e23: 2.27999997
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  mAlpha: 1
+  mDebugInfo: 1
+  mClipping: 0
+  mClipRange: {x: 0, y: 0, z: 0, w: 0}
+  mClipSoftness: {x: 40, y: 40}
+--- !u!114 &11424658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 0
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: .125
+  steeperCurves: 0
+  tweenGroup: 0
+  eventReceiver: {fileID: 124658}
+  callWhenFinished: 
+  from: .800000012
+  to: 1
 --- !u!114 &11433582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -418,7 +524,7 @@ MonoBehaviour:
     m_PostInfinity: 2
   ignoreTimeScale: 1
   delay: 0
-  duration: .25
+  duration: .125
   steeperCurves: 0
   tweenGroup: 0
   eventReceiver: {fileID: 0}

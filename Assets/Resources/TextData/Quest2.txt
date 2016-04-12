@@ -1,20 +1,20 @@
 BG:2
 <PlayerSetup>
 x:85
-y:-180
+y:-130
 <CharaSetup>
 <Chara>
 l2d:1
 name:P
-x:-211
-y:-180
+x:-280
+y:-130
 hair:1
 clothes:1
 side:-1
 <CharaEnd>
 <Quest>
-x:-100
-y:-50
+x:-160
+y:160
 side:-1
 completion:11
 id:0
@@ -41,7 +41,7 @@ completion:4
 desc:pick a blouse
 <QuestEnd>
 <Drama>
-x:-100
+x:-160
 y:-50
 side:-1
 id:1

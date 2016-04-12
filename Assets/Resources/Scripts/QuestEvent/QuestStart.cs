@@ -8,7 +8,8 @@ public class QuestStart : MonoBehaviour {
 
 	GameObject							_rootObject;
 
-	UITweener							_tween;
+	TweenAlpha							_tweenAlpha;
+	TweenScale							_tweenScale;
 	// Use this for initialization
 	void Start () {
 	
@@ -26,7 +27,8 @@ public class QuestStart : MonoBehaviour {
 
 		_rootObject = rootObject;
 
-		_tween = gameObject.GetComponent<UITweener> ();
+		_tweenAlpha = gameObject.GetComponent<TweenAlpha> ();
+		_tweenScale = gameObject.GetComponent<TweenScale> ();
 	}
 
 	void OnStart()
@@ -43,12 +45,14 @@ public class QuestStart : MonoBehaviour {
 
 	void Dismiss()
 	{
-		_tween.Play (false);
+		_tweenAlpha.from = 0;
+		_tweenAlpha.Play (false);
+		_tweenScale.Play (false);
 	}
 
 	void OnAnimationFinish()
 	{
-		if (_tween.direction != AnimationOrTween.Direction.Forward)
+		if (_tweenAlpha.direction != AnimationOrTween.Direction.Forward)
 			Destroy (gameObject);
 	}
 }

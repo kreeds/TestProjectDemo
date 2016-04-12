@@ -15,6 +15,9 @@ public class RelationshipUp : MonoBehaviour {
 	[SerializeField]Collider				_skipCollider;
 	[SerializeField]UIButton				_okButton;
 
+	[SerializeField]TweenAlpha				_tweenAlpha;
+	[SerializeField]TweenScale				_tweenScale;
+
 	GameObject								_rootObject;
 
 	float									_currentValue;
@@ -112,8 +115,16 @@ public class RelationshipUp : MonoBehaviour {
 
 	void OnConfirm()
 	{
+		_tweenAlpha.from = 0;
+		_tweenScale.Play (false);
+		_tweenAlpha.Play (false);
 		_rootObject.SendMessage("GoToNext");
-		Destroy(gameObject);
 
+	}
+
+	void OnAnimationComplete()
+	{
+		if (_tweenScale.direction == AnimationOrTween.Direction.Reverse)
+		Destroy (gameObject);
 	}
 }
