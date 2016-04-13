@@ -59,10 +59,20 @@ public class NewsScene : MonoBehaviour {
 
 	void InitializeDummy()
 	{
-		_newsDataList.Add (new NewsDataItem ("A new hero is in town!", "LK_portrait", "newspaper"));
-		_newsDataList.Add (new NewsDataItem ("Mysterious girl saves town! Who can she be?", "LK_portrait", "tvnews"));
-		_newsDataList.Add (new NewsDataItem ("[Caution] Fake Lady Knights", "LK_portrait", "tvnews"));
-		_newsDataList.Add (new NewsDataItem ("Thank you!", "portrait", "thankyounote"));
+//		_newsDataList.Add (new NewsDataItem ("A new hero is in town!", "LK_portrait", "newspaper"));
+//		_newsDataList.Add (new NewsDataItem ("Mysterious girl saves town! Who can she be?", "LK_portrait", "tvnews"));
+//		_newsDataList.Add (new NewsDataItem ("[Caution] Fake Lady Knights", "LK_portrait", "tvnews"));
+//		_newsDataList.Add (new NewsDataItem ("Thank you!", "portrait", "thankyounote"));
+
+		_newsDataList.Add (new NewsDataItem ("@Emiko was in the newspapers", "LK_portrait", "newspaper"));
+		_newsDataList.Add (new NewsDataItem ("@Weining was on the TV news", "LK_portrait", "tvnews"));
+		_newsDataList.Add (new NewsDataItem ("[Caution] Fake Lady Knights", "LK_portrait", "Fakeladyknight"));
+		_newsDataList.Add (new NewsDataItem ("@Jing got a thank you letter", "portrait", "thankyounote"));
+
+		_newsDataList [0]._newsBody = "@Emiko was in the newspapers@Emiko was in the newspapers@Emiko was in the newspapers@Emiko was in the newspapers@Emiko was in the newspapers@Emiko was in the newspapers";
+		_newsDataList [1]._newsBody = "@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news";
+		_newsDataList [2]._newsBody = "[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights";
+		_newsDataList [3]._newsBody = "@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter";
 
 		InitializeNews ();
 	}
@@ -95,17 +105,18 @@ public class NewsScene : MonoBehaviour {
 	void OnNewsItemClicked(int id){
 //		_newsTexture.mainTexture = Resources.Load (_newsDataList [id]._mainTextureName) as Texture; 
 		_newsTexture.spriteName = _newsDataList [id]._mainTextureName;
-//
-//		_detailGroup.SetActive (true);
-//		_listTable.gameObject.SetActive (false);
-//
-//		_bodyText.text = _newsDataList [id]._newsBody;
-//		_headingText.text = _newsDataList [id]._headLine;
+
+		_detailGroup.SetActive (true);
+		_listTable.gameObject.SetActive (false);
+
+		_bodyText.text = _newsDataList [id]._newsBody;
+		_headingText.text = _newsDataList [id]._headLine;
 	}
 
 	void OnBack()
 	{
 		if (_detailGroup.activeSelf) {
+			_newsTexture.spriteName = "newspaper";
 			_listTable.gameObject.SetActive(true);
 			_detailGroup.SetActive(false);
 		} else {
