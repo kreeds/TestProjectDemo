@@ -36,12 +36,18 @@ public class NewsScene : MonoBehaviour {
 	[SerializeField]GameObject			_listGroup;
 
 	private List<NewsDataItem>			_newsDataList;
+	SoundService m_soundService;
+	AudioClip	m_bgm;
 
 	// Use this for initialization
 	void Start () {
 		Service.Init();	
 		Service.Get<HUDService>().StartScene();
 		_newsDataList = new List<NewsDataItem> ();
+
+		m_bgm = Resources.Load("Music/costumemusic") as AudioClip;
+		m_soundService = Service.Get<SoundService>();
+		m_soundService.PlayMusic(m_bgm, true);
 
 		InitializeDummy ();
 	}

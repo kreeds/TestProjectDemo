@@ -55,6 +55,8 @@ public class CostumeScene : MonoBehaviour {
 	[SerializeField]SceneFadeInOut fader;
 	
 	HUDService m_hudService;
+	SoundService m_soundService;
+	AudioClip	m_bgm;
 
 	int currentGroupID;
 	int costumeGroupID;
@@ -65,6 +67,12 @@ public class CostumeScene : MonoBehaviour {
 		Service.Init();	
 		m_hudService = Service.Get<HUDService>();
 		m_hudService.StartScene();
+
+		m_bgm = Resources.Load("Music/costumemusic") as AudioClip;
+		m_soundService = Service.Get<SoundService>();
+		m_soundService.PlayMusic(m_bgm, true);
+
+
 
 		PutTestData ();
 

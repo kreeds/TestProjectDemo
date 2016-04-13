@@ -10,6 +10,8 @@ public class SceneFadeInOut : MonoBehaviour
     private string sceneName = "";
     private int sceneIndex = 0;
 
+    public GameObject root;
+
     [SerializeField]UITexture guiTex;
     
     
@@ -35,6 +37,7 @@ public class SceneFadeInOut : MonoBehaviour
         
         // The scene is no longer starting.
         sceneStarting = false;
+		root.SetActive(false);
     }
     
     
