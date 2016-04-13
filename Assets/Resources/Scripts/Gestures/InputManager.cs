@@ -134,7 +134,7 @@ public class InputManager : MonoBehaviour {
 	 	if(m_battleMgr.CurBattlePhase != BattleManager.BattlePhase.SPECIAL)
 	 		return;
 	 		
-		if (!IsTouchInProgress &&  currtime >= timetoEnd)//end
+		if (!IsTouchInProgress)//end
         {
             if ((trail != null)&&(!IsTrailQueuedForDestroy))
             {	
