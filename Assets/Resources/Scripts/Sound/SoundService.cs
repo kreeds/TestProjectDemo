@@ -109,7 +109,29 @@ public class SoundService : CSingleton {
 		return -1;
 	}
 
+	public void StopAllSound()
+	{
+		foreach(AudioSource s in m_SFXSounds)
+		{
+			s.Stop();
+		}
+	}
 
+	public void StopSound(AudioClip c)
+	{
+		foreach(AudioSource s in m_SFXSounds)
+		{
+			if(s.clip == c && s.isPlaying)
+			{
+				s.Stop();
+			}
+		}
+	}
+	public void StopSound(int channel)
+	{
+		if(m_SFXSounds != null && m_SFXSounds.Length > channel)
+			m_SFXSounds[channel].Stop();	
+	}
 	public void StopMusic(AudioClip c)
 	{
 		foreach(AudioSource s in m_BGMSource)

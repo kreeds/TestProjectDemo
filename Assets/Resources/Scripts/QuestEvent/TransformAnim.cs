@@ -18,7 +18,16 @@ public class TransformAnim : MonoBehaviour {
 
 	GameObject	rootObject;
 
+	SoundService m_soundService;
+
+
+
 	float counter;
+
+	void Awake()
+	{
+		m_soundService = Service.Get<SoundService>();
+	}
 	void Start () {
 		model.GetModel ().StopBasicMotion (true);
 		model.PlayTransformAnim ();
@@ -26,6 +35,7 @@ public class TransformAnim : MonoBehaviour {
 
 		StartCoroutine (EnableCollider (1.2f));
 		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Bg_Fx") as GameObject);
+		m_soundService.PlaySound(Resources.Load("Sound/compactopen") as AudioClip, false);
 		obj.transform.localPosition = new Vector3 (0, 0, 2f);
 	}
 	
@@ -39,6 +49,7 @@ public class TransformAnim : MonoBehaviour {
 
 		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Fx") as GameObject);
 		obj.transform.localPosition = new Vector3 (0, -140, -10f);
+		m_soundService.PlayMusic(Resources.Load("Music/transform") as AudioClip, false);
 
 		Destroy (fgObj);
 
@@ -56,14 +67,17 @@ public class TransformAnim : MonoBehaviour {
 		collider.enabled = true;
 		fgObj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Fg_Fx") as GameObject);
 		fgObj.transform.localPosition = new Vector3 (0, -140f, -2f);
+		m_soundService.PlaySound(Resources.Load("Sound/compactopen_jingle") as AudioClip, false);
+
 	}
 
 	IEnumerator FinishAnim(float seconds)
 	{
 		yield return new WaitForSeconds(seconds);
 //		if (Application.loadedLevelName != "TestTransform")
-			Application.LoadLevel("BattleScene");
-//			Service.Get<HUDService> ().ChangeScene ("BattleScene");
+		Application.LoadLevel("BattleScene");
+		m_soundService.StopAllSound();
+		//Service.Get<HUDService> ().ChangeScene ("BattleScene");
 //		else
 //		Destroy (gameObject);
 	}
@@ -79,5 +93,6 @@ public class TransformAnim : MonoBehaviour {
 		yield return new WaitForSeconds(seconds);
 		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/WhiteFader_FX") as GameObject);
 		obj.transform.localScale = new Vector3 (2048, 2048);
+
 	}
 }

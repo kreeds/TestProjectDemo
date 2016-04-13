@@ -35,7 +35,7 @@ public class BoardHandler : MonoBehaviour {
 		if(!clicked)
 		{
 			gainboard.SetActive(true);
-			gained.text = string.Format("You have gained: {0} gold and {1} xp", m_gold, m_exp);
+			gained.text = string.Format("You have gained:\n{0} gold and {1} xp", m_gold, m_exp);
 			Board.SetActive(false);
 			clicked = true;
 		}

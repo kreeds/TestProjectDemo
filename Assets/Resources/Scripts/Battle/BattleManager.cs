@@ -145,6 +145,8 @@ public class BattleManager : MonoBehaviour
 			GestureGenerateMethod ();
 		}
 
+		m_HUDService.HUDControl.ShowTip(true);
+
 		// Display Special Effect
 		m_FXObj = Instantiate(Resources.Load ("Prefabs/FX/Special_Attack_Fx")) as GameObject;
 		m_FXObj.transform.SetParent(m_itemParent.transform, false);
@@ -315,8 +317,8 @@ public class BattleManager : MonoBehaviour
 			gaugeCount = 0;
 			ResetGauge();
 
-			m_soundService.StopMusic(m_SPECIAL);
-			m_soundService.PlayMusic(m_BGM, true);
+			//m_soundService.StopMusic(m_SPECIAL);
+			//m_soundService.PlayMusic(m_BGM, true);
 		}
 		else
 		{

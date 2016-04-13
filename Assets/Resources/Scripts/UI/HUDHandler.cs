@@ -34,6 +34,7 @@ public class HUDHandler : MonoBehaviour {
 	[SerializeField]GameObject	m_lvlbar;
 	[SerializeField]GameObject 	m_pauseBtn;
 	[SerializeField]GameObject	m_heartObj;
+	[SerializeField]GameObject	m_drawTip;
 
 	UIGauge[] HPBars;
 
@@ -218,6 +219,12 @@ public class HUDHandler : MonoBehaviour {
 	public void ShowMid(bool show)
 	{
 		m_Mid.SetActive(show);
+	}
+
+	public void ShowTip(bool show)
+	{
+		if(m_drawTip != null)
+			m_drawTip.SetActive(show);
 	}
 
 	// Only used in Battle

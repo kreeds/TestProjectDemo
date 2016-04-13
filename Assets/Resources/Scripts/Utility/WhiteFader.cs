@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WhiteFader : MonoBehaviour {
 
-	[SerializeField]float fadeSpeed = 1.0f;
+	public float fadeSpeed = 1.0f;
 	[SerializeField]UITexture	texture;
 
 	// Use this for initialization

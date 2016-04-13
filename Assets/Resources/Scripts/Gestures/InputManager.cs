@@ -93,6 +93,8 @@ public class InputManager : MonoBehaviour {
         IsGestureRecognizingNeeded = true;
 		strokeID++;
 
+		Service.Get<HUDService>().HUDControl.ShowTip(false);
+
 		currentGesturePoints.Add(new Point(pos.x, -pos.y, strokeID));
     }
 
