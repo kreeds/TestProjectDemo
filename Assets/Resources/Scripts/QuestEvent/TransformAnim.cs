@@ -14,7 +14,7 @@ public class TransformAnim : MonoBehaviour {
 	[SerializeField]LAppModelProxy model;
 	// Use this for initialization
 
-	GameObject fgObj;
+	[SerializeField]GameObject fgObj;
 
 	GameObject	rootObject;
 
@@ -34,9 +34,12 @@ public class TransformAnim : MonoBehaviour {
 		model.gameObject.SetActive (false);
 
 		StartCoroutine (EnableCollider (1.2f));
-		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Bg_Fx") as GameObject);
+
 		m_soundService.PlaySound(Resources.Load("Sound/compactopen") as AudioClip, false);
-		obj.transform.localPosition = new Vector3 (0, 0, 2f);
+
+//		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Bg_Fx") as GameObject);
+//		obj.transform.localPosition = new Vector3 (0, 0, 2f);
+
 	}
 	
 	// Update is called once per frame
@@ -65,10 +68,10 @@ public class TransformAnim : MonoBehaviour {
 		yield return new WaitForSeconds(seconds);
 		clickMessage.enabled = true;
 		collider.enabled = true;
-		fgObj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Fg_Fx") as GameObject);
-		fgObj.transform.localPosition = new Vector3 (0, -140f, -2f);
 		m_soundService.PlaySound(Resources.Load("Sound/compactopen_jingle") as AudioClip, false);
 
+//		fgObj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Fg_Fx") as GameObject);
+//		fgObj.transform.localPosition = new Vector3 (0, -140f, -2f);
 	}
 
 	IEnumerator FinishAnim(float seconds)
