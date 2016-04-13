@@ -854,14 +854,14 @@ MonoBehaviour:
   - name: Battle_Bar_BG
     outer:
       serializedVersion: 2
-      x: 1079
-      y: 1516
+      x: 1492
+      y: 961
       width: 542
       height: 109
     inner:
       serializedVersion: 2
-      x: 1079
-      y: 1516
+      x: 1492
+      y: 961
       width: 542
       height: 109
     rotated: 0
@@ -872,14 +872,14 @@ MonoBehaviour:
   - name: Battle_Bar_BG_Fill
     outer:
       serializedVersion: 2
-      x: 1492
-      y: 961
+      x: 1079
+      y: 1516
       width: 542
       height: 109
     inner:
       serializedVersion: 2
-      x: 1583
-      y: 961
+      x: 1170
+      y: 1516
       width: 390
       height: 109
     rotated: 0
@@ -945,13 +945,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1163
-      y: 452
+      y: 235
       width: 246
       height: 216
     inner:
       serializedVersion: 2
       x: 1163
-      y: 452
+      y: 235
       width: 246
       height: 216
     rotated: 0
@@ -963,13 +963,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1163
-      y: 235
+      y: 452
       width: 246
       height: 216
     inner:
       serializedVersion: 2
       x: 1163
-      y: 235
+      y: 452
       width: 246
       height: 216
     rotated: 0
@@ -1052,14 +1052,14 @@ MonoBehaviour:
   - name: UI_Button_No
     outer:
       serializedVersion: 2
-      x: 419
-      y: 40
+      x: 725
+      y: 510
       width: 232
       height: 131
     inner:
       serializedVersion: 2
-      x: 419
-      y: 40
+      x: 725
+      y: 510
       width: 232
       height: 131
     rotated: 0
@@ -1106,14 +1106,14 @@ MonoBehaviour:
   - name: UI_Button_Start
     outer:
       serializedVersion: 2
-      x: 725
-      y: 510
+      x: 419
+      y: 40
       width: 232
       height: 131
     inner:
       serializedVersion: 2
-      x: 725
-      y: 510
+      x: 419
+      y: 40
       width: 232
       height: 131
     rotated: 0
