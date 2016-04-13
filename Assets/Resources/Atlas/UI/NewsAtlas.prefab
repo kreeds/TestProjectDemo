@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: newspaper
     outer:
       serializedVersion: 2
-      x: 777
-      y: 1582
+      x: 0
+      y: 835
       width: 776
       height: 466
     inner:
       serializedVersion: 2
-      x: 777
-      y: 1582
+      x: 0
+      y: 835
       width: 776
       height: 466
     rotated: 0
@@ -63,13 +63,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 1115
+      y: 368
       width: 776
       height: 466
     inner:
       serializedVersion: 2
       x: 0
-      y: 1115
+      y: 368
       width: 776
       height: 466
     rotated: 0
@@ -81,13 +81,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 777
-      y: 1457
+      y: 1177
       width: 1242
       height: 124
     inner:
       serializedVersion: 2
       x: 777
-      y: 1457
+      y: 1177
       width: 1242
       height: 124
     rotated: 0
@@ -99,13 +99,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 777
-      y: 1362
+      y: 1082
       width: 1189
       height: 94
     inner:
       serializedVersion: 2
       x: 777
-      y: 1362
+      y: 1082
       width: 1189
       height: 94
     rotated: 0
@@ -116,14 +116,14 @@ MonoBehaviour:
   - name: headline
     outer:
       serializedVersion: 2
-      x: 0
-      y: 561
+      x: 1243
+      y: 1495
       width: 621
       height: 86
     inner:
       serializedVersion: 2
-      x: 0
-      y: 561
+      x: 1243
+      y: 1495
       width: 621
       height: 86
     rotated: 0
@@ -134,14 +134,14 @@ MonoBehaviour:
   - name: mynews
     outer:
       serializedVersion: 2
-      x: 0
-      y: 474
+      x: 1243
+      y: 1408
       width: 621
       height: 86
     inner:
       serializedVersion: 2
-      x: 0
-      y: 474
+      x: 1243
+      y: 1408
       width: 621
       height: 86
     rotated: 0
@@ -152,14 +152,14 @@ MonoBehaviour:
   - name: portrait
     outer:
       serializedVersion: 2
-      x: 1554
-      y: 1874
+      x: 1865
+      y: 1320
       width: 174
       height: 174
     inner:
       serializedVersion: 2
-      x: 1554
-      y: 1874
+      x: 1865
+      y: 1320
       width: 174
       height: 174
     rotated: 0
@@ -170,14 +170,14 @@ MonoBehaviour:
   - name: LK_portrait
     outer:
       serializedVersion: 2
-      x: 1554
-      y: 1701
+      x: 0
+      y: 195
       width: 172
       height: 172
     inner:
       serializedVersion: 2
-      x: 1554
-      y: 1701
+      x: 0
+      y: 195
       width: 172
       height: 172
     rotated: 0
@@ -188,14 +188,14 @@ MonoBehaviour:
   - name: emptyheart
     outer:
       serializedVersion: 2
-      x: 1640
-      y: 1625
+      x: 1865
+      y: 1506
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 1640
-      y: 1625
+      x: 1865
+      y: 1506
       width: 85
       height: 75
     rotated: 0
@@ -206,14 +206,14 @@ MonoBehaviour:
   - name: filledheart
     outer:
       serializedVersion: 2
-      x: 1554
-      y: 1625
+      x: 1951
+      y: 1506
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 1554
-      y: 1625
+      x: 1951
+      y: 1506
       width: 85
       height: 75
     rotated: 0
@@ -225,13 +225,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 777
-      y: 1356
+      y: 1076
       width: 1241
       height: 5
     inner:
       serializedVersion: 2
       x: 777
-      y: 1356
+      y: 1076
       width: 1241
       height: 5
     rotated: 0
@@ -242,14 +242,14 @@ MonoBehaviour:
   - name: backbutton
     outer:
       serializedVersion: 2
-      x: 1977
-      y: 1990
+      x: 1739
+      y: 1349
       width: 44
       height: 58
     inner:
       serializedVersion: 2
-      x: 1977
-      y: 1990
+      x: 1739
+      y: 1349
       width: 44
       height: 58
     rotated: 0
@@ -260,14 +260,14 @@ MonoBehaviour:
   - name: emptynews
     outer:
       serializedVersion: 2
-      x: 1554
-      y: 1592
+      x: 1739
+      y: 1316
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 1554
-      y: 1592
+      x: 1739
+      y: 1316
       width: 32
       height: 32
     rotated: 0
@@ -278,14 +278,14 @@ MonoBehaviour:
   - name: UI_cos_sort_owned 1
     outer:
       serializedVersion: 2
-      x: 1729
-      y: 1669
+      x: 1243
+      y: 1313
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 1729
-      y: 1669
+      x: 1243
+      y: 1313
       width: 247
       height: 94
     rotated: 0
@@ -296,14 +296,14 @@ MonoBehaviour:
   - name: UI_cos_sort_shop 1
     outer:
       serializedVersion: 2
-      x: 1729
-      y: 1764
+      x: 1491
+      y: 1313
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 1729
-      y: 1764
+      x: 1491
+      y: 1313
       width: 247
       height: 94
     rotated: 0
@@ -314,14 +314,14 @@ MonoBehaviour:
   - name: UI_cos_sort_shop
     outer:
       serializedVersion: 2
-      x: 1729
-      y: 1859
+      x: 173
+      y: 273
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 1729
-      y: 1859
+      x: 173
+      y: 273
       width: 247
       height: 94
     rotated: 0
@@ -332,14 +332,14 @@ MonoBehaviour:
   - name: UI_cos_sort_owned
     outer:
       serializedVersion: 2
-      x: 1729
-      y: 1954
+      x: 173
+      y: 178
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 1729
-      y: 1954
+      x: 173
+      y: 178
       width: 247
       height: 94
     rotated: 0
@@ -351,15 +351,15 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 648
-      width: 776
-      height: 466
+      y: 1302
+      width: 1242
+      height: 746
     inner:
       serializedVersion: 2
       x: 0
-      y: 648
-      width: 776
-      height: 466
+      y: 1302
+      width: 1242
+      height: 746
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
@@ -368,13 +368,13 @@ MonoBehaviour:
   - name: thankyounote
     outer:
       serializedVersion: 2
-      x: 0
+      x: 1243
       y: 1582
       width: 776
       height: 466
     inner:
       serializedVersion: 2
-      x: 0
+      x: 1243
       y: 1582
       width: 776
       height: 466

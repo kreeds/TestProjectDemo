@@ -25,7 +25,7 @@
 			{"file":"idol_01.mtn","fade_in":20, "fade_out":200}
 		],
 		"idle_battle":[
-			{"file":"idol03.mtn","fade_in":200, "fade_out":200}
+			{"file":"idol03.mtn","fade_in":150, "fade_out":200}
 		],
 		"attack":[
 			{"file":"atk00.mtn","fade_in":200, "fade_out":200}
@@ -34,7 +34,7 @@
 			{"file":"Specialmove.mtn","fade_in":200, "fade_out":200}
 		],
 		"damaged":[
-			{"file":"damage.mtn","fade_in":200, "fade_out":20}
+			{"file":"damage.mtn","fade_in":0, "fade_out":0}
 		],
 		"win":[
 			{"file":"win00.mtn","fade_in":200, "fade_out":200}

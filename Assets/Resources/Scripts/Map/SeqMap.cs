@@ -25,7 +25,9 @@ public class SeqMap : MonoBehaviour {
 		m_bgm = Resources.Load("Music/outside") as AudioClip;
 		m_soundService.PlayMusic(m_bgm, true);
 
-		playerModel.SetClothes (1);
+		playerModel.GetModel ().StopBasicMotion (true);
+		playerModel.SetClothes (2);
+		playerModel.SetHair (1);
 		playerModel.PlayIdleAnim ();
 	}
 	

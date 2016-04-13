@@ -31,6 +31,6 @@ public class NewsItem : MonoBehaviour {
 	}
 
 	void OnClick() {
-//		_rootObject.SendMessage ("OnNewsItemClicked", _id);
+		_rootObject.SendMessage ("OnNewsItemClicked", _id);
 	}
 }

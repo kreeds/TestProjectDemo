@@ -70,6 +70,7 @@ public class CostumeScene : MonoBehaviour {
 
 		currentGroupID = costumeGroupID = 0;
 
+		_l2dModel.GetModel ().StopBasicMotion (true);
 		_l2dModel.PlayIdleFrontFaceAnim ();
 	}
 	
