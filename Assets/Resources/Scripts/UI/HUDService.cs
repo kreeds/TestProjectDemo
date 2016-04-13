@@ -7,6 +7,8 @@ public class HUDService : CSingleton {
 	SceneFadeInOut m_scene = null;
 	SoundService m_sound = null;
 
+	GameObject m_transitor = null;
+
 	void Awake()
 	{
 		//Check if object exist in scene
@@ -16,12 +18,13 @@ public class HUDService : CSingleton {
 		}
 		m_handler = HUDObject.GetComponentInChildren<HUDHandler>();
 
-		GameObject Transitor = GameObject.Find("LoadTransitor");
-		if (Transitor == null) {
-			Transitor = Instantiate (Resources.Load ("Prefabs/LoadTransitor")) as GameObject;
-			DontDestroyOnLoad(Transitor);
+		m_transitor = GameObject.Find("LoadTransitor");
+		if (m_transitor == null) {
+			m_transitor = Instantiate (Resources.Load ("Prefabs/LoadTransitor")) as GameObject;
+			DontDestroyOnLoad(m_transitor);
 		}
-		m_scene = Transitor.GetComponentInChildren<SceneFadeInOut>();
+
+		m_scene = m_transitor.GetComponentInChildren<SceneFadeInOut>();
 		m_sound = Service.Get<SoundService>();
 
 	}
@@ -74,6 +77,7 @@ public class HUDService : CSingleton {
 
 	public void ChangeScene(string name)
 	{
+		m_transitor.SetActive(true);
 		m_sound.StopMusic(0);
 		m_scene.ChangeScene(name);
 	}
