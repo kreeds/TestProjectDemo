@@ -7,7 +7,11 @@ public class TransformAnim : MonoBehaviour {
 
 	[SerializeField]float fadeOutTime;
 	[SerializeField]float finishTime;
+	[SerializeField]float modelAppearTime;
+
 	[SerializeField]UILabel clickMessage;
+
+	[SerializeField]LAppModelProxy model;
 	// Use this for initialization
 
 	GameObject fgObj;
@@ -16,11 +20,13 @@ public class TransformAnim : MonoBehaviour {
 
 	float counter;
 	void Start () {
+		model.GetModel ().StopBasicMotion (true);
+		model.PlayTransformAnim ();
+		model.gameObject.SetActive (false);
+
 		StartCoroutine (EnableCollider (1.2f));
 		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Bg_Fx") as GameObject);
 		obj.transform.localPosition = new Vector3 (0, 0, 2f);
-
-
 	}
 	
 	// Update is called once per frame
@@ -37,6 +43,7 @@ public class TransformAnim : MonoBehaviour {
 		Destroy (fgObj);
 
 		StartCoroutine (FinishAnim (finishTime));
+		StartCoroutine (ShowModel (modelAppearTime));
 		StartCoroutine (WhiteOut (fadeOutTime));
 
 		clickMessage.enabled = false;
@@ -54,9 +61,17 @@ public class TransformAnim : MonoBehaviour {
 	IEnumerator FinishAnim(float seconds)
 	{
 		yield return new WaitForSeconds(seconds);
-		if (Application.loadedLevelName != "TestTransform")
-			Service.Get<HUDService> ().ChangeScene ("BattleScene");
-		Destroy (gameObject);
+//		if (Application.loadedLevelName != "TestTransform")
+			Application.LoadLevel("BattleScene");
+//			Service.Get<HUDService> ().ChangeScene ("BattleScene");
+//		else
+//		Destroy (gameObject);
+	}
+
+	IEnumerator ShowModel(float seconds)
+	{
+		yield return new WaitForSeconds(seconds);
+		model.gameObject.SetActive (true);
 	}
 
 	IEnumerator WhiteOut(float seconds)

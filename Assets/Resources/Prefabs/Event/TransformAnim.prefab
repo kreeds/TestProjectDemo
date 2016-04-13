@@ -79,6 +79,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &126450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 426450}
+  - 33: {fileID: 3326450}
+  - 23: {fileID: 2326450}
+  - 64: {fileID: 6426450}
+  - 114: {fileID: 11426450}
+  m_Layer: 12
+  m_Name: EventLive2DModel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &157228
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +279,18 @@ Transform:
   - {fileID: 419604}
   m_Father: {fileID: 467134}
   m_RootOrder: 0
+--- !u!4 &426450
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126450}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 38, y: 1, z: 38}
+  m_Children: []
+  m_Father: {fileID: 457236}
+  m_RootOrder: 4
 --- !u!4 &457228
 Transform:
   m_ObjectHideFlags: 1
@@ -324,6 +355,7 @@ Transform:
   - {fileID: 457234}
   - {fileID: 457228}
   - {fileID: 467134}
+  - {fileID: 426450}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &457238
@@ -371,6 +403,26 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!23 &2326450
+Renderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126450}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!33 &3319602
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -378,6 +430,26 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119608}
   m_Mesh: {fileID: 4300002, guid: a97aaa31aed2542349641991557b9cee, type: 3}
+--- !u!33 &3326450
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126450}
+  m_Mesh: {fileID: 4300000, guid: 81074fde212a61d439bdbfb10bfc7e9e, type: 2}
+--- !u!64 &6426450
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126450}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: 81074fde212a61d439bdbfb10bfc7e9e, type: 2}
 --- !u!65 &6557228
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -405,6 +477,19 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!114 &11426450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190d918d38714b446ad8b55640d0032a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: Live2DAssets/testchan0302/model.model.json
+  sceneNo: 0
 --- !u!114 &11457228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -418,8 +503,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collider: {fileID: 6557228}
   fadeOutTime: 1
-  finishTime: 2.1500001
+  finishTime: 2
+  modelAppearTime: 1
   clickMessage: {fileID: 11457232}
+  model: {fileID: 11426450}
 --- !u!114 &11457230
 MonoBehaviour:
   m_ObjectHideFlags: 1

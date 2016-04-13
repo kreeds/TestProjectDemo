@@ -137,6 +137,7 @@ public class QuestEvent : MonoBehaviour {
 
 	void InitializeScene()
 	{
+		playerChara.GetModel ().StopBasicMotion (true);
 		playerChara.PlayIdleAnim ();
 		playerChara.SetClothes (2);
 		playerChara.SetHair (1);
@@ -174,6 +175,7 @@ public class QuestEvent : MonoBehaviour {
 //
 //			eventCharas[i].SetHair(chara.hairId);
 //			eventCharas[i].SetClothes(chara.clothesId);
+			l2dModel.GetModel ().StopBasicMotion (true);
 			l2dModel.SetHair(chara.hairId);
 			l2dModel.SetClothes(chara.clothesId);
 
@@ -949,12 +951,14 @@ public class QuestEvent : MonoBehaviour {
 
 	void OnBeginBattle()
 	{
-		GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/TransformAnim")) as GameObject;
-		m_hudService.HUDControl.AttachMid(ref obj);
-		obj.transform.localScale = Vector3.one;
-		obj.transform.localPosition = new Vector3(0, 0, -5);
-
-		m_hudService.HUDControl.ShowBottom (false);
+		
+		Service.Get<HUDService> ().ChangeScene ("TransformScene");
+//		GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/TransformAnim")) as GameObject;
+//		m_hudService.HUDControl.AttachMid(ref obj);
+//		obj.transform.localScale = Vector3.one;
+//		obj.transform.localPosition = new Vector3(0, 0, -5);
+//
+//		m_hudService.HUDControl.ShowBottom (false);
 	}
 
 	void OnStarCollected(){
