@@ -1038,7 +1038,7 @@ MonoBehaviour:
   - TextData/Quest1
   - TextData/Quest2
   - TextData/Quest3
-  firstQuest: 1
+  firstQuest: 2
   otherTextTweenIn: {fileID: 1417699275}
   playerTextTweenIn: {fileID: 855283030}
   otherTextTweenOut: {fileID: 1417699276}
@@ -1637,7 +1637,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 456448237}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 162, y: 122.300003, z: 0}
+  m_LocalPosition: {x: 162, y: 130.279999, z: 0}
   m_LocalScale: {x: -46.816124, y: -59.4490623, z: .743113339}
   m_Children: []
   m_Father: {fileID: 855283029}
@@ -3670,7 +3670,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 861133510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -134.699997, y: -169.800003, z: 0}
+  m_LocalPosition: {x: -134.699997, y: -177.600006, z: 0}
   m_LocalScale: {x: 46.8161201, y: 59.4490585, z: .743113339}
   m_Children: []
   m_Father: {fileID: 1417699274}

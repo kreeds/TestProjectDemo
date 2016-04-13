@@ -54,9 +54,11 @@ public class TransformAnim : MonoBehaviour {
 	IEnumerator FinishAnim(float seconds)
 	{
 		yield return new WaitForSeconds(seconds);
-		if (Application.loadedLevelName != "TestTransform")
-			Service.Get<HUDService> ().ChangeScene ("BattleScene");
-		Destroy (gameObject);
+//		if (Application.loadedLevelName != "TestTransform")
+			Application.LoadLevel("BattleScene");
+//			Service.Get<HUDService> ().ChangeScene ("BattleScene");
+//		else
+//		Destroy (gameObject);
 	}
 
 	IEnumerator WhiteOut(float seconds)
