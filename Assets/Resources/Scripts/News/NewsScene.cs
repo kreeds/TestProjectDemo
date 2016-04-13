@@ -66,7 +66,7 @@ public class NewsScene : MonoBehaviour {
 
 		_newsDataList.Add (new NewsDataItem ("@Emiko was in the newspapers", "LK_portrait", "newspaper"));
 		_newsDataList.Add (new NewsDataItem ("@Weining was on the TV news", "LK_portrait", "tvnews"));
-		_newsDataList.Add (new NewsDataItem ("[Caution] Fake Lady Knights", "LK_portrait", "tvnews"));
+		_newsDataList.Add (new NewsDataItem ("[Caution] Fake Lady Knights", "LK_portrait", "Fakeladyknight"));
 		_newsDataList.Add (new NewsDataItem ("@Jing got a thank you letter", "portrait", "thankyounote"));
 
 		_newsDataList [0]._newsBody = "@Emiko was in the newspapers@Emiko was in the newspapers@Emiko was in the newspapers@Emiko was in the newspapers@Emiko was in the newspapers@Emiko was in the newspapers";
@@ -116,6 +116,7 @@ public class NewsScene : MonoBehaviour {
 	void OnBack()
 	{
 		if (_detailGroup.activeSelf) {
+			_newsTexture.spriteName = "newspaper";
 			_listTable.gameObject.SetActive(true);
 			_detailGroup.SetActive(false);
 		} else {
