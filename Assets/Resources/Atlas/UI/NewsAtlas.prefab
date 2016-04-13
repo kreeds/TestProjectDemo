@@ -45,13 +45,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 835
+      y: 368
       width: 776
       height: 466
     inner:
       serializedVersion: 2
       x: 0
-      y: 835
+      y: 368
       width: 776
       height: 466
     rotated: 0
@@ -62,14 +62,14 @@ MonoBehaviour:
   - name: magazine
     outer:
       serializedVersion: 2
-      x: 0
-      y: 368
+      x: 777
+      y: 835
       width: 776
       height: 466
     inner:
       serializedVersion: 2
-      x: 0
-      y: 368
+      x: 777
+      y: 835
       width: 776
       height: 466
     rotated: 0
@@ -81,13 +81,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 777
-      y: 1177
+      y: 710
       width: 1242
       height: 124
     inner:
       serializedVersion: 2
       x: 777
-      y: 1177
+      y: 710
       width: 1242
       height: 124
     rotated: 0
@@ -99,13 +99,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 777
-      y: 1082
+      y: 615
       width: 1189
       height: 94
     inner:
       serializedVersion: 2
       x: 777
-      y: 1082
+      y: 615
       width: 1189
       height: 94
     rotated: 0
@@ -171,20 +171,20 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 195
-      width: 172
-      height: 172
+      y: 53
+      width: 161
+      height: 124
     inner:
       serializedVersion: 2
       x: 0
-      y: 195
-      width: 172
-      height: 172
+      y: 53
+      width: 161
+      height: 124
     rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
+    paddingLeft: .0434782617
+    paddingRight: .024844721
+    paddingTop: .193548381
+    paddingBottom: .193548381
   - name: emptyheart
     outer:
       serializedVersion: 2
@@ -225,13 +225,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 777
-      y: 1076
+      y: 609
       width: 1241
       height: 5
     inner:
       serializedVersion: 2
       x: 777
-      y: 1076
+      y: 609
       width: 1241
       height: 5
     rotated: 0
@@ -314,13 +314,13 @@ MonoBehaviour:
   - name: UI_cos_sort_shop
     outer:
       serializedVersion: 2
-      x: 173
+      x: 0
       y: 273
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 173
+      x: 0
       y: 273
       width: 247
       height: 94
@@ -332,13 +332,13 @@ MonoBehaviour:
   - name: UI_cos_sort_owned
     outer:
       serializedVersion: 2
-      x: 173
+      x: 0
       y: 178
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 173
+      x: 0
       y: 178
       width: 247
       height: 94
@@ -376,6 +376,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 1243
       y: 1582
+      width: 776
+      height: 466
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Fakeladyknight
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 835
+      width: 776
+      height: 466
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 835
       width: 776
       height: 466
     rotated: 0
