@@ -15,6 +15,9 @@
 		"change":[
 			{"file":"idol00.mtn","fade_in":2000, "fade_out":200}
 		],
+		"transform":[
+			{"file":"transform_pose.mtn","fade_in":0, "fade_out":0}
+		],
 		"frontface":[
 			{"file":"idol_00.mtn","fade_in":50, "fade_out":200}
 		],

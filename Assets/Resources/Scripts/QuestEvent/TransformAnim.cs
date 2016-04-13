@@ -21,14 +21,12 @@ public class TransformAnim : MonoBehaviour {
 	float counter;
 	void Start () {
 		model.GetModel ().StopBasicMotion (true);
-		model.PlayIdleFrontFaceAnim ();
+		model.PlayTransformAnim ();
 		model.gameObject.SetActive (false);
 
 		StartCoroutine (EnableCollider (1.2f));
 		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Bg_Fx") as GameObject);
 		obj.transform.localPosition = new Vector3 (0, 0, 2f);
-
-
 	}
 	
 	// Update is called once per frame
