@@ -45,13 +45,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 368
+      y: 835
       width: 776
       height: 466
     inner:
       serializedVersion: 2
       x: 0
-      y: 368
+      y: 835
       width: 776
       height: 466
     rotated: 0
@@ -62,14 +62,14 @@ MonoBehaviour:
   - name: magazine
     outer:
       serializedVersion: 2
-      x: 777
-      y: 835
+      x: 0
+      y: 368
       width: 776
       height: 466
     inner:
       serializedVersion: 2
-      x: 777
-      y: 835
+      x: 0
+      y: 368
       width: 776
       height: 466
     rotated: 0
@@ -171,30 +171,30 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 53
-      width: 161
-      height: 124
+      y: 195
+      width: 172
+      height: 172
     inner:
       serializedVersion: 2
       x: 0
-      y: 53
-      width: 161
-      height: 124
+      y: 195
+      width: 172
+      height: 172
     rotated: 0
-    paddingLeft: .0434782617
-    paddingRight: .024844721
-    paddingTop: .193548381
-    paddingBottom: .193548381
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: emptyheart
     outer:
       serializedVersion: 2
-      x: 1865
+      x: 1951
       y: 1506
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 1865
+      x: 1951
       y: 1506
       width: 85
       height: 75
@@ -206,13 +206,13 @@ MonoBehaviour:
   - name: filledheart
     outer:
       serializedVersion: 2
-      x: 1951
+      x: 1865
       y: 1506
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 1951
+      x: 1865
       y: 1506
       width: 85
       height: 75
@@ -314,13 +314,13 @@ MonoBehaviour:
   - name: UI_cos_sort_shop
     outer:
       serializedVersion: 2
-      x: 0
+      x: 173
       y: 273
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 0
+      x: 173
       y: 273
       width: 247
       height: 94
@@ -332,13 +332,13 @@ MonoBehaviour:
   - name: UI_cos_sort_owned
     outer:
       serializedVersion: 2
-      x: 0
+      x: 173
       y: 178
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 0
+      x: 173
       y: 178
       width: 247
       height: 94
@@ -368,14 +368,14 @@ MonoBehaviour:
   - name: thankyounote
     outer:
       serializedVersion: 2
-      x: 1243
-      y: 1582
+      x: 777
+      y: 835
       width: 776
       height: 466
     inner:
       serializedVersion: 2
-      x: 1243
-      y: 1582
+      x: 777
+      y: 835
       width: 776
       height: 466
     rotated: 0
@@ -386,14 +386,14 @@ MonoBehaviour:
   - name: Fakeladyknight
     outer:
       serializedVersion: 2
-      x: 0
-      y: 835
+      x: 1243
+      y: 1582
       width: 776
       height: 466
     inner:
       serializedVersion: 2
-      x: 0
-      y: 835
+      x: 1243
+      y: 1582
       width: 776
       height: 466
     rotated: 0
