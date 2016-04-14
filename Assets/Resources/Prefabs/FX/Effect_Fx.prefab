@@ -445,11 +445,11 @@ MonoBehaviour:
     e00: 511
     e01: 0
     e02: 0
-    e03: -.675105393
+    e03: -1.69710541
     e10: 0
     e11: 511
     e12: 0
-    e13: 1921.0957
+    e13: 1922.03503
     e20: 0
     e21: 0
     e22: 511
@@ -481,8 +481,8 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109864}
-  lengthInSec: .5
-  startDelay: 1.14999998
+  lengthInSec: 1.5
+  startDelay: 1.39999998
   speed: 1
   randomSeed: 0
   looping: 0
@@ -492,7 +492,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: .600000024
+      scalar: 1.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -790,15 +790,15 @@ ParticleSystem:
           inSlope: .0476507023
           outSlope: .0476507023
           tangentMode: 0
-        - time: .606912851
-          value: .202674046
-          inSlope: 1.18115604
-          outSlope: 1.18115604
+        - time: .338620186
+          value: .0714286044
+          inSlope: .807465672
+          outSlope: .807465672
           tangentMode: 10
         - time: 1
           value: 1
-          inSlope: 2.02836943
-          outSlope: 2.02836943
+          inSlope: 1.4039911
+          outSlope: 1.4039911
           tangentMode: 10
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -1538,7 +1538,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109866}
-  lengthInSec: .5
+  lengthInSec: 1
   startDelay: .899999976
   speed: 1
   randomSeed: 0
@@ -2590,8 +2590,8 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109856}
-  lengthInSec: .400000006
-  startDelay: 1
+  lengthInSec: .5
+  startDelay: 1.20000005
   speed: 1
   randomSeed: 0
   looping: 0
@@ -3617,8 +3617,8 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164348}
-  lengthInSec: .300000012
-  startDelay: 1.5
+  lengthInSec: 1
+  startDelay: 2.29999995
   speed: 1
   randomSeed: 0
   looping: 0
@@ -3628,7 +3628,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: .5
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
