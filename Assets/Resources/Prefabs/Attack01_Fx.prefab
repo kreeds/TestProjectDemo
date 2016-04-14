@@ -157,11 +157,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164872}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485402}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &485400
 Transform:
   m_ObjectHideFlags: 1
@@ -169,11 +169,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185400}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 0, y: 4.57763745e-05, z: -2.94446927e-05}
-  m_LocalScale: {x: .999960065, y: .999959588, z: .999959588}
+  m_LocalPosition: {x: -0, y: 4.57763708e-05, z: 0}
+  m_LocalScale: {x: .999960065, y: .999959707, z: .999959707}
   m_Children: []
   m_Father: {fileID: 485402}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!4 &485402
 Transform:
   m_ObjectHideFlags: 1
@@ -181,15 +181,15 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185402}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 0, y: 0, z: -150}
+  m_LocalPosition: {x: -0, y: 0, z: -150}
   m_LocalScale: {x: 1.00003994, y: 1.00004005, z: 1.00004005}
   m_Children:
   - {fileID: 485408}
   - {fileID: 485404}
-  - {fileID: 485406}
   - {fileID: 485412}
   - {fileID: 464872}
   - {fileID: 485400}
+  - {fileID: 485406}
   m_Father: {fileID: 445946}
   m_RootOrder: 0
 --- !u!4 &485404
@@ -199,7 +199,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185404}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalPosition: {x: -0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485402}
@@ -211,11 +211,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.96046448e-08, y: -6.53699317e-13, z: 5.48362777e-06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485402}
-  m_RootOrder: 2
+  m_RootOrder: 5
 --- !u!4 &485408
 Transform:
   m_ObjectHideFlags: 1
@@ -223,7 +223,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalPosition: {x: -0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485402}
@@ -235,11 +235,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185412}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485402}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!114 &11456512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4c7cd4ed5ad4f5892415447d8401ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps: {fileID: 19885402}
+  ps: {fileID: 0}
 --- !u!114 &11485422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,7 +283,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164872}
   lengthInSec: 1
-  startDelay: .300000012
+  startDelay: 0
   speed: 1
   randomSeed: 0
   looping: 0
@@ -1255,7 +1255,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185400}
   lengthInSec: 1
-  startDelay: .300000012
+  startDelay: 0
   speed: 1
   randomSeed: 0
   looping: 0
@@ -3259,7 +3259,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185404}
   lengthInSec: 1
-  startDelay: .300000012
+  startDelay: 0
   speed: 1
   randomSeed: 0
   looping: 0
@@ -4276,7 +4276,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185406}
   lengthInSec: 1.5
-  startDelay: .5
+  startDelay: .200000003
   speed: 1
   randomSeed: 0
   looping: 0
@@ -5328,7 +5328,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185408}
   lengthInSec: .5
-  startDelay: .300000012
+  startDelay: 0
   speed: 1
   randomSeed: 0
   looping: 0
@@ -6355,7 +6355,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185412}
   lengthInSec: 1
-  startDelay: .300000012
+  startDelay: 0
   speed: 1
   randomSeed: 0
   looping: 0
