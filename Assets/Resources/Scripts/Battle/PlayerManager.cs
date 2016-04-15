@@ -292,6 +292,12 @@ public class PlayerManager : MonoBehaviour {
 
 		StartCoroutine(Utility.DelayInSeconds(2, (res1)=>{
 											m_handler.ShowActionButtons(true);
+											if(m_handler.GetSpecialAmount == 1.0f)
+											{
+												SoundService ss = Service.Get<SoundService>();
+												ss.PlaySound(ss.GetSFX("gaugefull"), false);
+												m_handler.SetSpecialFxGlow(true);
+											}
 											if(playerattack)
 											{
 												Service.Get<HUDService>().HUDControl.SetSpecialEnable(true);
