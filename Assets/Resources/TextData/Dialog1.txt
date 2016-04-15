@@ -7,7 +7,9 @@
 0^Why not?
 1^Uhm… uh, well... I don’t know how to explain.
 <Choice>
-C:5::You can always talk to me...::R:3 ^C:2::...::R:0
+C^2
+-1^You can always talk to me...^3^4^1
+2^...^0^0^0
 1^Oh, P, thank you for being such a friend!
 <ChoiceEnd>
 1^Uhm… well I guess i can tell you.
@@ -15,7 +17,9 @@ C:5::You can always talk to me...::R:3 ^C:2::...::R:0
 1^You see, I don’t have anything pretty to wear for the party. I just… feel very out of place... I am a disaster!
 1^..The school party.. I.. I don’t have anything pretty to wear.. I can’t go..
 <Choice>
-C:5::Don’t say that!::R:4^C:2::Yes, you need clothes.::R:0
+C^2
+5^Don’t say that!^4^0^0
+2^Yes, you need clothes.^0^0^0
 1^Oh… but... I don’t know what to do..! I feel so lost.
 <ChoiceEnd>
 1^Oh! The way you say it… but you are right… (cries) 
@@ -23,7 +27,9 @@ C:5::Don’t say that!::R:4^C:2::Yes, you need clothes.::R:0
 0^Let’s go shopping together!
 1^Really? Will that help? I doubt I will look any different though...
 <Choice>
-C:5::I will be with you!::R:5^C:2::It may be a bit tough.::R:0
+C^2
+-1^I will be with you!^5^3^2
+2^It may be a bit tough.^0^0^0
 1^Oh <playername>, you are a life-saver! Thank you so much! I feel so much better already!
 <ChoiceEnd>
 1^Oh… is that so. Still, i am glad you are going with me.

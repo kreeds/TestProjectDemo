@@ -20,6 +20,7 @@ public class QuestEvent : MonoBehaviour {
 		Character,
 		Dialog,
 		Choice,
+		ChoiceOptions,
 	}
 	[SerializeField]UILabel			playerNameLabel;
 	[SerializeField]UILabel			otherNameLabel;
@@ -468,6 +469,8 @@ public class QuestEvent : MonoBehaviour {
 		characterList = new List<Character>();
 
 		int currentBranch = 0;
+
+		int currentChoiceIndex = 0;
 		int maxBranch = currentBranch;
 
 		List<int> branchQueue = new List<int> ();
@@ -487,7 +490,10 @@ public class QuestEvent : MonoBehaviour {
 			} else if (dataLine == "<Choice>"){
 				parseMode = ParseMode.Choice;
 				continue;
-			} else if (dataLine == "<End>"){
+			} else if (dataLine == "<ChoiceOptions>"){
+				parseMode = ParseMode.ChoiceOptions;
+				continue;
+			}else if (dataLine == "<End>"){
 				break;
 			} else if (dataLine == "<ChoiceEnd>"){
 				finishedQueue.Insert (0, currentBranch);
@@ -528,29 +534,72 @@ public class QuestEvent : MonoBehaviour {
 				string[] parts = dataLine.Split(new char[] {'^'});
 
 				DialogChoice newChoice = new DialogChoice();
+
+				int branchCount = int.Parse(parts[1]);
 				newChoice.eventGroup = currentBranch;
-				newChoice.choiceOptions = new string[parts.Length];
-				newChoice.choiceCost = new int[parts.Length];
-				newChoice.choiceReward = new int[parts.Length];
 
-				int i = 0;
+				newChoice.choiceOptions = new string[branchCount];
+				newChoice.choiceCost = new int[branchCount];
+				newChoice.choiceReward = new int[branchCount];
+				newChoice.choiceEnergyReward = new int[branchCount];
+				newChoice.choiceMoneyReward = new int[branchCount];
 
-				foreach (string choiceLine in parts){
-					string[] lineParts = choiceLine.Split(new string[]{"::"}, System.StringSplitOptions.None);
-					newChoice.choiceCost[i] = int.Parse(lineParts[0].Split (':')[1]);
-					newChoice.choiceReward[i] = int.Parse(lineParts[2].Split (':')[1]);
-					newChoice.choiceOptions[i++] = lineParts[1];
-					maxBranch = maxBranch + i;
-					priorityQueue.Insert(0, maxBranch);
-				}
+				parseMode = ParseMode.ChoiceOptions;
 
-				branchQueue.Insert(0, currentBranch); //store last branch node
-				currentBranch = priorityQueue[0]; //remove first node from pq
+				currentChoiceIndex = 0;
 
-				parseMode = ParseMode.Dialog;
+//				newChoice.eventGroup = currentBranch;
+//				newChoice.choiceOptions = new string[parts.Length];
+//				newChoice.choiceCost = new int[parts.Length];
+//				newChoice.choiceReward = new int[parts.Length];
+//
+//				int i = 0;
+//
+//				foreach (string choiceLine in parts){
+//					string[] lineParts = choiceLine.Split(new string[]{"::"}, System.StringSplitOptions.None);
+//					newChoice.choiceCost[i] = int.Parse(lineParts[0].Split (':')[1]);
+//					newChoice.choiceReward[i] = int.Parse(lineParts[2].Split (':')[1]);
+//					newChoice.choiceOptions[i++] = lineParts[1];
+//					maxBranch = maxBranch + i;
+//					priorityQueue.Insert(0, maxBranch);
+//				}
+//
+//				branchQueue.Insert(0, currentBranch); //store last branch node
+//				currentBranch = priorityQueue[0]; //remove first node from pq
+//
+//				parseMode = ParseMode.Dialog;
 //				branchQueue.Add (currentBranch);
 
 				nextEvent = newChoice;
+			}
+				break;
+
+			case ParseMode.ChoiceOptions:
+			{
+				DialogChoice currentChoice = currentDialogEvent as DialogChoice;
+				
+				string[] parts = dataLine.Split(new char[] {'^'});
+
+				currentChoice.choiceCost[currentChoiceIndex] = int.Parse(parts[0]);
+				currentChoice.choiceOptions[currentChoiceIndex] = parts[1];
+				currentChoice.choiceReward[currentChoiceIndex] = int.Parse (parts[2]);
+
+				currentChoice.choiceMoneyReward[currentChoiceIndex] = int.Parse (parts[3]);
+				currentChoice.choiceEnergyReward[currentChoiceIndex] = int.Parse (parts[4]);
+
+				currentChoiceIndex++;
+				maxBranch = maxBranch + currentChoiceIndex;
+				priorityQueue.Insert(0, maxBranch);
+
+				if (currentChoiceIndex >= currentChoice.choiceCost.Length){
+
+					branchQueue.Insert(0, currentBranch); //store last branch node
+					currentBranch = priorityQueue[0]; //remove first node from pq
+
+					parseMode = ParseMode.Dialog;
+				}
+				continue;
+
 			}
 				break;
 			}
@@ -731,6 +780,19 @@ public class QuestEvent : MonoBehaviour {
 		}
 
 		PlayerProfile.Get ().StartAction (cost);
+
+		if (cost < 0) {
+
+			GameObject obj = NGUITools.AddChild (scenePanel.gameObject, Resources.Load ("Prefabs/Emitter") as GameObject);
+
+			Vector3 newPos = obj.transform.localPosition;
+			newPos.y -=  (170 + 90 * selected);
+			obj.transform.localPosition = newPos;
+		
+			Emitter emitter = obj.GetComponent<Emitter> ();
+			emitter.Init (new ItemType[]{ItemType.ENERGY}, new int[]{choiceEvent.choiceEnergyReward [selected]}, -20f, 20f, 60f, 60f, Emitter.EmitType.Flow);
+			emitter.Init (new ItemType[]{ItemType.GOLD}, new int[]{choiceEvent.choiceMoneyReward [selected]}, -20f, 20f, 60f, 60f, Emitter.EmitType.Flow);
+		}
 
 		if (choiceEvent.nextEvents.Count > 0){
 			currentDialogEvent = choiceEvent.nextEvents [selected];

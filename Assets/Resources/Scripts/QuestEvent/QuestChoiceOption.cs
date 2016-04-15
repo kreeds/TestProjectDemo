@@ -8,8 +8,17 @@ public class QuestChoiceOption : MonoBehaviour {
 
 	[SerializeField]UILabel			_buttonText;
 	[SerializeField]UILabel			_energyText;
+	[SerializeField]UISprite		_iconSprite;
 
 	public void Initialize(GameObject rootObject, int choiceIndex, int cost, string buttonText){
+		if (cost < 0) {
+			_iconSprite.spriteName = "icon03";
+			_iconSprite.transform.localScale = new Vector3(37f, 37f);
+			cost = -cost;
+		} else {
+			_iconSprite.spriteName = "icon00";
+		}
+
 		_rootObject = rootObject;
 		_choiceIndex = choiceIndex;
 

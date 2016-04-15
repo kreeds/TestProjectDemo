@@ -59,6 +59,8 @@ public class DialogChoice : DialogBase
 	public string[] choiceOptions;
 	public int[] choiceCost;
 	public int[] choiceReward;
+	public int[] choiceMoneyReward;
+	public int[] choiceEnergyReward;
 	public List<DialogBase> nextEvents;
 	
 	public DialogChoice()

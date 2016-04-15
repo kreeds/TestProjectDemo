@@ -37,7 +37,7 @@ public class CollectableItems : MonoBehaviour {
 		switch(type)
 		{
 			case ItemType.ENERGY:
-				sprite.spriteName = "";
+				sprite.spriteName = "icon00";
 				break;
 			case ItemType.GOLD:
 				sprite.spriteName = "icon02";
