@@ -118,6 +118,8 @@ public class CollectableItems : MonoBehaviour {
 				break;
 		}
 
+		Service.Get<SoundService>().PlaySound(Resources.Load("tap_quest") as AudioClip, false);
+
 		if(label != null)
 		{
 			label.gameObject.SetActive(true);
