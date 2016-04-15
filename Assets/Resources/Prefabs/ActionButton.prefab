@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 410406}
   - 114: {fileID: 11410406}
-  m_Layer: 13
+  m_Layer: 5
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 430392}
   - 114: {fileID: 11430392}
-  m_Layer: 13
+  m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 430394}
   - 114: {fileID: 11430394}
-  m_Layer: 13
+  m_Layer: 5
   m_Name: Sprite (icon00)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 430396}
   - 114: {fileID: 11430396}
-  m_Layer: 13
+  m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - 4: {fileID: 442218}
   - 114: {fileID: 11442228}
   - 114: {fileID: 11497008}
-  m_Layer: 13
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,6 +97,7 @@ GameObject:
   - 114: {fileID: 11442218}
   - 114: {fileID: 11426620}
   - 114: {fileID: 11488754}
+  - 114: {fileID: 11485826}
   m_Layer: 5
   m_Name: ActionButton
   m_TagString: Untagged
@@ -124,7 +125,7 @@ Transform:
   m_GameObject: {fileID: 130392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 207, y: 1, z: 0}
-  m_LocalScale: {x: 110.650955, y: 110.650955, z: 2.76493502}
+  m_LocalScale: {x: 90, y: 90, z: 2.76493502}
   m_Children: []
   m_Father: {fileID: 442220}
   m_RootOrder: 4
@@ -148,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 130396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -54, y: -2, z: 0}
-  m_LocalScale: {x: 60, y: 60, z: 1.99886096}
+  m_LocalScale: {x: 54, y: 54, z: 1.99886096}
   m_Children: []
   m_Father: {fileID: 442220}
   m_RootOrder: 2
@@ -317,7 +318,7 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 8
   mFont: {fileID: 11436730, guid: 0b148944a0ce64b5d9a909933a380543, type: 2}
-  mText: Lady Knight Kick
+  mText: Lady Knight kick
   mMaxLineWidth: 0
   mMaxLineHeight: 0
   mEncoding: 1
@@ -428,6 +429,45 @@ MonoBehaviour:
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
+--- !u!114 &11485826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortByDepth: 1
+  showInPanelTool: 1
+  generateNormals: 0
+  depthPass: 0
+  widgetsAreStatic: 0
+  cullWhileDragging: 0
+  worldToLocal:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: -1232
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 158
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  mAlpha: 1
+  mDebugInfo: 1
+  mClipping: 0
+  mClipRange: {x: 0, y: 0, z: 0, w: 0}
+  mClipSoftness: {x: 40, y: 40}
 --- !u!114 &11488754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -442,6 +482,8 @@ MonoBehaviour:
   alpha: {fileID: 11497008}
   scale: {fileID: 11426620}
   box: {fileID: 6542218}
+  name: {fileID: 11430396}
+  energyCost: {fileID: 11430392}
 --- !u!114 &11497008
 MonoBehaviour:
   m_ObjectHideFlags: 1

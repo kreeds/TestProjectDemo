@@ -45,7 +45,7 @@ public class NewsScene : MonoBehaviour {
 		Service.Get<HUDService>().StartScene();
 		_newsDataList = new List<NewsDataItem> ();
 
-		m_bgm = Resources.Load("Music/costumemusic") as AudioClip;
+		m_bgm = Resources.Load("Music/headlinesmusic") as AudioClip;
 		m_soundService = Service.Get<SoundService>();
 		m_soundService.PlayMusic(m_bgm, true);
 

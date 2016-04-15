@@ -52,6 +52,7 @@ public class PlayerManager : MonoBehaviour {
 
 	const float ranChance = 1.0f;
 	GameObject m_braveBurst;
+	
 
 	SoundService m_soundService;
 
@@ -98,15 +99,15 @@ public class PlayerManager : MonoBehaviour {
 		m_player.bravebar = 0;
 
 		m_skills = new Skill[3];
-		m_skills[0].name = "Lady Knight Kick";
-		m_skills[0].energyCost = 8;
+		m_skills[0].name = "LadyKnight Punch";
+		m_skills[0].energyCost = 3;
 		m_skills[0].id = 1;
-		m_skills[1].name = "Lady Knight Kick";
-		m_skills[1].energyCost = 8;
-		m_skills[1].id = 1;
-		m_skills[2].name = "Lady Knight Kick";
+		m_skills[1].name = "LadyKnight Kick";
+		m_skills[1].energyCost = 4;
+		m_skills[1].id = 2;
+		m_skills[2].name = "Strike A Pose";
 		m_skills[2].energyCost = 8;
-		m_skills[2].id = 1;
+		m_skills[2].id = 3;
 
 		//Create Skill Buttons
 
