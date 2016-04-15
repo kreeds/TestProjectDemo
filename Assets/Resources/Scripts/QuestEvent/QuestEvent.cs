@@ -217,6 +217,10 @@ public class QuestEvent : MonoBehaviour {
 
 		backgroundTexture.mainTexture = Resources.Load ("Texture/bg0" + currentScene.bgID) as Texture;
 
+		if (currentScene.bgID == 2) {
+			backgroundTexture.mainTexture = Resources.Load ("Texture/shopping") as Texture;
+		}
+
 		UIDraggablePanel dragPanel = scenePanel.GetComponent<UIDraggablePanel> ();
 		if (dragPanel != null)
 			dragPanel.enabled = true;
