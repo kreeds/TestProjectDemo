@@ -998,6 +998,8 @@ public class QuestEvent : MonoBehaviour {
 	}
 
 	void OnAction(int actionID){
+
+		m_soundService.PlaySound(Resources.Load("Sound/tapfinishobjective") as AudioClip, false);
 		QuestAction action = currentQuest.actionList [actionID];
 		
 		GameObject obj = NGUITools.AddChild (scenePanel.gameObject, Resources.Load ("Prefabs/Emitter") as GameObject);

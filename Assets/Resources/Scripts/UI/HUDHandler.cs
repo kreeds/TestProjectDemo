@@ -47,6 +47,12 @@ public class HUDHandler : MonoBehaviour {
 
 	GameObject m_QuestTImer;
 
+	float m_targetAmt;
+	public float GetSpecialAmount
+	{
+		get{return m_targetAmt;}
+	}
+
 
 	#region Mono
 	void Awake()
@@ -263,6 +269,7 @@ public class HUDHandler : MonoBehaviour {
 	}
 	public void SetSpecialGaugeAmt(float targetAmt)
 	{
+		m_targetAmt = targetAmt;
 		if(m_heartSprite != null)
 		{
 			StartCoroutine(FillSprite(targetAmt));
@@ -297,12 +304,12 @@ public class HUDHandler : MonoBehaviour {
 			yield return null;
 		}
 		m_heartSprite.fillAmount = targetAmt;
-		if(targetAmt == 1 && diff > 0)
-		{
-			SoundService ss = Service.Get<SoundService>();
-			ss.PlaySound(ss.GetSFX("gaugefull"), false);
-			m_sparkle.SetActive(true);
-		}
+//		if(targetAmt == 1 && diff > 0)
+//		{
+//			SoundService ss = Service.Get<SoundService>();
+//			ss.PlaySound(ss.GetSFX("gaugefull"), false);
+//			m_sparkle.SetActive(true);
+//		}
 		//m_specialBtn.isEnabled = (m_heartSprite.fillAmount == 1)? true: false;
 
 	}	
