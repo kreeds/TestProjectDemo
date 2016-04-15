@@ -5,7 +5,9 @@
 <Dialog>
 1^  ..!! I've never entered such a stylish store before...
 <Choice>
-C:2::How is this dress?::R:0^C:2::This suits you!::R:0
+C^2
+2^How is this dress?^0^0^0
+-1^This suits you!^3^3^2
 <ChoiceEnd>
 <ChoiceEnd>
 1^… Alright. I will try it on. Let’s see how i look in the mirror...

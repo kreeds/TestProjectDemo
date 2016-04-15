@@ -64,12 +64,12 @@ public class NewsScene : MonoBehaviour {
 //		_newsDataList.Add (new NewsDataItem ("[Caution] Fake Lady Knights", "LK_portrait", "tvnews"));
 //		_newsDataList.Add (new NewsDataItem ("Thank you!", "portrait", "thankyounote"));
 
-		_newsDataList.Add (new NewsDataItem ("@Emiko was in the newspapers", "LK_portrait", "newspaper"));
+		_newsDataList.Add (new NewsDataItem ("@Emi was in the newspapers", "LK_portrait", "newspaper"));
 		_newsDataList.Add (new NewsDataItem ("@Weining was on the TV news", "LK_portrait", "tvnews"));
 		_newsDataList.Add (new NewsDataItem ("[Caution] Fake Lady Knights", "LK_portrait", "Fakeladyknight"));
 		_newsDataList.Add (new NewsDataItem ("@Jing got a thank you letter", "portrait", "thankyounote"));
 
-		_newsDataList [0]._newsBody = "@Emiko was in the newspapers@Emiko was in the newspapers@Emiko was in the newspapers@Emiko was in the newspapers@Emiko was in the newspapers@Emiko was in the newspapers";
+		_newsDataList [0]._newsBody = "Emi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapers";
 		_newsDataList [1]._newsBody = "@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news";
 		_newsDataList [2]._newsBody = "[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights";
 		_newsDataList [3]._newsBody = "@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter";
