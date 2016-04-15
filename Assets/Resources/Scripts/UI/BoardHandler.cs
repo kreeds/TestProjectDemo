@@ -41,7 +41,7 @@ public class BoardHandler : MonoBehaviour {
 		}
 		else
 		{
-			QuestEvent.nextSceneID = 3;
+			QuestEvent.nextSceneID = 2;
 			Service.Get<HUDService>().ChangeScene("EventScene");
 			Service.Get<HUDService>().HUDControl.RemoveBattleHUD();
 		}
