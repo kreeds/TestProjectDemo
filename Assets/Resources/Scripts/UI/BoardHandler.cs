@@ -53,5 +53,7 @@ public class BoardHandler : MonoBehaviour {
 	{
 		Board = (win)? winboard : loseboard;
 		Board.SetActive(true);
+		SoundService ss = Service.Get<SoundService>();
+		ss.PlaySound(ss.GetSFX("win"), false);
 	}
 }

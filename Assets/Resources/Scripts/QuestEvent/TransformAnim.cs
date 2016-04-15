@@ -35,7 +35,7 @@ public class TransformAnim : MonoBehaviour {
 
 		StartCoroutine (EnableCollider (1.2f));
 
-		m_soundService.PlaySound(Resources.Load("Sound/compactopen") as AudioClip, false);
+		StartCoroutine(Utility.DelayInSeconds(0.2f, (res)=>{m_soundService.PlaySound(Resources.Load("Sound/compactopen") as AudioClip, false);} ));
 
 //		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Bg_Fx") as GameObject);
 //		obj.transform.localPosition = new Vector3 (0, 0, 2f);
@@ -68,7 +68,7 @@ public class TransformAnim : MonoBehaviour {
 		yield return new WaitForSeconds(seconds);
 		clickMessage.enabled = true;
 		collider.enabled = true;
-		m_soundService.PlaySound(Resources.Load("Sound/compactopen_jingle") as AudioClip, false);
+		//m_soundService.PlaySound(Resources.Load("Sound/compactopen_jingle") as AudioClip, false);
 
 //		fgObj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Transformation_Fg_Fx") as GameObject);
 //		fgObj.transform.localPosition = new Vector3 (0, -140f, -2f);

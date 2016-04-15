@@ -257,20 +257,14 @@ public class HUDHandler : MonoBehaviour {
 		if(m_specialLabel != null)
 			m_specialLabel.enabled = enable;
 	}
-
+	public void SetSpecialFxGlow(bool show)
+	{
+		m_sparkle.SetActive(show);
+	}
 	public void SetSpecialGaugeAmt(float targetAmt)
 	{
 		if(m_heartSprite != null)
 		{
-			// Target Amount is full
-			if(targetAmt == 1.0f)
-			{
-				m_sparkle.SetActive(true);
-			}
-			else
-			{
-				m_sparkle.SetActive(false);
-			}
 			StartCoroutine(FillSprite(targetAmt));
 		}
 	}
@@ -307,6 +301,7 @@ public class HUDHandler : MonoBehaviour {
 		{
 			SoundService ss = Service.Get<SoundService>();
 			ss.PlaySound(ss.GetSFX("gaugefull"), false);
+			m_sparkle.SetActive(true);
 		}
 		//m_specialBtn.isEnabled = (m_heartSprite.fillAmount == 1)? true: false;
 

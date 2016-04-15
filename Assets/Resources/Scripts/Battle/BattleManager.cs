@@ -125,10 +125,10 @@ public class BattleManager : MonoBehaviour
 
 		// Create Sound Service
 		m_soundService = Service.Get<SoundService>();
-		m_soundService.PreloadSFXResource(new string[11]{"attack01", "attack02", "attack03", 
+		m_soundService.PreloadSFXResource(new string[12]{"attack01", "attack02", "attack03", 
 															"countdown", "enemyattack", "finalstrokeappear", 
 															"gaugefull", "magicnotecorrect", "playermoveattack", 
-															"sceneswish", "supermove"});
+																"sceneswish", "supermove", "win"});
 
 		m_BGM = Resources.Load("Music/" + m_bgmMusic) as AudioClip;
 		m_SPECIAL = Resources.Load("Music/supermove_jingle" ) as AudioClip;
@@ -240,6 +240,7 @@ public class BattleManager : MonoBehaviour
 			break;
 			case BattlePhase.END:
 			{
+				
 				StartCoroutine(Utility.DelayInSeconds( 5.0f, 
 														(res) => 
 														{ 
@@ -248,6 +249,8 @@ public class BattleManager : MonoBehaviour
 															if(m_boardHandler != null)
 																m_boardHandler.Init(true);
 														} ));
+
+				m_phase = BattlePhase.TOTAL;
 			}
 			break;
 		}
@@ -309,23 +312,39 @@ public class BattleManager : MonoBehaviour
 		++gaugeCount;
 		if(gaugeCount > m_fullgaugeCount)
 			gaugeCount = m_fullgaugeCount;
-
 			
 		if(m_phase == BattlePhase.SPECIAL)
 		{
 			m_phase = BattlePhase.ATTACK;
 			gaugeCount = 0;
 			ResetGauge();
-
-			//m_soundService.StopMusic(m_SPECIAL);
-			//m_soundService.PlayMusic(m_BGM, true);
 		}
 		else
 		{
 			m_HUDService.HUDControl.SetSpecialGaugeAmt((float)gaugeCount/m_fullgaugeCount);
 		}
 	}
-	 
+
+	public void SpecialCorrect()
+	{
+		if(m_coroutine != null)
+			StopCoroutine(m_coroutine);
+
+		m_gestureState = GestureState.START;
+
+		m_playerMgr.RemoveBB();
+
+		m_HUDService.HUDControl.ShowHPBars(true);
+		m_HUDService.ShowQuestTime(true);
+
+		if(m_FXObj != null)
+			Destroy(m_FXObj);
+
+		m_phase = BattlePhase.ATTACK;
+		gaugeCount = 0;
+		ResetGauge();
+	}
+
 	public void ResetGauge()
 	{
 		m_HUDService.HUDControl.SetSpecialGaugeAmt(0);
@@ -366,6 +385,7 @@ public class BattleManager : MonoBehaviour
 		m_soundService.StopMusic(m_BGM);
 		m_soundService.PlayMusic(m_SPECIAL, true);
 
+		m_HUDService.HUDControl.SetSpecialFxGlow(false);
 
 		ResetGauge();
 

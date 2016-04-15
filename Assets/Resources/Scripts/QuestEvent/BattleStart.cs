@@ -27,6 +27,7 @@ public class BattleStart : MonoBehaviour {
 //		obj1.transform.localScale = new Vector3 (100, 200);
 //
 //		obj1 = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/WarningExclaim_Fx") as GameObject);
+		Service.Get<SoundService>().PlaySound(Resources.Load("Sound/caution") as AudioClip, false);
 		GameObject obj1 = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/FX/Caution_Fx") as GameObject);
 		DestroyObject (obj1, obj1.particleSystem.duration);
 

@@ -80,6 +80,7 @@ public class HUDService : CSingleton {
 		m_transitor.SetActive(true);
 		m_sound.StopMusic(0);
 		m_scene.ChangeScene(name);
+		Resources.UnloadUnusedAssets();
 	}
 
 	public void ReturnToHome()

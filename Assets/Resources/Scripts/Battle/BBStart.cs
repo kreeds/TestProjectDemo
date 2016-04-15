@@ -58,7 +58,7 @@ public class BBStart : MonoBehaviour {
 			if((pos-m_pos.position).magnitude < m_threshold)
 			{
 				Debug.Log("Within Radius");
-				m_bmgr.Correct();
+				m_bmgr.SpecialCorrect();
 				m_pmgr.ShowSpecialEffect();
 			}
 

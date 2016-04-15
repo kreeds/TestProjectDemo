@@ -894,6 +894,7 @@ public class QuestEvent : MonoBehaviour {
 					obj.transform.localScale = Vector3.one;
 					obj.transform.localPosition = new Vector3(0, 0, -5);
 
+					m_soundService.StopMusic(m_bgm);
 					BattleStart battleDialog = obj.GetComponent<BattleStart>();
 					battleDialog.Initialize(gameObject, "Mirror Monster");
 

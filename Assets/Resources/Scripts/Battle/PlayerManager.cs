@@ -165,13 +165,16 @@ public class PlayerManager : MonoBehaviour {
 				if(!specialAtk)
 				{
 					AttackEffect(16, 112);
-					//m_enemyMgr.damageEnemy(m_player.atk);
 						StartCoroutine(Utility.DelayInSeconds(0.5f,
 										(res1) => {m_enemyMgr.damageEnemy(m_player.atk); 	
 										attackend = true;
 										playerattack = true; 
 										m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
 										} ));
+
+
+					if(m_battleMgr != null)
+						m_battleMgr.Correct();
 
 		
 				}
@@ -200,8 +203,6 @@ public class PlayerManager : MonoBehaviour {
 			}
 
 
-			if(m_battleMgr != null)
-				m_battleMgr.Correct();
 
 			//StartCoroutine(ReturnCamera());
 		
