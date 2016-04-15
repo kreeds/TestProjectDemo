@@ -6,7 +6,18 @@ public class ActionButton : MonoBehaviour {
 	[SerializeField]TweenAlpha alpha;
 	[SerializeField]TweenScale scale;
 	[SerializeField]BoxCollider box;
+	[SerializeField]UILabel name;
+	[SerializeField]UILabel energyCost;
 
+
+	public void Init(string _name, string _energyCost)
+	{
+		if(name != null)
+			name.text = _name;
+
+		if(energyCost != null)
+			energyCost.text = _energyCost;
+	}
 	public void PlayTween(bool forward)
 	{
 		box.enabled = forward;

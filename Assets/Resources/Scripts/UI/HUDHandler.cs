@@ -161,7 +161,10 @@ public class HUDHandler : MonoBehaviour {
 		obj.transform.localScale = new Vector3 (0.6f, 0.6f, 0.6f);
 		obj.transform.localPosition = new Vector3 (-108.0f, -8.0f - (100 * m_actionButtonList.Count), 0f);
 
-		m_actionButtonList.Add(obj.GetComponentInChildren<ActionButton>());
+		ActionButton abtn = obj.GetComponent<ActionButton>();
+		abtn.Init(playerskill.name, playerskill.energyCost.ToString());
+		m_actionButtonList.Add(abtn);
+
 
 		UIButtonMessage button = obj.GetComponent<UIButtonMessage>();
 		button.functionName = funcName;

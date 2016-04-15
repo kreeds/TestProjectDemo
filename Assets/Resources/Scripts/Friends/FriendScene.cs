@@ -11,6 +11,7 @@ public class FriendScene : MonoBehaviour {
 		
 		Service.Init();	
 		Service.Get<HUDService>().StartScene();
+		Service.Get<SoundService>().PlayMusic(Resources.Load("Music/friendmusic") as AudioClip, true);
 		PutDummyList ();
 	
 	}

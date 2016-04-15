@@ -88,10 +88,10 @@ public class CollectableItems : MonoBehaviour {
 								GameObject obj = GameObject.Find ("EventManager");
 								obj.SendMessage("OnStarCollected");
 							}
-							else if(m_type == ItemType.GOLD)
-							{
-								m_sparkle.SetActive(true);
-							}
+//							else if(m_type == ItemType.GOLD)
+//							{
+//								m_sparkle.SetActive(true);
+//							}
 						} 
 						));
 	}
@@ -107,7 +107,7 @@ public class CollectableItems : MonoBehaviour {
 				break;
 			case ItemType.GOLD:
 				label.color = Color.yellow;
-				m_sparkle.SetActive(true);
+				//m_sparkle.SetActive(true);
 				break;
 		case ItemType.STAR:
 			GameObject obj = GameObject.Find ("EventManager");

@@ -107,7 +107,15 @@ public class QuestEvent : MonoBehaviour {
 		Service.Init();	
 		m_hudService = Service.Get<HUDService>();
 		m_hudService.StartScene();
-		m_bgm = Resources.Load("Music/room") as AudioClip;
+
+		if(nextSceneID < 1)
+		{
+			m_bgm = Resources.Load("Music/room") as AudioClip;
+		}
+		else
+		{
+			m_bgm = Resources.Load("Music/shopping") as AudioClip;
+		}
 		m_soundService = Service.Get<SoundService>();
 		m_soundService.PlayMusic(m_bgm, true);
 
