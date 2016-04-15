@@ -358,9 +358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: f4ae14efee98a4db09dd557154445cfb, type: 3}
+  audioClip: {fileID: 8300000, guid: 886dfca1b22db4248b379499b7de4742, type: 3}
   trigger: 0
-  volume: .200000003
+  volume: 1
   pitch: 1
 --- !u!114 &11442222
 MonoBehaviour:

@@ -26,6 +26,12 @@ public class UIButtonSound : MonoBehaviour
 	public float volume = 1f;
 	public float pitch = 1f;
 
+	void Awake()
+	{
+		if(audioClip == null)
+			audioClip = Resources.Load("Sound/tap_quest") as AudioClip;
+	}
+
 	void OnHover (bool isOver)
 	{
 		if (enabled && ((isOver && trigger == Trigger.OnMouseOver) || (!isOver && trigger == Trigger.OnMouseOut)))
@@ -44,8 +50,10 @@ public class UIButtonSound : MonoBehaviour
 
 	void OnClick ()
 	{
+		Debug.Log("OnClick Triggered: " + enabled );
 		if (enabled && trigger == Trigger.OnClick)
 		{
+			Debug.Log("OnClick Triggered: " + audioClip );
 			NGUITools.PlaySound(audioClip, volume, pitch);
 		}
 	}

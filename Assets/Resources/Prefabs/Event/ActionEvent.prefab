@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11410308}
   - 114: {fileID: 11410310}
   - 114: {fileID: 11410312}
+  - 114: {fileID: 11488376}
   - 114: {fileID: 11410326}
   m_Layer: 12
   m_Name: Button
@@ -48,6 +49,7 @@ GameObject:
   - 114: {fileID: 11410318}
   - 114: {fileID: 11410320}
   - 114: {fileID: 11410322}
+  - 114: {fileID: 11423606}
   - 114: {fileID: 11410330}
   m_Layer: 12
   m_Name: Button
@@ -664,6 +666,21 @@ MonoBehaviour:
   functionName: OnButtonClick
   trigger: 0
   includeChildren: 0
+--- !u!114 &11423606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 0}
+  trigger: 0
+  volume: 1
+  pitch: 1
 --- !u!114 &11436356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -831,6 +848,21 @@ MonoBehaviour:
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
+--- !u!114 &11488376
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 0}
+  trigger: 0
+  volume: 1
+  pitch: 1
 --- !u!114 &11491800
 MonoBehaviour:
   m_ObjectHideFlags: 1

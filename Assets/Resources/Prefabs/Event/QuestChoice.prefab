@@ -44,6 +44,7 @@ GameObject:
   - 114: {fileID: 11441510}
   - 114: {fileID: 11441508}
   - 114: {fileID: 11441506}
+  - 114: {fileID: 11434682}
   - 114: {fileID: 11441502}
   m_Layer: 5
   m_Name: Button
@@ -218,6 +219,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 504.959991, y: 60, z: 0}
   m_Center: {x: 0, y: -5.7220459e-06, z: -.25}
+--- !u!114 &11434682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 0}
+  trigger: 0
+  volume: 1
+  pitch: 1
 --- !u!114 &11441500
 MonoBehaviour:
   m_ObjectHideFlags: 1

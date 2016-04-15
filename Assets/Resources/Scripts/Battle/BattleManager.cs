@@ -240,10 +240,10 @@ public class BattleManager : MonoBehaviour
 			break;
 			case BattlePhase.END:
 			{
-				
 				StartCoroutine(Utility.DelayInSeconds( 5.0f, 
 														(res) => 
 														{ 
+															m_soundService.StopMusic(m_SPECIAL);
 															if(m_winLogo != null) 
 																m_winLogo.SetActive(true); 
 															if(m_boardHandler != null)

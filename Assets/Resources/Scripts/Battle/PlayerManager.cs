@@ -119,7 +119,7 @@ public class PlayerManager : MonoBehaviour {
 			m_handler.AddActionButton("NormalAttack", this.gameObject, m_skills[1]);
 			m_handler.AddActionButton("NormalAttack", this.gameObject, m_skills[2]);
 
-			m_handler.InitializeGauge((int)GAUGE.PLAYER, m_player.hp, m_player.hp, "Player");
+			m_handler.InitializeGauge((int)GAUGE.PLAYER, m_player.hp, m_player.hp, "Ellie");
 		}
 
 		l2dInterface.LoadProfile ();

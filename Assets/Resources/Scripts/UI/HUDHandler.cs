@@ -297,7 +297,7 @@ public class HUDHandler : MonoBehaviour {
 			yield return null;
 		}
 		m_heartSprite.fillAmount = targetAmt;
-		if(targetAmt == 1)
+		if(targetAmt == 1 && diff > 0)
 		{
 			SoundService ss = Service.Get<SoundService>();
 			ss.PlaySound(ss.GetSFX("gaugefull"), false);
