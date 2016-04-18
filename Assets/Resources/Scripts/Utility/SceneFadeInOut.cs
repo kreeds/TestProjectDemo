@@ -65,8 +65,9 @@ public class SceneFadeInOut : MonoBehaviour
     
     public void StartScene ()
     {
+		if(root.activeSelf)
         // Fade the texture to clear.
-        StartCoroutine(FadeToClear());
+        	StartCoroutine(FadeToClear());
     }
     
     
@@ -76,7 +77,8 @@ public class SceneFadeInOut : MonoBehaviour
 		guiTex.enabled = true;
 		sceneName = name;
 		// Start fading towards black.
-        StartCoroutine(FadeToBlack(name));
+		if(root.activeSelf)
+        	StartCoroutine(FadeToBlack(name));
     }
 
     public void ChangeScene(int index)

@@ -846,7 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_parent: {fileID: 1220495754}
-  m_easySpriteIndex: 02000000030000000400000005000000060000000f000000
+  m_easySpriteIndex: 0f00000003000000040000000500000006000000
   m_hardSpriteIndex: 00000000060000000700000008000000090000000c0000000d000000
 --- !u!114 &797400644
 MonoBehaviour:
@@ -1584,7 +1584,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11443142, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_easySpriteIndex.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 443140, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1632,7 +1632,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11443142, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_easySpriteIndex.Array.data[0]
-      value: 2
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 11443142, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_easySpriteIndex.Array.data[1]

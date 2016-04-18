@@ -112,6 +112,7 @@ public class PlayerManager : MonoBehaviour {
 		//Create Skill Buttons
 
 		m_camService = Service.Get<MapService>();
+		m_camService.Init();
 
 		if(m_handler != null)
 		{
@@ -399,6 +400,7 @@ public class PlayerManager : MonoBehaviour {
 
 	private void TweenAttack(bool isAttacking)
 	{
+		Debug.Log("TweenAttack: " + isAttacking);
 		Vector3 from, to;
 		from = (isAttacking)? new Vector3(703f, -3.76f, 0.0f) : new Vector3(-703f, -3.76f, 0.0f);
 		to = (isAttacking)? new Vector3(-703f, -3.76f, 0.0f) : new Vector3(703f, -3.76f, 0.0f);

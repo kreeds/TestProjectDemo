@@ -45,6 +45,7 @@ public class HUDService : CSingleton {
 
 	public void StartScene()
 	{
+		
 		m_scene.StartScene();
 	}
 	public void CreateBattleHUD()
@@ -74,7 +75,6 @@ public class HUDService : CSingleton {
 	{
 		HUDControl.ShowQuestTime(show);
 	}
-
 	public void ChangeScene(string name)
 	{
 		m_transitor.SetActive(true);

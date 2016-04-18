@@ -8,7 +8,7 @@ public class MapService : CSingleton {
 	TextureAnimation m_effectFx;
 
 
-	void Awake()
+	public void Init()
 	{
 		m_cameraObj = Camera.main.gameObject;
 
