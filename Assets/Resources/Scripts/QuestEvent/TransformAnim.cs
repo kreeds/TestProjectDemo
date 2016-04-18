@@ -33,6 +33,7 @@ public class TransformAnim : MonoBehaviour {
 		model.PlayTransformAnim ();
 		model.gameObject.SetActive (false);
 
+		collider.enabled = false;
 		StartCoroutine (EnableCollider (1.2f));
 
 		StartCoroutine(Utility.DelayInSeconds(0.2f, (res)=>{m_soundService.PlaySound(Resources.Load("Sound/compactopen") as AudioClip, false);} ));
