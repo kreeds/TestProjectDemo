@@ -1,6 +1,6 @@
 BG:0
 <PlayerSetup>
-x:160
+x:-564
 y:-180
 <CharaSetup>
 <Chara>
@@ -10,12 +10,12 @@ x:-180
 y:-130
 hair:1
 clothes:1
-side:-1
+side:1
 <CharaEnd>
 <Drama>
-x:-56
+x:-330
 y:170
-side:-1
+side:1
 DramaFilename:TextData/Dialog1
 <DramaEnd>
 ChangeSequence:MainMenu

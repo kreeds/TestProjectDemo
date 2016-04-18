@@ -798,6 +798,7 @@ public class QuestEvent : MonoBehaviour {
 			GameObject obj = NGUITools.AddChild (scenePanel.gameObject, Resources.Load ("Prefabs/Emitter") as GameObject);
 
 			Vector3 newPos = obj.transform.localPosition;
+			newPos.x = -scenePanel.transform.localPosition.x;
 			newPos.y -=  (170 + 90 * selected);
 			obj.transform.localPosition = newPos;
 		
@@ -955,7 +956,7 @@ public class QuestEvent : MonoBehaviour {
 	}
 
 	void StartDrama(Drama selectedDrama) {
-		float dialogLoc = selectedDrama.loc.x + 50f;
+		float dialogLoc = selectedDrama.loc.x - 50f;
 
 		Vector3 pos = scenePanel.transform.localPosition;
 //		float diff = pos.x - dialogLoc;

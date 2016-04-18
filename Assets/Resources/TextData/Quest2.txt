@@ -1,6 +1,6 @@
 BG:2
 <PlayerSetup>
-x:85
+x:-624
 y:-130
 <CharaSetup>
 <Chara>
@@ -10,12 +10,12 @@ x:-280
 y:-130
 hair:1
 clothes:1
-side:-1
+side:1
 <CharaEnd>
 <Quest>
-x:-160
+x:-453
 y:160
-side:-1
+side:1
 completion:11
 id:0
 name:Get Clothes For Margie!
@@ -41,9 +41,9 @@ completion:4
 desc:pick a blouse
 <QuestEnd>
 <Drama>
-x:-160
+x:-403
 y:-50
-side:-1
+side:1
 id:1
 prereq:0
 DramaFilename:TextData/Dialog2
