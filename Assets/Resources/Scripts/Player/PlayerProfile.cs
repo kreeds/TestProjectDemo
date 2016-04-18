@@ -25,7 +25,7 @@ public class PlayerProfile {
 
 	PlayerProfile()
 	{
-		playerName = "Gumi";
+		playerName = "Ellie";
 		playerHairIndex = 0;
 		playerClothesIndex = 0;
 		
