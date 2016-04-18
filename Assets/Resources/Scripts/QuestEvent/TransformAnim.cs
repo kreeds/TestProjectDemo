@@ -79,7 +79,7 @@ public class TransformAnim : MonoBehaviour {
 		yield return new WaitForSeconds(seconds);
 //		if (Application.loadedLevelName != "TestTransform")
 		Application.LoadLevel("BattleScene");
-		m_soundService.StopAllSound();
+		m_soundService.StopAll();
 		//Service.Get<HUDService> ().ChangeScene ("BattleScene");
 //		else
 //		Destroy (gameObject);

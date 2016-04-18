@@ -117,6 +117,20 @@ public class SoundService : CSingleton {
 		}
 	}
 
+	public void StopAllMusic()
+	{
+		foreach(AudioSource s in m_BGMSource)
+		{
+			s.Stop();
+		}
+	}
+
+	public void StopAll()
+	{
+		StopAllSound();
+		StopAllMusic();
+	}
+
 	public void StopSound(AudioClip c)
 	{
 		foreach(AudioSource s in m_SFXSounds)
