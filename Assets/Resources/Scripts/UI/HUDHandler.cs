@@ -36,6 +36,9 @@ public class HUDHandler : MonoBehaviour {
 	[SerializeField]GameObject	m_heartObj;
 	[SerializeField]GameObject	m_drawTip;
 
+	[SerializeField]UILabel		m_newsLabel;
+	[SerializeField]GameObject 	m_newsObject;
+
 	UIGauge[] HPBars;
 
 	BattleManager bmgr;
@@ -96,6 +99,16 @@ public class HUDHandler : MonoBehaviour {
 
 		m_gemLabel.text = PlayerProfile.Get ().gems	.ToString ();
 		m_lvlLabel.text = PlayerProfile.Get ().level.ToString ();
+
+		int newsCount = PlayerProfile.Get ().unreadNewsCnt;
+		if (newsCount > 0) {
+			if (newsCount < 10)
+				m_newsLabel.text = newsCount.ToString ();
+			else
+				m_newsLabel.text = "10+";
+		} else {
+			m_newsObject.SetActive (false);
+		}
 	}
 
 	#endregion

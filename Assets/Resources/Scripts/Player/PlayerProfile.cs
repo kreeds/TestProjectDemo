@@ -16,6 +16,8 @@ public class PlayerProfile {
 
 	public int level;
 
+	public int unreadNewsCnt;
+
 	public const float recoverTime = 300f;
 
 	public float recoverAmount;

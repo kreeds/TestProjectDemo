@@ -74,6 +74,9 @@ public class NewsScene : MonoBehaviour {
 		_newsDataList [2]._newsBody = "[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights";
 		_newsDataList [3]._newsBody = "@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter";
 
+		_newsDataList.AddRange (_newsDataList);
+		_newsDataList.AddRange (_newsDataList);
+
 		InitializeNews ();
 	}
 

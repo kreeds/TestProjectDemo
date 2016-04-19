@@ -57,5 +57,10 @@ public class FriendScene : MonoBehaviour {
 
 		allyGrid.Reposition ();
 	}
+
+	void OnBack()
+	{
+		Service.Get<HUDService> ().ReturnToHome ();
+	}
 }
 
