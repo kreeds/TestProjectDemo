@@ -11,15 +11,19 @@ public class NewsDataItem
 	public string _mainTextureName;
 
 	public int 	_newsTime;
+	public bool _isRead;
+
 	public string _location;
 
-	public NewsDataItem(string headLine, string iconTextureName, string mainTextureName, string newsBody = "", int newsTime = 120, string location = "Asia")
+	public NewsDataItem(string headLine, string iconTextureName, string mainTextureName, bool isRead = false, string newsBody = "", int newsTime = 120, string location = "Asia")
 	{
 		_headLine = headLine;
 		_iconTextureName = iconTextureName;
 		_mainTextureName = mainTextureName;
 
 		_newsBody = newsBody;
+
+		_isRead = isRead;
 	}
 
 }
@@ -43,13 +47,14 @@ public class NewsScene : MonoBehaviour {
 	void Start () {
 		Service.Init();	
 		Service.Get<HUDService>().StartScene();
-		_newsDataList = new List<NewsDataItem> ();
+//		_newsDataList = new List<NewsDataItem> ();
 
 		m_bgm = Resources.Load("Music/headlinesmusic") as AudioClip;
 		m_soundService = Service.Get<SoundService>();
 		m_soundService.PlayMusic(m_bgm, true);
 
-		InitializeDummy ();
+//		InitializeDummy ();
+		InitializeNews ();
 	}
 	
 	// Update is called once per frame
@@ -64,24 +69,26 @@ public class NewsScene : MonoBehaviour {
 //		_newsDataList.Add (new NewsDataItem ("[Caution] Fake Lady Knights", "LK_portrait", "tvnews"));
 //		_newsDataList.Add (new NewsDataItem ("Thank you!", "portrait", "thankyounote"));
 
-		_newsDataList.Add (new NewsDataItem ("@Emi was in the newspapers", "LK_portrait", "newspaper"));
-		_newsDataList.Add (new NewsDataItem ("@Weining was on the TV news", "LK_portrait", "tvnews"));
-		_newsDataList.Add (new NewsDataItem ("[Caution] Fake Lady Knights", "LK_portrait", "Fakeladyknight"));
-		_newsDataList.Add (new NewsDataItem ("@Jing got a thank you letter", "portrait", "thankyounote"));
-
-		_newsDataList [0]._newsBody = "Emi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapers";
-		_newsDataList [1]._newsBody = "@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news";
-		_newsDataList [2]._newsBody = "[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights";
-		_newsDataList [3]._newsBody = "@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter";
-
-		_newsDataList.AddRange (_newsDataList);
-		_newsDataList.AddRange (_newsDataList);
-
-		InitializeNews ();
+//		_newsDataList.Add (new NewsDataItem ("@Emi was in the newspapers", "LK_portrait", "newspaper"));
+//		_newsDataList.Add (new NewsDataItem ("@Weining was on the TV news", "LK_portrait", "tvnews"));
+//		_newsDataList.Add (new NewsDataItem ("[Caution] Fake Lady Knights", "LK_portrait", "Fakeladyknight"));
+//		_newsDataList.Add (new NewsDataItem ("@Jing got a thank you letter", "portrait", "thankyounote"));
+//
+//		_newsDataList [0]._newsBody = "Emi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapers";
+//		_newsDataList [1]._newsBody = "@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news";
+//		_newsDataList [2]._newsBody = "[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights[Caution] Fake Lady Knights";
+//		_newsDataList [3]._newsBody = "@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter@Jing got a thank you letter";
+//
+//		_newsDataList.AddRange (_newsDataList);
+//		_newsDataList.AddRange (_newsDataList);
+//
+//		InitializeNews ();
 	}
 
 	void InitializeNews()
 	{
+		_newsDataList = PlayerProfile.Get ().GetNewsList();
+
 		int count = _newsDataList.Count;
 
 		int id = 0;
@@ -90,7 +97,7 @@ public class NewsScene : MonoBehaviour {
 		obj.name = "NewsItem" + id;
 
 		HeadLineNewsItem headLineNews = obj.GetComponent<HeadLineNewsItem> ();
-		headLineNews.Initialize (id, gameObject, _newsDataList [id]._iconTextureName, _newsDataList [id]._headLine);
+		headLineNews.Initialize (id, gameObject, _newsDataList [id]._iconTextureName, _newsDataList [id]._headLine, _newsDataList[id]._isRead);
 		 
 		_newsTexture.spriteName = _newsDataList [id]._mainTextureName;
 		id++;
@@ -101,7 +108,7 @@ public class NewsScene : MonoBehaviour {
 			obj.name = "NewsItem" + id;
 			
 			NewsItem newsItem = obj.GetComponent<NewsItem> ();
-			newsItem.Initialize (id, gameObject, _newsDataList [id]._iconTextureName, _newsDataList [id]._headLine);
+			newsItem.Initialize (id, gameObject, _newsDataList [id]._iconTextureName, _newsDataList [id]._headLine, _newsDataList[id]._isRead);
 		}
 	}
 
@@ -114,6 +121,8 @@ public class NewsScene : MonoBehaviour {
 
 		_bodyText.text = _newsDataList [id]._newsBody;
 		_headingText.text = _newsDataList [id]._headLine;
+
+		PlayerProfile.Get ().SetNewsAsRead (id);
 	}
 
 	void OnBack()

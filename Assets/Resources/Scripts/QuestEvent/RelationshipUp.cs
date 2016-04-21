@@ -118,7 +118,7 @@ public class RelationshipUp : MonoBehaviour {
 		_tweenAlpha.from = 0;
 		_tweenScale.Play (false);
 		_tweenAlpha.Play (false);
-		_rootObject.SendMessage("GoToNext");
+		_rootObject.SendMessage("OnQuestCompleteOk");
 
 	}
 

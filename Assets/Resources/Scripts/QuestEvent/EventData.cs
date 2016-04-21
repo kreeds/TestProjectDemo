@@ -196,6 +196,7 @@ public class Quest:EventBase
 
 	public string finishDesc;
 
+
 	public Quest(): base()
 	{
 		eventType = SceneEventType.Quest;
@@ -223,6 +224,7 @@ public class EventBase
 	public int exp;
 
 	public int prereq;
+	public string addnews;
 
 	public EventBase()
 	{
@@ -232,5 +234,7 @@ public class EventBase
 		direction = 1;
 		nextEventID = -1;
 		prereq = -1;
+
+		addnews = null;
 	}
 }

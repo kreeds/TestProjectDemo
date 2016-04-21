@@ -397,6 +397,9 @@ public class QuestEvent : MonoBehaviour {
 						int bond = int.Parse (parts[1]);
 						currentDrama.showBond = bond != 0;
 					}
+					if (line.Contains("AddNews:")){
+						currentDrama.addnews = parts[1];
+					}
 				}
 				break;
 
@@ -708,7 +711,10 @@ public class QuestEvent : MonoBehaviour {
 				relationShipPanel.Initialize(gameObject, currentScene.characterList[0].hairId, currentScene.characterList[0].clothesId,
 				                             6, 6+currentDrama.relationshipBonus, currentScene.characterList[0]._name);
 				dialogBase.SetActive(false);
-			}else{
+			}else if (currentDrama.addnews != null){
+				ShowNewsNotification ();
+			}
+			else{
 				GoToNext();
 			}
 			return;
@@ -862,8 +868,27 @@ public class QuestEvent : MonoBehaviour {
 		}
 
 	}
-		//start quest or start drama
 
+	void ShowNewsNotification(){
+		
+		GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/NewsNotification")) as GameObject;
+		m_hudService.HUDControl.AttachMid(ref obj);
+		obj.transform.localScale = Vector3.one;
+		obj.transform.localPosition = new Vector3(0, 0, -5);
+
+		NewsNotificationItem newsItem = obj.GetComponent<NewsNotificationItem> ();
+
+		string headline = currentScene.getCurrentEvent ().addnews.Replace ("<playername>", PlayerProfile.Get ().playerName);
+		NewsDataItem item = new NewsDataItem (headline, "LK_portrait", "newspaper", false, "Emi was in the newspapersEmi was " +
+			"in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was " +
+			"in the newspapersEmi was in the newspapersEmi was in the newspapers");
+
+		newsItem.Initialize (gameObject, item._iconTextureName, item._headLine);
+
+		PlayerProfile.Get ().AddNews (item);
+	}
+
+		//start quest or start drama
 	void GoToNext()
 	{
 		foreach (EventBase eventListItem in currentScene.eventList){
@@ -1073,6 +1098,9 @@ public class QuestEvent : MonoBehaviour {
 
 	void OnQuestCompleteOk()
 	{
-		GoToNext ();
+		if (currentScene.getCurrentEvent ().addnews != null)
+			ShowNewsNotification ();
+		else
+			GoToNext ();
 	}
 }

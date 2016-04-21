@@ -102,6 +102,7 @@ public class HUDHandler : MonoBehaviour {
 
 		int newsCount = PlayerProfile.Get ().unreadNewsCnt;
 		if (newsCount > 0) {
+			m_newsObject.SetActive (true);
 			if (newsCount < 10)
 				m_newsLabel.text = newsCount.ToString ();
 			else
