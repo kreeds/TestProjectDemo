@@ -846,7 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_parent: {fileID: 1220495754}
-  m_easySpriteIndex: 0f00000003000000040000000500000006000000
+  m_easySpriteIndex: 0200000003000000
   m_hardSpriteIndex: 00000000060000000700000008000000090000000c0000000d000000
 --- !u!114 &797400644
 MonoBehaviour:
@@ -1199,13 +1199,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_gestureGenerator: {fileID: 797400643}
-  m_fullgaugeCount: 3
+  m_fullgaugeCount: 1
   m_gestureInv: 20
   m_interval: 3
   m_specialInv: 3
   m_stunInv: 3
   m_specialCountDown: 3
-  m_winLogo: {fileID: 1394381438}
+  m_boardCollider: {fileID: 1394381438}
+  m_loseLogo: {fileID: 1594563346}
   m_boardHandler: {fileID: 1394381440}
   m_itemParent: {fileID: 230716410}
   m_bgParent: {fileID: 0}
@@ -1584,7 +1585,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11443142, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_easySpriteIndex.Array.size
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 443140, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1632,7 +1633,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11443142, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_easySpriteIndex.Array.data[0]
-      value: 15
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11443142, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_easySpriteIndex.Array.data[1]
@@ -1698,7 +1699,7 @@ MonoBehaviour:
   gained: {fileID: 1450272363}
   gainboard: {fileID: 401206272}
   winboard: {fileID: 2014579457}
-  loseboard: {fileID: 0}
+  loseboard: {fileID: 1594563346}
 --- !u!65 &1394381441
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1781,6 +1782,7 @@ Transform:
   - {fileID: 401206273}
   - {fileID: 1394381439}
   - {fileID: 1588793364}
+  - {fileID: 1594563347}
   m_Father: {fileID: 35381265}
   m_RootOrder: 0
 --- !u!1 &1450272361
@@ -2020,6 +2022,93 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mTexture: {fileID: 2800000, guid: d2b4903e8d36f4cbea30493f28cd48de, type: 3}
   mMat: {fileID: 0}
+--- !u!1 &1594563346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1594563347}
+  - 114: {fileID: 1594563349}
+  - 114: {fileID: 1594563348}
+  m_Layer: 13
+  m_Name: Lose
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1594563347
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594563346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: .000121831894, z: 0}
+  m_LocalScale: {x: 359.586609, y: 107.87619, z: 1.438465}
+  m_Children: []
+  m_Father: {fileID: 1430754944}
+  m_RootOrder: 5
+--- !u!114 &1594563348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594563346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 1
+  style: 0
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: .5
+  steeperCurves: 0
+  tweenGroup: 0
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: 0
+  to: 1
+--- !u!114 &1594563349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594563346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mDepth: 11
+  mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
+  mSpriteName: Win
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
 --- !u!1 &1597651214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,66 +2494,3 @@ Prefab:
   m_RootGameObject: {fileID: 1329693537}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &2143097799
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2143097801}
-  - 108: {fileID: 2143097800}
-  m_Layer: 0
-  m_Name: Directional light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &2143097800
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2143097799}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .5
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_Strength: 1
-    m_Bias: .0500000007
-    m_Softness: 4
-    m_SoftnessFade: 1
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_ActuallyLightmapped: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 1
-  m_ShadowSamples: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_IndirectIntensity: 1
-  m_AreaSize: {x: 1, y: 1}
---- !u!4 &2143097801
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2143097799}
-  m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381676, w: .875426054}
-  m_LocalPosition: {x: .000156286624, y: .000543877599, z: .5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9

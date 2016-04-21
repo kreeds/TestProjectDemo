@@ -51,9 +51,16 @@ public class BoardHandler : MonoBehaviour {
 
 	public void Init(bool win)
 	{
-		Board = (win)? winboard : loseboard;
-		Board.SetActive(true);
 		SoundService ss = Service.Get<SoundService>();
-		ss.PlaySound(ss.GetSFX("win"), false);
+		if(win)
+		{
+			Board = winboard;
+			ss.PlaySound(ss.GetSFX("win"), false);
+		}
+		else
+		{
+			Board = loseboard;
+		}
+		Board.SetActive(true);
 	}
 }

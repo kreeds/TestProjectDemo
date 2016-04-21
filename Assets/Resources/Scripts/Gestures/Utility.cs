@@ -61,4 +61,5 @@ public class Utility
 		yield return mono.StartCoroutine(AlphaIn(mat, inDuration));
 		yield return mono.StartCoroutine(AlphaOut(mat, outDuration));
 	}
+	
 }

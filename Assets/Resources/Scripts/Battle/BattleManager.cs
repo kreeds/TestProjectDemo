@@ -37,7 +37,8 @@ public class BattleManager : MonoBehaviour
 	HUDService m_HUDService;
 	SoundService m_soundService;
 
-	[SerializeField]GameObject		m_winLogo;
+	[SerializeField]GameObject		m_boardCollider;
+	[SerializeField]GameObject		m_loseLogo;
 	[SerializeField]BoardHandler	m_boardHandler;
 	[SerializeField]GameObject		m_itemParent;
 	[SerializeField]Transform		m_bgParent;
@@ -47,6 +48,8 @@ public class BattleManager : MonoBehaviour
 
 	AudioClip m_BGM;
 	AudioClip m_SPECIAL;
+
+	bool m_win;
 	// Battle Phases
 	public enum BattlePhase
 	{
@@ -113,6 +116,8 @@ public class BattleManager : MonoBehaviour
 		m_phase = BattlePhase.START;
 
 		gaugeCount = 0;
+
+		m_win = true;
 
 		Service.Init();
 		m_HUDService = Service.Get<HUDService>();
@@ -183,7 +188,6 @@ public class BattleManager : MonoBehaviour
 			Destroy(m_FXObj);
 
 		m_gestureState = GestureState.END;
-
 		gaugeCount = 0;
 
 		ResetGauge();
@@ -197,7 +201,6 @@ public class BattleManager : MonoBehaviour
 													UITweener.Style.Once,
 													null,
 													"");
-
 	}
 
 
@@ -240,15 +243,27 @@ public class BattleManager : MonoBehaviour
 			break;
 			case BattlePhase.END:
 			{
-				StartCoroutine(Utility.DelayInSeconds( 5.0f, 
+				if(m_win)
+				{
+					StartCoroutine(Utility.DelayInSeconds( 5.0f, 
 														(res) => 
 														{ 
 															m_soundService.StopMusic(m_SPECIAL);
-															if(m_winLogo != null) 
-																m_winLogo.SetActive(true); 
+														
+															m_boardCollider.SetActive(true);
 															if(m_boardHandler != null)
-																m_boardHandler.Init(true);
+																m_boardHandler.Init(m_win);
 														} ));
+				}
+				else
+				{
+					m_win = true; // Reset win
+					GameObject obj = Instantiate(Resources.Load("Prefabs/GeneralPopUp")) as GameObject;
+					GeneralPopUp popuphandler = obj.GetComponent<GeneralPopUp>();
+					popuphandler.Init("Use 1 Gem to Revive with full HP.", "Yes", "No", Revive, Exit);
+					m_HUDService.HUDControl.AttachMid(ref obj);
+				
+				}													
 
 				m_phase = BattlePhase.TOTAL;
 			}
@@ -256,6 +271,24 @@ public class BattleManager : MonoBehaviour
 		}
 	}
 
+	void Revive()
+	{	
+		m_playerMgr.Recover(100);
+		m_HUDService.HUDControl.ShowActionButtons(true);
+		if(m_HUDService.HUDControl.GetSpecialAmount == 1.0f)
+		{
+			SoundService ss = Service.Get<SoundService>();
+			ss.PlaySound(ss.GetSFX("gaugefull"), false);
+			m_HUDService.HUDControl.SetSpecialFxGlow(true);
+			m_HUDService.HUDControl.SetSpecialEnable(true);
+		}
+		m_phase = BattlePhase.ATTACK;
+	}
+	void Exit()
+	{
+		m_HUDService.ChangeScene("MainMenu");
+		m_HUDService.HUDControl.RemoveBattleHUD();
+	}
 
 	public void ClearGesture()
 	{
@@ -354,6 +387,12 @@ public class BattleManager : MonoBehaviour
 		return m_instance;
 	}
 
+	public void GameOver()
+	{
+		m_phase = BattlePhase.END;
+		m_win = false;
+	}
+
 	public void ReduceGauge()
 	{
 		--gaugeCount;
@@ -393,6 +432,7 @@ public class BattleManager : MonoBehaviour
 		m_HUDService.HUDControl.ShowActionButtons(false);
 		m_HUDService.HUDControl.SetSpecialEnable(false);
 	}
+
 	#endregion
 
 }

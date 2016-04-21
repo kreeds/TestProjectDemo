@@ -42,7 +42,7 @@ public class EnemyManager : MonoBehaviour {
 		GameObject obj = NGUITools.AddChild(m_panel.gameObject, Resources.Load("Prefabs/SimpleEnemy") as GameObject);
 		obj.transform.localPosition = new Vector3 (-719f, -221, 0);
 		currentEnemy = obj.GetComponent<Enemy>();
-		currentEnemy.Initialize(80, 80, 8, 3);
+		currentEnemy.Initialize(80, 80, 100, 3);
 		
 		if(handle != null)
 		{

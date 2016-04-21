@@ -291,6 +291,7 @@ public class PlayerManager : MonoBehaviour {
 		// Apply Damage to player
 		Damaged(m_enemyMgr.GetCurrentEnemyAttack());
 
+		if(m_battleMgr.CurBattlePhase != BattleManager.BattlePhase.END)
 		StartCoroutine(Utility.DelayInSeconds(2, (res1)=>{
 											m_handler.ShowActionButtons(true);
 											if(m_handler.GetSpecialAmount == 1.0f)
@@ -301,7 +302,7 @@ public class PlayerManager : MonoBehaviour {
 											}
 											if(playerattack)
 											{
-												Service.Get<HUDService>().HUDControl.SetSpecialEnable(true);
+												m_handler.SetSpecialEnable(true);
 												playerattack = false;
 											}
 
@@ -384,11 +385,26 @@ public class PlayerManager : MonoBehaviour {
 	{
 		m_player.hp -= damage;
 
+		if(m_player.hp <= 0 )
+		{
+			m_player.hp = 0;
+			m_battleMgr.GameOver();
+			// Activate Lose State
+		}
+
 		if(m_handler != null)
 			m_handler.reduce((int)GAUGE.PLAYER, damage);
 
 		isBeingAttacked = true;
 		l2dInterface.PlayDamageAnim ();
+	}
+
+	public void Recover(int amt)
+	{
+		m_player.hp += amt;
+
+		if(m_handler != null)	
+			m_handler.reduce((int)GAUGE.PLAYER, -amt);
 	}
 
 	private void OnEffectFinish()
