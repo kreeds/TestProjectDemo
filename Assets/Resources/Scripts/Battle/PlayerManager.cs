@@ -166,12 +166,12 @@ public class PlayerManager : MonoBehaviour {
 				if(!specialAtk)
 				{
 					AttackEffect(16, 112);
-						StartCoroutine(Utility.DelayInSeconds(0.5f,
-										(res1) => {m_enemyMgr.damageEnemy(m_player.atk); 	
-										attackend = true;
-										playerattack = true; 
-										m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
-										} ));
+					StartCoroutine(Utility.DelayInSeconds(0.5f,
+									(res1) => {m_enemyMgr.damageEnemy(m_player.atk); 	
+									attackend = true;
+									playerattack = true; 
+									m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
+									} ));
 
 
 					if(m_battleMgr != null)
@@ -318,11 +318,7 @@ public class PlayerManager : MonoBehaviour {
 			SpecialAttack();
 			m_specGaugeCnt = 0;
 		}
-
-		//Update Gauge
 	}
-
-
 
 	/// <summary>
 	/// Commence Attack Event
@@ -354,18 +350,7 @@ public class PlayerManager : MonoBehaviour {
 			Destroy(m_braveBurst);
 	}
 
-	public void ShowSpecialEffect()
-	{
-		RemoveBB();
 
-		GameObject obj = NGUITools.AddChild (m_obj, Resources.Load ("Prefabs/FX/Effect_FX") as GameObject);
-		obj.transform.localPosition = new Vector3 (720, 0, -20f);
-		BattleEffect effect = obj.GetComponent<BattleEffect>();
-		if (effect != null) {
-			effect.Initialize(gameObject);
-			m_soundService.PlaySound(m_soundService.GetSFX("supermove"), false);
-		}
-	}
 	public void NormalAttack()
 	{
 		l2dInterface.PlayAttackAnim ();
@@ -399,6 +384,10 @@ public class PlayerManager : MonoBehaviour {
 		l2dInterface.PlayDamageAnim ();
 	}
 
+	/// <summary>
+	/// Recover healthpoint with the specified amount.
+	/// </summary>
+	/// <param name="amt">Amt.</param>
 	public void Recover(int amt)
 	{
 		m_player.hp += amt;
@@ -407,13 +396,40 @@ public class PlayerManager : MonoBehaviour {
 			m_handler.reduce((int)GAUGE.PLAYER, -amt);
 	}
 
+	/// <summary>
+	/// Shows the special effect for attack
+	/// </summary>
+	public void ShowSpecialEffect()
+	{
+		RemoveBB();
+
+		GameObject obj = NGUITools.AddChild (m_obj, Resources.Load ("Prefabs/FX/Effect_FX") as GameObject);
+		obj.transform.localPosition = new Vector3 (720, 0, -20f);
+		BattleEffect effect = obj.GetComponent<BattleEffect>();
+		if (effect != null) {
+			effect.Initialize(gameObject);
+			m_soundService.PlaySound(m_soundService.GetSFX("supermove"), false);
+		}
+	}
+
+	/// <summary>
+	/// Raises the Special attack effect finish event.
+	/// </summary>
 	private void OnEffectFinish()
 	{
 		TweenAttack(true);
 		if(m_battleMgr != null)
 			m_battleMgr.ResetGauge();
+
+		// Play Special Attack Effect
+		GameObject speedlines = Instantiate(Resources.Load ("Prefabs/FX/Mob_Speedlines_Fx")) as GameObject;
+		speedlines.transform.SetParent(Service.Get<HUDService>().HUDControl.transform, false);
 	}
 
+	/// <summary>
+	/// Tween Motion effect for attacking
+	/// </summary>
+	/// <param name="isAttacking">If set to <c>true</c> is attacking.</param>
 	private void TweenAttack(bool isAttacking)
 	{
 		Debug.Log("TweenAttack: " + isAttacking);
@@ -428,6 +444,7 @@ public class PlayerManager : MonoBehaviour {
 								gameObject,
 								"OnAttackEnd");
 		m_soundService.PlaySound(m_soundService.GetSFX("sceneswish"), false);
+
 
 		// When attack tweening is happening, special attack should not be active
 		Service.Get<HUDService>().HUDControl.SetSpecialEnable(false);
