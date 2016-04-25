@@ -846,8 +846,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_parent: {fileID: 1220495754}
-  m_easySpriteIndex: 0200000003000000
-  m_hardSpriteIndex: 00000000060000000700000008000000090000000c0000000d000000
+  m_easySpriteIndex: 02000000030000000300000003000000030000000300000003000000
+  m_hardSpriteIndex: 
 --- !u!114 &797400644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1585,7 +1585,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11443142, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_easySpriteIndex.Array.size
-      value: 2
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11443142, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
+      propertyPath: m_hardSpriteIndex.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 443140, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1629,7 +1633,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11443142, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_easySpriteIndex.Array.data[5]
-      value: 15
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11443142, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_easySpriteIndex.Array.data[0]
@@ -1641,15 +1645,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11443142, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_easySpriteIndex.Array.data[2]
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11443142, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_easySpriteIndex.Array.data[3]
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11443142, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
       propertyPath: m_easySpriteIndex.Array.data[4]
-      value: 6
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11443142, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
+      propertyPath: m_easySpriteIndex.Array.data[6]
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9fdf7a045e2b4ff8868dd08c7787a07, type: 2}
