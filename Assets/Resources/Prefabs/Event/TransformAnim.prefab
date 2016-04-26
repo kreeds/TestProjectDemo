@@ -682,9 +682,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 6557228}
-  fadeOutTime: 1
-  finishTime: 6
-  modelAppearTime: 2.75
+  fadeOutTime: 3
+  finishTime: 8
+  modelAppearTime: 4.75
   clickMessage: {fileID: 11457232}
   model: {fileID: 11426450}
   fgObj: {fileID: 174742}
