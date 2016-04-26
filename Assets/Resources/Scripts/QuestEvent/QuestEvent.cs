@@ -25,8 +25,6 @@ public class QuestEvent : MonoBehaviour {
 	[SerializeField]UILabel			playerNameLabel;
 	[SerializeField]UILabel			otherNameLabel;
 
-	[SerializeField]UILabel			textLabel;
-
 	[SerializeField]UILabel			playerText;
 	[SerializeField]UILabel			otherText;
 
@@ -832,7 +830,8 @@ public class QuestEvent : MonoBehaviour {
 		choiceList.Clear ();
 
 		//		ShowCurrentDialog ();
-		textLabel.text = choiceEvent.choiceOptions [selected];
+//		textLabel.text = choiceEvent.choiceOptions [selected];
+		playerText.text = choiceEvent.choiceOptions [selected];
 		playerNameLabel.text = PlayerProfile.Get ().playerName;
 		textCollider.enabled = true;
 
