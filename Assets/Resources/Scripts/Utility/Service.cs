@@ -58,6 +58,7 @@ public class Service : MonoBehaviour {
 
 		// Adding HUD Service
 		Add<HUDService>();
+		Add<GameService>();
 	}
 
 
