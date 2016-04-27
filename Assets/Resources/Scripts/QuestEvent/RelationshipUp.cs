@@ -78,8 +78,9 @@ public class RelationshipUp : MonoBehaviour {
 
 	public void Initialize (GameObject rootObject, int hairIndex, int clothesIndex, int previous, int current, string name){
 		_nameLabel.text = name;
-		_model.SetClothes (clothesIndex);
-		_model.SetHair (hairIndex);
+		_model.SetCostume (clothesIndex, hairIndex);
+//		_model.SetClothes (clothesIndex);
+//		_model.SetHair (hairIndex);
 
 		_bondLevel = (int)(previous / _levelCost);
 

@@ -25,8 +25,6 @@ public class QuestEvent : MonoBehaviour {
 	[SerializeField]UILabel			playerNameLabel;
 	[SerializeField]UILabel			otherNameLabel;
 
-	[SerializeField]UILabel			textLabel;
-
 	[SerializeField]UILabel			playerText;
 	[SerializeField]UILabel			otherText;
 
@@ -146,10 +144,9 @@ public class QuestEvent : MonoBehaviour {
 
 	void InitializeScene()
 	{
+		playerChara.LoadProfile ();
 		playerChara.GetModel ().StopBasicMotion (true);
 		playerChara.PlayIdleAnim ();
-		playerChara.SetClothes (2);
-		playerChara.SetHair (1);
 
 		Vector3 lscale = playerChara.transform.localScale;
 		lscale.x = -lscale.x;
@@ -185,8 +182,9 @@ public class QuestEvent : MonoBehaviour {
 //			eventCharas[i].SetHair(chara.hairId);
 //			eventCharas[i].SetClothes(chara.clothesId);
 			l2dModel.GetModel ().StopBasicMotion (true);
-			l2dModel.SetHair(chara.hairId);
-			l2dModel.SetClothes(chara.clothesId);
+			l2dModel.SetCostume(chara.clothesId, chara.hairId);
+//			l2dModel.SetHair(chara.hairId);
+//			l2dModel.SetClothes(chara.clothesId);
 
 			sceneCharas.Add(l2dModel);
 
@@ -832,7 +830,8 @@ public class QuestEvent : MonoBehaviour {
 		choiceList.Clear ();
 
 		//		ShowCurrentDialog ();
-		textLabel.text = choiceEvent.choiceOptions [selected];
+//		textLabel.text = choiceEvent.choiceOptions [selected];
+		playerText.text = choiceEvent.choiceOptions [selected];
 		playerNameLabel.text = PlayerProfile.Get ().playerName;
 		textCollider.enabled = true;
 

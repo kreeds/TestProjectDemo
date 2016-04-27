@@ -30,21 +30,21 @@ public class CharacterMaker : MonoBehaviour {
 	
 	}
 
-	void SelectHairLeft(){
-		live2DModel.ChangeHair (false);
-	}
-
-	void SelectHairRight(){
-		live2DModel.ChangeHair (true);
-	}
-
-	void SelectClothesLeft(){
-		live2DModel.ChangeClothes (false);
-	}
-	
-	void SelectClothesRight(){
-		live2DModel.ChangeClothes (true);
-	}
+//	vsoid SelectHairLeft(){
+//		live2DModel.ChangeHair (false);
+//	}
+//
+//	void SelectHairRight(){
+//		live2DModel.ChangeHair (true);
+//	}
+//
+//	void SelectClothesLeft(){
+//		live2DModel.ChangeClothes (false);
+//	}
+//	
+//	void SelectClothesRight(){
+//		live2DModel.ChangeClothes (true);
+//	}
 
 	void SaveSettingsAndContinue(){
 		live2DModel.SaveProfile ();
@@ -66,19 +66,19 @@ public class CharacterMaker : MonoBehaviour {
 		clothesBG.gameObject.SetActive (false);
 	}
 
-	void SelectLeft(){
-		if (currentState == CustomizeState.Hair)
-			live2DModel.ChangeHair (false);
-		else
-			live2DModel.ChangeClothes (false);
-	}
-	
-	void SelectRight(){
-		if (currentState == CustomizeState.Hair)
-			live2DModel.ChangeHair (true);
-		else
-			live2DModel.ChangeClothes (true);
-	}
+//	void SelectLeft(){
+//		if (currentState == CustomizeState.Hair)
+//			live2DModel.ChangeHair (false);
+//		else
+//			live2DModel.ChangeClothes (false);
+//	}
+//	
+//	void SelectRight(){
+//		if (currentState == CustomizeState.Hair)
+//			live2DModel.ChangeHair (true);
+//		else
+//			live2DModel.ChangeClothes (true);
+//	}
 
 	void OnPlayAnimation()
 	{

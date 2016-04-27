@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9913fe28761a848289a25b68c0da5d40
+guid: 8d3751f18d5704b6687711dd6636ea01
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2
@@ -21,7 +21,7 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: 13
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
@@ -40,11 +40,7 @@ TextureImporter:
   spritePixelsToUnits: 100
   alphaIsTransparency: 0
   textureType: 5
-  buildTargetSettings:
-  - buildTarget: iPhone
-    maxTextureSize: 1024
-    textureFormat: 33
-    compressionQuality: 50
+  buildTargetSettings: []
   spriteSheet:
     sprites: []
   spritePackingTag: 

@@ -123,7 +123,7 @@ public class PlayerManager : MonoBehaviour {
 			m_handler.InitializeGauge((int)GAUGE.PLAYER, m_player.hp, m_player.hp, "Ellie");
 		}
 
-		l2dInterface.LoadProfile ();
+//		l2dInterface.LoadProfile ();
 
 		l2dInterface.GetModel ().StopBasicMotion (true);
 		l2dInterface.PlayCombatIdleAnim ();
