@@ -78,6 +78,7 @@ public class CostumeScene : MonoBehaviour {
 
 		currentGroupID = costumeGroupID = 0;
 
+		_l2dModel.LoadProfile ();
 		_l2dModel.GetModel ().StopBasicMotion (true);
 		_l2dModel.PlayIdleFrontFaceAnim ();
 	}
@@ -92,11 +93,11 @@ public class CostumeScene : MonoBehaviour {
 		CostumeItemSet costumeSet = new CostumeItemSet ();
 		List<CostumeItem> itemList = new List<CostumeItem> ();
 
-		itemList.Add (new CostumeItem (0, 0, 50, false, false, "Texture/Costume/ui_cos_001"));
-		itemList.Add (new CostumeItem (0, 2, 50, true, false, "Texture/Costume/ui_cos_002"));
-		itemList.Add (new CostumeItem (0, 3, 50, false, false, "Texture/Costume/ui_cos_003"));
-		itemList.Add (new CostumeItem (0, 1, 50, true, false, "Texture/Costume/ui_cos_004"));
-		itemList.Add (new CostumeItem (10, -1, 50, false, true, "Texture/Costume/ui_cos_005"));
+		itemList.Add (new CostumeItem (0, 1, 50, false, false, "Texture/Costume/ui_cos_001"));
+		itemList.Add (new CostumeItem (0, 4, 50, true, false, "Texture/Costume/ui_cos_002"));
+		itemList.Add (new CostumeItem (0, 2, 50, false, false, "Texture/Costume/ui_cos_003"));
+//		itemList.Add (new CostumeItem (0, 1, 50, true, false, "Texture/Costume/ui_cos_004"));
+		itemList.Add (new CostumeItem (0, 3, 50, true, false, "Texture/Costume/ui_cos_005"));
 		itemList.Add (new CostumeItem (10, -1, 50, true, true, "Texture/Costume/ui_cos_006"));
 
 		costumeSet.casualItems = itemList.ToArray ();
@@ -109,10 +110,10 @@ public class CostumeScene : MonoBehaviour {
 
 		itemList.Clear ();
 
-		itemList.Add (new CostumeItem (0, 100, 50, false, false, "Texture/Costume/UI_cos_hair01"));
-		itemList.Add (new CostumeItem (0, 101, 50, true, false, "Texture/Costume/UI_cos_hair02"));
-		itemList.Add (new CostumeItem (0, 103, 50, false, false, "Texture/Costume/UI_cos_hair03"));
-		itemList.Add (new CostumeItem (0, 102, 50, true, false, "Texture/Costume/UI_cos_hair04"));
+		itemList.Add (new CostumeItem (0, 101, 50, false, false, "Texture/Costume/UI_cos_hair01"));
+		itemList.Add (new CostumeItem (0, 103, 50, true, false, "Texture/Costume/UI_cos_hair02"));
+		itemList.Add (new CostumeItem (0, 102, 50, false, false, "Texture/Costume/UI_cos_hair03"));
+		itemList.Add (new CostumeItem (0, 104, 50, true, false, "Texture/Costume/UI_cos_hair04"));
 		itemList.Add (new CostumeItem (10, -1, 50, false, true, "Texture/Costume/UI_cos_hair02"));
 
 		costumeSet.hairItems = itemList.ToArray ();
@@ -251,6 +252,7 @@ public class CostumeScene : MonoBehaviour {
 
 	void OnHomeClick()
 	{
+		_l2dModel.SaveProfile ();
 		Service.Get<HUDService> ().ReturnToHome ();
 	}
 }
