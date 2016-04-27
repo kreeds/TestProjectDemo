@@ -30,16 +30,16 @@ public class PlayerProfile {
 
 	PlayerProfile()
 	{
-		playerName = "Ellie";
-		playerHairIndex = 1;
-		playerClothesIndex = 1;
-		
-		maxStamina = stamina = 30;
-		gems = 500;
-		gold = 500000;
-		level = 1;
-
-		recoverAmount = 0;
+//		playerName = "Ellie";
+//		playerHairIndex = 1;
+//		playerClothesIndex = 1;
+//		
+//		maxStamina = stamina = 30;
+//		gems = 500;
+//		gold = 500000;
+//		level = 1;
+//
+//		recoverAmount = 0;
 
 		newsList = new List<NewsDataItem> ();
 

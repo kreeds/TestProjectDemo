@@ -81,6 +81,7 @@ public class HUDService : CSingleton {
 		m_sound.StopMusic(0);
 		m_scene.ChangeScene(name);
 		Resources.UnloadUnusedAssets();
+		Service.Get<GameService>().Save();
 	}
 
 	public void ReturnToHome()

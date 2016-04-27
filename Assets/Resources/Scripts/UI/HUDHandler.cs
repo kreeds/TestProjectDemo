@@ -85,6 +85,7 @@ public class HUDHandler : MonoBehaviour {
 		}
 
 		string energyDisplayText = stamina + "/" + PlayerProfile.Get ().maxStamina;
+		Debug.Log(string.Format("MaxStamina:{0}, stamina: {1}" , stamina, maxStamina));
 		m_energyLabel.text = energyDisplayText;
 
 		int gold = PlayerProfile.Get ().gold;
