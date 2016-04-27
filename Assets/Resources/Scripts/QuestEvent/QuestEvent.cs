@@ -144,10 +144,9 @@ public class QuestEvent : MonoBehaviour {
 
 	void InitializeScene()
 	{
+		playerChara.LoadProfile ();
 		playerChara.GetModel ().StopBasicMotion (true);
 		playerChara.PlayIdleAnim ();
-		playerChara.SetClothes (2);
-		playerChara.SetHair (1);
 
 		Vector3 lscale = playerChara.transform.localScale;
 		lscale.x = -lscale.x;
@@ -183,8 +182,9 @@ public class QuestEvent : MonoBehaviour {
 //			eventCharas[i].SetHair(chara.hairId);
 //			eventCharas[i].SetClothes(chara.clothesId);
 			l2dModel.GetModel ().StopBasicMotion (true);
-			l2dModel.SetHair(chara.hairId);
-			l2dModel.SetClothes(chara.clothesId);
+			l2dModel.SetCostume(chara.clothesId, chara.hairId);
+//			l2dModel.SetHair(chara.hairId);
+//			l2dModel.SetClothes(chara.clothesId);
 
 			sceneCharas.Add(l2dModel);
 

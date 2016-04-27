@@ -31,8 +31,8 @@ public class PlayerProfile {
 	PlayerProfile()
 	{
 		playerName = "Ellie";
-		playerHairIndex = 0;
-		playerClothesIndex = 0;
+		playerHairIndex = 1;
+		playerClothesIndex = 1;
 		
 		maxStamina = stamina = 30;
 		gems = 500;
