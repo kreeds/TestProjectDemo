@@ -41,22 +41,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredGestureNames:
-  - T
-  - N
-  - D
-  - P
+  - lightning
+  - Twirl
+  - reverseW
+  - V
   - line
   - five_point_star
-  - null
-  - arrowhead
-  - X
-  - H
-  - I
-  - exclamation
-  - pitchfork
-  - six_point_star
-  - asterisk
-  - half_note
+  - heart
 --- !u!114 &11443142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -69,8 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_parent: {fileID: 0}
-  m_easySpriteIndex: 01000000020000000300000004000000050000000a0000000f000000
-  m_hardSpriteIndex: 00000000060000000700000008000000090000000c0000000d000000
+  m_easySpriteIndex: 00000000010000000200000003000000040000000500000006000000
+  m_hardSpriteIndex: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
