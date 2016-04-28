@@ -1,11 +1,3 @@
-BG:0
-<PlayerSetup>
-x:160
-y:-1180
-<Quest>
-x:-380
-y:170
-side:1
 completion:8
 name:Finish your essay!
 startdesc:"Finish your essay.\nReward: $200 Exp: 50"
@@ -40,5 +32,4 @@ y:30
 cost:5
 completion:2
 desc:Write essay
-<QuestEnd>
-NextScene:1
+<End>

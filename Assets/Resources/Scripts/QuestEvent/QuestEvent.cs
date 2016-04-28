@@ -12,7 +12,7 @@ public class QuestEvent : MonoBehaviour {
 		CharaSetup,
 		PlayerSetup,
 		DramaLocation,
-		DramaFilename,
+		filename,
 
 		Quest,
 		QuestAction,
@@ -376,8 +376,8 @@ public class QuestEvent : MonoBehaviour {
 					if (line.Contains("y:")){
 						currentDrama.loc.y = int.Parse(parts[1]);
 					}
-					if (line.Contains("DramaFilename")){
-						currentDrama.dramaFile = parts[1];
+					if (line.Contains("filename")){
+						currentDrama.file = parts[1];
 					}
 //					if (line.Contains("NextEvent")){
 //						currentDrama.nextEvent = parts[1];
@@ -413,14 +413,95 @@ public class QuestEvent : MonoBehaviour {
 					if (line.Contains("side")){
 						currentQuest.direction = int.Parse(parts[1]);
 					}
-					if (line.Contains ("completion")){
-						currentQuest.requiredAmount = int.Parse (parts[1]);
-					}
 					if (line.Contains("prereq:")){
 						currentQuest.prereq = int.Parse (parts[1]);
 					}
-					if (line.Contains("id:")){
-						currentQuest.id = int.Parse (parts[1]);
+					if (line.Contains ("file:")){
+						currentQuest.file = parts[1];
+						LoadQuest (ref currentQuest);
+					}
+//					if (line.Contains("id:")){
+//						currentQuest.id = int.Parse (parts[1]);
+//					}
+//					if (line.Contains ("completion")){
+//						currentQuest.requiredAmount = int.Parse (parts[1]);
+//					}
+//					if (line.Contains("name")){
+//						currentQuest.questName = parts[1];
+//					}
+//					if (line.Contains ("startdesc")){
+//						int start = line.IndexOf('"') + 1;
+//						string desc = line.Substring (start, line.LastIndexOf('"') - start).Replace("\\n", System.Environment.NewLine) ;
+//						currentQuest.questDesc = desc;
+//					}
+//					if (line.Contains ("finishdesc")){
+//						int start = line.IndexOf('"') + 1;
+//						string desc = line.Substring (start, line.LastIndexOf('"') - start).Replace("\\n", System.Environment.NewLine) ;
+//						currentQuest.finishDesc = desc;
+//					}
+//					if (line.Contains("nextscene")){
+//						currentQuest.nextEvent = parts[1];
+//					}
+				}
+				break;
+
+//			case ParseMode.QuestAction:
+//				if (line.Contains(":")){
+//					string[] parts = line.Split(':');
+//					if (line.Contains("x:")){
+//						currentQuestAction.loc.x = int.Parse(parts[1]);
+//					}
+//					if (line.Contains("y:")){
+//						currentQuestAction.loc.y = int.Parse(parts[1]);
+//					}
+//					if (line.Contains("desc")){
+//						currentQuestAction.desc = parts[1];
+//					}
+//					if (line.Contains ("completion")){
+//						currentQuestAction.completionAmount = int.Parse (parts[1]);
+//					}
+//					if (line.Contains("cost")){
+//						currentQuestAction.staminaCost = int.Parse (parts[1]);
+//					}
+//				}
+//				
+//				break;
+			}
+		}
+	}
+
+	
+	static void LoadQuest(ref Quest currentQuest)
+	{
+		ParseMode parseMode = ParseMode.None;
+
+		QuestAction currentQuestAction = null;
+		TextAsset asset = Resources.Load (currentQuest.file) as TextAsset;
+		string[] questData = asset.text.Split ('\n');
+
+		parseMode = ParseMode.Quest;
+		
+		foreach (string line in questData) {
+			if (line.Contains("<QuestEvent>")){
+				parseMode = ParseMode.QuestAction;
+				if (currentQuest != null && currentQuestAction != null){
+					currentQuest.actionList.Add(currentQuestAction);
+				}
+				currentQuestAction = new QuestAction();
+				
+			}
+			if (line.Contains("<End>")){
+				if (currentQuest != null && currentQuestAction != null){
+					currentQuest.actionList.Add(currentQuestAction);
+				}
+			}
+			switch (parseMode){
+				
+			case ParseMode.Quest:
+				if (line.Contains(":")){
+					string[] parts = line.Split(':');
+					if (line.Contains ("completion")){
+						currentQuest.requiredAmount = int.Parse (parts[1]);
 					}
 					if (line.Contains("name")){
 						currentQuest.questName = parts[1];
@@ -435,12 +516,9 @@ public class QuestEvent : MonoBehaviour {
 						string desc = line.Substring (start, line.LastIndexOf('"') - start).Replace("\\n", System.Environment.NewLine) ;
 						currentQuest.finishDesc = desc;
 					}
-//					if (line.Contains("nextscene")){
-//						currentQuest.nextEvent = parts[1];
-//					}
 				}
 				break;
-
+				
 			case ParseMode.QuestAction:
 				if (line.Contains(":")){
 					string[] parts = line.Split(':');
@@ -951,6 +1029,7 @@ public class QuestEvent : MonoBehaviour {
 
 		if (quest != null) {
 			currentQuest = quest;
+//			LoadQuest (ref currentQuest);
 			if (questProgress == null){
 				GameObject obj = GameObject.Instantiate(Resources.Load("Prefabs/Event/QuestProgress")) as GameObject;
 				m_hudService.HUDControl.AttachTop(ref obj);
@@ -992,7 +1071,7 @@ public class QuestEvent : MonoBehaviour {
 //		clipPos.x = dialogLoc;
 //		scenePanel.clipRange = clipPos;
 
-		LoadDialog (selectedDrama.dramaFile);
+		LoadDialog (selectedDrama.file);
 
 //		pos = dialogBase.transform.localPosition;
 //		pos.x = dialogLoc;

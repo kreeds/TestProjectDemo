@@ -1,0 +1,17 @@
+BG:0
+<PlayerSetup>
+x:160
+y:-1180
+<Quest>
+x:-380
+y:170
+side:1
+file:TextData/Quest0
+<QuestEnd>
+<Drama>
+x:-330
+y:170
+side:1
+file:TextData/Dialog1
+<DramaEnd>
+NextScene:1

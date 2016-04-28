@@ -159,7 +159,6 @@ public class Scene
 
 public class Drama:EventBase
 {
-	public string dramaFile;
 	public bool showBond;
 //	public Vector2 loc;
 //	public Vector2 playerPos; //position of player at start of convo
@@ -184,6 +183,18 @@ public class QuestAction
 	public string desc;
 }
 
+public enum SceneEventType
+{
+	Drama,
+	Quest,
+	Exit
+}
+
+public class Exit:EventBase
+{
+	public int nextScene;
+}
+
 public class Quest:EventBase
 {
 	public List<QuestAction> actionList;
@@ -204,15 +215,10 @@ public class Quest:EventBase
 //	public string nextEvent;
 }
 
-public enum SceneEventType
-{
-	Drama,
-	Quest
-}
-
 public class EventBase
 {
 	public SceneEventType eventType;
+	public string file;
 
 	public int id;
 	public Vector2 loc;

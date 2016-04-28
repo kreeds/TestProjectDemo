@@ -1,23 +1,4 @@
-BG:2
-<PlayerSetup>
-x:-624
-y:-130
-<CharaSetup>
-<Chara>
-l2d:1
-name:P
-x:-280
-y:-130
-hair:3
-clothes:1
-side:1
-<CharaEnd>
-<Quest>
-x:-453
-y:160
-side:1
 completion:11
-id:0
 name:Get Clothes For Margie!
 startdesc:"Find nice clothes for Margie!\nReward: $200 Exp: 50"
 finishdesc:"Margie is going to look better than you now...\nReward: $200 Exp: 50"
@@ -39,13 +20,4 @@ y:245
 cost:4
 completion:4
 desc:pick a blouse
-<QuestEnd>
-<Drama>
-x:-403
-y:-50
-side:1
-id:1
-prereq:0
-DramaFilename:TextData/Dialog2
-<DramaEnd>
-ChangeSequence:BattleScene
+<End>
