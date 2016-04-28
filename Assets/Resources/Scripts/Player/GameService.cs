@@ -33,7 +33,6 @@ public class GameService : CSingleton {
 
 	public void Load()
 	{
-		Debug.Log("*******LOADING");
 		if(PlayerPrefs.GetInt(GameConstants.MAXSTAMINA) == 0)
 			return;
 

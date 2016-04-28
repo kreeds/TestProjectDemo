@@ -10,7 +10,7 @@ public class BattleEffect : MonoBehaviour {
 	void Start () {
 
 		//gameObject.animation.Play ();
-		l2dInterface.LoadProfile ();
+		//l2dInterface.LoadProfile ();
 		l2dInterface.GetModel ().StopBasicMotion (true);
 		l2dInterface.GetModel ().StartMotion ("special", 0, LAppDefine.PRIORITY_NORMAL);
 	}

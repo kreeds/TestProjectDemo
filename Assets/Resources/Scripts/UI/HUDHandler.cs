@@ -25,7 +25,7 @@ public class HUDHandler : MonoBehaviour {
 
 	[SerializeField]UIButton	m_specialBtn;
 	[SerializeField]UISprite 	m_heartSprite;
-	[SerializeField]UILabel		m_specialLabel;
+	[SerializeField]UISprite	m_graySprite;
 
 	[SerializeField]UISlider	m_expBar;
 
@@ -273,10 +273,6 @@ public class HUDHandler : MonoBehaviour {
 		Debug.Log("*********Special Enable: " + enable);
 		if(m_specialBtn != null)
 			m_specialBtn.isEnabled = enable;
-
-
-		if(m_specialLabel != null)
-			m_specialLabel.enabled = enable;
 	}
 	public void SetSpecialFxGlow(bool show)
 	{
@@ -289,6 +285,11 @@ public class HUDHandler : MonoBehaviour {
 		{
 			StartCoroutine(FillSprite(targetAmt));
 		}
+		if(m_graySprite != null)
+		{
+			m_graySprite.fillAmount = targetAmt;
+		}
+
 	}
 
 	public void ShowDodgeBtn(bool show)
@@ -319,14 +320,6 @@ public class HUDHandler : MonoBehaviour {
 			yield return null;
 		}
 		m_heartSprite.fillAmount = targetAmt;
-//		if(targetAmt == 1 && diff > 0)
-//		{
-//			SoundService ss = Service.Get<SoundService>();
-//			ss.PlaySound(ss.GetSFX("gaugefull"), false);
-//			m_sparkle.SetActive(true);
-//		}
-		//m_specialBtn.isEnabled = (m_heartSprite.fillAmount == 1)? true: false;
-
 	}	
 
 	#endregion
