@@ -130,10 +130,10 @@ public class BattleManager : MonoBehaviour
 
 		// Create Sound Service
 		m_soundService = Service.Get<SoundService>();
-		m_soundService.PreloadSFXResource(new string[12]{"attack01", "attack02", "attack03", 
+		m_soundService.PreloadSFXResource(new string[13]{"attack01", "attack02", "attack03", 
 															"countdown", "enemyattack", "finalstrokeappear", 
 															"gaugefull", "magicnotecorrect", "playermoveattack", 
-																"sceneswish", "supermove", "win"});
+															"sceneswish", "supermove", "win", "spatk02"});
 
 		m_BGM = Resources.Load("Music/" + m_bgmMusic) as AudioClip;
 		m_SPECIAL = Resources.Load("Music/supermove_jingle" ) as AudioClip;
@@ -362,7 +362,6 @@ public class BattleManager : MonoBehaviour
 	{
 		if(m_coroutine != null)
 			StopCoroutine(m_coroutine);
-
 		m_gestureState = GestureState.START;
 
 		m_playerMgr.RemoveBB();
