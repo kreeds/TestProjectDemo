@@ -49,6 +49,7 @@ public class HUDHandler : MonoBehaviour {
 	UIScrollBar cameraScrollBar;
 
 	GameObject m_QuestTImer;
+	GameObject m_Shop;
 
 	float m_targetAmt;
 	public float GetSpecialAmount
@@ -142,7 +143,8 @@ public class HUDHandler : MonoBehaviour {
 		{
 			m_specialBtn.isEnabled = false;
 			m_specialBtn.GetComponent<UIButtonMessage>().target = bmgr.gameObject;
-			m_specialBtn.GetComponent<UIButtonMessage>().functionName = "OnFinishPressed";
+			m_specialBtn.GetComponent<UIButtonMessage>().functionName
+ = "OnFinishPressed";
 		}
 
 		if(m_dodgeBtn != null)
@@ -342,5 +344,10 @@ public class HUDHandler : MonoBehaviour {
 	void OnNewsClick()
 	{
 		Service.Get<HUDService>().ChangeScene("FeedScene");
+	}
+
+	void OnGemClick()
+	{
+		Service.Get<PopUpService>().ShowShop(ShopType.Gems);
 	}
 }

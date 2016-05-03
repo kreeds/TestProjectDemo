@@ -62,14 +62,14 @@ MonoBehaviour:
   - name: UI_Shop_Tab_EnergyUnSelected
     outer:
       serializedVersion: 2
-      x: 470
-      y: 607
+      x: 263
+      y: 54
       width: 189
       height: 188
     inner:
       serializedVersion: 2
-      x: 470
-      y: 607
+      x: 263
+      y: 54
       width: 189
       height: 188
     rotated: 0
@@ -80,14 +80,14 @@ MonoBehaviour:
   - name: UI_Shop_Tab_GemUnSelected
     outer:
       serializedVersion: 2
-      x: 470
-      y: 1174
+      x: 259
+      y: 680
       width: 189
       height: 188
     inner:
       serializedVersion: 2
-      x: 470
-      y: 1174
+      x: 259
+      y: 680
       width: 189
       height: 188
     rotated: 0
@@ -188,14 +188,14 @@ MonoBehaviour:
   - name: UI_Shop_Gem_2
     outer:
       serializedVersion: 2
-      x: 0
-      y: 144
+      x: 470
+      y: 1191
       width: 214
       height: 171
     inner:
       serializedVersion: 2
-      x: 0
-      y: 144
+      x: 470
+      y: 1191
       width: 214
       height: 171
     rotated: 0
@@ -206,13 +206,13 @@ MonoBehaviour:
   - name: UI_Shop_Coin_Button
     outer:
       serializedVersion: 2
-      x: 1460
+      x: 470
       y: 1363
       width: 494
       height: 113
     inner:
       serializedVersion: 2
-      x: 1460
+      x: 470
       y: 1363
       width: 494
       height: 113
@@ -225,13 +225,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 502
+      y: 243
       width: 288
       height: 178
     inner:
       serializedVersion: 2
       x: 0
-      y: 502
+      y: 243
       width: 288
       height: 178
     rotated: 0
@@ -296,14 +296,14 @@ MonoBehaviour:
   - name: UI_Shop_Tab_CoinsUnSelected
     outer:
       serializedVersion: 2
-      x: 215
-      y: 127
+      x: 470
+      y: 1002
       width: 189
       height: 188
     inner:
       serializedVersion: 2
-      x: 215
-      y: 127
+      x: 470
+      y: 1002
       width: 189
       height: 188
     rotated: 0
@@ -315,13 +315,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 316
+      y: 57
       width: 262
       height: 185
     inner:
       serializedVersion: 2
       x: 0
-      y: 316
+      y: 57
       width: 262
       height: 185
     rotated: 0
@@ -333,13 +333,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 470
-      y: 437
+      y: 280
       width: 123
       height: 169
     inner:
       serializedVersion: 2
       x: 470
-      y: 437
+      y: 280
       width: 123
       height: 169
     rotated: 0
@@ -351,13 +351,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 470
-      y: 985
+      y: 813
       width: 189
       height: 188
     inner:
       serializedVersion: 2
       x: 470
-      y: 985
+      y: 813
       width: 189
       height: 188
     rotated: 0
@@ -369,13 +369,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 470
-      y: 796
+      y: 624
       width: 189
       height: 188
     inner:
       serializedVersion: 2
       x: 470
-      y: 796
+      y: 624
       width: 189
       height: 188
     rotated: 0
@@ -405,13 +405,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 289
-      y: 538
+      y: 279
       width: 148
       height: 142
     inner:
       serializedVersion: 2
       x: 289
-      y: 538
+      y: 279
       width: 148
       height: 142
     rotated: 0
@@ -422,13 +422,13 @@ MonoBehaviour:
   - name: UI_Shop_Energy_Button
     outer:
       serializedVersion: 2
-      x: 470
+      x: 1460
       y: 1363
       width: 494
       height: 113
     inner:
       serializedVersion: 2
-      x: 470
+      x: 1460
       y: 1363
       width: 494
       height: 113
@@ -441,13 +441,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 681
+      y: 422
       width: 277
       height: 187
     inner:
       serializedVersion: 2
       x: 0
-      y: 681
+      y: 422
       width: 277
       height: 187
     rotated: 0
@@ -477,13 +477,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 278
-      y: 700
+      y: 441
       width: 181
       height: 168
     inner:
       serializedVersion: 2
       x: 278
-      y: 700
+      y: 441
       width: 181
       height: 168
     rotated: 0
@@ -494,14 +494,14 @@ MonoBehaviour:
   - name: UI_Shop_Energy_2
     outer:
       serializedVersion: 2
-      x: 263
-      y: 328
+      x: 470
+      y: 450
       width: 192
       height: 173
     inner:
       serializedVersion: 2
-      x: 263
-      y: 328
+      x: 470
+      y: 450
       width: 192
       height: 173
     rotated: 0
@@ -509,6 +509,24 @@ MonoBehaviour:
     paddingRight: .489583343
     paddingTop: .144508675
     paddingBottom: .144508675
+  - name: UI_shop_frame
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 610
+      width: 258
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 30
+      y: 638
+      width: 198
+      height: 202
+    rotated: 0
+    paddingLeft: .0155038759
+    paddingRight: .0116279069
+    paddingTop: .0155038759
+    paddingBottom: .0193798449
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

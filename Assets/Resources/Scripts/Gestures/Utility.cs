@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
+
+public delegate void GenericAction(params object[] param); 
+
 public static class GenericCopier<T>
 {
     public static T DeepCopy(object objectToCopy)
@@ -20,7 +23,7 @@ public static class GenericCopier<T>
 }
 
 
-public class Utility 
+public  class Utility 
 {
 	public static IEnumerator DelayInSeconds(float seconds, Action<bool> callback)
 	{
@@ -63,3 +66,4 @@ public class Utility
 	}
 	
 }
+
