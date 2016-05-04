@@ -145,7 +145,11 @@ public class Scene
 
 	public EventBase getCurrentEvent()
 	{
-		return eventList [currentEvent];
+		foreach (EventBase eventItem in eventList) {
+			if (eventItem.id == currentEvent)
+				return eventItem;
+		}
+		return null;
 	}
 
 	public Scene()
@@ -159,8 +163,6 @@ public class Scene
 
 public class Drama:EventBase
 {
-	public string dramaFile;
-	public bool showBond;
 //	public Vector2 loc;
 //	public Vector2 playerPos; //position of player at start of convo
 //	public int direction;
@@ -184,12 +186,31 @@ public class QuestAction
 	public string desc;
 }
 
+public enum SceneEventType
+{
+	Drama,
+	Quest,
+	Exit
+}
+
+public class Exit:EventBase
+{
+	public int nextScene;
+	public Exit(): base()
+	{
+		isRepeat = true;
+		eventType = SceneEventType.Exit;
+	}
+}
+
 public class Quest:EventBase
 {
 	public List<QuestAction> actionList;
 	
 	public int requiredAmount;
 	public int completedAmount;
+
+	public int questArea;
 
 	public string questName;
 	public string questDesc;
@@ -200,30 +221,30 @@ public class Quest:EventBase
 	public Quest(): base()
 	{
 		eventType = SceneEventType.Quest;
+		actionList = new List<QuestAction> ();
 	}
 //	public string nextEvent;
 }
 
-public enum SceneEventType
-{
-	Drama,
-	Quest
-}
-
 public class EventBase
 {
+	public bool showBond;
 	public SceneEventType eventType;
+	public string file;
 
 	public int id;
 	public Vector2 loc;
 	public Vector2 playerPos; //position of player at start of convo
 	public int direction;
 
-	public int nextEventID;
+	public int nextEvent;
 
 	public int exp;
 
 	public int prereq;
+	public bool isBattle;
+	public bool isRepeat;
+	public int enemyType;
 	public string addnews;
 
 	public EventBase()
@@ -232,8 +253,12 @@ public class EventBase
 		loc = Vector2.zero;
 		playerPos = loc;
 		direction = 1;
-		nextEventID = -1;
+		nextEvent = -1;
 		prereq = -1;
+
+		isBattle = false;
+
+		isRepeat = false;
 
 		addnews = null;
 	}

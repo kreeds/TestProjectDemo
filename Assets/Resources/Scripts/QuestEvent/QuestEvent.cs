@@ -12,10 +12,12 @@ public class QuestEvent : MonoBehaviour {
 		CharaSetup,
 		PlayerSetup,
 		DramaLocation,
-		DramaFilename,
+		filename,
 
 		Quest,
 		QuestAction,
+
+		Path,
 
 		Character,
 		Dialog,
@@ -194,16 +196,22 @@ public class QuestEvent : MonoBehaviour {
 		}
 
 		foreach (EventBase currentEvent in currentScene.eventList) {
-			if (currentEvent.prereq != -1){
+			if (currentEvent.isRepeat == false && PlayerProfile.Get().IsEventCleared (currentEvent.id))
 				continue;
-			}
-			
+
+			if (PlayerProfile.Get ().IsEventCleared(currentEvent.prereq) == false)
+				continue;
+
+			bool isBubble = !(currentEvent.eventType == SceneEventType.Exit);
+
 			GameObject obj = NGUITools.AddChild(bubbleGroup, Resources.Load("Prefabs/AreaNode") as GameObject);
 
 			AreaNode an =  obj.GetComponent<AreaNode>();
-			an.Init(currentEvent.id, false, true, "Bubble", currentEvent.loc);
+
+			int id = isBubble? currentEvent.id : ((Exit)currentEvent).nextScene;
+			an.Init(id, false, isBubble, "Bubble", currentEvent.loc);
 			an.receiver = gameObject;
-			an.callback = "OnBubbleClicked";
+			an.callback = isBubble? "OnBubbleClicked" : "OnDoorClicked";
 
 			Vector3 scale = obj.transform.localScale;
 			scale.x *= currentEvent.direction;
@@ -266,9 +274,10 @@ public class QuestEvent : MonoBehaviour {
 
 //		Quest currentQuest = null;
 
-		Drama currentDrama = null;
+		EventBase currentEventBase = null;
+//		Drama currentDrama = null;
 		QuestAction currentQuestAction = null;
-		Quest currentQuest = null;
+//		Quest currentQuest = null;
 
 		foreach (string line in sceneData) {
 			if (line.Contains("BG")){
@@ -292,8 +301,16 @@ public class QuestEvent : MonoBehaviour {
 			}
 			if (line.Contains("<Quest>")){
 				parseMode = ParseMode.Quest;
-				currentQuest = new Quest();
-				currentQuest.actionList = new List<QuestAction>();
+				currentEventBase = new Quest();
+//				currentQuest = new Quest();
+//				currentQuest.actionList = new List<QuestAction>();
+				continue;
+			}
+			if (line.Contains("<Exit>")){
+				parseMode = ParseMode.Path;
+				currentEventBase = new Exit();
+				//				currentQuest = new Quest();
+				//				currentQuest.actionList = new List<QuestAction>();
 				continue;
 			}
 
@@ -303,27 +320,28 @@ public class QuestEvent : MonoBehaviour {
 			}
 			if (line.Contains("<Drama>")){
 				parseMode = ParseMode.DramaLocation;
-				currentDrama = new Drama();
+//				currentDrama = new Drama();
+				currentEventBase = new Drama();
 				continue;
 			}
-			if (line.Contains("<DramaEnd>")){
+			if (line.Contains("<DramaEnd>") || line.Contains("<QuestEnd>") || line.Contains("<ExitEnd>")){
 //				currentScene.dialogList.Add(currentDrama);
-				currentScene.eventList.Add (currentDrama);
+				currentScene.eventList.Add (currentEventBase);
 			}
-			if (line.Contains("<QuestEnd>")){
-				if (currentQuest != null && currentQuestAction != null){
-					currentQuest.actionList.Add(currentQuestAction);
-				}
-				currentScene.eventList.Add (currentQuest);
-			}
-			if (line.Contains("<QuestEvent>")){
-				parseMode = ParseMode.QuestAction;
-				if (currentQuest != null && currentQuestAction != null){
-					currentQuest.actionList.Add(currentQuestAction);
-				}
-				currentQuestAction = new QuestAction();
-
-			}
+//			if (line.Contains("<QuestEnd>")){
+//				if (currentQuest != null && currentQuestAction != null){
+//					currentQuest.actionList.Add(currentQuestAction);
+//				}
+//				currentScene.eventList.Add (currentQuest);
+//			}
+//			if (line.Contains("<QuestEvent>")){
+//				parseMode = ParseMode.QuestAction;
+//				if (currentQuest != null && currentQuestAction != null){
+//					currentQuest.actionList.Add(currentQuestAction);
+//				}
+//				currentQuestAction = new QuestAction();
+//
+//			}
 			switch (parseMode){
 			case ParseMode.PlayerSetup:
 				if (line.Contains(":")){
@@ -368,59 +386,173 @@ public class QuestEvent : MonoBehaviour {
 				break;
 
 			case ParseMode.DramaLocation:
+			case ParseMode.Quest:
+			case ParseMode.Path:
 				if (line.Contains(":")){
 					string[] parts = line.Split(':');
 					if (line.Contains("x:")){
-						currentDrama.loc.x = int.Parse(parts[1]);
+						currentEventBase.loc.x = int.Parse(parts[1]); 
+//						currentDrama.loc.x = int.Parse(parts[1]);
 					}
 					if (line.Contains("y:")){
-						currentDrama.loc.y = int.Parse(parts[1]);
+						currentEventBase.loc.y = int.Parse(parts[1]);
+//						currentDrama.loc.y = int.Parse(parts[1]);
 					}
-					if (line.Contains("DramaFilename")){
-						currentDrama.dramaFile = parts[1];
+					if (line.Contains("filename")){
+						currentEventBase.file = parts[1];
+						if (parseMode == ParseMode.Quest){
+							Quest quest = currentEventBase as Quest;
+							LoadQuest(ref quest );
+						}
+//						currentDrama.file = parts[1];
 					}
-//					if (line.Contains("NextEvent")){
-//						currentDrama.nextEvent = parts[1];
-//					}
+					if (line.Contains("next")){
+						currentEventBase.nextEvent = int.Parse(parts[1]);
+					}
 					if (line.Contains("side")){
-						currentDrama.direction = int.Parse(parts[1]);
+						currentEventBase.direction = int.Parse(parts[1]);
+//						currentDrama.direction = int.Parse(parts[1]);
 					}
 					if (line.Contains("prereq:")){
-						currentDrama.prereq = int.Parse (parts[1]);
+						currentEventBase.prereq = int.Parse (parts[1]);
+//						currentDrama.prereq = int.Parse (parts[1]);
 					}
 					if (line.Contains("id:")){
-						currentDrama.id = int.Parse (parts[1]);
+						currentEventBase.id = int.Parse(parts[1]);
+//						currentDrama.id = int.Parse (parts[1]);
 					}
 					if (line.Contains ("bondup:")){
 						int bond = int.Parse (parts[1]);
-						currentDrama.showBond = bond != 0;
+						Drama currentDrama = currentEventBase as Drama;
+						currentDrama.showBond = (bond == 1);
 					}
 					if (line.Contains("AddNews:")){
+						//						currentDrama.addnews = parts[1];
+						Drama currentDrama = currentEventBase as Drama;
 						currentDrama.addnews = parts[1];
 					}
+
+					if (line.Contains ("gobattle")){
+						currentEventBase.isBattle = true;
+					}
+
+					if (line.Contains ("repeat:")){
+						currentEventBase.isRepeat = (int.Parse (parts[1]) == 1);
+					}
+
+					if (line.Contains ("nextscene:") && parseMode == ParseMode.Path){
+						Exit exit = currentEventBase as Exit;
+						exit.nextScene = int.Parse (parts[1]);
+					}
+
+
 				}
 				break;
 
+//			case ParseMode.Quest:
+//				if (line.Contains(":")){
+//					string[] parts = line.Split(':');
+//					if (line.Contains("x:")){
+//						currentQuest.loc.x = int.Parse(parts[1]);
+//					}
+//					if (line.Contains("y:")){
+//						currentQuest.loc.y = int.Parse(parts[1]);
+//					}
+//					if (line.Contains("side")){
+//						currentQuest.direction = int.Parse(parts[1]);
+//					}
+//					if (line.Contains("prereq:")){
+//						currentQuest.prereq = int.Parse (parts[1]);
+//					}
+//					if (line.Contains("id:")){
+//						currentQuest.id = int.Parse (parts[1]);
+//					}
+//					if (line.Contains ("filename:")){
+//						currentQuest.file = parts[1];
+//						LoadQuest (ref currentQuest);
+//					}
+//					if (line.Contains("id:")){
+//						currentQuest.id = int.Parse (parts[1]);
+//					}
+//					if (line.Contains ("completion")){
+//						currentQuest.requiredAmount = int.Parse (parts[1]);
+//					}
+//					if (line.Contains("name")){
+//						currentQuest.questName = parts[1];
+//					}
+//					if (line.Contains ("startdesc")){
+//						int start = line.IndexOf('"') + 1;
+//						string desc = line.Substring (start, line.LastIndexOf('"') - start).Replace("\\n", System.Environment.NewLine) ;
+//						currentQuest.questDesc = desc;
+//					}
+//					if (line.Contains ("finishdesc")){
+//						int start = line.IndexOf('"') + 1;
+//						string desc = line.Substring (start, line.LastIndexOf('"') - start).Replace("\\n", System.Environment.NewLine) ;
+//						currentQuest.finishDesc = desc;
+//					}
+//					if (line.Contains("nextscene")){
+//						currentQuest.nextEvent = parts[1];
+//					}
+//				}
+				break;
+
+//			case ParseMode.QuestAction:
+//				if (line.Contains(":")){
+//					string[] parts = line.Split(':');
+//					if (line.Contains("x:")){
+//						currentQuestAction.loc.x = int.Parse(parts[1]);
+//					}
+//					if (line.Contains("y:")){
+//						currentQuestAction.loc.y = int.Parse(parts[1]);
+//					}
+//					if (line.Contains("desc")){
+//						currentQuestAction.desc = parts[1];
+//					}
+//					if (line.Contains ("completion")){
+//						currentQuestAction.completionAmount = int.Parse (parts[1]);
+//					}
+//					if (line.Contains("cost")){
+//						currentQuestAction.staminaCost = int.Parse (parts[1]);
+//					}
+//				}
+//				
+//				break;
+			}
+		}
+	}
+
+	
+	static void LoadQuest(ref Quest currentQuest)
+	{
+		ParseMode parseMode = ParseMode.None;
+
+		QuestAction currentQuestAction = null;
+		TextAsset asset = Resources.Load (currentQuest.file) as TextAsset;
+		string[] questData = asset.text.Split ('\n');
+
+		parseMode = ParseMode.Quest;
+		
+		foreach (string line in questData) {
+			if (line.Contains("<QuestEvent>")){
+				parseMode = ParseMode.QuestAction;
+				if (currentQuest != null && currentQuestAction != null){
+					currentQuest.actionList.Add(currentQuestAction);
+				}
+				currentQuestAction = new QuestAction();
+				
+			}
+			if (line.Contains("<End>")){
+				if (currentQuest != null && currentQuestAction != null){
+					currentQuest.actionList.Add(currentQuestAction);
+				}
+			}
+			switch (parseMode){
+				
 			case ParseMode.Quest:
 				if (line.Contains(":")){
 					string[] parts = line.Split(':');
-					if (line.Contains("x:")){
-						currentQuest.loc.x = int.Parse(parts[1]);
-					}
-					if (line.Contains("y:")){
-						currentQuest.loc.y = int.Parse(parts[1]);
-					}
-					if (line.Contains("side")){
-						currentQuest.direction = int.Parse(parts[1]);
-					}
 					if (line.Contains ("completion")){
 						currentQuest.requiredAmount = int.Parse (parts[1]);
-					}
-					if (line.Contains("prereq:")){
-						currentQuest.prereq = int.Parse (parts[1]);
-					}
-					if (line.Contains("id:")){
-						currentQuest.id = int.Parse (parts[1]);
 					}
 					if (line.Contains("name")){
 						currentQuest.questName = parts[1];
@@ -435,12 +567,14 @@ public class QuestEvent : MonoBehaviour {
 						string desc = line.Substring (start, line.LastIndexOf('"') - start).Replace("\\n", System.Environment.NewLine) ;
 						currentQuest.finishDesc = desc;
 					}
-//					if (line.Contains("nextscene")){
-//						currentQuest.nextEvent = parts[1];
-//					}
+
+					if (line.Contains ("questarea")){
+						currentQuest.questArea = int.Parse (parts[1]);
+					}
+
 				}
 				break;
-
+				
 			case ParseMode.QuestAction:
 				if (line.Contains(":")){
 					string[] parts = line.Split(':');
@@ -842,8 +976,15 @@ public class QuestEvent : MonoBehaviour {
 
 		ShowDialogBoxes (true, false);
 		
-		Drama currentDrama = currentScene.eventList [currentScene.currentEvent] as Drama;
+//		Drama currentDrama = currentScene.eventList [currentScene.currentEvent] as Drama;
+		Drama currentDrama = currentScene.getCurrentEvent () as Drama;
 		currentDrama.relationshipBonus += choiceEvent.choiceReward [selected];
+	}
+
+	void OnDoorClicked(int selected){
+		QuestEvent.nextSceneID = selected;
+		Service.Get<HUDService> ().ChangeScene ("EventScene");
+		ClearScene ();
 	}
 
 	void OnBubbleClicked(int selected){
@@ -851,21 +992,44 @@ public class QuestEvent : MonoBehaviour {
 
 		currentScene.currentEvent = selected;
 //		Drama selectedDrama = currentScene.dialogList [selected];
-		EventBase currentEvent = currentScene.eventList [selected];
+		EventBase currentEvent = null;
+
+//		foreach (EventBase eventItem in currentScene.eventList){
+//			if (eventItem.id != selected)
+//				continue;
+//
+//			currentEvent = eventItem;
+//			break;
+//		}
+
+		currentEvent = currentScene.getCurrentEvent ();
+
+		if (currentEvent == null) {
+			Debug.Log ("INVALID EVENT!");
+			return;
+		}
 
 		if (currentEvent.eventType == SceneEventType.Drama) {
 //			StartDrama (selectedDrama);
 			StartDrama (currentEvent as Drama);
 		} else if (currentEvent.eventType == SceneEventType.Quest) {
 			currentQuest = currentEvent as Quest;
-			GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/QuestStart")) as GameObject;
-			m_hudService.HUDControl.AttachMid(ref obj);
-			obj.transform.localScale = Vector3.one;
-			obj.transform.localPosition = new Vector3(0, 0, -5);
-			QuestStart questWindow = obj.GetComponent<QuestStart>();
-			questWindow.Initialize(gameObject, currentQuest.questName, currentQuest.questDesc);
+			CreateQuestDialog ();
+		} else if (currentEvent.eventType == SceneEventType.Exit) {
+			Exit exit = currentEvent as Exit;
+			QuestEvent.nextSceneID = exit.nextScene;
+			Service.Get<HUDService> ().ChangeScene ("EventScene");
 		}
 
+	}
+
+	void CreateQuestDialog(){
+		GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/QuestStart")) as GameObject;
+		m_hudService.HUDControl.AttachMid(ref obj);
+		obj.transform.localScale = Vector3.one;
+		obj.transform.localPosition = new Vector3(0, 0, -5);
+		QuestStart questWindow = obj.GetComponent<QuestStart>();
+		questWindow.Initialize(gameObject, currentQuest.questName, currentQuest.questDesc);
 	}
 
 	void ShowNewsNotification(){
@@ -890,49 +1054,76 @@ public class QuestEvent : MonoBehaviour {
 		//start quest or start drama
 	void GoToNext()
 	{
-		foreach (EventBase eventListItem in currentScene.eventList){
-			if (eventListItem.id == currentScene.currentEvent)
-				continue;
+		EventBase current = currentScene.getCurrentEvent ();
+		PlayerProfile.Get ().AddClearedEvent (current.id);
+
+		//set enemy type for battle or link to next event
+		if (current.isBattle) {
+			if (isDisplayingBattleStart == false) {
+				textCollider.enabled = false;
+				
+				GameObject obj = Instantiate (Resources.Load ("Prefabs/Event/BattleStart")) as GameObject;
+				m_hudService.HUDControl.AttachMid (ref obj);
+				obj.transform.localScale = Vector3.one;
+				obj.transform.localPosition = new Vector3 (0, 0, -5);
+				
+				m_soundService.StopMusic (m_bgm);
+				BattleStart battleDialog = obj.GetComponent<BattleStart> ();
+				battleDialog.Initialize (gameObject, "Mirror Monster");
+				
+				isDisplayingBattleStart = true;
+			}
+		} else if (current.nextEvent != -1) {
 			
-			if (eventListItem.prereq == currentScene.currentEvent){
-				currentScene.currentEvent = eventListItem.id;
-				if (eventListItem.eventType == SceneEventType.Drama){
-					StartDrama(eventListItem as Drama);
-				}else{
-					StartQuest (eventListItem as Quest);
+			foreach (EventBase eventListItem in currentScene.eventList) {
+				if (eventListItem.id == current.nextEvent) {
+					currentScene.currentEvent = eventListItem.id;
+					if (eventListItem.eventType == SceneEventType.Drama) {
+						StartDrama (eventListItem as Drama);
+					} else {
+						dialogBase.SetActive (false);
+						currentQuest = eventListItem as Quest;
+						CreateQuestDialog ();
+					}
+					return;
 				}
-				return;
 			}
-		}
-		
-		ClearScene ();
-//		LoadScene(sceneFiles[currentScene.nextScene]);
-//		InitializeScene ();
-
-		if (currentScene.nextScene > 0 && currentScene.nextScene < sceneFiles.Length) {
-			nextSceneID = currentScene.nextScene;
+		} else if (!current.isRepeat) {
+			ClearScene ();
 			Service.Get<HUDService> ().ChangeScene ("EventScene");
-		} else if (currentScene.nextSequence != null) {
-			if (currentScene.nextSequence == "BattleScene"){
-
-				if (isDisplayingBattleStart == false){
-					textCollider.enabled = false;
-
-					GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/BattleStart")) as GameObject;
-					m_hudService.HUDControl.AttachMid(ref obj);
-					obj.transform.localScale = Vector3.one;
-					obj.transform.localPosition = new Vector3(0, 0, -5);
-
-					m_soundService.StopMusic(m_bgm);
-					BattleStart battleDialog = obj.GetComponent<BattleStart>();
-					battleDialog.Initialize(gameObject, "Mirror Monster");
-
-					isDisplayingBattleStart = true;
-				}
-			}
-			else
-				Service.Get<HUDService> ().ChangeScene (currentScene.nextSequence);
+		} else {
+			bubbleGroup.SetActive (true);
+			dialogBase.SetActive (false);
+			EnableMapScroll (true);
 		}
+
+////		LoadScene(sceneFiles[currentScene.nextScene]);
+////		InitializeScene ();
+//
+//		if (currentScene.nextScene > 0 && currentScene.nextScene < sceneFiles.Length) {
+//			nextSceneID = currentScene.nextScene;
+//			Service.Get<HUDService> ().ChangeScene ("EventScene");
+//		} else if (currentScene.nextSequence != null) {
+//			if (currentScene.nextSequence == "BattleScene"){
+//
+//				if (isDisplayingBattleStart == false){
+//					textCollider.enabled = false;
+//
+//					GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/BattleStart")) as GameObject;
+//					m_hudService.HUDControl.AttachMid(ref obj);
+//					obj.transform.localScale = Vector3.one;
+//					obj.transform.localPosition = new Vector3(0, 0, -5);
+//
+//					m_soundService.StopMusic(m_bgm);
+//					BattleStart battleDialog = obj.GetComponent<BattleStart>();
+//					battleDialog.Initialize(gameObject, "Mirror Monster");
+//
+//					isDisplayingBattleStart = true;
+//				}
+//			}
+//			else
+//				Service.Get<HUDService> ().ChangeScene (currentScene.nextSequence);
+//		}
 
 //		fader.ChangeScene ("EventScene");
 	}
@@ -949,34 +1140,38 @@ public class QuestEvent : MonoBehaviour {
 
 	void StartQuest(Quest quest) {
 
-		if (quest != null) {
-			currentQuest = quest;
-			if (questProgress == null){
-				GameObject obj = GameObject.Instantiate(Resources.Load("Prefabs/Event/QuestProgress")) as GameObject;
-				m_hudService.HUDControl.AttachTop(ref obj);
+		if (quest == null)
+			return;
 
-				//obj.transform.localPosition = new Vector3(0, -280f, 0);
-				obj.transform.localScale = new Vector3(0.35f, 0.35f, 1);
+		currentQuest = quest;
+//			LoadQuest (ref currentQuest);
+		if (questProgress == null){
+			GameObject obj = GameObject.Instantiate(Resources.Load("Prefabs/Event/QuestProgress")) as GameObject;
+			m_hudService.HUDControl.AttachTop(ref obj);
 
-				questProgress = obj.GetComponent<QuestProgress>();
-				questProgress.Initialize(currentQuest.questName, "");
-			}
-			questProgress.gameObject.SetActive (true);
-			questProgress.SetProgress (0);
-			for (int i = 0; i < currentQuest.actionList.Count; ++i) {
-				QuestAction currentAction = currentQuest.actionList [i];
-				GameObject actionObj = NGUITools.AddChild (actionGroup, Resources.Load ("Prefabs/Event/ActionEvent") as GameObject);
+			//obj.transform.localPosition = new Vector3(0, -280f, 0);
+			obj.transform.localScale = new Vector3(0.35f, 0.35f, 1);
 
-				Vector3 pos = new Vector3 (currentAction.loc.x, currentAction.loc.y, -7);
-				actionObj.transform.localPosition = pos;
-				actionObj.transform.localScale = new Vector3(0.75f, 0.75f, 1);
-
-				ActionEvent actionEvent = actionObj.GetComponent<ActionEvent> ();
-				actionEvent.Initialize (i, currentAction.staminaCost, gameObject, currentAction.desc);
-
-				actionList.Add(actionEvent);
-			}
+			questProgress = obj.GetComponent<QuestProgress>();
+			questProgress.Initialize(currentQuest.questName, "");
 		}
+		questProgress.gameObject.SetActive (true);
+		questProgress.SetProgress (0);
+		for (int i = 0; i < currentQuest.actionList.Count; ++i) {
+			QuestAction currentAction = currentQuest.actionList [i];
+			GameObject actionObj = NGUITools.AddChild (actionGroup, Resources.Load ("Prefabs/Event/ActionEvent") as GameObject);
+
+			Vector3 pos = new Vector3 (currentAction.loc.x, currentAction.loc.y, -7);
+			actionObj.transform.localPosition = pos;
+			actionObj.transform.localScale = new Vector3(0.75f, 0.75f, 1);
+
+			ActionEvent actionEvent = actionObj.GetComponent<ActionEvent> ();
+			actionEvent.Initialize (i, currentAction.staminaCost, gameObject, currentAction.desc);
+
+			actionList.Add(actionEvent);
+		}
+
+		EnableMapScroll (true);
 	}
 
 	void StartDrama(Drama selectedDrama) {
@@ -992,7 +1187,7 @@ public class QuestEvent : MonoBehaviour {
 //		clipPos.x = dialogLoc;
 //		scenePanel.clipRange = clipPos;
 
-		LoadDialog (selectedDrama.dramaFile);
+		LoadDialog (selectedDrama.file);
 
 //		pos = dialogBase.transform.localPosition;
 //		pos.x = dialogLoc;
@@ -1012,10 +1207,7 @@ public class QuestEvent : MonoBehaviour {
 		ShowCurrentDialog ();
 		displayingChoice = false;
 
-		UIDraggablePanel dragPanel = scenePanel.GetComponent<UIDraggablePanel> ();
-		if (dragPanel != null)
-			dragPanel.enabled = false;
-		m_hudService.HUDControl.ShowScrollBar (false);
+		EnableMapScroll (false);
 
 		if (questProgress != null) {
 			questProgress.gameObject.SetActive (false);
@@ -1101,5 +1293,12 @@ public class QuestEvent : MonoBehaviour {
 			ShowNewsNotification ();
 		else
 			GoToNext ();
+	}
+
+	void EnableMapScroll(bool enable){
+		UIDraggablePanel dragPanel = scenePanel.GetComponent<UIDraggablePanel> ();
+		if (dragPanel != null)
+			dragPanel.enabled = enable;
+		m_hudService.HUDControl.ShowScrollBar (enable);
 	}
 }
