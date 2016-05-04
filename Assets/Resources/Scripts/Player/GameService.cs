@@ -25,9 +25,10 @@ public class GameService : CSingleton {
 		PlayerPrefs.SetInt(GameConstants.LEVELS, m_playerProfile.level);
 
 		PlayerPrefs.SetInt(GameConstants.UNREADNEWSCNT, m_playerProfile.unreadNewsCnt);
-		PlayerPrefs.SetFloat(GameConstants.RECOVERAMT, m_playerProfile.recoverAmount);
 
 		PlayerPrefs.Save();
+
+		Debug.Log(string.Format("Saving values... - MaxStamina:{0}, stamina: {1}" , m_playerProfile.maxStamina, m_playerProfile.stamina));
 	}
 
 	public void Load()
@@ -45,7 +46,9 @@ public class GameService : CSingleton {
 		m_playerProfile.gems = PlayerPrefs.GetInt(GameConstants.GEMS);
 		m_playerProfile.level = PlayerPrefs.GetInt(GameConstants.LEVELS);
 		m_playerProfile.unreadNewsCnt = PlayerPrefs.GetInt(GameConstants.UNREADNEWSCNT);
-		m_playerProfile.recoverAmount = PlayerPrefs.GetInt(GameConstants.RECOVERAMT);
+
+		Debug.Log(string.Format("Loading values... - MaxStamina:{0}, stamina: {1}" , m_playerProfile.maxStamina, m_playerProfile.stamina));
+
 
 	}
 

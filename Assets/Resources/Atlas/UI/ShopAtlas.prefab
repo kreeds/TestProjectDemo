@@ -1,0 +1,544 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &190018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 490018}
+  - 114: {fileID: 11490018}
+  m_Layer: 0
+  m_Name: ShopAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &490018
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11490018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 0b74c1d2bffec4ae8be8ba91094c6d9f, type: 2}
+  sprites:
+  - name: UI_Shop_Coin_1
+    outer:
+      serializedVersion: 2
+      x: 1641
+      y: 1727
+      width: 100
+      height: 101
+    inner:
+      serializedVersion: 2
+      x: 1641
+      y: 1727
+      width: 100
+      height: 101
+    rotated: 0
+    paddingLeft: 1.38999999
+    paddingRight: 1.39999998
+    paddingTop: .603960395
+    paddingBottom: .603960395
+  - name: UI_Shop_Tab_EnergyUnSelected
+    outer:
+      serializedVersion: 2
+      x: 263
+      y: 54
+      width: 189
+      height: 188
+    inner:
+      serializedVersion: 2
+      x: 263
+      y: 54
+      width: 189
+      height: 188
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Tab_GemUnSelected
+    outer:
+      serializedVersion: 2
+      x: 259
+      y: 680
+      width: 189
+      height: 188
+    inner:
+      serializedVersion: 2
+      x: 259
+      y: 680
+      width: 189
+      height: 188
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Gem_3
+    outer:
+      serializedVersion: 2
+      x: 1585
+      y: 1495
+      width: 272
+      height: 215
+    inner:
+      serializedVersion: 2
+      x: 1585
+      y: 1495
+      width: 272
+      height: 215
+    rotated: 0
+    paddingLeft: .194852948
+    paddingRight: .198529407
+    paddingTop: .0186046511
+    paddingBottom: .0186046511
+  - name: UI_Shop_Tab_CoinsSelected
+    outer:
+      serializedVersion: 2
+      x: 1858
+      y: 1522
+      width: 189
+      height: 188
+    inner:
+      serializedVersion: 2
+      x: 1858
+      y: 1522
+      width: 189
+      height: 188
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Energy_FX
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 869
+      width: 469
+      height: 303
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 869
+      width: 469
+      height: 303
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Gem_4
+    outer:
+      serializedVersion: 2
+      x: 1641
+      y: 1829
+      width: 379
+      height: 219
+    inner:
+      serializedVersion: 2
+      x: 1641
+      y: 1829
+      width: 379
+      height: 219
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: .00913241971
+    paddingBottom: .00913241971
+  - name: UI_Shop_PurchaseBox
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1711
+      width: 1170
+      height: 337
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1711
+      width: 1170
+      height: 337
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Gem_2
+    outer:
+      serializedVersion: 2
+      x: 470
+      y: 1191
+      width: 214
+      height: 171
+    inner:
+      serializedVersion: 2
+      x: 470
+      y: 1191
+      width: 214
+      height: 171
+    rotated: 0
+    paddingLeft: .383177578
+    paddingRight: .387850463
+    paddingTop: .152046785
+    paddingBottom: .152046785
+  - name: UI_Shop_Coin_Button
+    outer:
+      serializedVersion: 2
+      x: 470
+      y: 1363
+      width: 494
+      height: 113
+    inner:
+      serializedVersion: 2
+      x: 470
+      y: 1363
+      width: 494
+      height: 113
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Coin_3
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 243
+      width: 288
+      height: 178
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 243
+      width: 288
+      height: 178
+    rotated: 0
+    paddingLeft: .15625
+    paddingRight: .159722224
+    paddingTop: .129213482
+    paddingBottom: .123595506
+  - name: UI_Shop_Gem_Button
+    outer:
+      serializedVersion: 2
+      x: 965
+      y: 1363
+      width: 494
+      height: 113
+    inner:
+      serializedVersion: 2
+      x: 965
+      y: 1363
+      width: 494
+      height: 113
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Coin_4
+    outer:
+      serializedVersion: 2
+      x: 1243
+      y: 1487
+      width: 341
+      height: 223
+    inner:
+      serializedVersion: 2
+      x: 1243
+      y: 1487
+      width: 341
+      height: 223
+    rotated: 0
+    paddingLeft: .0557184741
+    paddingRight: .0557184741
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Coin_FX
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1173
+      width: 469
+      height: 303
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1173
+      width: 469
+      height: 303
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Tab_CoinsUnSelected
+    outer:
+      serializedVersion: 2
+      x: 470
+      y: 1002
+      width: 189
+      height: 188
+    inner:
+      serializedVersion: 2
+      x: 470
+      y: 1002
+      width: 189
+      height: 188
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Energy_3
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 57
+      width: 262
+      height: 185
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 57
+      width: 262
+      height: 185
+    rotated: 0
+    paddingLeft: .22137405
+    paddingRight: .225190833
+    paddingTop: .1027027
+    paddingBottom: .1027027
+  - name: UI_Shop_Energy_1
+    outer:
+      serializedVersion: 2
+      x: 470
+      y: 280
+      width: 123
+      height: 169
+    inner:
+      serializedVersion: 2
+      x: 470
+      y: 280
+      width: 123
+      height: 169
+    rotated: 0
+    paddingLeft: 1.04065037
+    paddingRight: 1.04065037
+    paddingTop: .159763306
+    paddingBottom: .159763306
+  - name: UI_Shop_Tab_EnergySelected
+    outer:
+      serializedVersion: 2
+      x: 470
+      y: 813
+      width: 189
+      height: 188
+    inner:
+      serializedVersion: 2
+      x: 470
+      y: 813
+      width: 189
+      height: 188
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Tab_GemSelected
+    outer:
+      serializedVersion: 2
+      x: 470
+      y: 624
+      width: 189
+      height: 188
+    inner:
+      serializedVersion: 2
+      x: 470
+      y: 624
+      width: 189
+      height: 188
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Gem_FX
+    outer:
+      serializedVersion: 2
+      x: 1171
+      y: 1745
+      width: 469
+      height: 303
+    inner:
+      serializedVersion: 2
+      x: 1171
+      y: 1745
+      width: 469
+      height: 303
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Gem_1
+    outer:
+      serializedVersion: 2
+      x: 289
+      y: 279
+      width: 148
+      height: 142
+    inner:
+      serializedVersion: 2
+      x: 289
+      y: 279
+      width: 148
+      height: 142
+    rotated: 0
+    paddingLeft: .777027011
+    paddingRight: .783783793
+    paddingTop: .28873238
+    paddingBottom: .28169015
+  - name: UI_Shop_Energy_Button
+    outer:
+      serializedVersion: 2
+      x: 1460
+      y: 1363
+      width: 494
+      height: 113
+    inner:
+      serializedVersion: 2
+      x: 1460
+      y: 1363
+      width: 494
+      height: 113
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Energy_4
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 422
+      width: 277
+      height: 187
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 422
+      width: 277
+      height: 187
+    rotated: 0
+    paddingLeft: .184115529
+    paddingRight: .184115529
+    paddingTop: .0962566808
+    paddingBottom: .0962566808
+  - name: UI_Shop_SelectionBottom
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1477
+      width: 1242
+      height: 233
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1477
+      width: 1242
+      height: 233
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Shop_Coin_2
+    outer:
+      serializedVersion: 2
+      x: 278
+      y: 441
+      width: 181
+      height: 168
+    inner:
+      serializedVersion: 2
+      x: 278
+      y: 441
+      width: 181
+      height: 168
+    rotated: 0
+    paddingLeft: .546961308
+    paddingRight: .546961308
+    paddingTop: .166666672
+    paddingBottom: .160714284
+  - name: UI_Shop_Energy_2
+    outer:
+      serializedVersion: 2
+      x: 470
+      y: 450
+      width: 192
+      height: 173
+    inner:
+      serializedVersion: 2
+      x: 470
+      y: 450
+      width: 192
+      height: 173
+    rotated: 0
+    paddingLeft: .484375
+    paddingRight: .489583343
+    paddingTop: .144508675
+    paddingBottom: .144508675
+  - name: UI_shop_frame
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 610
+      width: 258
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 30
+      y: 638
+      width: 198
+      height: 202
+    rotated: 0
+    paddingLeft: .0155038759
+    paddingRight: .0116279069
+    paddingTop: .0155038759
+    paddingBottom: .0193798449
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 190018}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

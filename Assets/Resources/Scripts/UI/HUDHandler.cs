@@ -25,7 +25,7 @@ public class HUDHandler : MonoBehaviour {
 
 	[SerializeField]UIButton	m_specialBtn;
 	[SerializeField]UISprite 	m_heartSprite;
-	[SerializeField]UILabel		m_specialLabel;
+	[SerializeField]UISprite	m_graySprite;
 
 	[SerializeField]UISlider	m_expBar;
 
@@ -49,6 +49,7 @@ public class HUDHandler : MonoBehaviour {
 	UIScrollBar cameraScrollBar;
 
 	GameObject m_QuestTImer;
+	GameObject m_Shop;
 
 	float m_targetAmt;
 	public float GetSpecialAmount
@@ -85,6 +86,7 @@ public class HUDHandler : MonoBehaviour {
 		}
 
 		string energyDisplayText = stamina + "/" + PlayerProfile.Get ().maxStamina;
+		Debug.Log(string.Format("MaxStamina:{0}, stamina: {1}" , stamina, maxStamina));
 		m_energyLabel.text = energyDisplayText;
 
 		int gold = PlayerProfile.Get ().gold;
@@ -141,7 +143,8 @@ public class HUDHandler : MonoBehaviour {
 		{
 			m_specialBtn.isEnabled = false;
 			m_specialBtn.GetComponent<UIButtonMessage>().target = bmgr.gameObject;
-			m_specialBtn.GetComponent<UIButtonMessage>().functionName = "OnFinishPressed";
+			m_specialBtn.GetComponent<UIButtonMessage>().functionName
+ = "OnFinishPressed";
 		}
 
 		if(m_dodgeBtn != null)
@@ -272,10 +275,6 @@ public class HUDHandler : MonoBehaviour {
 		Debug.Log("*********Special Enable: " + enable);
 		if(m_specialBtn != null)
 			m_specialBtn.isEnabled = enable;
-
-
-		if(m_specialLabel != null)
-			m_specialLabel.enabled = enable;
 	}
 	public void SetSpecialFxGlow(bool show)
 	{
@@ -288,6 +287,11 @@ public class HUDHandler : MonoBehaviour {
 		{
 			StartCoroutine(FillSprite(targetAmt));
 		}
+		if(m_graySprite != null)
+		{
+			m_graySprite.fillAmount = targetAmt;
+		}
+
 	}
 
 	public void ShowDodgeBtn(bool show)
@@ -318,14 +322,6 @@ public class HUDHandler : MonoBehaviour {
 			yield return null;
 		}
 		m_heartSprite.fillAmount = targetAmt;
-//		if(targetAmt == 1 && diff > 0)
-//		{
-//			SoundService ss = Service.Get<SoundService>();
-//			ss.PlaySound(ss.GetSFX("gaugefull"), false);
-//			m_sparkle.SetActive(true);
-//		}
-		//m_specialBtn.isEnabled = (m_heartSprite.fillAmount == 1)? true: false;
-
 	}	
 
 	#endregion
@@ -348,5 +344,10 @@ public class HUDHandler : MonoBehaviour {
 	void OnNewsClick()
 	{
 		Service.Get<HUDService>().ChangeScene("FeedScene");
+	}
+
+	void OnGemClick()
+	{
+		Service.Get<PopUpService>().ShowShop(ShopType.Gems);
 	}
 }

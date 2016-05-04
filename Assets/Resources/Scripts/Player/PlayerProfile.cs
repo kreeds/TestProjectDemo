@@ -41,7 +41,7 @@ public class PlayerProfile {
 		level = 1;
 
 		recoverAmount = 0;
-
+		
 		newsList = new List<NewsDataItem> ();
 		clearedEventList = new List<int> ();
 
