@@ -25,6 +25,7 @@ public class PlayerProfile {
 
 	private List<NewsDataItem> newsList;
 
+	private List<int> clearedEventList;
 
 	static PlayerProfile playerProfile;
 
@@ -42,6 +43,7 @@ public class PlayerProfile {
 		recoverAmount = 0;
 
 		newsList = new List<NewsDataItem> ();
+		clearedEventList = new List<int> ();
 
 		InitializeDummyNews ();
 	}
@@ -108,6 +110,21 @@ public class PlayerProfile {
 		stamina -= cost;
 		if (recoverAmount <= 0)
 			recoverAmount = recoverTime;
+	}
+
+	public void AddClearedEvent(int eventID){
+		clearedEventList.Add (eventID);
+	}
+
+	public bool IsEventCleared(int eventID){
+		if (eventID == -1)
+			return true;
+
+		foreach (int id in clearedEventList) {
+			if (id == eventID)
+				return true;
+		}
+		return false;
 	}
 
 	public void UpdateTime(float deltaTime){

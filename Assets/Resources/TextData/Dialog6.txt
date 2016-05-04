@@ -1,0 +1,14 @@
+<Chara>
+0:P
+1:Toni
+<Dialog>
+1^I love my cat. Do you think she is sooooo cute?
+<Choice>
+C^1
+1^(Pat the cat)^3^3^2
+<ChoiceEnd>
+0^She is so friendly...
+1^Yea, isn't she...? 
+1^Speaking of which, the clothing store to the [FF0000]right[-] is having a big discount right now.
+1^Don't miss it!
+<End>
