@@ -424,8 +424,8 @@ public class PlayerManager : MonoBehaviour {
 			m_battleMgr.ResetGauge();
 
 		// Play Special Attack Effect
-		GameObject speedlines = Instantiate(Resources.Load ("Prefabs/FX/Mob_Speedlines_Fx")) as GameObject;
-		speedlines.transform.SetParent(Service.Get<HUDService>().HUDControl.transform, false);
+		//GameObject speedlines = Instantiate(Resources.Load ("Prefabs/FX/Mob_Speedlines_Fx")) as GameObject;
+		//speedlines.transform.SetParent(Service.Get<HUDService>().HUDControl.transform, false);
 	}
 
 	/// <summary>

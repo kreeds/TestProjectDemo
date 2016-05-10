@@ -49,6 +49,16 @@ id:7
 filename:TextData/Dialog5
 gobattle:1
 <DramaEnd>
+<Drama>
+x:-330
+y:170
+side:1
+prereq:7
+id:8
+filename:TextData/Dialog8
+bondup:1
+AddNews:@<playername> was in the newspapers
+<DramaEnd>
 <Exit>
 x:412
 y:60
