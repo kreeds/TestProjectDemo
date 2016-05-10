@@ -133,7 +133,7 @@ public class BattleManager : MonoBehaviour
 		m_soundService.PreloadSFXResource(new string[13]{"attack01", "attack02", "attack03", 
 															"countdown", "enemyattack", "finalstrokeappear", 
 															"gaugefull", "magicnotecorrect", "playermoveattack", 
-															"sceneswish", "supermove", "win", "spatk02"});
+															"sceneswish", "supermove", "win", "LadyKnight_Shine"});
 
 		m_BGM = Resources.Load("Music/" + m_bgmMusic) as AudioClip;
 		m_SPECIAL = Resources.Load("Music/supermove_jingle" ) as AudioClip;
