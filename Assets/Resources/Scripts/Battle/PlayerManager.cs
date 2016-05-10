@@ -403,7 +403,7 @@ public class PlayerManager : MonoBehaviour {
 	{
 		RemoveBB();
 
-		m_soundService.PlaySound(m_soundService.GetSFX("spatk02"), false);
+		m_soundService.PlaySound(m_soundService.GetSFX("LadyKnight_Shine"), false);
 
 		GameObject obj = NGUITools.AddChild (m_obj, Resources.Load ("Prefabs/FX/Effect_FX") as GameObject);
 		obj.transform.localPosition = new Vector3 (720, 0, -20f);
