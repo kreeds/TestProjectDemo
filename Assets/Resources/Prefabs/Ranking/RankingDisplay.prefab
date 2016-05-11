@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 438746}
   - 114: {fileID: 11438728}
+  - 65: {fileID: 6546904}
   m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
@@ -382,6 +383,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &146904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 446904}
+  - 114: {fileID: 11446904}
+  m_Layer: 5
+  m_Name: BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &438742
 Transform:
   m_ObjectHideFlags: 1
@@ -393,11 +410,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 438744}
-  - {fileID: 438746}
+  - {fileID: 446904}
   - {fileID: 438750}
   - {fileID: 438752}
   - {fileID: 438768}
   - {fileID: 438784}
+  - {fileID: 438746}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &438744
@@ -420,11 +438,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .5, y: -3.5, z: 0}
-  m_LocalScale: {x: 640, y: 900, z: 1}
+  m_LocalPosition: {x: .499836594, y: -3.49993992, z: .000180472154}
+  m_LocalScale: {x: 800, y: 1200, z: 1.00002694}
   m_Children: []
   m_Father: {fileID: 438742}
-  m_RootOrder: 1
+  m_RootOrder: 6
 --- !u!4 &438748
 Transform:
   m_ObjectHideFlags: 1
@@ -680,6 +698,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 438784}
   m_RootOrder: 0
+--- !u!4 &446904
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146904}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: -3.5, z: 0}
+  m_LocalScale: {x: 640, y: 900, z: 1}
+  m_Children: []
+  m_Father: {fileID: 438742}
+  m_RootOrder: 1
 --- !u!23 &2338786
 Renderer:
   m_ObjectHideFlags: 1
@@ -756,6 +786,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 71, y: 91, z: 0}
   m_Center: {x: 0, y: -.000129699707, z: -3}
+--- !u!65 &6546904
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11438726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -777,15 +819,15 @@ MonoBehaviour:
     e00: 511
     e01: 0
     e02: 0
-    e03: .607490778
+    e03: .608679593
     e10: 0
     e11: 511
     e12: 0
-    e13: -2886.54224
+    e13: -2892.19141
     e20: 0
     e21: 0
     e22: 511
-    e23: 2.15006113
+    e23: .00426847208
     e30: 0
     e31: 0
     e32: 0
@@ -806,9 +848,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mColor: {r: 0, g: 0, b: 0, a: .686274529}
   mPivot: 4
-  mDepth: 0
+  mDepth: -1
   mAtlas: {fileID: 11460332, guid: 68ce97b6ea0f14d27b382f2d750244dc, type: 2}
   mSpriteName: UI_shop_frame
   mFillCenter: 1
@@ -1032,15 +1074,15 @@ MonoBehaviour:
     e00: 511
     e01: 0
     e02: 0
-    e03: -153.392502
+    e03: -153.391327
     e10: 0
     e11: 511
     e12: 0
-    e13: -3278.03589
+    e13: -3283.68506
     e20: 0
     e21: 0
     e22: 511
-    e23: 2.15028811
+    e23: .00449544657
     e30: 0
     e31: 0
     e32: 0
@@ -1354,6 +1396,27 @@ MonoBehaviour:
   functionName: OnClose
   trigger: 0
   includeChildren: 0
+--- !u!114 &11446904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mDepth: 0
+  mAtlas: {fileID: 11460332, guid: 68ce97b6ea0f14d27b382f2d750244dc, type: 2}
+  mSpriteName: UI_shop_frame
+  mFillCenter: 1
+  mType: 1
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

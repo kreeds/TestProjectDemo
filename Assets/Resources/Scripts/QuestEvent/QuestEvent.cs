@@ -1095,6 +1095,7 @@ public class QuestEvent : MonoBehaviour {
 			bubbleGroup.SetActive (true);
 			dialogBase.SetActive (false);
 			EnableMapScroll (true);
+			actionList.Clear ();
 		}
 
 ////		LoadScene(sceneFiles[currentScene.nextScene]);
@@ -1144,6 +1145,7 @@ public class QuestEvent : MonoBehaviour {
 			return;
 
 		currentQuest = quest;
+		currentQuest.completedAmount = 0;
 //			LoadQuest (ref currentQuest);
 		if (questProgress == null){
 			GameObject obj = GameObject.Instantiate(Resources.Load("Prefabs/Event/QuestProgress")) as GameObject;
@@ -1275,6 +1277,9 @@ public class QuestEvent : MonoBehaviour {
 
 			questComplete = obj.GetComponent<QuestComplete>();
 			questComplete.Initialize(gameObject, currentQuest.finishDesc);
+			
+			questProgress.SetProgress (0);
+			questProgress.gameObject.SetActive (false);
 		}
 		else
 			progressRatio = currentQuest.completedAmount / (float)currentQuest.requiredAmount;
@@ -1289,6 +1294,8 @@ public class QuestEvent : MonoBehaviour {
 
 	void OnQuestCompleteOk()
 	{
+		if (currentScene.getCurrentEvent ().eventType == SceneEventType.Quest)
+			Destroy (questComplete.gameObject);
 		if (currentScene.getCurrentEvent ().addnews != null)
 			ShowNewsNotification ();
 		else
