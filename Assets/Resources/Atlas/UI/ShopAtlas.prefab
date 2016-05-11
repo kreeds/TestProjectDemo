@@ -62,14 +62,14 @@ MonoBehaviour:
   - name: UI_Shop_Tab_EnergyUnSelected
     outer:
       serializedVersion: 2
-      x: 263
-      y: 54
+      x: 1858
+      y: 1522
       width: 189
       height: 188
     inner:
       serializedVersion: 2
-      x: 263
-      y: 54
+      x: 1858
+      y: 1522
       width: 189
       height: 188
     rotated: 0
@@ -80,14 +80,14 @@ MonoBehaviour:
   - name: UI_Shop_Tab_GemUnSelected
     outer:
       serializedVersion: 2
-      x: 259
-      y: 680
+      x: 470
+      y: 813
       width: 189
       height: 188
     inner:
       serializedVersion: 2
-      x: 259
-      y: 680
+      x: 470
+      y: 813
       width: 189
       height: 188
     rotated: 0
@@ -116,14 +116,14 @@ MonoBehaviour:
   - name: UI_Shop_Tab_CoinsSelected
     outer:
       serializedVersion: 2
-      x: 1858
-      y: 1522
+      x: 470
+      y: 624
       width: 189
       height: 188
     inner:
       serializedVersion: 2
-      x: 1858
-      y: 1522
+      x: 470
+      y: 624
       width: 189
       height: 188
     rotated: 0
@@ -333,13 +333,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 470
-      y: 280
+      y: 97
       width: 123
       height: 169
     inner:
       serializedVersion: 2
       x: 470
-      y: 280
+      y: 97
       width: 123
       height: 169
     rotated: 0
@@ -350,14 +350,14 @@ MonoBehaviour:
   - name: UI_Shop_Tab_EnergySelected
     outer:
       serializedVersion: 2
-      x: 470
-      y: 813
+      x: 263
+      y: 54
       width: 189
       height: 188
     inner:
       serializedVersion: 2
-      x: 470
-      y: 813
+      x: 263
+      y: 54
       width: 189
       height: 188
     rotated: 0
@@ -368,14 +368,14 @@ MonoBehaviour:
   - name: UI_Shop_Tab_GemSelected
     outer:
       serializedVersion: 2
-      x: 470
-      y: 624
+      x: 259
+      y: 680
       width: 189
       height: 188
     inner:
       serializedVersion: 2
-      x: 470
-      y: 624
+      x: 259
+      y: 680
       width: 189
       height: 188
     rotated: 0
@@ -527,6 +527,24 @@ MonoBehaviour:
     paddingRight: .0116279069
     paddingTop: .0155038759
     paddingBottom: .0193798449
+  - name: Ui_cos_Back
+    outer:
+      serializedVersion: 2
+      x: 470
+      y: 267
+      width: 143
+      height: 182
+    inner:
+      serializedVersion: 2
+      x: 470
+      y: 267
+      width: 143
+      height: 182
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

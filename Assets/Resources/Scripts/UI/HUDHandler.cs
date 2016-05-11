@@ -350,4 +350,10 @@ public class HUDHandler : MonoBehaviour {
 	{
 		Service.Get<PopUpService>().ShowShop(ShopType.Gems);
 	}
+
+	void OnRanking()
+	{
+		GameObject obj = GameObject.Instantiate (Resources.Load ("Prefabs/Ranking/RankingDisplay")) as GameObject;
+		AttachMid (ref obj);
+	}
 }
