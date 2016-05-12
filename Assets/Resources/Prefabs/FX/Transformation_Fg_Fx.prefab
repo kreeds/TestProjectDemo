@@ -58,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177458}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 0, y: 1, z: -.100000001}
+  m_LocalPosition: {x: 1, y: 1, z: -.100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 482586}
@@ -256,12 +256,12 @@ ParticleSystem:
         rgba: 1593835519
       minMaxState: 0
     startSize:
-      scalar: .5
+      scalar: .600000024
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .800000012
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -277,7 +277,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-      minMaxState: 3
+      minMaxState: 0
     startRotation:
       scalar: 0
       maxCurve:
@@ -321,7 +321,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 2.20000005
+      scalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -361,7 +361,7 @@ ParticleSystem:
     time1: 0
     time2: 0
     time3: 0
-    m_BurstCount: 1
+    m_BurstCount: 0
   SizeModule:
     enabled: 1
     curve:
@@ -1112,7 +1112,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 1
   InitialModule:
@@ -1268,7 +1268,7 @@ ParticleSystem:
         rgba: 2164260863
       minMaxState: 0
     startSize:
-      scalar: .150000006
+      scalar: .129999995
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1283,7 +1283,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .333333313
+          value: .461538464
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1315,7 +1315,7 @@ ParticleSystem:
       minMaxState: 3
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 20
+    maxNumParticles: 38
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -1412,12 +1412,12 @@ ParticleSystem:
   RotationModule:
     enabled: 1
     curve:
-      scalar: 4.71238899
+      scalar: 6.28318501
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 1
+          value: .75000006
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1427,7 +1427,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .666666627
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1471,7 +1471,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 16384
+        atime1: 22937
         atime2: 65535
         atime3: 65535
         atime4: 0
