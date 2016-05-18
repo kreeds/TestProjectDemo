@@ -58,6 +58,7 @@ public class QuestEvent : MonoBehaviour {
 	[SerializeField]LAppModelProxy	playerChara;
 
 	[SerializeField]string[]		sceneFiles;
+	[SerializeField]GameObject[]	sceneFXContainer;
 	[SerializeField]int				firstQuest;
 
 	[SerializeField]TweenScale		otherTextTweenIn;
@@ -124,6 +125,12 @@ public class QuestEvent : MonoBehaviour {
 		}
 		else
 			LoadScene (sceneFiles [nextSceneID]);
+
+		foreach (GameObject obj in sceneFXContainer)
+			obj.SetActive (false);
+
+		sceneFXContainer [nextSceneID].SetActive (true);
+
 		switch (nextSceneID){
 		case 0:
 		{
