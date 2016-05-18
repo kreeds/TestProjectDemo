@@ -9,7 +9,7 @@ public class Splash : MonoBehaviour {
 	{
 		Service.Init();	
 		Service.Get<HUDService>().StartScene();
-		Service.Get<SoundService>().PlaySound(Resources.Load ("Sound/titlecall00") as AudioClip, false);
+		//Service.Get<SoundService>().PlaySound(Resources.Load ("Sound/titlecall00") as AudioClip, false);
 		
 	}
 	void OnTap(){

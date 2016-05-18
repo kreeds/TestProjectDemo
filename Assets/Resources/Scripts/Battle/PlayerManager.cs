@@ -190,7 +190,7 @@ public class PlayerManager : MonoBehaviour {
 									{
 										GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/FX/WhiteFader_FX") as GameObject);
 										obj.transform.localScale = new Vector3(2048f, 2048f, 0);
-										obj.GetComponent<WhiteFader>().fadeSpeed = 0.5f;
+										obj.GetComponent<WhiteFader>().fadeSpeed = 1f;
 
 										m_enemyMgr.killEnemy();
 										m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);

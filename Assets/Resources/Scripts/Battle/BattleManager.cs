@@ -245,7 +245,7 @@ public class BattleManager : MonoBehaviour
 			{
 				if(m_win)
 				{
-					StartCoroutine(Utility.DelayInSeconds( 5.0f, 
+					StartCoroutine(Utility.DelayInSeconds( 4.0f, 
 														(res) => 
 														{ 
 															m_soundService.StopMusic(m_SPECIAL);
