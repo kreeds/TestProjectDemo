@@ -33,7 +33,9 @@ public class RankListItem : MonoBehaviour {
 
 		_rankLabel.text = playerRankPosition.ToString ();
 
-		int playerRank = Random.Range (0, 3);
+		int playerRank = playerRankPosition / 3;
+		if (playerRank > 3)
+			playerRank = 3;
 		id = playerRankPosition;
 		switch (playerRank) {
 		case 0:

@@ -48,18 +48,26 @@ public class CostumeScene : MonoBehaviour {
 	[SerializeField]GameObject			_costumeGroup;
 	[SerializeField]GameObject			_appearanceGroup;
 
+	[SerializeField]GameObject			_wardrobeGroup;
+	[SerializeField]GameObject			_armoryGroup;
+
 	[SerializeField]LAppModelProxy		_l2dModel;
 
 	[SerializeField]UISprite[]			_tabBtnBackground;
+	[SerializeField]UISprite[]			_tabBtnSprite;
 	
 	[SerializeField]SceneFadeInOut fader;
 	
 	HUDService m_hudService;
 	SoundService m_soundService;
-	AudioClip	m_bgm;
+	AudioClip	costumeBGM;
+	AudioClip	armoryBGM;
 
 	int currentGroupID;
 	int costumeGroupID;
+
+	static Color activeColor = new Color(218 / 255f, 207 / 255f, 191 / 255f, 0.6f);
+	static Color inactiveColor = new Color(112/255f,93/255f,76/255f, 0.6f); 
 
 	// Use this for initialization
 	void Start () {
@@ -68,9 +76,13 @@ public class CostumeScene : MonoBehaviour {
 		m_hudService = Service.Get<HUDService>();
 		m_hudService.StartScene();
 
-		m_bgm = Resources.Load("Music/costumemusic") as AudioClip;
+		m_hudService.HUDControl.ShowRankingGrp (false);
+
+		costumeBGM = Resources.Load("Music/costumemusic") as AudioClip;
+		armoryBGM = Resources.Load ("Music/weapon_bgm") as AudioClip;
+
 		m_soundService = Service.Get<SoundService>();
-		m_soundService.PlayMusic(m_bgm, true);
+		m_soundService.PlayMusic(costumeBGM, true);
 
 
 
@@ -80,7 +92,7 @@ public class CostumeScene : MonoBehaviour {
 
 		_l2dModel.LoadProfile ();
 		_l2dModel.GetModel ().StopBasicMotion (true);
-		_l2dModel.PlayIdleFrontFaceAnim ();
+		_l2dModel.PlayIdleAnim ();
 	}
 	
 	// Update is called once per frame
@@ -94,11 +106,11 @@ public class CostumeScene : MonoBehaviour {
 		List<CostumeItem> itemList = new List<CostumeItem> ();
 
 		itemList.Add (new CostumeItem (0, 1, 50, false, false, "Texture/Costume/ui_cos_001"));
-		itemList.Add (new CostumeItem (0, 4, 50, true, false, "Texture/Costume/ui_cos_002"));
-		itemList.Add (new CostumeItem (0, 2, 50, false, false, "Texture/Costume/ui_cos_003"));
-//		itemList.Add (new CostumeItem (0, 1, 50, true, false, "Texture/Costume/ui_cos_004"));
-		itemList.Add (new CostumeItem (0, 3, 50, true, false, "Texture/Costume/ui_cos_005"));
-		itemList.Add (new CostumeItem (10, -1, 50, true, true, "Texture/Costume/ui_cos_006"));
+		itemList.Add (new CostumeItem (0, 2, 50, true, false, "Texture/Costume/ui_cos_002"));
+		itemList.Add (new CostumeItem (0, 3, 50, false, false, "Texture/Costume/ui_cos_003"));
+		itemList.Add (new CostumeItem (0, 4, 50, true, false, "Texture/Costume/ui_cos_004"));
+//		itemList.Add (new CostumeItem (0, 3, 50, true, false, "Texture/Costume/ui_cos_005"));
+		itemList.Add (new CostumeItem (10, -1, 50, true, true, "Texture/Costume/ui_cos_002"));
 
 		costumeSet.casualItems = itemList.ToArray ();
 
@@ -111,8 +123,8 @@ public class CostumeScene : MonoBehaviour {
 		itemList.Clear ();
 
 		itemList.Add (new CostumeItem (0, 101, 50, false, false, "Texture/Costume/UI_cos_hair01"));
-		itemList.Add (new CostumeItem (0, 103, 50, true, false, "Texture/Costume/UI_cos_hair02"));
-		itemList.Add (new CostumeItem (0, 102, 50, false, false, "Texture/Costume/UI_cos_hair03"));
+		itemList.Add (new CostumeItem (0, 102, 50, true, false, "Texture/Costume/UI_cos_hair02"));
+		itemList.Add (new CostumeItem (0, 103, 50, false, false, "Texture/Costume/UI_cos_hair03"));
 		itemList.Add (new CostumeItem (0, 104, 50, true, false, "Texture/Costume/UI_cos_hair04"));
 		itemList.Add (new CostumeItem (10, -1, 50, false, true, "Texture/Costume/UI_cos_hair02"));
 
@@ -221,8 +233,15 @@ public class CostumeScene : MonoBehaviour {
 
 		foreach (UISprite sprite in _tabBtnBackground) {
 			sprite.depth = 4;
+			sprite.color = inactiveColor;
 		}
+		int i = 1;
+		foreach (UISprite sprite in _tabBtnSprite) {
+			sprite.spriteName = "UI_cos_tab_0" + i++ + "a";
+		}
+		_tabBtnSprite [0].spriteName = "UI_cos_tab_01";
 		_tabBtnBackground [0].depth = 6;
+		_tabBtnBackground [0].color = activeColor;
 	}
 
 	void OnMakeupTab()
@@ -234,8 +253,15 @@ public class CostumeScene : MonoBehaviour {
 		
 		foreach (UISprite sprite in _tabBtnBackground) {
 			sprite.depth = 4;
+			sprite.color = inactiveColor;
 		}
+		int i = 1;
+		foreach (UISprite sprite in _tabBtnSprite) {
+			sprite.spriteName = "UI_cos_tab_0" + i++ + "a";
+		}
+		_tabBtnSprite [2].spriteName = "UI_cos_tab_03";
 		_tabBtnBackground [2].depth = 6;
+		_tabBtnBackground [2].color = activeColor;
 	}
 
 	void OnCostumeItem(int itemID){
@@ -254,5 +280,31 @@ public class CostumeScene : MonoBehaviour {
 	{
 		_l2dModel.SaveProfile ();
 		Service.Get<HUDService> ().ReturnToHome ();
+	}
+
+	void OnEnterArmory()
+	{
+//		_armoryGroup.SetActive (true);
+//		_wardrobeGroup.SetActive (false);
+		m_soundService = Service.Get<SoundService>();
+		m_soundService.StopMusic (costumeBGM);
+		m_soundService.PlayMusic (armoryBGM, true);
+
+		TweenPosition tween = gameObject.GetComponent<TweenPosition> ();
+		tween.Play (true);
+	}
+
+	void OnExitArmory()
+	{
+//		_armoryGroup.SetActive (false);
+//		_wardrobeGroup.SetActive (true);
+
+
+		m_soundService = Service.Get<SoundService>();
+		m_soundService.StopMusic (armoryBGM);
+		m_soundService.PlayMusic(costumeBGM, true);
+
+		TweenPosition tween = gameObject.GetComponent<TweenPosition> ();
+		tween.Play (false);
 	}
 }

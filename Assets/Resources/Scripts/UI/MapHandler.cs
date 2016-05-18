@@ -43,7 +43,7 @@ public class MapHandler : MonoBehaviour {
 
 	void OnDressShop()
 	{
-		QuestEvent.nextSceneID = 1;
+//		QuestEvent.nextSceneID = 1;
 		Service.Get<HUDService> ().ChangeScene ("EventScene");
 	}
 }

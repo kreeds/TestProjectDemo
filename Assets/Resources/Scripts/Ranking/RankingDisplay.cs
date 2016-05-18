@@ -7,6 +7,7 @@ public class RankingDisplay : MonoBehaviour {
 
 	[SerializeField]UIGrid				_rankGrid;
 	[SerializeField]LAppModelProxy		_live2DModel;
+	[SerializeField]UISlider	m_expBar;
 
 
 	List<RankListItem>			_rankItemList;
@@ -18,6 +19,9 @@ public class RankingDisplay : MonoBehaviour {
 		PutDummyPlayers ();
 		_live2DModel.LoadProfile ();
 		_live2DModel.PlayIdleAnim ();
+
+		
+		m_expBar.sliderValue = 0.4f;
 	}
 
 	void PutDummyPlayers()

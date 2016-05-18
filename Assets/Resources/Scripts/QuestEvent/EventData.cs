@@ -229,10 +229,14 @@ public class Quest:EventBase
 public class EventBase
 {
 	public bool showBond;
+	public bool startChain;
+	public bool endChain;
 	public SceneEventType eventType;
 	public string file;
 
 	public int id;
+
+	public int charaid;
 	public Vector2 loc;
 	public Vector2 playerPos; //position of player at start of convo
 	public int direction;
@@ -246,6 +250,9 @@ public class EventBase
 	public bool isRepeat;
 	public int enemyType;
 	public string addnews;
+	public string monstername;
+
+	public int chain;
 
 	public EventBase()
 	{
@@ -255,11 +262,17 @@ public class EventBase
 		direction = 1;
 		nextEvent = -1;
 		prereq = -1;
+		charaid = -1;
+		chain = -1;
 
 		isBattle = false;
 
 		isRepeat = false;
 
 		addnews = null;
+
+		startChain = false;
+
+		monstername = "A Monster";
 	}
 }

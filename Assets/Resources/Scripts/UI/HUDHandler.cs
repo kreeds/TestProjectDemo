@@ -86,7 +86,7 @@ public class HUDHandler : MonoBehaviour {
 		}
 
 		string energyDisplayText = stamina + "/" + PlayerProfile.Get ().maxStamina;
-		Debug.Log(string.Format("MaxStamina:{0}, stamina: {1}" , stamina, maxStamina));
+//		Debug.Log(string.Format("MaxStamina:{0}, stamina: {1}" , stamina, maxStamina));
 		m_energyLabel.text = energyDisplayText;
 
 		int gold = PlayerProfile.Get ().gold;
@@ -292,6 +292,11 @@ public class HUDHandler : MonoBehaviour {
 			m_graySprite.fillAmount = targetAmt;
 		}
 
+	}
+
+	public void ShowRankingGrp(bool show){
+		if (m_lvlbar != null)
+			m_lvlbar.SetActive (show);
 	}
 
 	public void ShowDodgeBtn(bool show)

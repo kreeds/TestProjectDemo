@@ -1,0 +1,12 @@
+<Chara>
+0:P
+1:Toni
+<Dialog>
+1^Thank you for answering my request!
+1^My cat Cookie is missing! \nI last saw it around here.
+1^Can you help me find my cat?
+<Choice>
+C^1
+1^Sure!^3^3^2
+<ChoiceEnd>
+<End>
