@@ -86,7 +86,6 @@ public class HUDService : CSingleton {
 
 	public void ReturnToHome()
 	{
-		QuestEvent.nextSceneID = 0;
 		ChangeScene ("EventScene");
 	}
 }

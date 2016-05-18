@@ -109,16 +109,6 @@ public class QuestEvent : MonoBehaviour {
 		m_hudService = Service.Get<HUDService>();
 		m_hudService.StartScene();
 
-		if(nextSceneID < 1)
-		{
-			m_bgm = Resources.Load("Music/room") as AudioClip;
-		}
-		else
-		{
-			m_bgm = Resources.Load("Music/shopping") as AudioClip;
-		}
-		m_soundService = Service.Get<SoundService>();
-		m_soundService.PlayMusic(m_bgm, true);
 
 		m_hudService.ShowBottom (true);
 
@@ -134,6 +124,24 @@ public class QuestEvent : MonoBehaviour {
 		}
 		else
 			LoadScene (sceneFiles [nextSceneID]);
+		switch (nextSceneID){
+		case 0:
+		{
+			m_bgm = Resources.Load("Music/room") as AudioClip;
+		}
+			break;
+		case 1:
+			m_bgm = Resources.Load ("Music/outside") as AudioClip;
+			break;
+		case 2:
+		{
+			m_bgm = Resources.Load("Music/shopping") as AudioClip;
+		}
+			break;
+			
+		}
+		m_soundService = Service.Get<SoundService>();
+		m_soundService.PlayMusic(m_bgm, true);
 		InitializeScene ();
 
 		isDisplayingBattleStart = false;
@@ -171,36 +179,19 @@ public class QuestEvent : MonoBehaviour {
 		}
 
 //		int i = 0;
-		sceneCharas = new List<LAppModelProxy> ();
-		foreach (Character chara in currentScene.characterList) {
-			GameObject obj = GameObject.Instantiate(Resources.Load("Live2DAssets/EventLive2DModel")) as GameObject;
-			obj.transform.SetParent (scenePanel.transform);
-			obj.transform.localScale = new Vector3 (45f*chara.side, 1, 45f);
-			obj.transform.localPosition = new Vector3(chara.xpos, chara.ypos, -5);
-
-			LAppModelProxy l2dModel = obj.GetComponent<LAppModelProxy>();
-//			eventCharas[i].transform.localPosition = new Vector3(chara.xpos, chara.ypos, -7);
-//
-//			eventCharas[i].SetHair(chara.hairId);
-//			eventCharas[i].SetClothes(chara.clothesId);
-			l2dModel.GetModel ().StopBasicMotion (true);
-			l2dModel.SetCostume(chara.clothesId, chara.hairId);
-//			l2dModel.SetHair(chara.hairId);
-//			l2dModel.SetClothes(chara.clothesId);
-
-			sceneCharas.Add(l2dModel);
-
-			l2dModel.PlayIdleAnim ();
-
-//			++i;
-		}
+		List<int> reqCharas = new List<int> ();
 
 		foreach (EventBase currentEvent in currentScene.eventList) {
-			if (currentEvent.isRepeat == false && PlayerProfile.Get().IsEventCleared (currentEvent.id))
+			if (currentEvent.eventType != SceneEventType.Exit){
+			if (PlayerProfile.Get().IsEventCleared (currentEvent.id) && currentEvent.isRepeat == false)
 				continue;
 
 			if (PlayerProfile.Get ().IsEventCleared(currentEvent.prereq) == false)
 				continue;
+
+			if (currentEvent.startChain == false && PlayerProfile.Get ().currentEventSet != currentEvent.chain)
+				continue;
+			}
 
 			bool isBubble = !(currentEvent.eventType == SceneEventType.Exit);
 
@@ -218,6 +209,9 @@ public class QuestEvent : MonoBehaviour {
 			obj.transform.localScale = scale;
 
 			nodeList.Add(an);
+
+			if (!reqCharas.Contains (currentEvent.charaid))
+				reqCharas.Add (currentEvent.charaid);
 		}
 		bubbleGroup.SetActive (true);
 
@@ -226,7 +220,34 @@ public class QuestEvent : MonoBehaviour {
 		if (currentScene.bgID == 2) {
 			backgroundTexture.mainTexture = Resources.Load ("Texture/shopping") as Texture;
 		}
+		
+		sceneCharas = new List<LAppModelProxy> ();
+		foreach (Character chara in currentScene.characterList) {
 
+			if (!reqCharas.Contains(chara._id))
+				continue;
+
+			GameObject obj = GameObject.Instantiate(Resources.Load("Live2DAssets/EventLive2DModel")) as GameObject;
+			obj.transform.SetParent (scenePanel.transform);
+			obj.transform.localScale = new Vector3 (45f*chara.side, 1, 45f);
+			obj.transform.localPosition = new Vector3(chara.xpos, chara.ypos, -5);
+			
+			LAppModelProxy l2dModel = obj.GetComponent<LAppModelProxy>();
+			//			eventCharas[i].transform.localPosition = new Vector3(chara.xpos, chara.ypos, -7);
+			//
+			//			eventCharas[i].SetHair(chara.hairId);
+			//			eventCharas[i].SetClothes(chara.clothesId);
+			l2dModel.GetModel ().StopBasicMotion (true);
+			l2dModel.SetCostume(chara.clothesId, chara.hairId);
+			//			l2dModel.SetHair(chara.hairId);
+			//			l2dModel.SetClothes(chara.clothesId);
+			
+			sceneCharas.Add(l2dModel);
+			
+			l2dModel.PlayIdleAnim ();
+			
+			//			++i;
+		}
 		UIDraggablePanel dragPanel = scenePanel.GetComponent<UIDraggablePanel> ();
 		if (dragPanel != null)
 			dragPanel.enabled = true;
@@ -382,6 +403,9 @@ public class QuestEvent : MonoBehaviour {
 					if (line.Contains("side:")){
 						currentCharacter.side = int.Parse(parts[1]);
 					}
+					if (line.Contains ("id:")){
+						currentCharacter._id = int.Parse (parts[1]);
+					}
 				}
 				break;
 
@@ -417,6 +441,9 @@ public class QuestEvent : MonoBehaviour {
 						currentEventBase.prereq = int.Parse (parts[1]);
 //						currentDrama.prereq = int.Parse (parts[1]);
 					}
+					if (line.Contains ("reqchara:")){
+						currentEventBase.charaid = int.Parse (parts[1]);
+					}
 					if (line.Contains("id:")){
 						currentEventBase.id = int.Parse(parts[1]);
 //						currentDrama.id = int.Parse (parts[1]);
@@ -436,6 +463,10 @@ public class QuestEvent : MonoBehaviour {
 						currentEventBase.isBattle = true;
 					}
 
+					if (line.Contains ("monstername:")){
+						currentEventBase.monstername = parts[1];
+					}
+
 					if (line.Contains ("repeat:")){
 						currentEventBase.isRepeat = (int.Parse (parts[1]) == 1);
 					}
@@ -444,7 +475,16 @@ public class QuestEvent : MonoBehaviour {
 						Exit exit = currentEventBase as Exit;
 						exit.nextScene = int.Parse (parts[1]);
 					}
-
+					if (line.Contains ("chainstart:")){
+						currentEventBase.startChain = true;
+						currentEventBase.chain = int.Parse(parts[1]);
+					}
+					else if (line.Contains ("chainend:")){
+						currentEventBase.endChain = true;
+					}
+					else if (line.Contains ("chain:")){
+						currentEventBase.chain = int.Parse (parts[1]);
+					}
 
 				}
 				break;
@@ -670,8 +710,7 @@ public class QuestEvent : MonoBehaviour {
 				newDialogLine.eventGroup = currentBranch;
 
 				newDialogLine.characterID = int.Parse(parts[0]);
-				newDialogLine.dialogLine = parts[1].Replace("<playername>", PlayerProfile.Get ().playerName);
-
+				newDialogLine.dialogLine = parts[1].Replace("<playername>", PlayerProfile.Get ().playerName).Replace("\\n", System.Environment.NewLine);
 				nextEvent = newDialogLine;
 			}
 				break;
@@ -1048,7 +1087,12 @@ public class QuestEvent : MonoBehaviour {
 
 		newsItem.Initialize (gameObject, item._iconTextureName, item._headLine);
 
+		if (currentScene.getCurrentEvent ().endChain == true)
+			PlayerProfile.Get ().currentEventSet = -1;
+
 		PlayerProfile.Get ().AddNews (item);
+
+		m_soundService.PlaySound(Resources.Load("Sound/newsnotification03") as AudioClip, false);
 	}
 
 		//start quest or start drama
@@ -1069,7 +1113,7 @@ public class QuestEvent : MonoBehaviour {
 				
 				m_soundService.StopMusic (m_bgm);
 				BattleStart battleDialog = obj.GetComponent<BattleStart> ();
-				battleDialog.Initialize (gameObject, "Mirror Monster");
+				battleDialog.Initialize (gameObject, current.monstername);
 				
 				isDisplayingBattleStart = true;
 			}
@@ -1173,6 +1217,9 @@ public class QuestEvent : MonoBehaviour {
 			actionList.Add(actionEvent);
 		}
 
+		if (currentQuest.startChain)
+			PlayerProfile.Get ().currentEventSet = currentQuest.chain;
+
 		EnableMapScroll (true);
 	}
 
@@ -1214,6 +1261,9 @@ public class QuestEvent : MonoBehaviour {
 		if (questProgress != null) {
 			questProgress.gameObject.SetActive (false);
 		}
+
+		if (selectedDrama.startChain)
+			PlayerProfile.Get ().currentEventSet = selectedDrama.chain;
 	}
 
 	void OnAction(int actionID){
@@ -1247,7 +1297,6 @@ public class QuestEvent : MonoBehaviour {
 
 	void OnBeginBattle()
 	{
-		
 		Service.Get<HUDService> ().ChangeScene ("TransformScene");
 //		GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/TransformAnim")) as GameObject;
 //		m_hudService.HUDControl.AttachMid(ref obj);

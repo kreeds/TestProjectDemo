@@ -15,13 +15,13 @@ public class QuestChoiceOption : MonoBehaviour {
 			_iconSprite.spriteName = "icon03";
 			_iconSprite.transform.localScale = new Vector3(37f, 37f);
 
-			_iconSprite.gameObject.AddComponent <TweenRotation>();
-			TweenRotation rot = _iconSprite.GetComponent<TweenRotation>();
-			rot.to = new Vector3 (0, 0, -60f);
-			rot.from = new Vector3 (0, 0, -10f);
-
-			rot.style = UITweener.Style.PingPong;
-			rot.duration = 1f;
+//			_iconSprite.gameObject.AddComponent <TweenRotation>();
+//			TweenRotation rot = _iconSprite.GetComponent<TweenRotation>();
+//			rot.to = new Vector3 (0, 0, -60f);
+//			rot.from = new Vector3 (0, 0, -10f);
+//
+//			rot.style = UITweener.Style.PingPong;
+//			rot.duration = 1f;
 			cost = -cost;
 		} else {
 			_iconSprite.spriteName = "icon00";

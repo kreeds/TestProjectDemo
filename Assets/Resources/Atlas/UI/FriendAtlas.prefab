@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: Friendslist_UI_InviteFB
     outer:
       serializedVersion: 2
-      x: 0
-      y: 169
+      x: 421
+      y: 15
       width: 263
       height: 81
     inner:
       serializedVersion: 2
-      x: 0
-      y: 169
+      x: 421
+      y: 15
       width: 263
       height: 81
     rotated: 0
@@ -62,14 +62,14 @@ MonoBehaviour:
   - name: Friendslist_UI_FillBar_Love
     outer:
       serializedVersion: 2
-      x: 335
-      y: 259
+      x: 157
+      y: 195
       width: 57
       height: 55
     inner:
       serializedVersion: 2
-      x: 346
-      y: 268
+      x: 168
+      y: 204
       width: 36
       height: 36
     rotated: 0
@@ -80,14 +80,14 @@ MonoBehaviour:
   - name: Friendslist_UI_TabAll
     outer:
       serializedVersion: 2
-      x: 262
-      y: 268
+      x: 72
+      y: 47
       width: 72
       height: 46
     inner:
       serializedVersion: 2
-      x: 262
-      y: 268
+      x: 72
+      y: 47
       width: 72
       height: 46
     rotated: 0
@@ -98,14 +98,14 @@ MonoBehaviour:
   - name: Friendslist_UI_Frame
     outer:
       serializedVersion: 2
-      x: 264
-      y: 130
+      x: 521
+      y: 392
       width: 160
       height: 120
     inner:
       serializedVersion: 2
-      x: 288
-      y: 153
+      x: 545
+      y: 415
       width: 110
       height: 89
     rotated: 0
@@ -116,14 +116,14 @@ MonoBehaviour:
   - name: Friendslist_UI_FillBar_Friends
     outer:
       serializedVersion: 2
-      x: 393
-      y: 259
+      x: 157
+      y: 139
       width: 57
       height: 55
     inner:
       serializedVersion: 2
-      x: 404
-      y: 268
+      x: 168
+      y: 148
       width: 35
       height: 36
     rotated: 0
@@ -134,14 +134,14 @@ MonoBehaviour:
   - name: Friendslist_UI_InviteGameCenter
     outer:
       serializedVersion: 2
-      x: 0
-      y: 87
+      x: 157
+      y: 21
       width: 263
       height: 81
     inner:
       serializedVersion: 2
-      x: 0
-      y: 87
+      x: 157
+      y: 21
       width: 263
       height: 81
     rotated: 0
@@ -153,13 +153,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 15
+      y: 22
       width: 71
       height: 71
     inner:
       serializedVersion: 2
       x: 16
-      y: 31
+      y: 38
       width: 39
       height: 39
     rotated: 0
@@ -170,14 +170,14 @@ MonoBehaviour:
   - name: Friendslist_UI_TabFriends
     outer:
       serializedVersion: 2
-      x: 262
-      y: 315
+      x: 521
+      y: 345
       width: 193
       height: 46
     inner:
       serializedVersion: 2
-      x: 262
-      y: 315
+      x: 521
+      y: 345
       width: 193
       height: 46
     rotated: 0
@@ -189,15 +189,15 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 262
-      y: 362
+      y: 103
       width: 213
       height: 150
     inner:
       serializedVersion: 2
       x: 262
-      y: 362
-      width: 213
-      height: 150
+      y: 103
+      width: 196
+      height: 138
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
@@ -221,6 +221,60 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: UI_shop_frame
+    outer:
+      serializedVersion: 2
+      x: 262
+      y: 254
+      width: 258
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 304
+      y: 295
+      width: 177
+      height: 179
+    rotated: 0
+    paddingLeft: .0155038759
+    paddingRight: .0116279069
+    paddingTop: .0155038759
+    paddingBottom: .0193798449
+  - name: Friendslist_UI_TabFriends_BG
+    outer:
+      serializedVersion: 2
+      x: 476
+      y: 97
+      width: 156
+      height: 156
+    inner:
+      serializedVersion: 2
+      x: 518
+      y: 135
+      width: 72
+      height: 80
+    rotated: 0
+    paddingLeft: .012820513
+    paddingRight: .012820513
+    paddingTop: .012820513
+    paddingBottom: .0192307699
+  - name: Friendslist_UI_TabAll_BG
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 94
+      width: 156
+      height: 156
+    inner:
+      serializedVersion: 2
+      x: 38
+      y: 132
+      width: 80
+      height: 80
+    rotated: 0
+    paddingLeft: .012820513
+    paddingRight: .012820513
+    paddingTop: .012820513
+    paddingBottom: .0192307699
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

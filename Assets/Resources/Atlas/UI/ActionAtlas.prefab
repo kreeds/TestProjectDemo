@@ -45,13 +45,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1228
-      y: 1477
+      y: 1481
       width: 158
       height: 64
     inner:
       serializedVersion: 2
       x: 1286
-      y: 1487
+      y: 1491
       width: 42
       height: 45
     rotated: 0
@@ -62,13 +62,13 @@ MonoBehaviour:
   - name: SSSSS_Quest_UI_button
     outer:
       serializedVersion: 2
-      x: 1895
+      x: 1893
       y: 1531
       width: 110
       height: 111
     inner:
       serializedVersion: 2
-      x: 1895
+      x: 1893
       y: 1531
       width: 110
       height: 111
@@ -99,13 +99,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1612
-      y: 1479
+      y: 1483
       width: 21
       height: 62
     inner:
       serializedVersion: 2
       x: 1612
-      y: 1479
+      y: 1483
       width: 21
       height: 62
     rotated: 0
@@ -225,13 +225,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1111
-      y: 650
+      y: 654
       width: 229
       height: 253
     inner:
       serializedVersion: 2
       x: 1111
-      y: 650
+      y: 654
       width: 229
       height: 253
     rotated: 0
@@ -242,13 +242,13 @@ MonoBehaviour:
   - name: icon07
     outer:
       serializedVersion: 2
-      x: 1619
+      x: 1618
       y: 927
       width: 188
       height: 244
     inner:
       serializedVersion: 2
-      x: 1619
+      x: 1618
       y: 927
       width: 188
       height: 244
@@ -369,13 +369,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1506
-      y: 1482
+      y: 1486
       width: 44
       height: 59
     inner:
       serializedVersion: 2
       x: 1506
-      y: 1482
+      y: 1486
       width: 44
       height: 59
     rotated: 0
@@ -423,13 +423,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1634
-      y: 1479
+      y: 1483
       width: 21
       height: 62
     inner:
       serializedVersion: 2
       x: 1634
-      y: 1479
+      y: 1483
       width: 21
       height: 62
     rotated: 0
@@ -513,20 +513,20 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1243
-      y: 1542
-      width: 418
-      height: 506
+      y: 1546
+      width: 416
+      height: 502
     inner:
       serializedVersion: 2
       x: 1243
-      y: 1542
-      width: 418
-      height: 506
+      y: 1546
+      width: 416
+      height: 502
     rotated: 0
-    paddingLeft: 0
+    paddingLeft: .00480769249
     paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
+    paddingTop: .0059760958
+    paddingBottom: .00199203193
   - name: Battle_Enemy_Portrait
     outer:
       serializedVersion: 2
@@ -567,13 +567,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1551
-      y: 1499
+      y: 1503
       width: 60
       height: 42
     inner:
       serializedVersion: 2
       x: 1567
-      y: 1499
+      y: 1503
       width: 29
       height: 42
     rotated: 0
@@ -657,20 +657,20 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 859
-      y: 904
-      width: 265
-      height: 267
+      y: 908
+      width: 264
+      height: 263
     inner:
       serializedVersion: 2
       x: 991
-      y: 1045
-      width: 19
-      height: 8
+      y: 1049
+      width: 18
+      height: 4
     rotated: 0
     paddingLeft: 0
-    paddingRight: 0
+    paddingRight: .0037878789
     paddingTop: 0
-    paddingBottom: 0
+    paddingBottom: .0152091254
   - name: Quest_Bar_XP
     outer:
       serializedVersion: 2
@@ -747,13 +747,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1387
-      y: 1477
+      y: 1481
       width: 118
       height: 64
     inner:
       serializedVersion: 2
       x: 1415
-      y: 1477
+      y: 1481
       width: 54
       height: 64
     rotated: 0
@@ -782,13 +782,13 @@ MonoBehaviour:
   - name: Rank_Icon
     outer:
       serializedVersion: 2
-      x: 1662
+      x: 1660
       y: 1643
       width: 305
       height: 405
     inner:
       serializedVersion: 2
-      x: 1662
+      x: 1660
       y: 1643
       width: 305
       height: 405
@@ -855,13 +855,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 978
-      y: 378
+      y: 488
       width: 542
       height: 109
     inner:
       serializedVersion: 2
       x: 978
-      y: 378
+      y: 488
       width: 542
       height: 109
     rotated: 0
@@ -873,13 +873,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 978
-      y: 488
+      y: 378
       width: 542
       height: 109
     inner:
       serializedVersion: 2
       x: 1069
-      y: 488
+      y: 378
       width: 390
       height: 109
     rotated: 0
@@ -890,14 +890,14 @@ MonoBehaviour:
   - name: UI_4_News
     outer:
       serializedVersion: 2
-      x: 1125
-      y: 955
+      x: 1341
+      y: 738
       width: 246
       height: 216
     inner:
       serializedVersion: 2
-      x: 1125
-      y: 955
+      x: 1341
+      y: 738
       width: 246
       height: 216
     rotated: 0
@@ -944,14 +944,14 @@ MonoBehaviour:
   - name: UI_1_Academia
     outer:
       serializedVersion: 2
-      x: 1341
-      y: 738
+      x: 1371
+      y: 955
       width: 246
       height: 216
     inner:
       serializedVersion: 2
-      x: 1341
-      y: 738
+      x: 1371
+      y: 955
       width: 246
       height: 216
     rotated: 0
@@ -962,13 +962,13 @@ MonoBehaviour:
   - name: UI_5_Quests
     outer:
       serializedVersion: 2
-      x: 1372
+      x: 1124
       y: 955
       width: 246
       height: 216
     inner:
       serializedVersion: 2
-      x: 1372
+      x: 1124
       y: 955
       width: 246
       height: 216
@@ -1052,13 +1052,13 @@ MonoBehaviour:
   - name: UI_Button_No
     outer:
       serializedVersion: 2
-      x: 1662
+      x: 1660
       y: 1511
       width: 232
       height: 131
     inner:
       serializedVersion: 2
-      x: 1662
+      x: 1660
       y: 1511
       width: 232
       height: 131
@@ -1089,13 +1089,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1551
-      y: 1477
+      y: 1481
       width: 41
       height: 21
     inner:
       serializedVersion: 2
       x: 1563
-      y: 1477
+      y: 1481
       width: 15
       height: 21
     rotated: 0

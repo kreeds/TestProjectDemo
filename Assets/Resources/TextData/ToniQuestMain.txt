@@ -1,0 +1,17 @@
+completion:5
+name:Find Toni's cat!
+startdesc:"\nReward: $50 Exp: 50"
+finishdesc:"You tried your best, \nbut still no sign of the cat...\nReward: $50 Exp: 50"
+<QuestEvent>
+x:-408
+y:67
+cost:2
+completion:3
+desc:Look under the car
+<QuestEvent>
+x:160
+y:-140
+cost:3
+completion:2
+desc:Search the flowerpot
+<End>

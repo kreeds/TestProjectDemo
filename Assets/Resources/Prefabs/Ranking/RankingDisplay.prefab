@@ -578,8 +578,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -250.000183, y: 550, z: -.460000008}
-  m_LocalScale: {x: .800226033, y: .800226033, z: 1.00002682}
+  m_LocalPosition: {x: -249.998627, y: 544.095093, z: .00427538622}
+  m_LocalScale: {x: .800014019, y: .800014019, z: .999732971}
   m_Children:
   - {fileID: 438772}
   - {fileID: 438778}
@@ -819,15 +819,15 @@ MonoBehaviour:
     e00: 511
     e01: 0
     e02: 0
-    e03: .608679593
+    e03: .00118882733
     e10: 0
     e11: 511
     e12: 0
-    e13: -2892.19141
+    e13: -2892.1311
     e20: 0
     e21: 0
     e22: 511
-    e23: .00426847208
+    e23: .00420755614
     e30: 0
     e31: 0
     e32: 0
@@ -1074,15 +1074,15 @@ MonoBehaviour:
     e00: 511
     e01: 0
     e02: 0
-    e03: -153.391327
+    e03: -153.99881
     e10: 0
     e11: 511
     e12: 0
-    e13: -3283.68506
+    e13: -3283.62476
     e20: 0
     e21: 0
     e22: 511
-    e23: .00449544657
+    e23: .00443453062
     e30: 0
     e31: 0
     e32: 0
@@ -1147,6 +1147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rankGrid: {fileID: 11438756}
   _live2DModel: {fileID: 11438730}
+  m_expBar: {fileID: 11438766}
 --- !u!114 &11438762
 MonoBehaviour:
   m_ObjectHideFlags: 1

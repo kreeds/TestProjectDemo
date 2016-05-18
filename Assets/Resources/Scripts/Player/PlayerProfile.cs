@@ -27,6 +27,8 @@ public class PlayerProfile {
 
 	private List<int> clearedEventList;
 
+	public int currentEventSet;
+
 	static PlayerProfile playerProfile;
 
 	PlayerProfile()
@@ -41,6 +43,8 @@ public class PlayerProfile {
 		level = 1;
 
 		recoverAmount = 0;
+
+		currentEventSet = -1;
 		
 		newsList = new List<NewsDataItem> ();
 		clearedEventList = new List<int> ();
