@@ -1188,6 +1188,7 @@ public class QuestEvent : MonoBehaviour {
 	void OnDidNotBeginQuest()
 	{
 		bubbleGroup.SetActive (true);
+		EnableMapScroll (true);
 	}
 
 	void StartQuest(Quest quest) {
