@@ -8,7 +8,7 @@ public class NewsNotificationItem : MonoBehaviour {
 
 	private GameObject				_rootObject;
 
-	private TweenScale				_tweenScale;
+//	private TweenScale				_tweenScale;
 	private TweenAlpha				_tweenAlpha;
 	// Use this for initialization
 	void Start () {
@@ -27,17 +27,19 @@ public class NewsNotificationItem : MonoBehaviour {
 		_newsLabel.text = newsTxt;
 
 		_rootObject = rootObject;
-		_tweenScale = GetComponent<TweenScale> ();
+//		_tweenScale = GetComponent<TweenScale> ();
 		_tweenAlpha = GetComponent<TweenAlpha> ();
 	}
 
 	void OnClose(){
 		_rootObject.SendMessage ("GoToNext");
+		
+//		Service.Get<HUDService>().ChangeScene("FeedScene");
 
 		_tweenAlpha.from = 0;
-		_tweenScale.from = new Vector3 (0.8f, 0.8f);
+//		_tweenScale.from = new Vector3 (0.8f, 0.8f);
 
-		_tweenScale.Play (false);
+//		_tweenScale.Play (false);
 		_tweenAlpha.Play (false);
 
 		Destroy (gameObject, 0.25f);

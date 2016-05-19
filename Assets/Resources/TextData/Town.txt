@@ -58,6 +58,7 @@ chain:2
 filename:TextData/ToniBattleIntro
 gobattle:1
 monstername:Rat Monster
+monsterType:1
 <DramaEnd>
 <Drama>
 x:-330
@@ -71,6 +72,8 @@ bondup:1
 chain:2
 chainend:1
 AddNews:@<playername> was in the newspapers
+AddNewsIcon:LK_portrait
+AddNewsImage:Lady_Knight_news
 <DramaEnd>
 <Exit>
 x:412

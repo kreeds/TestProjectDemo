@@ -13,6 +13,8 @@ public class UIGauge : MonoBehaviour {
 	[SerializeField]UISlider	m_sliderRed;
 	[SerializeField]UILabel		m_name;
 
+	[SerializeField]UISprite	m_iconSprite;
+
 	const float 	animTime = 0.5f;
 
 	bool UIInitialized = false;
@@ -56,8 +58,14 @@ public class UIGauge : MonoBehaviour {
 			m_sliderGreen.sliderValue = ((float)m_currentVal/m_totalVal);
 
 		gameObject.name = name;
-		if(m_name != null)
+		if (m_name != null) {
 			m_name.text = name;
+			if (name.Contains("Mirror Monster")){
+				m_iconSprite.spriteName = "Battle_Enemy_Portrait_Mirror";
+			}else if (name.Contains("Rat Monster")){
+				m_iconSprite.spriteName = "Battle_Enemy_Portrait_Rat";
+			}
+		}
 	}
 
 	public void reduce(int damage)

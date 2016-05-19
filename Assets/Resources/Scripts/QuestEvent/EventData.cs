@@ -250,6 +250,8 @@ public class EventBase
 	public bool isRepeat;
 	public int enemyType;
 	public string addnews;
+	public string addnewsIcon;
+	public string addnewsImage;
 	public string monstername;
 
 	public int chain;
@@ -274,5 +276,7 @@ public class EventBase
 		startChain = false;
 
 		monstername = "A Monster";
+
+		enemyType = 0;
 	}
 }
