@@ -44,6 +44,8 @@ public class BattleManager : MonoBehaviour
 	[SerializeField]Transform		m_bgParent;
 	[SerializeField]string			m_bgmMusic;
 
+	[SerializeField]UITexture		m_bgTexture;
+
 	GameObject m_FXObj;
 
 	AudioClip m_BGM;
@@ -97,10 +99,14 @@ public class BattleManager : MonoBehaviour
 
 	static BattleManager	m_instance;
 
+	static public int				nextBattleArea = 1;
+	static public int				nextBattleMonster = 0;
+
 	void Awake()
 	{
 		if(m_instance == null)
 			m_instance = this;
+
 	}
 
 	void Start()
@@ -139,6 +145,14 @@ public class BattleManager : MonoBehaviour
 		m_SPECIAL = Resources.Load("Music/supermove_jingle" ) as AudioClip;
 		m_soundService.PlayMusic(m_BGM, true);
 		// Create Battle HUD
+		
+		if (nextBattleArea == 1) {
+			m_bgTexture.mainTexture = Resources.Load ("Texture/BG_battle3") as Texture;
+		}
+		else if (nextBattleArea == 2) {
+			m_bgTexture.mainTexture = Resources.Load ("Texture/BG_battle2") as Texture;
+		}
+
 
 	}
 

@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: newspaper
     outer:
       serializedVersion: 2
-      x: 0
-      y: 835
+      x: 777
+      y: 648
       width: 776
       height: 466
     inner:
       serializedVersion: 2
-      x: 0
-      y: 835
+      x: 777
+      y: 648
       width: 776
       height: 466
     rotated: 0
@@ -80,14 +80,14 @@ MonoBehaviour:
   - name: top
     outer:
       serializedVersion: 2
-      x: 777
-      y: 710
+      x: 0
+      y: 243
       width: 1242
       height: 124
     inner:
       serializedVersion: 2
-      x: 777
-      y: 710
+      x: 0
+      y: 243
       width: 1242
       height: 124
     rotated: 0
@@ -99,13 +99,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 777
-      y: 615
+      y: 553
       width: 1189
       height: 94
     inner:
       serializedVersion: 2
       x: 777
-      y: 615
+      y: 553
       width: 1189
       height: 94
     rotated: 0
@@ -116,14 +116,14 @@ MonoBehaviour:
   - name: headline
     outer:
       serializedVersion: 2
-      x: 1243
-      y: 1495
+      x: 777
+      y: 466
       width: 621
       height: 86
     inner:
       serializedVersion: 2
-      x: 1243
-      y: 1495
+      x: 777
+      y: 466
       width: 621
       height: 86
     rotated: 0
@@ -134,14 +134,14 @@ MonoBehaviour:
   - name: mynews
     outer:
       serializedVersion: 2
-      x: 1243
-      y: 1408
+      x: 777
+      y: 379
       width: 621
       height: 86
     inner:
       serializedVersion: 2
-      x: 1243
-      y: 1408
+      x: 777
+      y: 379
       width: 621
       height: 86
     rotated: 0
@@ -152,14 +152,14 @@ MonoBehaviour:
   - name: portrait
     outer:
       serializedVersion: 2
-      x: 1865
-      y: 1320
+      x: 777
+      y: 1127
       width: 174
       height: 174
     inner:
       serializedVersion: 2
-      x: 1865
-      y: 1320
+      x: 777
+      y: 1127
       width: 174
       height: 174
     rotated: 0
@@ -170,14 +170,14 @@ MonoBehaviour:
   - name: LK_portrait
     outer:
       serializedVersion: 2
-      x: 0
-      y: 195
+      x: 952
+      y: 1129
       width: 172
       height: 172
     inner:
       serializedVersion: 2
-      x: 0
-      y: 195
+      x: 952
+      y: 1129
       width: 172
       height: 172
     rotated: 0
@@ -188,14 +188,14 @@ MonoBehaviour:
   - name: emptyheart
     outer:
       serializedVersion: 2
-      x: 1951
-      y: 1506
+      x: 1125
+      y: 1150
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 1951
-      y: 1506
+      x: 1125
+      y: 1150
       width: 85
       height: 75
     rotated: 0
@@ -206,14 +206,14 @@ MonoBehaviour:
   - name: filledheart
     outer:
       serializedVersion: 2
-      x: 1865
-      y: 1506
+      x: 1125
+      y: 1226
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 1865
-      y: 1506
+      x: 1125
+      y: 1226
       width: 85
       height: 75
     rotated: 0
@@ -225,13 +225,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 777
-      y: 609
+      y: 373
       width: 1241
       height: 5
     inner:
       serializedVersion: 2
       x: 777
-      y: 609
+      y: 373
       width: 1241
       height: 5
     rotated: 0
@@ -242,14 +242,14 @@ MonoBehaviour:
   - name: backbutton
     outer:
       serializedVersion: 2
-      x: 1739
-      y: 1349
+      x: 1554
+      y: 676
       width: 44
       height: 58
     inner:
       serializedVersion: 2
-      x: 1739
-      y: 1349
+      x: 1554
+      y: 676
       width: 44
       height: 58
     rotated: 0
@@ -260,14 +260,14 @@ MonoBehaviour:
   - name: emptynews
     outer:
       serializedVersion: 2
-      x: 1739
-      y: 1316
+      x: 1125
+      y: 1117
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 1743
-      y: 1316
+      x: 1129
+      y: 1117
       width: 24
       height: 32
     rotated: 0
@@ -278,14 +278,14 @@ MonoBehaviour:
   - name: UI_cos_sort_owned 1
     outer:
       serializedVersion: 2
-      x: 1243
-      y: 1313
+      x: 1554
+      y: 1020
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 1243
-      y: 1313
+      x: 1554
+      y: 1020
       width: 247
       height: 94
     rotated: 0
@@ -296,14 +296,14 @@ MonoBehaviour:
   - name: UI_cos_sort_shop 1
     outer:
       serializedVersion: 2
-      x: 1491
-      y: 1313
+      x: 1554
+      y: 925
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 1491
-      y: 1313
+      x: 1554
+      y: 925
       width: 247
       height: 94
     rotated: 0
@@ -314,14 +314,14 @@ MonoBehaviour:
   - name: UI_cos_sort_shop
     outer:
       serializedVersion: 2
-      x: 173
-      y: 273
+      x: 1554
+      y: 735
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 173
-      y: 273
+      x: 1554
+      y: 735
       width: 247
       height: 94
     rotated: 0
@@ -332,14 +332,14 @@ MonoBehaviour:
   - name: UI_cos_sort_owned
     outer:
       serializedVersion: 2
-      x: 173
-      y: 178
+      x: 1554
+      y: 830
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 173
-      y: 178
+      x: 1554
+      y: 830
       width: 247
       height: 94
     rotated: 0
@@ -368,14 +368,14 @@ MonoBehaviour:
   - name: thankyounote
     outer:
       serializedVersion: 2
-      x: 777
-      y: 835
+      x: 1243
+      y: 1115
       width: 776
       height: 466
     inner:
       serializedVersion: 2
-      x: 777
-      y: 835
+      x: 1243
+      y: 1115
       width: 776
       height: 466
     rotated: 0
@@ -394,6 +394,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 1243
       y: 1582
+      width: 776
+      height: 466
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Lady_Knight_news
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 835
+      width: 776
+      height: 466
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 835
       width: 776
       height: 466
     rotated: 0

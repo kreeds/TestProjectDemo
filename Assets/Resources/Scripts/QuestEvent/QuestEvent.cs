@@ -461,9 +461,16 @@ public class QuestEvent : MonoBehaviour {
 						currentDrama.showBond = (bond == 1);
 					}
 					if (line.Contains("AddNews:")){
-						//						currentDrama.addnews = parts[1];
-						Drama currentDrama = currentEventBase as Drama;
-						currentDrama.addnews = parts[1];
+//						Drama currentDrama = currentEventBase as Drama;
+						currentEventBase.addnews = parts[1];
+					}
+					if (line.Contains("AddNewsIcon:")){
+//						Drama currentDrama = currentEventBase as Drama;
+						currentEventBase.addnewsIcon = parts[1];
+					}
+					if (line.Contains("AddNewsImage:")){
+//						Drama currentDrama = currentEventBase as Drama;
+						currentEventBase.addnewsImage = parts[1];
 					}
 
 					if (line.Contains ("gobattle")){
@@ -472,6 +479,10 @@ public class QuestEvent : MonoBehaviour {
 
 					if (line.Contains ("monstername:")){
 						currentEventBase.monstername = parts[1];
+					}
+
+					if (line.Contains ("monsterType:")){
+						currentEventBase.enemyType = int.Parse (parts[1]);
 					}
 
 					if (line.Contains ("repeat:")){
@@ -1088,7 +1099,10 @@ public class QuestEvent : MonoBehaviour {
 		NewsNotificationItem newsItem = obj.GetComponent<NewsNotificationItem> ();
 
 		string headline = currentScene.getCurrentEvent ().addnews.Replace ("<playername>", PlayerProfile.Get ().playerName);
-		NewsDataItem item = new NewsDataItem (headline, "LK_portrait", "newspaper", false, "Emi was in the newspapersEmi was " +
+		string icon = currentScene.getCurrentEvent ().addnewsIcon;
+		string newsImage = currentScene.getCurrentEvent ().addnewsImage;
+
+		NewsDataItem item = new NewsDataItem (headline, icon, newsImage, false, "Emi was in the newspapersEmi was " +
 			"in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was " +
 			"in the newspapersEmi was in the newspapersEmi was in the newspapers");
 
@@ -1120,6 +1134,10 @@ public class QuestEvent : MonoBehaviour {
 				
 				m_soundService.StopMusic (m_bgm);
 				BattleStart battleDialog = obj.GetComponent<BattleStart> ();
+
+				BattleManager.nextBattleArea = nextSceneID;
+				BattleManager.nextBattleMonster = current.enemyType;
+
 				battleDialog.Initialize (gameObject, current.monstername);
 				
 				isDisplayingBattleStart = true;
@@ -1141,7 +1159,10 @@ public class QuestEvent : MonoBehaviour {
 			}
 		} else if (!current.isRepeat) {
 			ClearScene ();
-			Service.Get<HUDService> ().ChangeScene ("EventScene");
+			if (current.addnews != null)
+				Service.Get<HUDService> ().ChangeScene ("FeedScene");
+			else
+				Service.Get<HUDService> ().ChangeScene ("EventScene");
 		} else {
 			bubbleGroup.SetActive (true);
 			dialogBase.SetActive (false);

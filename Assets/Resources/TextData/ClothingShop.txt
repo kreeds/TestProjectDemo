@@ -35,6 +35,7 @@ chain:0
 filename:TextData/MargieBattleIntro
 gobattle:1
 monstername:Mirror Monster
+monsterType:0
 <DramaEnd>
 <Drama>
 x:-453
@@ -47,6 +48,8 @@ reqchara:0
 chain:0
 chainend:1
 AddNews:@<playername> was in the newspapers
+AddNewsIcon:LK_portrait
+AddNewsImage:newspaper
 filename:TextData/MargieQuestEnd
 <DramaEnd>
 <Drama>

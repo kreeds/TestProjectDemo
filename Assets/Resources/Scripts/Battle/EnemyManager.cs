@@ -29,7 +29,7 @@ public class EnemyManager : MonoBehaviour {
 	void Start () 
 	{
 		handle = Service.Get<HUDService>().HUDControl;
-		CreateSimpleEnemy ();
+		CreateSimpleEnemy (BattleManager.nextBattleMonster);
 	}
 	
 	// Update is called once per frame
@@ -37,16 +37,24 @@ public class EnemyManager : MonoBehaviour {
 	{
 	}
 
-	void CreateSimpleEnemy()
+	void CreateSimpleEnemy(int enemyType)
 	{
 		GameObject obj = NGUITools.AddChild(m_panel.gameObject, Resources.Load("Prefabs/SimpleEnemy") as GameObject);
 		obj.transform.localPosition = new Vector3 (-719f, -221, 0);
 		currentEnemy = obj.GetComponent<Enemy>();
 		currentEnemy.Initialize(80, 80, 8, 3);
+		SimpleEnemy sE = currentEnemy as SimpleEnemy;
+
+		SimpleEnemy.SimpleEnemyType type = (SimpleEnemy.SimpleEnemyType)enemyType;
+		string name = "Mirror Monster";
+		if (type == SimpleEnemy.SimpleEnemyType.Rat)
+			name = "Rat Monster";
+
+		sE.SetType (type);
 		
 		if(handle != null)
 		{
-			handle.InitializeGauge((int)GAUGE.ENEMY, currentEnemy.Hp, currentEnemy.totalHp, "HP" + currentEnemy.name);
+			handle.InitializeGauge((int)GAUGE.ENEMY, currentEnemy.Hp, currentEnemy.totalHp, "HP (" + name + ")");
 		}
 	}
 

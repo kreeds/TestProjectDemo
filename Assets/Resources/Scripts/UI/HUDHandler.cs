@@ -143,8 +143,7 @@ public class HUDHandler : MonoBehaviour {
 		{
 			m_specialBtn.isEnabled = false;
 			m_specialBtn.GetComponent<UIButtonMessage>().target = bmgr.gameObject;
-			m_specialBtn.GetComponent<UIButtonMessage>().functionName
- = "OnFinishPressed";
+			m_specialBtn.GetComponent<UIButtonMessage>().functionName = "OnFinishPressed";
 		}
 
 		if(m_dodgeBtn != null)
