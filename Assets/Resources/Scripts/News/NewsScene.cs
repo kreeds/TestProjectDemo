@@ -110,6 +110,8 @@ public class NewsScene : MonoBehaviour {
 			NewsItem newsItem = obj.GetComponent<NewsItem> ();
 			newsItem.Initialize (id, gameObject, _newsDataList [id]._iconTextureName, _newsDataList [id]._headLine, _newsDataList[id]._isRead);
 		}
+
+		_listTable.Reposition ();
 	}
 
 	void OnNewsItemClicked(int id){

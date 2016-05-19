@@ -3487,7 +3487,7 @@ Transform:
   m_PrefabInternal: {fileID: 1437792688}
   m_GameObject: {fileID: 1135202358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.000355184078, y: -.499998719, z: -6.0915947e-05}
+  m_LocalPosition: {x: 0, y: -.499998719, z: -6.0915947e-05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1699058449}
@@ -4556,6 +4556,18 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 401068, guid: 32b040e2358584c90b63de3d3eb2fd58, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462142, guid: 32b040e2358584c90b63de3d3eb2fd58, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462142, guid: 32b040e2358584c90b63de3d3eb2fd58, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.667973816
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 32b040e2358584c90b63de3d3eb2fd58, type: 2}
   m_RootGameObject: {fileID: 593735490}
@@ -5091,7 +5103,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1619139627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.684902728, y: -.684894562, z: 0}
+  m_LocalPosition: {x: 0, y: -.752941132, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1624858531}
@@ -5282,11 +5294,11 @@ MonoBehaviour:
     e00: 576
     e01: 0
     e02: 0
-    e03: .684902728
+    e03: 0
     e10: 0
     e11: 576
     e12: 0
-    e13: 260.684906
+    e13: 260.75293
     e20: 0
     e21: 0
     e22: 576
@@ -5298,7 +5310,7 @@ MonoBehaviour:
   mAlpha: 1
   mDebugInfo: 1
   mClipping: 3
-  mClipRange: {x: 0, y: 0, z: 700, w: 470}
+  mClipRange: {x: 0, y: 14.5, z: 700, w: 430}
   mClipSoftness: {x: 40, y: 1}
 --- !u!114 &1624858533
 MonoBehaviour:
@@ -5313,7 +5325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restrictWithinPanel: 1
   disableDragIfFits: 0
-  dragEffect: 2
+  dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
   scrollWheelFactor: 0
@@ -5666,6 +5678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rankGrid: {fileID: 490423166}
   _live2DModel: {fileID: 83440080}
+  m_expBar: {fileID: 0}
 --- !u!114 &1699058451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6080,11 +6093,11 @@ MonoBehaviour:
     e00: 511
     e01: 0
     e02: 0
-    e03: .607135594
+    e03: 0
     e10: 0
     e11: 511
     e12: 0
-    e13: .107698768
+    e13: .167975098
     e20: 0
     e21: 0
     e22: 511
@@ -8521,7 +8534,7 @@ Transform:
   m_PrefabInternal: {fileID: 1437792688}
   m_GameObject: {fileID: 2067686422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.607135594, y: -.607697487, z: 0}
+  m_LocalPosition: {x: 0, y: -.667973816, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1763558929}

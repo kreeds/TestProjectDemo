@@ -3,6 +3,12 @@ using System.Collections;
 
 public class SimpleEnemy : Enemy {
 
+	public enum SimpleEnemyType
+	{
+		Mirror,
+		Rat
+	}
+
 	[SerializeField]TweenColor 				_tweenColor;
 	[SerializeField]TweenPosition 			_tweenPosition;
 
@@ -33,6 +39,21 @@ public class SimpleEnemy : Enemy {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void SetType(SimpleEnemyType enemyType)
+	{
+		if (enemyType == SimpleEnemyType.Mirror) {
+			_texture.mainTexture = Resources.Load ("Texture/LadyKnight_MirrorMon_004_perspective") as Texture;
+			_textureInvert.mainTexture = Resources.Load ("Texture/LadyKnight_MirrorMon_004_perspective") as Texture;
+//			gameObject.name = "Mirror Monster";
+		} else {
+			_texture.mainTexture = Resources.Load ("Texture/Rat") as Texture;
+			_textureInvert.mainTexture = Resources.Load ("Texture/Rat") as Texture; 
+//			gameObject.name = "Rat Monster";
+		}
+		_texture.MakePixelPerfect ();
+		_textureInvert.MakePixelPerfect ();
 	}
 
 	public override void PlayDamageAnim()
