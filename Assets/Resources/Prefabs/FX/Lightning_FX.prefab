@@ -128,7 +128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 483010}
@@ -300,11 +300,11 @@ ParticleSystem:
         m_NumAlphaKeys: 2
       minColor:
         serializedVersion: 2
-        rgba: 2197755732
+        rgba: 2197815295
       maxColor:
         serializedVersion: 2
-        rgba: 2195601407
-      minMaxState: 2
+        rgba: 2197815295
+      minMaxState: 0
     startSize:
       scalar: .699999988
       maxCurve:
@@ -1255,7 +1255,7 @@ ParticleSystem:
         rgba: 4287072135
       maxColor:
         serializedVersion: 2
-        rgba: 2701131775
+        rgba: 2030043135
       minMaxState: 0
     startSize:
       scalar: 5
@@ -1305,7 +1305,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 1
+    maxNumParticles: 2
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -2224,10 +2224,10 @@ ParticleSystem:
         m_NumAlphaKeys: 2
       minColor:
         serializedVersion: 2
-        rgba: 1532648026
+        rgba: 1935301210
       maxColor:
         serializedVersion: 2
-        rgba: 942747953
+        rgba: 1160851761
       minMaxState: 2
     startSize:
       scalar: 1
@@ -2287,7 +2287,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 50
+    maxNumParticles: 20
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -3304,7 +3304,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 1000
+    maxNumParticles: 0
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -4266,8 +4266,8 @@ ParticleSystem:
         rgba: 2197755732
       maxColor:
         serializedVersion: 2
-        rgba: 2195601407
-      minMaxState: 2
+        rgba: 2197815295
+      minMaxState: 0
     startSize:
       scalar: .699999988
       maxCurve:
@@ -5172,7 +5172,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
