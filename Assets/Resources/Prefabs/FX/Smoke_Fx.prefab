@@ -180,10 +180,10 @@ ParticleSystem:
         m_NumAlphaKeys: 2
       minColor:
         serializedVersion: 2
-        rgba: 598691959
+        rgba: 766464119
       maxColor:
         serializedVersion: 2
-        rgba: 476670313
+        rgba: 594110825
       minMaxState: 2
     startSize:
       scalar: 2.5
@@ -233,7 +233,7 @@ ParticleSystem:
       minMaxState: 3
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 50
+    maxNumParticles: 30
   ShapeModule:
     serializedVersion: 2
     enabled: 1
