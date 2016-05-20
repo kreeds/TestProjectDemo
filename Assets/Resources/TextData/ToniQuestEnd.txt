@@ -2,14 +2,6 @@
 0:P
 1:Toni
 <Dialog>
-1^Thank you for saving Cookie! 
+1^Thank you for saving Cookie!\nYou are really a life-saver!
 1^I knew that I can count on you!
-1^(Cookie is looking at you in a extremely adorable manner.)
-<Choice>
-C^1
-1^(Pat Cookie)^3^3^2
-<ChoiceEnd>
-1^(Cookie is enjoying your petting)
-1^Yea, looks like Cookie really likes you!
-1^I will be sure to tell everyone how kind you are!
 <End>
