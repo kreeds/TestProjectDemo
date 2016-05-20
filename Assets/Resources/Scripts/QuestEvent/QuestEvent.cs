@@ -1347,7 +1347,7 @@ public class QuestEvent : MonoBehaviour {
 		if (currentQuest.completedAmount >= currentQuest.requiredAmount && questComplete == null) {
 			progressRatio = 1f;
 
-			m_soundService.PlaySound(Resources.Load("Sound/tapfinishobjective") as AudioClip, false);
+			m_soundService.PlaySound(Resources.Load("Sound/goalcomplete02") as AudioClip, false);
 			GameObject obj = Instantiate( Resources.Load ("Prefabs/Event/QuestFinish")) as GameObject;
 			m_hudService.HUDControl.AttachMid(ref obj);
 			obj.transform.localScale = Vector3.one;
