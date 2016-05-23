@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Bling2_Material
+  m_Name: Bling9_Material
   m_Shader: {fileID: 4800000, guid: 2b9ccfaa78997ac4b9f709dd47f45e7f, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -17,7 +17,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 61f4f3780d8d594478845d721a2450bd, type: 3}
+          m_Texture: {fileID: 2800000, guid: a8f3ec3d2e8e25f4f8c5f647f2537472, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
