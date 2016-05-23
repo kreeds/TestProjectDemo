@@ -34,6 +34,12 @@ public class AreaNode: MonoBehaviour {
 
 		if (m_sprite != null) {
 			m_sprite.spriteName = m_lock? "icon07" : dialog? "icon06": "icon08";
+			if (dialog){
+				TweenPosition tweenPos = m_sprite.gameObject.AddComponent<TweenPosition> ();
+				tweenPos.from = new Vector3(0, 20, 0);
+				tweenPos.to = new Vector3(0, -20, 0);
+				tweenPos.style = UITweener.Style.PingPong;
+			}
 		}							
 		
 	}

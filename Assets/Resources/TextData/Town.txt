@@ -31,7 +31,7 @@ side:1
 next:202
 id:201
 repeat:0
-prereq:104
+prereq104
 reqchara:1
 chainstart:2
 filename:TextData/ToniQuestIntro
@@ -82,8 +82,8 @@ side:1
 nextscene:2
 <ExitEnd>
 <Exit>
-x:-1051
-y:-331
+x:-1020
+y:70
 side:1
 nextscene:0
 <ExitEnd>

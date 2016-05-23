@@ -17,6 +17,9 @@ public class RankListItem : MonoBehaviour {
 	public int hairIndex;
 	public int clothesIndex;
 
+	static int lastHairIndex = -1;
+	static int lastClothesIndex = -1;
+
 	public int id;
 	void Start () {
 	
@@ -28,10 +31,15 @@ public class RankListItem : MonoBehaviour {
 	}
 
 	public void Initialize(GameObject rootObject, string playerName, int playerRankPosition){
+		if (lastHairIndex == -1)
+			lastHairIndex = PlayerProfile.Get ().playerHairIndex;
+		if (lastClothesIndex == -1)
+			lastClothesIndex = PlayerProfile.Get ().playerClothesIndex;
+
 		_nameLabel.text = playerName;
 		_rootObject = rootObject;
 
-		_rankLabel.text = playerRankPosition.ToString ();
+		_rankLabel.text = (playerRankPosition+1).ToString ();
 
 		int playerRank = playerRankPosition / 3;
 		if (playerRank > 3)
@@ -54,8 +62,14 @@ public class RankListItem : MonoBehaviour {
 			break;
 		}
 
-		hairIndex = Random.Range (0, 4);
-		clothesIndex = Random.Range (0, 4);
+		do {
+			hairIndex = Random.Range (1, 5);
+			clothesIndex = Random.Range (1, 5);
+		} while (hairIndex == lastHairIndex && clothesIndex == lastClothesIndex);
+
+		lastHairIndex = hairIndex;
+		lastClothesIndex = clothesIndex;
+
 	}
 
 	public void DeSelect()

@@ -332,6 +332,7 @@ public class HUDHandler : MonoBehaviour {
 	
 	void OnHomeClick()
 	{
+		QuestEvent.nextSceneID = 0;
 		Service.Get<HUDService> ().ReturnToHome ();
 	}
 

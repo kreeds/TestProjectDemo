@@ -46,14 +46,18 @@ public class SimpleEnemy : Enemy {
 		if (enemyType == SimpleEnemyType.Mirror) {
 			_texture.mainTexture = Resources.Load ("Texture/LadyKnight_MirrorMon_004_perspective") as Texture;
 			_textureInvert.mainTexture = Resources.Load ("Texture/LadyKnight_MirrorMon_004_perspective") as Texture;
+
+			_texture.MakePixelPerfect ();
+			_textureInvert.MakePixelPerfect ();
 //			gameObject.name = "Mirror Monster";
 		} else {
 			_texture.mainTexture = Resources.Load ("Texture/Rat") as Texture;
 			_textureInvert.mainTexture = Resources.Load ("Texture/Rat") as Texture; 
+
+			_texture.transform.localScale = new Vector3(400, 450);
+			_textureInvert.transform.localScale = new Vector3(400, 450);
 //			gameObject.name = "Rat Monster";
 		}
-		_texture.MakePixelPerfect ();
-		_textureInvert.MakePixelPerfect ();
 	}
 
 	public override void PlayDamageAnim()

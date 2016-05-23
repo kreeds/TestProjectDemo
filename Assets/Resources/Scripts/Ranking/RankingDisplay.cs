@@ -26,14 +26,32 @@ public class RankingDisplay : MonoBehaviour {
 
 	void PutDummyPlayers()
 	{
-		playerRank = Random.Range (0, 15);
+		playerRank = 0;
 		_rankItemList = new List<RankListItem> ();
+		string[] names = {"Marie", 
+			"Judith",
+			"Lisa",
+			"Violet",
+			"Betty",
+			"Pauline",
+			"Linda",
+			"Anna",
+			"Kelly",
+			"Clara",
+			"Heather",
+			"Gina",
+			"Jane",
+			"Doris",
+			"Candice"};
 		for (int i = 0; i < 15; ++i) {
 			GameObject obj = NGUITools.AddChild (_rankGrid.gameObject, Resources.Load ("Prefabs/Ranking/RankListItem") as GameObject);
 			RankListItem listItem = obj.GetComponent<RankListItem>();
-			string name = "Dog";
-			if (playerRank == i)
+			string name = "name";
+			if (i == playerRank)
 				name = PlayerProfile.Get ().playerName;
+			else
+				name = names[i];
+
 			listItem.Initialize(gameObject, name, i);
 			_rankItemList.Add(listItem);
 		}
