@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: Friendslist_UI_InviteFB
     outer:
       serializedVersion: 2
-      x: 259
-      y: 63
+      x: 1253
+      y: 684
       width: 263
       height: 81
     inner:
       serializedVersion: 2
-      x: 259
-      y: 63
+      x: 1253
+      y: 684
       width: 263
       height: 81
     rotated: 0
@@ -62,14 +62,14 @@ MonoBehaviour:
   - name: Friendslist_UI_FillBar_Love
     outer:
       serializedVersion: 2
-      x: 390
-      y: 7
+      x: 934
+      y: 635
       width: 57
       height: 55
     inner:
       serializedVersion: 2
-      x: 401
-      y: 16
+      x: 945
+      y: 644
       width: 36
       height: 36
     rotated: 0
@@ -80,14 +80,14 @@ MonoBehaviour:
   - name: Friendslist_UI_TabAll
     outer:
       serializedVersion: 2
-      x: 259
-      y: 16
+      x: 1128
+      y: 568
       width: 72
       height: 46
     inner:
       serializedVersion: 2
-      x: 259
-      y: 16
+      x: 1128
+      y: 568
       width: 72
       height: 46
     rotated: 0
@@ -98,14 +98,14 @@ MonoBehaviour:
   - name: Friendslist_UI_Frame
     outer:
       serializedVersion: 2
-      x: 473
-      y: 198
+      x: 1298
+      y: 822
       width: 160
       height: 120
     inner:
       serializedVersion: 2
-      x: 497
-      y: 221
+      x: 1322
+      y: 845
       width: 110
       height: 89
     rotated: 0
@@ -116,14 +116,14 @@ MonoBehaviour:
   - name: Friendslist_UI_FillBar_Friends
     outer:
       serializedVersion: 2
-      x: 332
-      y: 7
+      x: 1298
+      y: 766
       width: 57
       height: 55
     inner:
       serializedVersion: 2
-      x: 343
-      y: 16
+      x: 1309
+      y: 775
       width: 35
       height: 36
     rotated: 0
@@ -134,14 +134,14 @@ MonoBehaviour:
   - name: Friendslist_UI_InviteGameCenter
     outer:
       serializedVersion: 2
-      x: 262
-      y: 319
+      x: 1298
+      y: 943
       width: 263
       height: 81
     inner:
       serializedVersion: 2
-      x: 262
-      y: 319
+      x: 1298
+      y: 943
       width: 263
       height: 81
     rotated: 0
@@ -152,14 +152,14 @@ MonoBehaviour:
   - name: Friendslist_UI_FillBar_Empty
     outer:
       serializedVersion: 2
-      x: 526
-      y: 329
+      x: 934
+      y: 691
       width: 71
       height: 71
     inner:
       serializedVersion: 2
-      x: 542
-      y: 345
+      x: 950
+      y: 707
       width: 39
       height: 39
     rotated: 0
@@ -170,14 +170,14 @@ MonoBehaviour:
   - name: Friendslist_UI_TabFriends
     outer:
       serializedVersion: 2
-      x: 473
-      y: 151
+      x: 934
+      y: 568
       width: 193
       height: 46
     inner:
       serializedVersion: 2
-      x: 473
-      y: 151
+      x: 934
+      y: 568
       width: 193
       height: 46
     rotated: 0
@@ -188,14 +188,14 @@ MonoBehaviour:
   - name: Friendslist_UI_TabAdd
     outer:
       serializedVersion: 2
-      x: 259
-      y: 145
+      x: 1039
+      y: 615
       width: 213
       height: 150
     inner:
       serializedVersion: 2
-      x: 259
-      y: 145
+      x: 1039
+      y: 615
       width: 196
       height: 138
     rotated: 0
@@ -206,14 +206,14 @@ MonoBehaviour:
   - name: Friendslist_UI_Thumbnail
     outer:
       serializedVersion: 2
-      x: 0
-      y: 296
+      x: 777
+      y: 763
       width: 261
       height: 261
     inner:
       serializedVersion: 2
-      x: 0
-      y: 296
+      x: 777
+      y: 763
       width: 261
       height: 261
     rotated: 0
@@ -224,14 +224,14 @@ MonoBehaviour:
   - name: UI_shop_frame
     outer:
       serializedVersion: 2
-      x: 0
-      y: 37
+      x: 1039
+      y: 766
       width: 258
       height: 258
     inner:
       serializedVersion: 2
-      x: 42
-      y: 78
+      x: 1081
+      y: 807
       width: 177
       height: 179
     rotated: 0
@@ -242,14 +242,14 @@ MonoBehaviour:
   - name: Friendslist_UI_TabFriends_BG
     outer:
       serializedVersion: 2
-      x: 419
-      y: 401
+      x: 777
+      y: 606
       width: 156
       height: 156
     inner:
       serializedVersion: 2
-      x: 461
-      y: 439
+      x: 819
+      y: 644
       width: 72
       height: 80
     rotated: 0
@@ -260,14 +260,14 @@ MonoBehaviour:
   - name: Friendslist_UI_TabAll_BG
     outer:
       serializedVersion: 2
-      x: 262
-      y: 401
+      x: 1243
+      y: 458
       width: 156
       height: 156
     inner:
       serializedVersion: 2
-      x: 300
-      y: 439
+      x: 1281
+      y: 496
       width: 80
       height: 80
     rotated: 0
@@ -288,6 +288,24 @@ MonoBehaviour:
       y: 558
       width: 776
       height: 466
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Friends_BG
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 340
+      width: 1242
+      height: 217
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 340
+      width: 1242
+      height: 217
     rotated: 0
     paddingLeft: 0
     paddingRight: 0

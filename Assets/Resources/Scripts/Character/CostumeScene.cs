@@ -290,6 +290,9 @@ public class CostumeScene : MonoBehaviour {
 		m_soundService.StopMusic (costumeBGM);
 		m_soundService.PlayMusic (armoryBGM, true);
 
+		
+		m_hudService.HUDControl.ShowTop (false);
+
 		TweenPosition tween = gameObject.GetComponent<TweenPosition> ();
 		tween.Play (true);
 	}
@@ -298,7 +301,8 @@ public class CostumeScene : MonoBehaviour {
 	{
 //		_armoryGroup.SetActive (false);
 //		_wardrobeGroup.SetActive (true);
-
+		
+		m_hudService.HUDControl.ShowTop (true);
 
 		m_soundService = Service.Get<SoundService>();
 		m_soundService.StopMusic (armoryBGM);
