@@ -3,7 +3,7 @@ using System.Collections;
 
 public class QuestComplete : MonoBehaviour {
 
-	[SerializeField]UILabel				_questName;
+	[SerializeField]UILabel				_questRewards;
 	[SerializeField]UILabel				_questDesc;
 	
 	GameObject							_rootObject;
@@ -20,9 +20,10 @@ public class QuestComplete : MonoBehaviour {
 		
 	}
 	
-	public void Initialize(GameObject rootObject, string questDesc)
+	public void Initialize(GameObject rootObject, string questDesc, string questRewards)
 	{
 		_questDesc.text = questDesc;
+		_questRewards.text = questRewards;
 		
 		_rootObject = rootObject;
 

@@ -253,7 +253,7 @@ MonoBehaviour:
     e10: 0
     e11: 511
     e12: 0
-    e13: -330.28949
+    e13: -329.11203
     e20: 0
     e21: 0
     e22: 511
@@ -669,7 +669,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 97350012}
-  - 114: {fileID: 97350013}
   m_Layer: 5
   m_Name: Number
   m_TagString: Untagged
@@ -691,44 +690,6 @@ Transform:
   - {fileID: 1908913959}
   m_Father: {fileID: 1366323902}
   m_RootOrder: 1
---- !u!114 &97350013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11496036, guid: 32b040e2358584c90b63de3d3eb2fd58,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 97350011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  ignoreTimeScale: 1
-  delay: 0
-  duration: .5
-  steeperCurves: 0
-  tweenGroup: 0
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: {x: 22, y: 20, z: 0}
-  to: {x: 22, y: 28, z: 0}
 --- !u!1 &101675689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,7 +1509,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 466621102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -143.67099, y: 0, z: 0}
+  m_LocalPosition: {x: -143.61438, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 512916037}
@@ -3740,7 +3701,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1323327246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 509.990509, z: 0}
+  m_LocalPosition: {x: 0, y: 511.167969, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1532526010}
@@ -5157,7 +5118,7 @@ MonoBehaviour:
     e10: 0
     e11: 511
     e12: 0
-    e13: -1.00949967
+    e13: .167975098
     e20: 0
     e21: 0
     e22: 511
@@ -5400,7 +5361,7 @@ MonoBehaviour:
     e10: 0
     e11: 255.5
     e12: 0
-    e13: 254.995255
+    e13: 255.583984
     e20: 0
     e21: 0
     e22: 511
@@ -7325,7 +7286,7 @@ MonoBehaviour:
     e10: 0
     e11: 511
     e12: 0
-    e13: -380.28949
+    e13: -379.11203
     e20: 0
     e21: 0
     e22: 511
@@ -7490,7 +7451,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2067686422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .50950098, z: 0}
+  m_LocalPosition: {x: 0, y: -.667973816, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1763558929}

@@ -207,7 +207,7 @@ public class QuestEvent : MonoBehaviour {
 			AreaNode an =  obj.GetComponent<AreaNode>();
 
 			int id = isBubble? currentEvent.id : ((Exit)currentEvent).nextScene;
-			an.Init(id, false, isBubble, "Bubble", currentEvent.loc);
+			an.Init(id, false, isBubble, "Bubble", currentEvent.loc, currentEvent.charaid != -1);
 			an.receiver = gameObject;
 			an.callback = isBubble? "OnBubbleClicked" : "OnDoorClicked";
 
@@ -630,6 +630,11 @@ public class QuestEvent : MonoBehaviour {
 						currentQuest.questArea = int.Parse (parts[1]);
 					}
 
+					if (line.Contains ("rewards:")){
+						int start = line.IndexOf('"') + 1;
+						string desc = line.Substring (start, line.LastIndexOf('"') - start).Replace("\\n", System.Environment.NewLine) ;
+						currentQuest.rewards = desc;
+					}
 				}
 				break;
 				
@@ -1066,8 +1071,16 @@ public class QuestEvent : MonoBehaviour {
 			return;
 		}
 
+
 		if (currentEvent.eventType == SceneEventType.Drama) {
 //			StartDrama (selectedDrama);
+			if (currentEvent.isRepeat){
+				foreach (AreaNode node in nodeList) {
+					if (node.m_areaid == selected)
+						node.SetToReadBubble ();
+				}
+			}
+
 			StartDrama (currentEvent as Drama);
 		} else if (currentEvent.eventType == SceneEventType.Quest) {
 			currentQuest = currentEvent as Quest;
@@ -1086,7 +1099,7 @@ public class QuestEvent : MonoBehaviour {
 		obj.transform.localScale = Vector3.one;
 		obj.transform.localPosition = new Vector3(0, 0, -5);
 		QuestStart questWindow = obj.GetComponent<QuestStart>();
-		questWindow.Initialize(gameObject, currentQuest.questName, currentQuest.questDesc);
+		questWindow.Initialize(gameObject, currentQuest.questName, currentQuest.questDesc, currentQuest.rewards);
 	}
 
 	void ShowNewsNotification(){
@@ -1354,7 +1367,7 @@ public class QuestEvent : MonoBehaviour {
 			obj.transform.localPosition = new Vector3(0, 0, -5);
 
 			questComplete = obj.GetComponent<QuestComplete>();
-			questComplete.Initialize(gameObject, currentQuest.finishDesc);
+			questComplete.Initialize(gameObject, currentQuest.finishDesc, currentQuest.rewards);
 			
 			questProgress.SetProgress (0);
 			questProgress.gameObject.SetActive (false);
