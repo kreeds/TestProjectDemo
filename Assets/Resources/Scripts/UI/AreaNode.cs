@@ -14,7 +14,7 @@ public class AreaNode: MonoBehaviour {
 //	UITexture			m_texture;
 	[SerializeField]UISprite 		m_sprite;
 
-	public void Init(int aid, bool alock, bool dialog, string name, Vector3 position)
+	public void Init(int aid, bool alock, bool dialog, string name, Vector3 position, bool isSpoken = true)
 	{
 		m_areaid = aid;
 		m_lock = alock;
@@ -33,7 +33,19 @@ public class AreaNode: MonoBehaviour {
 //									Resources.Load("Texture/icon08") as Texture ;
 
 		if (m_sprite != null) {
-			m_sprite.spriteName = m_lock? "icon07" : dialog? "icon06": "icon08";
+			if (alock){
+				m_sprite.spriteName = "icon07";
+			}
+			else if (dialog){
+				if (isSpoken)
+					m_sprite.spriteName = "icon06";
+				else{
+					m_sprite.spriteName = "icon06_alt";
+				}
+			}
+			else{
+				m_sprite.spriteName = "icon08";
+			}
 			if (dialog){
 				TweenPosition tweenPos = m_sprite.gameObject.AddComponent<TweenPosition> ();
 				tweenPos.from = new Vector3(0, 20, 0);
@@ -54,5 +66,10 @@ public class AreaNode: MonoBehaviour {
 
 		receiver.SendMessage (callback, m_areaid);
 		// Scene Changing
+	}
+
+	public void SetToReadBubble()
+	{
+		m_sprite.spriteName = "icon06_endstate";
 	}
 }

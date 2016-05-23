@@ -44,8 +44,8 @@ public class SimpleEnemy : Enemy {
 	public void SetType(SimpleEnemyType enemyType)
 	{
 		if (enemyType == SimpleEnemyType.Mirror) {
-			_texture.mainTexture = Resources.Load ("Texture/LadyKnight_MirrorMon_004_perspective") as Texture;
-			_textureInvert.mainTexture = Resources.Load ("Texture/LadyKnight_MirrorMon_004_perspective") as Texture;
+			_texture.mainTexture = Resources.Load ("Texture/Mirror") as Texture;
+			_textureInvert.mainTexture = Resources.Load ("Texture/Mirror") as Texture;
 
 			_texture.MakePixelPerfect ();
 			_textureInvert.MakePixelPerfect ();

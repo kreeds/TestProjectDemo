@@ -217,6 +217,8 @@ public class Quest:EventBase
 
 	public string finishDesc;
 
+	public string rewards;
+
 
 	public Quest(): base()
 	{

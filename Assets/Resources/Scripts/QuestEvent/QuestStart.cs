@@ -5,6 +5,7 @@ public class QuestStart : MonoBehaviour {
 
 	[SerializeField]UILabel				_questName;
 	[SerializeField]UILabel				_questDesc;
+	[SerializeField]UILabel				_questRewards;
 
 	GameObject							_rootObject;
 
@@ -20,7 +21,7 @@ public class QuestStart : MonoBehaviour {
 	
 	}
 
-	public void Initialize(GameObject rootObject, string questName, string questDesc)
+	public void Initialize(GameObject rootObject, string questName, string questDesc, string rewards)
 	{
 		_questDesc.text = questDesc;
 		_questName.text = questName;
@@ -29,6 +30,8 @@ public class QuestStart : MonoBehaviour {
 
 		_tweenAlpha = gameObject.GetComponent<TweenAlpha> ();
 		_tweenScale = gameObject.GetComponent<TweenScale> ();
+
+		_questRewards.text = rewards;
 	}
 
 	void OnStart()
