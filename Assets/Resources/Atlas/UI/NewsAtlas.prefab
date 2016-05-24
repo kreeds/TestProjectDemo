@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: newspaper
     outer:
       serializedVersion: 2
-      x: 777
-      y: 648
+      x: 0
+      y: 368
       width: 776
       height: 466
     inner:
       serializedVersion: 2
-      x: 777
-      y: 648
+      x: 0
+      y: 368
       width: 776
       height: 466
     rotated: 0
@@ -62,14 +62,14 @@ MonoBehaviour:
   - name: magazine
     outer:
       serializedVersion: 2
-      x: 0
-      y: 368
+      x: 777
+      y: 648
       width: 776
       height: 466
     inner:
       serializedVersion: 2
-      x: 0
-      y: 368
+      x: 777
+      y: 648
       width: 776
       height: 466
     rotated: 0
@@ -188,14 +188,14 @@ MonoBehaviour:
   - name: emptyheart
     outer:
       serializedVersion: 2
-      x: 1125
-      y: 1150
+      x: 1941
+      y: 477
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 1125
-      y: 1150
+      x: 1941
+      y: 477
       width: 85
       height: 75
     rotated: 0
@@ -206,14 +206,14 @@ MonoBehaviour:
   - name: filledheart
     outer:
       serializedVersion: 2
-      x: 1125
-      y: 1226
+      x: 1941
+      y: 401
       width: 85
       height: 75
     inner:
       serializedVersion: 2
-      x: 1125
-      y: 1226
+      x: 1941
+      y: 401
       width: 85
       height: 75
     rotated: 0
@@ -224,14 +224,14 @@ MonoBehaviour:
   - name: bar
     outer:
       serializedVersion: 2
-      x: 777
-      y: 373
+      x: 0
+      y: 136
       width: 1241
       height: 5
     inner:
       serializedVersion: 2
-      x: 777
-      y: 373
+      x: 0
+      y: 136
       width: 1241
       height: 5
     rotated: 0
@@ -242,14 +242,14 @@ MonoBehaviour:
   - name: backbutton
     outer:
       serializedVersion: 2
-      x: 1554
-      y: 676
+      x: 1125
+      y: 1243
       width: 44
       height: 58
     inner:
       serializedVersion: 2
-      x: 1554
-      y: 676
+      x: 1125
+      y: 1243
       width: 44
       height: 58
     rotated: 0
@@ -260,14 +260,14 @@ MonoBehaviour:
   - name: emptynews
     outer:
       serializedVersion: 2
-      x: 1125
-      y: 1117
+      x: 1170
+      y: 1269
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 1129
-      y: 1117
+      x: 1174
+      y: 1269
       width: 24
       height: 32
     rotated: 0
@@ -278,14 +278,14 @@ MonoBehaviour:
   - name: UI_cos_sort_owned 1
     outer:
       serializedVersion: 2
-      x: 1554
-      y: 1020
+      x: 1243
+      y: 205
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 1554
-      y: 1020
+      x: 1243
+      y: 205
       width: 247
       height: 94
     rotated: 0
@@ -296,14 +296,14 @@ MonoBehaviour:
   - name: UI_cos_sort_shop 1
     outer:
       serializedVersion: 2
-      x: 1554
-      y: 925
+      x: 1491
+      y: 205
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 1554
-      y: 925
+      x: 1491
+      y: 205
       width: 247
       height: 94
     rotated: 0
@@ -314,14 +314,14 @@ MonoBehaviour:
   - name: UI_cos_sort_shop
     outer:
       serializedVersion: 2
-      x: 1554
-      y: 735
+      x: 1399
+      y: 458
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 1554
-      y: 735
+      x: 1399
+      y: 458
       width: 247
       height: 94
     rotated: 0
@@ -332,14 +332,14 @@ MonoBehaviour:
   - name: UI_cos_sort_owned
     outer:
       serializedVersion: 2
-      x: 1554
-      y: 830
+      x: 1797
+      y: 275
       width: 247
       height: 94
     inner:
       serializedVersion: 2
-      x: 1554
-      y: 830
+      x: 1797
+      y: 275
       width: 247
       height: 94
     rotated: 0
@@ -414,6 +414,60 @@ MonoBehaviour:
       y: 835
       width: 776
       height: 466
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: NEWS_ACADEMIATEXT
+    outer:
+      serializedVersion: 2
+      x: 1243
+      y: 300
+      width: 553
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 1243
+      y: 300
+      width: 553
+      height: 78
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: NEWS_LKLOGO
+    outer:
+      serializedVersion: 2
+      x: 1739
+      y: 142
+      width: 171
+      height: 132
+    inner:
+      serializedVersion: 2
+      x: 1739
+      y: 142
+      width: 171
+      height: 132
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Ui_cos_Back
+    outer:
+      serializedVersion: 2
+      x: 1797
+      y: 370
+      width: 143
+      height: 182
+    inner:
+      serializedVersion: 2
+      x: 1797
+      y: 370
+      width: 143
+      height: 182
     rotated: 0
     paddingLeft: 0
     paddingRight: 0

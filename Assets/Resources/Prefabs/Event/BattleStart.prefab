@@ -186,7 +186,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -90, y: -116.057175, z: -2}
+  m_LocalPosition: {x: -90, y: -122, z: -2}
   m_LocalScale: {x: 1.0000267, y: 1.0000267, z: 1.0000267}
   m_Children:
   - {fileID: 442066}
@@ -199,7 +199,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 90, y: -116, z: -2}
+  m_LocalPosition: {x: 90, y: -122, z: -2}
   m_LocalScale: {x: 1.0000267, y: 1.0000267, z: 1.0000267}
   m_Children:
   - {fileID: 442072}
@@ -224,7 +224,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -140, y: 139.941849, z: 0}
+  m_LocalPosition: {x: -140, y: 154, z: 0}
   m_LocalScale: {x: 40, y: 40, z: 1}
   m_Children: []
   m_Father: {fileID: 453064}
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questDesc: {fileID: 11442094}
-  _desc: "<playername>, \n<enemyname> is attacking!\n\nTransform and defeat it!"
+  _desc: "<playername>, \n<enemyname> is attacking!\n\nTransform now and defeat it!"
   _tween: {fileID: 11453062}
   _dialogObject: {fileID: 153064}
 --- !u!114 &11442064
@@ -540,7 +540,8 @@ MonoBehaviour:
   mPivot: 0
   mDepth: 15
   mFont: {fileID: 11436730, guid: 0b148944a0ce64b5d9a909933a380543, type: 2}
-  mText: "<playername>, \n\nMirror monster is attacking!\n\nTransform and defeat it!"
+  mText: "<playername>, \n\nMirror monster is attacking!\n\nTransform now and defeat
+    it!"
   mMaxLineWidth: 295
   mMaxLineHeight: 0
   mEncoding: 1
@@ -634,7 +635,7 @@ MonoBehaviour:
     e00: 511
     e01: 0
     e02: 0
-    e03: -.686843574
+    e03: 0
     e10: 0
     e11: 511
     e12: 0

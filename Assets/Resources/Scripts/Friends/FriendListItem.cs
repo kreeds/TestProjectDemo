@@ -9,6 +9,7 @@ public class FriendListItem : MonoBehaviour {
 	[SerializeField]UILabel 				relLabel;
 
 	[SerializeField]UISprite				fillGauge;
+	[SerializeField]UISprite				iconBG;
 	// Use this for initialization
 
 	void Start () {
@@ -33,5 +34,7 @@ public class FriendListItem : MonoBehaviour {
 		relLabel.text = "Lv " + relVal;
 
 		relBar.barSize = val;
+
+		iconBG.spriteName = string.Format ("Friendslist_UI_Thumbnail_0{0}", Random.Range (1, 5));
 	}
 }

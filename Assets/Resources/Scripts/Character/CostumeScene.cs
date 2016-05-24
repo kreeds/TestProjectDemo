@@ -276,6 +276,31 @@ public class CostumeScene : MonoBehaviour {
 
 	}
 
+	void OnSwordClick()
+	{
+		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/ArmoryPopup") as GameObject);
+
+		obj.transform.localPosition = new Vector3 (583.1f, 0, -23f);
+		ArmoryPopup popup = obj.GetComponent<ArmoryPopup> ();
+		popup.Initialize (2, gameObject);
+	}
+
+	void OnSRankBroachClick()
+	{
+		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/ArmoryPopup") as GameObject);
+		obj.transform.localPosition = new Vector3 (583.1f, 0, -23f);
+		ArmoryPopup popup = obj.GetComponent<ArmoryPopup> ();
+		popup.Initialize (1, gameObject);
+	}
+
+	void OnCRankBroachClick()
+	{
+		GameObject obj = NGUITools.AddChild (gameObject, Resources.Load ("Prefabs/ArmoryPopup") as GameObject);
+		obj.transform.localPosition = new Vector3 (583.1f, 0, -23f);
+		ArmoryPopup popup = obj.GetComponent<ArmoryPopup> ();
+		popup.Initialize (0, gameObject);
+	}
+
 	void OnHomeClick()
 	{
 		_l2dModel.SaveProfile ();

@@ -58,7 +58,7 @@ public class ActionEvent : MonoBehaviour {
 		_expandTween.Play (false);
 
 		Vector3 scale = _expandedBG.transform.localScale;
-		scale.x = (textScale.x * _actionLabel.transform.localScale.x) + 150f;
+		scale.x = (textScale.x * _actionLabel.transform.localScale.x) + 170f;
 
 		expandedCenter = transform.localPosition;
 //		expandedCenter.x += scale.x / 4;

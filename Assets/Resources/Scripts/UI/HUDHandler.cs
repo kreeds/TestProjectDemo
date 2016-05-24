@@ -360,5 +360,6 @@ public class HUDHandler : MonoBehaviour {
 	{
 		GameObject obj = GameObject.Instantiate (Resources.Load ("Prefabs/Ranking/RankingDisplay")) as GameObject;
 		AttachMid (ref obj);
+		obj.transform.localPosition = new Vector3(0,0, -7f);
 	}
 }
