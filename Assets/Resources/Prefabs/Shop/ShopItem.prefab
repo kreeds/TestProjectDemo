@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 427652}
   - 114: {fileID: 11427648}
-  m_Layer: 14
+  m_Layer: 5
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 427656}
   - 114: {fileID: 11427650}
-  m_Layer: 14
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 427658}
   - 114: {fileID: 11427652}
-  m_Layer: 14
+  m_Layer: 5
   m_Name: Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 427662}
   - 114: {fileID: 11427654}
-  m_Layer: 14
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 427664}
   - 114: {fileID: 11427664}
-  m_Layer: 14
+  m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 427666}
   - 114: {fileID: 11427666}
-  m_Layer: 14
+  m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: c7d039d1a157b4396be6ced043e70a3d, type: 3}
   trigger: 0
   volume: 1
   pitch: 1

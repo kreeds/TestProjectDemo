@@ -17,6 +17,10 @@ public class ShopHandler : MonoBehaviour {
 	ShopType 	m_type;
 	int			m_index = 1;
 	[SerializeField]UIImageButton[] m_tabs;
+	[SerializeField]UILabel m_energyLabel;
+	[SerializeField]UILabel m_gemLabel;
+	[SerializeField]UILabel m_goldLabel;
+	[SerializeField]UILabel m_refillLabel;
 	[SerializeField]UIGrid	m_grid;
 
 	List<GameObject> m_itemContainer;
@@ -159,6 +163,17 @@ public class ShopHandler : MonoBehaviour {
 		isDirty = true;
 	}
 
+	void Update()
+	{
+		string[] labels = Service.Get<HUDService> ().HUDControl.GetLabelsDisplay ();
+		if (labels != null && labels.Length > 0) 
+		{
+			m_energyLabel.text = labels [0];
+			m_goldLabel.text = labels [1];
+			m_gemLabel.text = labels [2];
+			m_refillLabel.text = labels [3];
+		}
+	}
 	void LateUpdate()
 	{
 		if(isDirty)

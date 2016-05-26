@@ -316,6 +316,17 @@ public class HUDHandler : MonoBehaviour {
 			cameraScrollBar.gameObject.SetActive (show);
 	}
 
+	public string[] GetLabelsDisplay()
+	{
+		string[] result = new string[4];
+		result [0] = m_energyLabel.text;
+		result [1] = m_goldLabel.text;
+		result [2] = m_gemLabel.text;
+		result [3] = m_refillLabel.text;
+
+		return result;
+	}
+
 	IEnumerator FillSprite(float targetAmt)
 	{
 		float diff = targetAmt - m_heartSprite.fillAmount;
@@ -356,6 +367,15 @@ public class HUDHandler : MonoBehaviour {
 		Service.Get<PopUpService>().ShowShop(ShopType.Gems);
 	}
 
+	void OnEnergyClick()
+	{
+		Service.Get<PopUpService> ().ShowShop (ShopType.Energy);
+	}
+
+	void OnCoinClick()
+	{
+		Service.Get<PopUpService> ().ShowShop (ShopType.Coins);
+	}
 	void OnRanking()
 	{
 		GameObject obj = GameObject.Instantiate (Resources.Load ("Prefabs/Ranking/RankingDisplay")) as GameObject;
