@@ -237,7 +237,7 @@ public class CostumeScene : MonoBehaviour {
 		}
 		int i = 1;
 		foreach (UISprite sprite in _tabBtnSprite) {
-			sprite.spriteName = "UI_cos_tab_0" + i++ + "a";
+			sprite.spriteName = "UI_cos_tab_0" + i++ + "_unselected";
 		}
 		_tabBtnSprite [0].spriteName = "UI_cos_tab_01";
 		_tabBtnBackground [0].depth = 6;
@@ -257,7 +257,7 @@ public class CostumeScene : MonoBehaviour {
 		}
 		int i = 1;
 		foreach (UISprite sprite in _tabBtnSprite) {
-			sprite.spriteName = "UI_cos_tab_0" + i++ + "a";
+			sprite.spriteName = "UI_cos_tab_0" + i++ + "_unselected";
 		}
 		_tabBtnSprite [2].spriteName = "UI_cos_tab_03";
 		_tabBtnBackground [2].depth = 6;

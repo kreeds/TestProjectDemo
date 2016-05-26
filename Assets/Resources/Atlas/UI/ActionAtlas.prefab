@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: SSSSS_Battle_UI_HealthBar
     outer:
       serializedVersion: 2
-      x: 417
-      y: 147
+      x: 1056
+      y: 32
       width: 158
       height: 64
     inner:
       serializedVersion: 2
-      x: 475
-      y: 157
+      x: 1114
+      y: 42
       width: 42
       height: 45
     rotated: 0
@@ -63,13 +63,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 306
-      y: 839
+      y: 1129
       width: 110
       height: 111
     inner:
       serializedVersion: 2
       x: 306
-      y: 839
+      y: 1129
       width: 110
       height: 111
     rotated: 0
@@ -80,14 +80,14 @@ MonoBehaviour:
   - name: SSSSS_Battle_MoonGauge
     outer:
       serializedVersion: 2
-      x: 1698
-      y: 1764
+      x: 417
+      y: 532
       width: 283
       height: 284
     inner:
       serializedVersion: 2
-      x: 1698
-      y: 1764
+      x: 417
+      y: 532
       width: 283
       height: 284
     rotated: 0
@@ -98,14 +98,14 @@ MonoBehaviour:
   - name: SSSSS_Battle_UI_Health
     outer:
       serializedVersion: 2
-      x: 2015
-      y: 1533
+      x: 2021
+      y: 1986
       width: 21
       height: 62
     inner:
       serializedVersion: 2
-      x: 2015
-      y: 1533
+      x: 2021
+      y: 1986
       width: 21
       height: 62
     rotated: 0
@@ -116,14 +116,14 @@ MonoBehaviour:
   - name: SSSSS_Quest_UI_button_notext
     outer:
       serializedVersion: 2
-      x: 1419
-      y: 1338
+      x: 1413
+      y: 1298
       width: 547
       height: 115
     inner:
       serializedVersion: 2
-      x: 1533
-      y: 1338
+      x: 1527
+      y: 1298
       width: 312
       height: 115
     rotated: 0
@@ -134,14 +134,14 @@ MonoBehaviour:
   - name: Win
     outer:
       serializedVersion: 2
-      x: 1044
-      y: 1776
+      x: 1476
+      y: 1597
       width: 494
       height: 146
     inner:
       serializedVersion: 2
-      x: 1044
-      y: 1776
+      x: 1476
+      y: 1597
       width: 494
       height: 146
     rotated: 0
@@ -152,14 +152,14 @@ MonoBehaviour:
   - name: icon03
     outer:
       serializedVersion: 2
-      x: 1941
-      y: 1522
+      x: 306
+      y: 892
       width: 73
       height: 73
     inner:
       serializedVersion: 2
-      x: 1941
-      y: 1522
+      x: 306
+      y: 892
       width: 73
       height: 73
     rotated: 0
@@ -170,14 +170,14 @@ MonoBehaviour:
   - name: icon08
     outer:
       serializedVersion: 2
-      x: 876
-      y: 30
+      x: 1279
+      y: 541
       width: 180
       height: 248
     inner:
       serializedVersion: 2
-      x: 876
-      y: 30
+      x: 1279
+      y: 541
       width: 180
       height: 248
     rotated: 0
@@ -188,14 +188,14 @@ MonoBehaviour:
   - name: icon06
     outer:
       serializedVersion: 2
-      x: 876
-      y: 524
+      x: 727
+      y: 678
       width: 229
       height: 253
     inner:
       serializedVersion: 2
-      x: 876
-      y: 524
+      x: 727
+      y: 678
       width: 229
       height: 253
     rotated: 0
@@ -206,14 +206,14 @@ MonoBehaviour:
   - name: icon07
     outer:
       serializedVersion: 2
-      x: 876
-      y: 279
+      x: 1056
+      y: 97
       width: 188
       height: 244
     inner:
       serializedVersion: 2
-      x: 876
-      y: 279
+      x: 1056
+      y: 97
       width: 188
       height: 244
     rotated: 0
@@ -224,14 +224,14 @@ MonoBehaviour:
   - name: icon02
     outer:
       serializedVersion: 2
-      x: 1941
-      y: 1596
+      x: 306
+      y: 966
       width: 75
       height: 75
     inner:
       serializedVersion: 2
-      x: 1941
-      y: 1596
+      x: 306
+      y: 966
       width: 75
       height: 75
     rotated: 0
@@ -242,14 +242,14 @@ MonoBehaviour:
   - name: icon00
     outer:
       serializedVersion: 2
-      x: 1982
-      y: 1969
+      x: 1971
+      y: 1664
       width: 54
       height: 79
     inner:
       serializedVersion: 2
-      x: 1982
-      y: 1969
+      x: 1971
+      y: 1664
       width: 54
       height: 79
     rotated: 0
@@ -260,14 +260,14 @@ MonoBehaviour:
   - name: UI_icon_shadow
     outer:
       serializedVersion: 2
-      x: 417
-      y: 89
+      x: 1279
+      y: 26
       width: 147
       height: 57
     inner:
       serializedVersion: 2
-      x: 417
-      y: 89
+      x: 1279
+      y: 26
       width: 147
       height: 57
     rotated: 0
@@ -278,14 +278,14 @@ MonoBehaviour:
   - name: button02
     outer:
       serializedVersion: 2
-      x: 0
-      y: 36
+      x: 1725
+      y: 868
       width: 228
       height: 138
     inner:
       serializedVersion: 2
-      x: 85
-      y: 36
+      x: 1810
+      y: 868
       width: 95
       height: 138
     rotated: 0
@@ -296,14 +296,14 @@ MonoBehaviour:
   - name: UI_top01
     outer:
       serializedVersion: 2
-      x: 1941
-      y: 1672
+      x: 306
+      y: 1042
       width: 86
       height: 86
     inner:
       serializedVersion: 2
-      x: 1941
-      y: 1672
+      x: 306
+      y: 1042
       width: 86
       height: 86
     rotated: 0
@@ -314,14 +314,14 @@ MonoBehaviour:
   - name: baloon02
     outer:
       serializedVersion: 2
-      x: 1982
-      y: 1766
+      x: 1961
+      y: 1339
       width: 51
       height: 74
     inner:
       serializedVersion: 2
-      x: 1982
-      y: 1766
+      x: 1961
+      y: 1339
       width: 51
       height: 74
     rotated: 0
@@ -332,14 +332,14 @@ MonoBehaviour:
   - name: button03
     outer:
       serializedVersion: 2
-      x: 1941
-      y: 1462
+      x: 682
+      y: 472
       width: 44
       height: 59
     inner:
       serializedVersion: 2
-      x: 1941
-      y: 1462
+      x: 682
+      y: 472
       width: 44
       height: 59
     rotated: 0
@@ -350,14 +350,14 @@ MonoBehaviour:
   - name: UI_top00
     outer:
       serializedVersion: 2
-      x: 1353
-      y: 724
+      x: 1599
+      y: 1026
       width: 336
       height: 90
     inner:
       serializedVersion: 2
-      x: 1369
-      y: 737
+      x: 1615
+      y: 1039
       width: 307
       height: 63
     rotated: 0
@@ -368,14 +368,14 @@ MonoBehaviour:
   - name: baloon01
     outer:
       serializedVersion: 2
-      x: 1539
-      y: 1782
+      x: 1279
+      y: 217
       width: 138
       height: 140
     inner:
       serializedVersion: 2
-      x: 1601
-      y: 1835
+      x: 1341
+      y: 270
       width: 14
       height: 29
     rotated: 0
@@ -386,14 +386,14 @@ MonoBehaviour:
   - name: Battle03
     outer:
       serializedVersion: 2
-      x: 328
-      y: 776
+      x: 2021
+      y: 1860
       width: 21
       height: 62
     inner:
       serializedVersion: 2
-      x: 328
-      y: 776
+      x: 2021
+      y: 1860
       width: 21
       height: 62
     rotated: 0
@@ -404,14 +404,14 @@ MonoBehaviour:
   - name: battle02
     outer:
       serializedVersion: 2
-      x: 417
-      y: 212
+      x: 0
+      y: 40
       width: 148
       height: 83
     inner:
       serializedVersion: 2
-      x: 456
-      y: 212
+      x: 39
+      y: 40
       width: 69
       height: 83
     rotated: 0
@@ -422,14 +422,14 @@ MonoBehaviour:
   - name: Battle04
     outer:
       serializedVersion: 2
-      x: 306
-      y: 776
+      x: 2021
+      y: 1923
       width: 21
       height: 62
     inner:
       serializedVersion: 2
-      x: 306
-      y: 776
+      x: 2021
+      y: 1923
       width: 21
       height: 62
     rotated: 0
@@ -440,14 +440,14 @@ MonoBehaviour:
   - name: icon10
     outer:
       serializedVersion: 2
-      x: 1847
-      y: 831
+      x: 1550
+      y: 806
       width: 174
       height: 200
     inner:
       serializedVersion: 2
-      x: 1847
-      y: 831
+      x: 1550
+      y: 806
       width: 174
       height: 200
     rotated: 0
@@ -458,14 +458,14 @@ MonoBehaviour:
   - name: battle06
     outer:
       serializedVersion: 2
-      x: 990
-      y: 1455
+      x: 727
+      y: 1243
       width: 342
       height: 303
     inner:
       serializedVersion: 2
-      x: 990
-      y: 1455
+      x: 727
+      y: 1243
       width: 342
       height: 303
     rotated: 0
@@ -477,13 +477,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 951
+      y: 1241
       width: 416
       height: 502
     inner:
       serializedVersion: 2
       x: 0
-      y: 951
+      y: 1241
       width: 416
       height: 502
     rotated: 0
@@ -494,14 +494,14 @@ MonoBehaviour:
   - name: Battle_Enemy_Portrait
     outer:
       serializedVersion: 2
-      x: 0
-      y: 175
+      x: 417
+      y: 1177
       width: 309
       height: 369
     inner:
       serializedVersion: 2
-      x: 0
-      y: 175
+      x: 417
+      y: 1177
       width: 309
       height: 369
     rotated: 0
@@ -512,14 +512,14 @@ MonoBehaviour:
   - name: Battle_Health
     outer:
       serializedVersion: 2
-      x: 1986
-      y: 1479
+      x: 306
+      y: 849
       width: 60
       height: 42
     inner:
       serializedVersion: 2
-      x: 2002
-      y: 1479
+      x: 322
+      y: 849
       width: 29
       height: 42
     rotated: 0
@@ -530,32 +530,32 @@ MonoBehaviour:
   - name: Battle_Player_Health_BASE
     outer:
       serializedVersion: 2
-      x: 0
-      y: 1759
-      width: 1043
-      height: 289
+      x: 990
+      y: 1768
+      width: 1030
+      height: 280
     inner:
       serializedVersion: 2
-      x: 0
-      y: 1759
-      width: 1043
-      height: 289
+      x: 990
+      y: 1768
+      width: 1030
+      height: 280
     rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
+    paddingLeft: .00679611648
+    paddingRight: .00582524249
+    paddingTop: .021428572
+    paddingBottom: .010714286
   - name: Battle_Button_Pause
     outer:
       serializedVersion: 2
-      x: 417
-      y: 429
+      x: 1460
+      y: 527
       width: 130
       height: 130
     inner:
       serializedVersion: 2
-      x: 417
-      y: 429
+      x: 1460
+      y: 527
       width: 130
       height: 130
     rotated: 0
@@ -566,14 +566,14 @@ MonoBehaviour:
   - name: Braveburst_Arrow
     outer:
       serializedVersion: 2
-      x: 417
-      y: 743
+      x: 0
+      y: 124
       width: 172
       height: 710
     inner:
       serializedVersion: 2
-      x: 417
-      y: 743
+      x: 0
+      y: 124
       width: 172
       height: 710
     rotated: 0
@@ -585,13 +585,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 1454
+      y: 1744
       width: 989
       height: 304
     inner:
       serializedVersion: 2
       x: 0
-      y: 1454
+      y: 1744
       width: 989
       height: 304
     rotated: 0
@@ -602,14 +602,14 @@ MonoBehaviour:
   - name: UI_frame_icon
     outer:
       serializedVersion: 2
-      x: 1676
-      y: 1495
+      x: 417
+      y: 268
       width: 264
       height: 263
     inner:
       serializedVersion: 2
-      x: 1808
-      y: 1636
+      x: 549
+      y: 409
       width: 18
       height: 4
     rotated: 0
@@ -620,14 +620,14 @@ MonoBehaviour:
   - name: Quest_Bar_XP
     outer:
       serializedVersion: 2
-      x: 1982
-      y: 1841
+      x: 1956
+      y: 1483
       width: 63
       height: 63
     inner:
       serializedVersion: 2
-      x: 1982
-      y: 1841
+      x: 1956
+      y: 1483
       width: 63
       height: 63
     rotated: 0
@@ -638,14 +638,14 @@ MonoBehaviour:
   - name: Quest_Bar_BG
     outer:
       serializedVersion: 2
-      x: 1044
-      y: 1923
+      x: 727
+      y: 1117
       width: 653
       height: 125
     inner:
       serializedVersion: 2
-      x: 1158
-      y: 1923
+      x: 841
+      y: 1117
       width: 539
       height: 125
     rotated: 0
@@ -656,14 +656,14 @@ MonoBehaviour:
   - name: Quest_Bar_XP_Empty
     outer:
       serializedVersion: 2
-      x: 1982
-      y: 1905
+      x: 1971
+      y: 1600
       width: 63
       height: 63
     inner:
       serializedVersion: 2
-      x: 1982
-      y: 1905
+      x: 1971
+      y: 1600
       width: 63
       height: 63
     rotated: 0
@@ -674,14 +674,14 @@ MonoBehaviour:
   - name: Rank_Bar
     outer:
       serializedVersion: 2
-      x: 1087
-      y: 1075
+      x: 1725
+      y: 807
       width: 178
       height: 60
     inner:
       serializedVersion: 2
-      x: 1094
-      y: 1075
+      x: 1732
+      y: 807
       width: 164
       height: 60
     rotated: 0
@@ -692,14 +692,14 @@ MonoBehaviour:
   - name: Rank_Bar_Rank
     outer:
       serializedVersion: 2
-      x: 417
-      y: 24
+      x: 1924
+      y: 1178
       width: 118
       height: 64
     inner:
       serializedVersion: 2
-      x: 445
-      y: 24
+      x: 1952
+      y: 1178
       width: 54
       height: 64
     rotated: 0
@@ -710,14 +710,14 @@ MonoBehaviour:
   - name: Rank_Bar_Fill
     outer:
       serializedVersion: 2
-      x: 2017
-      y: 1624
+      x: 382
+      y: 994
       width: 30
       height: 47
     inner:
       serializedVersion: 2
-      x: 2025
-      y: 1624
+      x: 390
+      y: 994
       width: 17
       height: 47
     rotated: 0
@@ -729,13 +729,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 545
+      y: 835
       width: 305
       height: 405
     inner:
       serializedVersion: 2
       x: 0
-      y: 545
+      y: 835
       width: 305
       height: 405
     rotated: 0
@@ -746,14 +746,14 @@ MonoBehaviour:
   - name: Battle_Hourglass
     outer:
       serializedVersion: 2
-      x: 417
-      y: 296
+      x: 1460
+      y: 394
       width: 111
       height: 132
     inner:
       serializedVersion: 2
-      x: 417
-      y: 296
+      x: 1460
+      y: 394
       width: 111
       height: 132
     rotated: 0
@@ -764,14 +764,14 @@ MonoBehaviour:
   - name: Quest_UI_Button
     outer:
       serializedVersion: 2
-      x: 229
-      y: 42
+      x: 1279
+      y: 84
       width: 133
       height: 132
     inner:
       serializedVersion: 2
-      x: 295
-      y: 42
+      x: 1345
+      y: 84
       width: 1
       height: 132
     rotated: 0
@@ -782,14 +782,14 @@ MonoBehaviour:
   - name: Battle_Bar_Frame
     outer:
       serializedVersion: 2
-      x: 876
-      y: 1321
+      x: 1413
+      y: 1414
       width: 542
       height: 132
     inner:
       serializedVersion: 2
-      x: 944
-      y: 1321
+      x: 1481
+      y: 1414
       width: 417
       height: 132
     rotated: 0
@@ -800,14 +800,14 @@ MonoBehaviour:
   - name: Battle_Bar_BG
     outer:
       serializedVersion: 2
-      x: 1416
-      y: 1101
+      x: 1056
+      y: 1007
       width: 542
       height: 109
     inner:
       serializedVersion: 2
-      x: 1416
-      y: 1101
+      x: 1056
+      y: 1007
       width: 542
       height: 109
     rotated: 0
@@ -818,14 +818,14 @@ MonoBehaviour:
   - name: Battle_Bar_BG_Fill
     outer:
       serializedVersion: 2
-      x: 1416
-      y: 1211
+      x: 1381
+      y: 1133
       width: 542
       height: 109
     inner:
       serializedVersion: 2
-      x: 1507
-      y: 1211
+      x: 1472
+      y: 1133
       width: 390
       height: 109
     rotated: 0
@@ -836,14 +836,14 @@ MonoBehaviour:
   - name: UI_4_News
     outer:
       serializedVersion: 2
-      x: 590
-      y: 13
+      x: 727
+      y: 461
       width: 246
       height: 216
     inner:
       serializedVersion: 2
-      x: 590
-      y: 13
+      x: 727
+      y: 461
       width: 246
       height: 216
     rotated: 0
@@ -854,14 +854,14 @@ MonoBehaviour:
   - name: UI_3_Costume
     outer:
       serializedVersion: 2
-      x: 1106
-      y: 815
+      x: 727
+      y: 244
       width: 246
       height: 216
     inner:
       serializedVersion: 2
-      x: 1106
-      y: 815
+      x: 727
+      y: 244
       width: 246
       height: 216
     rotated: 0
@@ -872,14 +872,14 @@ MonoBehaviour:
   - name: UI_2_Friends
     outer:
       serializedVersion: 2
-      x: 1353
-      y: 815
+      x: 727
+      y: 27
       width: 246
       height: 216
     inner:
       serializedVersion: 2
-      x: 1353
-      y: 815
+      x: 727
+      y: 27
       width: 246
       height: 216
     rotated: 0
@@ -890,14 +890,14 @@ MonoBehaviour:
   - name: UI_1_Academia
     outer:
       serializedVersion: 2
-      x: 1600
-      y: 815
+      x: 1056
+      y: 790
       width: 246
       height: 216
     inner:
       serializedVersion: 2
-      x: 1600
-      y: 815
+      x: 1056
+      y: 790
       width: 246
       height: 216
     rotated: 0
@@ -908,14 +908,14 @@ MonoBehaviour:
   - name: UI_5_Quests
     outer:
       serializedVersion: 2
-      x: 1106
-      y: 598
+      x: 1303
+      y: 790
       width: 246
       height: 216
     inner:
       serializedVersion: 2
-      x: 1106
-      y: 598
+      x: 1303
+      y: 790
       width: 246
       height: 216
     rotated: 0
@@ -926,14 +926,14 @@ MonoBehaviour:
   - name: Warning_Exclamation
     outer:
       serializedVersion: 2
-      x: 590
-      y: 230
+      x: 173
+      y: 559
       width: 223
       height: 275
     inner:
       serializedVersion: 2
-      x: 590
-      y: 230
+      x: 173
+      y: 559
       width: 223
       height: 275
     rotated: 0
@@ -944,14 +944,14 @@ MonoBehaviour:
   - name: Mascot
     outer:
       serializedVersion: 2
-      x: 590
-      y: 506
+      x: 417
+      y: 6
       width: 261
       height: 261
     inner:
       serializedVersion: 2
-      x: 590
-      y: 506
+      x: 417
+      y: 6
       width: 261
       height: 261
     rotated: 0
@@ -962,14 +962,14 @@ MonoBehaviour:
   - name: UI_Button_ScrollBar_BG
     outer:
       serializedVersion: 2
-      x: 1676
-      y: 1467
+      x: 367
+      y: 864
       width: 47
       height: 27
     inner:
       serializedVersion: 2
-      x: 1689
-      y: 1467
+      x: 380
+      y: 864
       width: 17
       height: 27
     rotated: 0
@@ -980,14 +980,14 @@ MonoBehaviour:
   - name: UI_Button_No
     outer:
       serializedVersion: 2
-      x: 1106
-      y: 466
+      x: 1460
+      y: 658
       width: 232
       height: 131
     inner:
       serializedVersion: 2
-      x: 1106
-      y: 466
+      x: 1460
+      y: 658
       width: 232
       height: 131
     rotated: 0
@@ -998,14 +998,14 @@ MonoBehaviour:
   - name: Ui_cos_Back
     outer:
       serializedVersion: 2
-      x: 417
-      y: 560
+      x: 1279
+      y: 358
       width: 143
       height: 182
     inner:
       serializedVersion: 2
-      x: 417
-      y: 560
+      x: 1279
+      y: 358
       width: 143
       height: 182
     rotated: 0
@@ -1016,14 +1016,14 @@ MonoBehaviour:
   - name: UI_Button_ScrollBar_Fill
     outer:
       serializedVersion: 2
-      x: 1539
-      y: 1760
+      x: 990
+      y: 1746
       width: 41
       height: 21
     inner:
       serializedVersion: 2
-      x: 1551
-      y: 1760
+      x: 1002
+      y: 1746
       width: 15
       height: 21
     rotated: 0
@@ -1034,14 +1034,14 @@ MonoBehaviour:
   - name: UI_Button_Start
     outer:
       serializedVersion: 2
-      x: 1106
-      y: 334
+      x: 1693
+      y: 658
       width: 232
       height: 131
     inner:
       serializedVersion: 2
-      x: 1106
-      y: 334
+      x: 1693
+      y: 658
       width: 232
       height: 131
     rotated: 0
@@ -1052,14 +1052,14 @@ MonoBehaviour:
   - name: UI_Button_OK
     outer:
       serializedVersion: 2
-      x: 1087
-      y: 1136
+      x: 727
+      y: 932
       width: 328
       height: 184
     inner:
       serializedVersion: 2
-      x: 1087
-      y: 1136
+      x: 727
+      y: 932
       width: 328
       height: 184
     rotated: 0
@@ -1070,14 +1070,14 @@ MonoBehaviour:
   - name: battle08
     outer:
       serializedVersion: 2
-      x: 1333
-      y: 1455
+      x: 1070
+      y: 1243
       width: 342
       height: 303
     inner:
       serializedVersion: 2
-      x: 1333
-      y: 1455
+      x: 1070
+      y: 1243
       width: 342
       height: 303
     rotated: 0
@@ -1088,50 +1088,50 @@ MonoBehaviour:
   - name: Battle_Enemy_Portrait_Rat
     outer:
       serializedVersion: 2
-      x: 590
-      y: 768
-      width: 285
-      height: 342
+      x: 1056
+      y: 566
+      width: 222
+      height: 223
     inner:
       serializedVersion: 2
-      x: 590
-      y: 768
-      width: 285
-      height: 342
+      x: 1056
+      y: 566
+      width: 222
+      height: 223
     rotated: 0
-    paddingLeft: .028070176
-    paddingRight: .164912283
-    paddingTop: .00877192989
-    paddingBottom: .178362578
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Battle_Enemy_Portrait_Mirror
     outer:
       serializedVersion: 2
-      x: 590
-      y: 1111
-      width: 285
-      height: 342
+      x: 1056
+      y: 342
+      width: 222
+      height: 223
     inner:
       serializedVersion: 2
-      x: 590
-      y: 1111
-      width: 285
-      height: 342
+      x: 1056
+      y: 342
+      width: 222
+      height: 223
     rotated: 0
-    paddingLeft: .028070176
-    paddingRight: .164912283
-    paddingTop: .00877192989
-    paddingBottom: .178362578
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: icon06_endstate
     outer:
       serializedVersion: 2
-      x: 876
-      y: 778
+      x: 173
+      y: 16
       width: 229
       height: 253
     inner:
       serializedVersion: 2
-      x: 876
-      y: 778
+      x: 173
+      y: 16
       width: 229
       height: 253
     rotated: 0
@@ -1142,14 +1142,14 @@ MonoBehaviour:
   - name: icon06_alt
     outer:
       serializedVersion: 2
-      x: 876
-      y: 1032
+      x: 173
+      y: 270
       width: 210
       height: 288
     inner:
       serializedVersion: 2
-      x: 876
-      y: 1032
+      x: 173
+      y: 270
       width: 210
       height: 288
     rotated: 0
@@ -1157,6 +1157,42 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Battle_Enemy_Portrait_Base
+    outer:
+      serializedVersion: 2
+      x: 417
+      y: 817
+      width: 298
+      height: 359
+    inner:
+      serializedVersion: 2
+      x: 417
+      y: 817
+      width: 298
+      height: 359
+    rotated: 0
+    paddingLeft: .0268456377
+    paddingRight: .0100671137
+    paddingTop: .0139275771
+    paddingBottom: .0139275771
+  - name: Battle_Enemy_Health_BASE
+    outer:
+      serializedVersion: 2
+      x: 417
+      y: 1547
+      width: 1058
+      height: 196
+    inner:
+      serializedVersion: 2
+      x: 417
+      y: 1547
+      width: 1058
+      height: 196
+    rotated: 0
+    paddingLeft: .00189035921
+    paddingRight: .0170132332
+    paddingTop: .198979586
+    paddingBottom: .234693885
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
