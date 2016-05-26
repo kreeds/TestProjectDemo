@@ -58,7 +58,7 @@ public class ActionEvent : MonoBehaviour {
 		_expandTween.Play (false);
 
 		Vector3 scale = _expandedBG.transform.localScale;
-		scale.x = (textScale.x * _actionLabel.transform.localScale.x) + 170f;
+		scale.x = (textScale.x * _actionLabel.transform.localScale.x) + 180f;
 
 		expandedCenter = transform.localPosition;
 //		expandedCenter.x += scale.x / 4;
@@ -76,7 +76,7 @@ public class ActionEvent : MonoBehaviour {
 		_costLabel.transform.localPosition = new Vector3 (scale.x / 2 - 40f, 0, -12f);
 		_costLabel.text = required.ToString ();
 
-		_energyIcon.transform.localPosition = new Vector3 (scale.x / 2 - 60f, 0);
+		_energyIcon.transform.localPosition = new Vector3 (scale.x / 2 - 70f, 0);
 
 		_frameBG.transform.localScale = scale;
 

@@ -52,6 +52,9 @@ public class HUDHandler : MonoBehaviour {
 	GameObject m_Shop;
 
 	float m_targetAmt;
+
+	bool m_enableRankingButton;
+
 	public float GetSpecialAmount
 	{
 		get{return m_targetAmt;}
@@ -67,6 +70,8 @@ public class HUDHandler : MonoBehaviour {
 
 		m_expBar.sliderValue = 0.4f;
 		m_sparkle.SetActive(false);
+
+		m_enableRankingButton = false;
 	}
 
 	// Update is called once per frame
@@ -366,7 +371,7 @@ public class HUDHandler : MonoBehaviour {
 	{
 		Service.Get<PopUpService>().ShowShop(ShopType.Gems);
 	}
-
+		
 	void OnEnergyClick()
 	{
 		Service.Get<PopUpService> ().ShowShop (ShopType.Energy);
@@ -376,8 +381,16 @@ public class HUDHandler : MonoBehaviour {
 	{
 		Service.Get<PopUpService> ().ShowShop (ShopType.Coins);
 	}
+	public void EnableRanking(bool enable)
+	{
+		m_enableRankingButton = enable;
+	}
+		
 	void OnRanking()
 	{
+		if (!m_enableRankingButton)
+			return;
+
 		GameObject obj = GameObject.Instantiate (Resources.Load ("Prefabs/Ranking/RankingDisplay")) as GameObject;
 		AttachMid (ref obj);
 		obj.transform.localPosition = new Vector3(0,0, -7f);

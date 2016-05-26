@@ -152,6 +152,8 @@ public class QuestEvent : MonoBehaviour {
 		InitializeScene ();
 
 		isDisplayingBattleStart = false;
+
+		m_hudService.HUDControl.EnableRanking (true);
 	}
 	
 	// Update is called once per frame
@@ -1181,6 +1183,7 @@ public class QuestEvent : MonoBehaviour {
 			dialogBase.SetActive (false);
 			EnableMapScroll (true);
 			actionList.Clear ();
+			m_hudService.HUDControl.EnableRanking (true);
 		}
 
 ////		LoadScene(sceneFiles[currentScene.nextScene]);
@@ -1230,6 +1233,8 @@ public class QuestEvent : MonoBehaviour {
 		if (quest == null)
 			return;
 
+		m_hudService.HUDControl.EnableRanking (false);
+
 		currentQuest = quest;
 		currentQuest.completedAmount = 0;
 //			LoadQuest (ref currentQuest);
@@ -1266,6 +1271,9 @@ public class QuestEvent : MonoBehaviour {
 	}
 
 	void StartDrama(Drama selectedDrama) {
+		
+		m_hudService.HUDControl.EnableRanking (false);
+
 		float dialogLoc = selectedDrama.loc.x - 50f;
 
 		Vector3 pos = scenePanel.transform.localPosition;
