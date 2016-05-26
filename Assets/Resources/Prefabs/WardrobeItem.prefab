@@ -110,6 +110,7 @@ GameObject:
   - 114: {fileID: 11499178}
   - 114: {fileID: 11499168}
   - 114: {fileID: 11470756}
+  - 114: {fileID: 11439816}
   m_Layer: 5
   m_Name: WardrobeItem
   m_TagString: Untagged
@@ -240,11 +241,11 @@ MonoBehaviour:
     e00: 576
     e01: 0
     e02: 0
-    e03: -61.0000153
+    e03: -47.1193542
     e10: 0
     e11: 576
     e12: 0
-    e13: -216.127045
+    e13: -217.699356
     e20: 0
     e21: 0
     e22: 576
@@ -279,6 +280,21 @@ MonoBehaviour:
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
+--- !u!114 &11439816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44bc69c2ca5f943b845318866dc1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 97bf14c92557e49819e4491a7f46aea9, type: 3}
+  trigger: 0
+  volume: 1
+  pitch: 1
 --- !u!114 &11470756
 MonoBehaviour:
   m_ObjectHideFlags: 1
