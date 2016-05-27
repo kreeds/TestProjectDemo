@@ -59,6 +59,12 @@ public class ShopItem : MonoBehaviour {
 
 			break;
 		}
+
+		if (m_image != null) 
+		{
+			m_image.MakePixelPerfect ();
+			m_image.transform.localScale = new Vector3 (m_image.transform.localScale.x / 2, m_image.transform.localScale.y / 2, 1);
+		}
 	}
 
 	void OnClickButton()
