@@ -250,6 +250,9 @@ public class EventBase
 	public int prereq;
 	public bool isBattle;
 	public bool isRepeat;
+
+	public bool isMajorEvent;
+
 	public int enemyType;
 	public string addnews;
 	public string addnewsIcon;
@@ -268,6 +271,8 @@ public class EventBase
 		prereq = -1;
 		charaid = -1;
 		chain = -1;
+
+		isMajorEvent = true;
 
 		isBattle = false;
 

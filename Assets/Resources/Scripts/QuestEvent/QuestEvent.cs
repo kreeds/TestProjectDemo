@@ -209,7 +209,7 @@ public class QuestEvent : MonoBehaviour {
 			AreaNode an =  obj.GetComponent<AreaNode>();
 
 			int id = isBubble? currentEvent.id : ((Exit)currentEvent).nextScene;
-			an.Init(id, false, isBubble, "Bubble", currentEvent.loc, currentEvent.charaid != -1);
+			an.Init(id, false, isBubble, "Bubble", currentEvent.loc, currentEvent.charaid != -1, currentEvent.isMajorEvent);
 			an.receiver = gameObject;
 			an.callback = isBubble? "OnBubbleClicked" : "OnDoorClicked";
 
@@ -461,6 +461,10 @@ public class QuestEvent : MonoBehaviour {
 						int bond = int.Parse (parts[1]);
 						Drama currentDrama = currentEventBase as Drama;
 						currentDrama.showBond = (bond == 1);
+					}
+					if (line.Contains ("major:")){
+						int isMajorEvent = int.Parse (parts[1]);
+						currentEventBase.isMajorEvent = (isMajorEvent == 1);
 					}
 					if (line.Contains("AddNews:")){
 //						Drama currentDrama = currentEventBase as Drama;

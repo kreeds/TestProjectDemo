@@ -14,7 +14,7 @@ public class AreaNode: MonoBehaviour {
 //	UITexture			m_texture;
 	[SerializeField]UISprite 		m_sprite;
 
-	public void Init(int aid, bool alock, bool dialog, string name, Vector3 position, bool isSpoken = true)
+	public void Init(int aid, bool alock, bool dialog, string name, Vector3 position, bool isSpoken = true, bool isMajor = true)
 	{
 		m_areaid = aid;
 		m_lock = alock;
@@ -37,8 +37,13 @@ public class AreaNode: MonoBehaviour {
 				m_sprite.spriteName = "icon07";
 			}
 			else if (dialog){
-				if (isSpoken)
-					m_sprite.spriteName = "icon06";
+				if (isSpoken){
+					if (isMajor)
+						m_sprite.spriteName = "icon06";
+					else
+						m_sprite.spriteName = "icon06_endstate";
+
+				}
 				else{
 					m_sprite.spriteName = "icon06_alt";
 				}

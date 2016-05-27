@@ -270,8 +270,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 107, y: 60, z: 1}
+  m_LocalPosition: {x: .5, y: .5, z: 0}
+  m_LocalScale: {x: 109.89241, y: 59.3916855, z: .355638832}
   m_Children: []
   m_Father: {fileID: 493110}
   m_RootOrder: 0
@@ -371,8 +371,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 107, y: 60, z: .327092618}
+  m_LocalPosition: {x: .5, y: .5, z: 0}
+  m_LocalScale: {x: 112.101097, y: 60.5853844, z: .36278674}
   m_Children: []
   m_Father: {fileID: 493122}
   m_RootOrder: 0
@@ -708,7 +708,7 @@ MonoBehaviour:
   mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
   mSpriteName: UI_Button_Start
   mFillCenter: 1
-  mType: 1
+  mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
