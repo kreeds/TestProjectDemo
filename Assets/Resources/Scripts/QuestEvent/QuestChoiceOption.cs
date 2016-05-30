@@ -13,7 +13,7 @@ public class QuestChoiceOption : MonoBehaviour {
 	public void Initialize(GameObject rootObject, int choiceIndex, int cost, string buttonText){
 		if (cost < 0) {
 			_iconSprite.spriteName = "icon03";
-			_iconSprite.transform.localScale = new Vector3(37f, 37f);
+			_iconSprite.transform.localScale = new Vector3(45f, 45f);
 
 //			_iconSprite.gameObject.AddComponent <TweenRotation>();
 //			TweenRotation rot = _iconSprite.GetComponent<TweenRotation>();
