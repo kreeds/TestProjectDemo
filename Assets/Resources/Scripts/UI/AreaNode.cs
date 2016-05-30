@@ -57,6 +57,7 @@ public class AreaNode: MonoBehaviour {
 				tweenPos.to = new Vector3(0, -20, 0);
 				tweenPos.style = UITweener.Style.PingPong;
 			}
+			m_sprite.MakePixelPerfect ();
 		}							
 		
 	}

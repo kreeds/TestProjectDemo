@@ -152,14 +152,14 @@ MonoBehaviour:
   - name: icon03
     outer:
       serializedVersion: 2
-      x: 1919
-      y: 430
+      x: 915
+      y: 1670
       width: 73
       height: 73
     inner:
       serializedVersion: 2
-      x: 1919
-      y: 430
+      x: 915
+      y: 1670
       width: 73
       height: 73
     rotated: 0
@@ -225,13 +225,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1919
-      y: 504
+      y: 434
       width: 75
       height: 75
     inner:
       serializedVersion: 2
       x: 1919
-      y: 504
+      y: 434
       width: 75
       height: 75
     rotated: 0
@@ -314,14 +314,14 @@ MonoBehaviour:
   - name: baloon02
     outer:
       serializedVersion: 2
-      x: 1993
-      y: 429
+      x: 1995
+      y: 435
       width: 51
       height: 74
     inner:
       serializedVersion: 2
-      x: 1993
-      y: 429
+      x: 1995
+      y: 435
       width: 51
       height: 74
     rotated: 0
@@ -332,14 +332,14 @@ MonoBehaviour:
   - name: button03
     outer:
       serializedVersion: 2
-      x: 1995
-      y: 520
+      x: 144
+      y: 406
       width: 44
       height: 59
     inner:
       serializedVersion: 2
-      x: 1995
-      y: 520
+      x: 144
+      y: 406
       width: 44
       height: 59
     rotated: 0
@@ -386,14 +386,14 @@ MonoBehaviour:
   - name: Battle03
     outer:
       serializedVersion: 2
-      x: 1490
-      y: 288
+      x: 1650
+      y: 505
       width: 21
       height: 62
     inner:
       serializedVersion: 2
-      x: 1490
-      y: 288
+      x: 1650
+      y: 505
       width: 21
       height: 62
     rotated: 0
@@ -422,14 +422,14 @@ MonoBehaviour:
   - name: Battle04
     outer:
       serializedVersion: 2
-      x: 1650
-      y: 505
+      x: 1490
+      y: 288
       width: 21
       height: 62
     inner:
       serializedVersion: 2
-      x: 1650
-      y: 505
+      x: 1490
+      y: 288
       width: 21
       height: 62
     rotated: 0
@@ -620,14 +620,14 @@ MonoBehaviour:
   - name: Quest_Bar_XP
     outer:
       serializedVersion: 2
-      x: 243
-      y: 402
+      x: 991
+      y: 1004
       width: 63
       height: 63
     inner:
       serializedVersion: 2
-      x: 243
-      y: 402
+      x: 991
+      y: 1004
       width: 63
       height: 63
     rotated: 0
@@ -656,14 +656,14 @@ MonoBehaviour:
   - name: Quest_Bar_XP_Empty
     outer:
       serializedVersion: 2
-      x: 991
-      y: 1004
+      x: 243
+      y: 402
       width: 63
       height: 63
     inner:
       serializedVersion: 2
-      x: 991
-      y: 1004
+      x: 243
+      y: 402
       width: 63
       height: 63
     rotated: 0
@@ -693,13 +693,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1919
-      y: 580
+      y: 510
       width: 118
       height: 64
     inner:
       serializedVersion: 2
       x: 1947
-      y: 580
+      y: 510
       width: 54
       height: 64
     rotated: 0
@@ -710,14 +710,14 @@ MonoBehaviour:
   - name: Rank_Bar_Fill
     outer:
       serializedVersion: 2
-      x: 243
-      y: 354
+      x: 189
+      y: 418
       width: 30
       height: 47
     inner:
       serializedVersion: 2
-      x: 251
-      y: 354
+      x: 197
+      y: 418
       width: 17
       height: 47
     rotated: 0
@@ -1016,14 +1016,14 @@ MonoBehaviour:
   - name: UI_Button_ScrollBar_Fill
     outer:
       serializedVersion: 2
-      x: 1919
-      y: 408
+      x: 1995
+      y: 413
       width: 41
       height: 21
     inner:
       serializedVersion: 2
-      x: 1931
-      y: 408
+      x: 2007
+      y: 413
       width: 15
       height: 21
     rotated: 0
@@ -1206,6 +1206,24 @@ MonoBehaviour:
       y: 1171
       width: 224
       height: 311
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: button02_w
+    outer:
+      serializedVersion: 2
+      x: 1919
+      y: 575
+      width: 114
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1954
+      y: 594
+      width: 39
+      height: 23
     rotated: 0
     paddingLeft: 0
     paddingRight: 0

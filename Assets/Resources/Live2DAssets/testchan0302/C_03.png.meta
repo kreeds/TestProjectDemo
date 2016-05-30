@@ -21,7 +21,7 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: 4
+  textureFormat: 54
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
@@ -43,7 +43,7 @@ TextureImporter:
   buildTargetSettings:
   - buildTarget: Android
     maxTextureSize: 1024
-    textureFormat: 4
+    textureFormat: 54
     compressionQuality: 50
   spriteSheet:
     sprites: []
