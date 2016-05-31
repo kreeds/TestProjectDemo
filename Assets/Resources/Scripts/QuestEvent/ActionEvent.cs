@@ -57,41 +57,43 @@ public class ActionEvent : MonoBehaviour {
 
 		_expandTween.Play (false);
 
-		Vector3 scale = _expandedBG.transform.localScale;
-		scale.x = (textScale.x * _actionLabel.transform.localScale.x) + 180f;
+		fillWidth = (textScale.x * _actionLabel.transform.localScale.x) + 180f;
+
+		Vector3 fillScale = _expandedBG.transform.localScale;
+		fillScale.x = fillWidth;
 
 		expandedCenter = transform.localPosition;
-//		expandedCenter.x += scale.x / 4;
 
-		_buttonCollider.size = scale;
-//		if (scale.x < 460)
-//			scale.x = 460;
-		_expandedBG.transform.localScale = scale;
+		_buttonCollider.size = fillScale;
 
-		scale.y = _frameBG.transform.localScale.y;
 
-		_actionLabel.transform.localPosition = new Vector3 (-scale.x/2 + 40f, 0, -30f);
-		_fillBG.transform.localPosition = new Vector3 (-scale.x/2, 0);
+		Vector3 frameScale = fillScale;
+		frameScale.y = _frameBG.transform.localScale.y;
+		_frameBG.transform.localScale = frameScale;
 
-		_costLabel.transform.localPosition = new Vector3 (scale.x / 2 - 40f, 0, -12f);
+		_actionLabel.transform.localPosition = new Vector3 (-fillWidth/2 + 40f, 0, -30f);
+
+		_costLabel.transform.localPosition = new Vector3 (fillWidth / 2 - 45f, 0, -12f);
 		_costLabel.text = required.ToString ();
 
-		_energyIcon.transform.localPosition = new Vector3 (scale.x / 2 - 70f, 0);
+		_energyIcon.transform.localPosition = new Vector3 (fillWidth / 2 - 70f, 0);
 
-		_frameBG.transform.localScale = scale;
+		fillWidth *= 0.9f;
+		fillScale.x = fillWidth;
+		_fillBG.transform.localPosition = new Vector3 (-fillWidth/2, 0);
+		
+		_expandedBG.transform.localScale = fillScale;
 
-//		_progressGauge.Init (0, required*10);
-
-//		_progressBar.sliderValue = 0;
 		_requiredAmt = required;
 		_progressAmt = 0;
 
 		_isExpanded = false;
 
-		fillWidth = scale.x;
-
-		_expandFill.from = scale;
+		_expandFill.from = fillScale;
 		_expandFill.from.x = 0;
+
+		_expandFill.to.y = _expandedBG.transform.localScale.y;
+		_expandFill.from.y = _expandedBG.transform.localScale.y;
 
  		_fillBG.transform.localScale = Vector3.zero;
 	}
