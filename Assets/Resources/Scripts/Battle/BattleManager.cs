@@ -171,7 +171,8 @@ public class BattleManager : MonoBehaviour
 		m_FXObj.transform.SetParent(m_itemParent.transform, false);
 		m_FXObj.transform.localPosition = new Vector3(720, m_FXObj.transform.localPosition.y, -20); 
 
-		// Remove HP Bar
+		// Remove HUD
+		m_HUDService.HUDControl.ShowTop(false);
 		m_HUDService.HUDControl.ShowHPBars(false);
 		m_HUDService.ShowQuestTime(false);
 
@@ -193,6 +194,7 @@ public class BattleManager : MonoBehaviour
 		ClearGesture();
 
 		m_playerMgr.RemoveBB();
+		m_HUDService.HUDControl.ShowTop (true);
 		m_HUDService.HUDControl.ShowHPBars(true);
 		m_HUDService.ShowQuestTime(true);
 		m_soundService.StopMusic(m_SPECIAL);
@@ -380,6 +382,7 @@ public class BattleManager : MonoBehaviour
 
 		m_playerMgr.RemoveBB();
 
+		m_HUDService.HUDControl.ShowTop (true);
 		m_HUDService.HUDControl.ShowHPBars(true);
 		m_HUDService.ShowQuestTime(true);
 

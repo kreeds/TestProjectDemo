@@ -127,7 +127,7 @@ public class HUDHandler : MonoBehaviour {
 		// Create Hp Bars
 		HPBars = new UIGauge[2];
 		GameObject obj = NGUITools.AddChild(m_Top, Resources.Load("Prefabs/Battle/EnemyHpBar") as GameObject);
-		obj.transform.localPosition = new Vector3(22.7f, -55.2f, 0);
+		obj.transform.localPosition = new Vector3(28.5f, -55.2f, 0);
 		obj.transform.localScale = new Vector3(0.25f,0.25f,1f);
 		HPBars[(int)GAUGE.ENEMY] = obj.GetComponent<UIGauge>();
 

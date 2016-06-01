@@ -16,6 +16,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &128520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 428520}
+  - 114: {fileID: 11428520}
+  m_Layer: 13
+  m_Name: BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &146988
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +142,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 446988}
   m_RootOrder: 4
+--- !u!4 &428520
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23, y: 25, z: 0}
+  m_LocalScale: {x: 946.925049, y: 49, z: 1}
+  m_Children: []
+  m_Father: {fileID: 446988}
+  m_RootOrder: 6
 --- !u!4 &446988
 Transform:
   m_ObjectHideFlags: 1
@@ -133,7 +161,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48, y: 412, z: 0}
+  m_LocalPosition: {x: 48, y: 936, z: 0}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 446990}
@@ -142,6 +170,7 @@ Transform:
   - {fileID: 446996}
   - {fileID: 412966}
   - {fileID: 468120}
+  - {fileID: 428520}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &446990
@@ -151,8 +180,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1043, y: 289, z: 1}
+  m_LocalPosition: {x: 0, y: .5, z: 0}
+  m_LocalScale: {x: 1058, y: 196, z: 1}
   m_Children: []
   m_Father: {fileID: 446988}
   m_RootOrder: 0
@@ -163,8 +192,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -390, y: 29, z: 0}
-  m_LocalScale: {x: 815.52002, y: 51.524189, z: 1}
+  m_LocalPosition: {x: -409, y: 24, z: 0}
+  m_LocalScale: {x: 856.678345, y: 51.524189, z: 1}
   m_Children: []
   m_Father: {fileID: 446988}
   m_RootOrder: 1
@@ -187,8 +216,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -390, y: 29, z: 0}
-  m_LocalScale: {x: 816, y: 52, z: 1}
+  m_LocalPosition: {x: -409, y: 24, z: 0}
+  m_LocalScale: {x: 857.182556, y: 52, z: 1}
   m_Children: []
   m_Father: {fileID: 446988}
   m_RootOrder: 3
@@ -233,6 +262,27 @@ MonoBehaviour:
   mShrinkToFit: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!114 &11428520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mDepth: 0
+  mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
+  mSpriteName: Battle_Health_BASE_Back
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
 --- !u!114 &11446984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -262,7 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mDepth: 0
+  mDepth: 32
   mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
   mSpriteName: Battle_Enemy_Health_BASE
   mFillCenter: 1
@@ -308,7 +358,7 @@ MonoBehaviour:
   eventReceiver: {fileID: 0}
   functionName: OnSliderChange
   numberOfSteps: 0
-  rawValue: 1
+  rawValue: .713
 --- !u!114 &11446992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -322,7 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mDepth: 32
+  mDepth: 34
   mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
   mSpriteName: Battle_Enemy_Portrait_Rat
   mFillCenter: 1
@@ -382,7 +432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mDepth: 31
+  mDepth: 33
   mAtlas: {fileID: 11436116, guid: 1203128cce8e34ce58a43d5cf4cae769, type: 2}
   mSpriteName: Battle_Enemy_Portrait_Base
   mFillCenter: 1
