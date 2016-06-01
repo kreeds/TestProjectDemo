@@ -900,16 +900,22 @@ public class QuestEvent : MonoBehaviour {
 			Drama currentDrama = currentScene.getCurrentEvent () as Drama;
 
 			if (currentDrama.showBond){
-				if (relationShipPanel == null){
-					GameObject obj = Instantiate(Resources.Load("Prefabs/Event/RelationUpObject")) as GameObject;
-					m_hudService.HUDControl.AttachMid(ref obj);
-	//				GameObject obj = NGUITools.AddChild(scenePanel.gameObject, Resources.Load("Prefabs/Event/RelationUpObject") as GameObject);
-					relationShipPanel = obj.GetComponent<RelationshipUp>();
-					obj.transform.localPosition = new Vector3(0, 0, -12f);
-					obj.transform.localScale = Vector3.one;
-				}
-				relationShipPanel.Initialize(gameObject, currentScene.characterList[0].hairId, currentScene.characterList[0].clothesId,
-				                             6, 6+currentDrama.relationshipBonus, currentScene.characterList[0]._name);
+				GameObject obj = Instantiate(Resources.Load("Prefabs/Event/RelationUpObject")) as GameObject;
+				m_hudService.HUDControl.AttachMid(ref obj);
+				BondUp bondupObject = obj.GetComponent<BondUp>();
+				bondupObject.Initialize (gameObject, currentScene.characterList[0]._name);
+				obj.transform.localPosition = new Vector3(0, 0, -12f);
+				obj.transform.localScale = Vector3.one;
+//				if (relationShipPanel == null){
+//					GameObject obj = Instantiate(Resources.Load("Prefabs/Event/RelationUpObject")) as GameObject;
+//					m_hudService.HUDControl.AttachMid(ref obj);
+//	//				GameObject obj = NGUITools.AddChild(scenePanel.gameObject, Resources.Load("Prefabs/Event/RelationUpObject") as GameObject);
+//					relationShipPanel = obj.GetComponent<RelationshipUp>();
+//					obj.transform.localPosition = new Vector3(0, 0, -12f);
+//					obj.transform.localScale = Vector3.one;
+//				}
+//				relationShipPanel.Initialize(gameObject, currentScene.characterList[0].hairId, currentScene.characterList[0].clothesId,
+//				                             6, 6+currentDrama.relationshipBonus, currentScene.characterList[0]._name);
 				dialogBase.SetActive(false);
 			}else if (currentDrama.addnews != null){
 				ShowNewsNotification ();
