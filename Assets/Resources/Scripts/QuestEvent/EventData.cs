@@ -44,6 +44,8 @@ public class DialogLine : DialogBase
 {
 	public int characterID;
 	public string dialogLine;
+
+	public string anim;
 	
 	public override void DumpContents()
 	{

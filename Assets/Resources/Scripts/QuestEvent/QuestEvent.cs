@@ -740,6 +740,12 @@ public class QuestEvent : MonoBehaviour {
 
 				newDialogLine.characterID = int.Parse(parts[0]);
 				newDialogLine.dialogLine = parts[1].Replace("<playername>", PlayerProfile.Get ().playerName).Replace("\\n", System.Environment.NewLine);
+				newDialogLine.anim = null;
+
+				if (parts.Length > 2){
+					newDialogLine.anim = parts[2];
+				}
+
 				nextEvent = newDialogLine;
 			}
 				break;
@@ -933,6 +939,9 @@ public class QuestEvent : MonoBehaviour {
 				otherNameLabel.text = characterList[dialog.characterID]._name;
 				playerText.text = "";
 
+				if (dialog.anim != null)
+					sceneCharas[0].PlayAnimation (dialog.anim);
+
 				ShowDialogBoxes(false, true);
 
 //				if (playerTextGroup.transform.localScale.x >= 1)
@@ -951,6 +960,9 @@ public class QuestEvent : MonoBehaviour {
 				bool isAcademy = (dialog.characterID < 0);
 				academyArrow.SetActive(isAcademy);
 				normalArrow.SetActive(!isAcademy);
+				
+				if (dialog.anim != null)
+					playerChara.PlayAnimation (dialog.anim);
 
 				if (!isAcademy)
 					playerNameLabel.text = PlayerProfile.Get ().playerName;
