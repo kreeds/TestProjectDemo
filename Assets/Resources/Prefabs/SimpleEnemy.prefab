@@ -361,8 +361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff66c2431fef54674825401be30484f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 80
-  totalHp: 80
+  Hp: 100
+  totalHp: 100
   attack: 50
   attkInterval: 3
   _tweenColor: {fileID: 11484276}

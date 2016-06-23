@@ -54,7 +54,7 @@ public class EnemyManager : MonoBehaviour {
 		
 		if(handle != null)
 		{
-			handle.InitializeGauge((int)GAUGE.ENEMY, currentEnemy.Hp, currentEnemy.totalHp, "HP (" + name + ")");
+			handle.InitializeGauge((int)GAUGE.ENEMY, currentEnemy.Hp, currentEnemy.totalHp,  name);
 		}
 	}
 
@@ -78,7 +78,7 @@ public class EnemyManager : MonoBehaviour {
 	/// Method to damage enemy
 	/// </summary>
 	/// <param name="damage">Damage.</param>
-	public void damageEnemy(int damage)
+	public void damageEnemy(float damage)
 	{
 		currentEnemy.Hp -= damage;
 
@@ -94,7 +94,7 @@ public class EnemyManager : MonoBehaviour {
 		currentEnemy.Hp = -1;
 	}
 
-	public int GetCurrentEnemyAttack()
+	public float GetCurrentEnemyAttack()
 	{
 		return currentEnemy.attack;
 	}

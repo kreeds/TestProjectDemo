@@ -230,7 +230,7 @@ public class InputManager : MonoBehaviour {
 					{
 						// Call Event
 						if(m_playerMgr != null)
-							m_playerMgr.NormalAttack();
+							m_playerMgr.NormalAttack(null);
 
 						// Particle Effect
 						if(particleObj == null)

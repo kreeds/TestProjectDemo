@@ -10,7 +10,7 @@ public class Idle : FSMState
 
 	bool attacked;
 	bool damaged;
-	int prevhp;
+	float prevhp;
 
 	public Idle(Enemy emy)
 	{
@@ -75,7 +75,7 @@ public class Damaged: FSMState
 
 	Enemy enemy;
 	BattleManager bmr;
-	int hp = 0;
+	float hp = 0;
 
 	public Damaged(Enemy emy)
 	{
@@ -143,7 +143,7 @@ public class Attack : FSMState
 	PlayerManager pmgr;
 	BattleManager bmgr;
 
-	int hp = 0;
+	float hp = 0;
 	float intervalCount = 0;
 	const float DelayCount = 0.5f;
 	bool attack = true;
@@ -249,10 +249,10 @@ public class Death : FSMState
 
 public class Enemy : MonoBehaviour {
 
-	public int Hp;
-	public int totalHp;
-	public int attack;
-	public int attkInterval;
+	public float Hp;
+	public float totalHp;
+	public float attack;
+	public float attkInterval;
 
 	protected FiniteStateMachine enemyState;
 

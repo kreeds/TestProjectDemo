@@ -47,7 +47,7 @@ public class UIGauge : MonoBehaviour {
 	#endregion
 
 	#region public
-	public void Init(int curVal, int totalVal, string name = "")
+	public void Init(float curVal, float totalVal, string name = "")
 	{
 		UIInitialized = true;
 		m_currentVal = curVal;
@@ -68,12 +68,12 @@ public class UIGauge : MonoBehaviour {
 		}
 	}
 
-	public void reduce(int damage)
+	public void reduce(float damage)
 	{
 		m_currentVal -= damage;
 	}
 
-	public void gain(int hp)
+	public void gain(float hp)
 	{
 		m_currentVal += hp;
 	}

@@ -6,14 +6,14 @@ public struct Skill
 {
 	public string name;
 	public int id;
-	public int dmg;
+	public float dmg;
 	public int energyCost;
 }
 struct PlayerStats
 {
-	public int hp;
+	public float hp;
 	public int bravebar;
-	public int atk;
+	public float atk;
 	public int energy;
 	public int totalenergy;
 	public int goldcount;
@@ -51,6 +51,7 @@ public class PlayerManager : MonoBehaviour {
 
 
 	const float ranChance = 1.0f;
+	Skill currentSkill;
 	GameObject m_braveBurst;
 	
 
@@ -99,14 +100,17 @@ public class PlayerManager : MonoBehaviour {
 		m_player.bravebar = 0;
 
 		m_skills = new Skill[3];
-		m_skills[0].name = "LadyKnight Punch";
-		m_skills[0].energyCost = 3;
+		m_skills[0].name = "Punch";
+		m_skills[0].energyCost = 1;
+		m_skills[0].dmg = 4.7f;
 		m_skills[0].id = 1;
-		m_skills[1].name = "LadyKnight Kick";
-		m_skills[1].energyCost = 4;
+		m_skills[1].name = "Kick";
+		m_skills[1].energyCost = 2;
+		m_skills[1].dmg = 9.0f;
 		m_skills[1].id = 2;
 		m_skills[2].name = "Strike A Pose";
-		m_skills[2].energyCost = 8;
+		m_skills[2].energyCost = 4;
+		m_skills[2].dmg = 19.0f;
 		m_skills[2].id = 3;
 
 		//Create Skill Buttons
@@ -165,9 +169,10 @@ public class PlayerManager : MonoBehaviour {
 			{
 				if(!specialAtk)
 				{
+						Debug.Log("Skill Damage: " + currentSkill.name + " " + currentSkill.dmg );
 					AttackEffect(16, 112);
 					StartCoroutine(Utility.DelayInSeconds(0.5f,
-									(res1) => {m_enemyMgr.damageEnemy(m_player.atk); 	
+									(res1) => {m_enemyMgr.damageEnemy(currentSkill.dmg); 	
 									attackend = true;
 									playerattack = true; 
 									m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
@@ -351,8 +356,9 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 
-	public void NormalAttack()
+	public void NormalAttack(GameObject obj)
 	{
+		Debug.Log ("Obj Name: " + obj.name);
 		l2dInterface.PlayAttackAnim ();
 		m_soundService.PlaySound(m_soundService.GetSFX("playermoveattack"), false);
 		//Service.Get<HUDService>().ShowMid(false);
@@ -360,13 +366,20 @@ public class PlayerManager : MonoBehaviour {
 		isPlaying = attackend = specialAtk = false;
 		Service.Get<HUDService>().HUDControl.SetSpecialEnable(false);
 
+		if (obj.name == "Punch") {
+			currentSkill = m_skills [0];
+		} else if (obj.name == "Kick") {
+			currentSkill = m_skills [1];
+		} else
+			currentSkill = m_skills [2];
+
 	}
 
 	/// <summary>
 	/// Damage Done to player
 	/// </summary>
 	/// <param name="damage">Damage.</param>
-	public void Damaged(int damage)
+	public void Damaged(float damage)
 	{
 		m_player.hp -= damage;
 

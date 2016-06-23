@@ -166,8 +166,8 @@ public class HUDHandler : MonoBehaviour {
 		if(m_lvlbar != null)
 			m_lvlbar.SetActive(false);
 
-		if(m_pauseBtn != null)
-			m_pauseBtn.SetActive(true);
+//		if(m_pauseBtn != null)
+//			m_pauseBtn.SetActive(true);
 		
 	}
 
@@ -187,11 +187,11 @@ public class HUDHandler : MonoBehaviour {
 		obj.transform.SetParent(m_Mid.transform);
 		obj.transform.localScale = new Vector3 (0.6f, 0.6f, 0.6f);
 		obj.transform.localPosition = new Vector3 (-108.0f, -8.0f - (100 * m_actionButtonList.Count), 0f);
+		obj.name = playerskill.name;
 
 		ActionButton abtn = obj.GetComponent<ActionButton>();
 		abtn.Init(playerskill.name, playerskill.energyCost.ToString());
 		m_actionButtonList.Add(abtn);
-
 
 		UIButtonMessage button = obj.GetComponent<UIButtonMessage>();
 		button.functionName = funcName;
@@ -207,7 +207,7 @@ public class HUDHandler : MonoBehaviour {
 		}
 	}
 
-	public void InitializeGauge(int index, int curVal, int totalVal, string name = "")
+	public void InitializeGauge(int index, float curVal, float totalVal, string name = "")
 	{
 		if(index < HPBars.Length && HPBars[index] != null)
 		{
@@ -215,7 +215,7 @@ public class HUDHandler : MonoBehaviour {
 		}
 	}
 
-	public void reduce(int index, int damage)
+	public void reduce(int index, float damage)
 	{
 		if(index < HPBars.Length && HPBars[index] != null)
 		{
