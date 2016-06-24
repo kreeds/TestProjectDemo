@@ -91,6 +91,10 @@ public class SimpleEnemy : Enemy {
 	{
 		_Anim.clip = _Anim.GetClip("EnemyDeath");
 		_Anim.Play();
+
+		GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/FX/WhiteFader_FX") as GameObject);
+		obj.transform.localScale = new Vector3(2048f, 2048f, 0);
+		obj.GetComponent<WhiteFader>().fadeSpeed = 1f;
 	}
 
 	void OnDamagedAnim()

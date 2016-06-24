@@ -169,14 +169,17 @@ public class PlayerManager : MonoBehaviour {
 			{
 				if(!specialAtk)
 				{
-						Debug.Log("Skill Damage: " + currentSkill.name + " " + currentSkill.dmg );
 					AttackEffect(16, 112);
-					StartCoroutine(Utility.DelayInSeconds(0.5f,
-									(res1) => {m_enemyMgr.damageEnemy(currentSkill.dmg); 	
-									attackend = true;
-									playerattack = true; 
-									m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
-									} ));
+					m_enemyMgr.damageEnemy(currentSkill.dmg); 	
+					attackend = true;
+					playerattack = true; 
+					m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
+//					StartCoroutine(Utility.DelayInSeconds(0.5f,
+//									(res1) => {m_enemyMgr.damageEnemy(currentSkill.dmg); 	
+//									attackend = true;
+//									playerattack = true; 
+//									m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
+//									} ));
 
 
 					if(m_battleMgr != null)
@@ -193,11 +196,7 @@ public class PlayerManager : MonoBehaviour {
 					StartCoroutine(Utility.DelayInSeconds(0.5f,
 									(res1) => 
 									{
-										GameObject obj = NGUITools.AddChild (Service.Get<HUDService>().HUDControl.gameObject, Resources.Load ("Prefabs/FX/WhiteFader_FX") as GameObject);
-										obj.transform.localScale = new Vector3(2048f, 2048f, 0);
-										obj.GetComponent<WhiteFader>().fadeSpeed = 1f;
-
-										m_enemyMgr.killEnemy();
+										m_enemyMgr.damageEnemy(33); 
 										m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
 										m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
 										m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);

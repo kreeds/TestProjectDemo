@@ -71,6 +71,8 @@ public class UIGauge : MonoBehaviour {
 	public void reduce(float damage)
 	{
 		m_currentVal -= damage;
+		if (m_currentVal < 0)
+			m_currentVal = 0;
 	}
 
 	public void gain(float hp)
