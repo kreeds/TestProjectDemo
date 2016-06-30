@@ -3,14 +3,14 @@
 1:Margie
 -1:Academy
 <Dialog>
-1^  ..!! I've never entered such a stylish store before...
+1^  ..!! I've never entered such a stylish store before...^EMOTE_SURPRISED^O
 <Choice>
 C^2
 2^How is this dress?^0^0^0
 -1^This suits you!^3^3^2
 <ChoiceEnd>
 <ChoiceEnd>
-1^… Alright. I will try it on. Let’s see how i look in the mirror...
-1^Oh my!! I look so UGLY! These clothes… i am ruining them! I am a disaster!
-1^...is this how i look like? Do i really look like a monster?!! ^EMOTE_TROUBLE
+1^… Alright. I will try it on. Let’s see how i look in the mirror...^EMOTE_OK^O
+1^Oh my!! I look so UGLY! These clothes… i am ruining them! I am a disaster!^EMOTE_SHOCK^O
+1^...is this how i look like? Do i really look like a monster?!! ^EMOTE_TROUBLE,EMOTE_TROUBLELOOP^L
 <End>

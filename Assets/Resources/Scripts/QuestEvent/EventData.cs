@@ -45,7 +45,8 @@ public class DialogLine : DialogBase
 	public int characterID;
 	public string dialogLine;
 
-	public string anim;
+	public string[] anims;
+	public bool isLoopAnim;
 	
 	public override void DumpContents()
 	{
@@ -121,11 +122,14 @@ public class Character
 	public int hairId;
 	public int clothesId;
 	public int side;
+
+	public string startAnimation;
 	public Character(int id = 0, string name = "")
 	{
 		_id = id;
 		_name = name;
 		side = 1;
+		startAnimation = null;
 	}
 };
 
@@ -138,6 +142,8 @@ public class Scene
 	public Vector2 playerPos; //position of player at start of scene
 	
 	public int bgID;
+
+	public int bgWidth;
 
 	public int nextScene;
 

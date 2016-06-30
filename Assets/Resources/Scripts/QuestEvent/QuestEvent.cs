@@ -229,6 +229,10 @@ public class QuestEvent : MonoBehaviour {
 		if (currentScene.bgID == 2) {
 			backgroundTexture.mainTexture = Resources.Load ("Texture/shopping") as Texture;
 		}
+
+		Vector3 bgScale = backgroundTexture.transform.localScale;
+		bgScale.x = currentScene.bgWidth;
+		backgroundTexture.transform.localScale = bgScale;
 		
 		sceneCharas = new List<LAppModelProxy> ();
 		foreach (Character chara in currentScene.characterList) {
@@ -246,15 +250,18 @@ public class QuestEvent : MonoBehaviour {
 			//
 			//			eventCharas[i].SetHair(chara.hairId);
 			//			eventCharas[i].SetClothes(chara.clothesId);
-			l2dModel.GetModel ().StopBasicMotion (true);
 			l2dModel.SetCostume(chara.clothesId, chara.hairId);
 			//			l2dModel.SetHair(chara.hairId);
 			//			l2dModel.SetClothes(chara.clothesId);
 			
 			sceneCharas.Add(l2dModel);
 			
-			l2dModel.PlayIdleAnim ();
-			
+			l2dModel.GetModel ().StopBasicMotion (true);
+			if (chara.startAnimation == null){
+				l2dModel.PlayIdleAnim ();
+			}
+			else
+				l2dModel.PlayAnimation (chara.startAnimation);
 			//			++i;
 		}
 		UIDraggablePanel dragPanel = scenePanel.GetComponent<UIDraggablePanel> ();
@@ -310,9 +317,14 @@ public class QuestEvent : MonoBehaviour {
 //		Quest currentQuest = null;
 
 		foreach (string line in sceneData) {
-			if (line.Contains("BG")){
+			if (line.Contains("BG:")){
 				string[] parts = line.Split(':');
 				currentScene.bgID = int.Parse(parts[1]);
+			}
+
+			if (line.Contains ("BGWidth")){
+				string[] parts = line.Split(':');
+				currentScene.bgWidth = int.Parse(parts[1]);
 			}
 
 			if (line.Contains("NextScene:")){
@@ -408,6 +420,9 @@ public class QuestEvent : MonoBehaviour {
 					}
 					if (line.Contains("name:")){
 						currentCharacter._name = parts[1];
+					}
+					if (line.Contains ("anim:")){
+						currentCharacter.startAnimation = parts[1];
 					}
 					if (line.Contains("side:")){
 						currentCharacter.side = int.Parse(parts[1]);
@@ -740,10 +755,18 @@ public class QuestEvent : MonoBehaviour {
 
 				newDialogLine.characterID = int.Parse(parts[0]);
 				newDialogLine.dialogLine = parts[1].Replace("<playername>", PlayerProfile.Get ().playerName).Replace("\\n", System.Environment.NewLine);
-				newDialogLine.anim = null;
+				newDialogLine.anims = null;
 
 				if (parts.Length > 2){
-					newDialogLine.anim = parts[2];
+					string[] anims = parts[2].Split (new char[]{','});
+					newDialogLine.anims = new string[anims.Length];
+					for (int i = 0; i < anims.Length; ++i){
+						newDialogLine.anims[i] = anims[i];
+					}
+
+					if (parts.Length > 3){
+						newDialogLine.isLoopAnim = (parts[3] == "L");
+					}
 				}
 
 				nextEvent = newDialogLine;
@@ -939,8 +962,8 @@ public class QuestEvent : MonoBehaviour {
 				otherNameLabel.text = characterList[dialog.characterID]._name;
 				playerText.text = "";
 
-				if (dialog.anim != null)
-					sceneCharas[0].PlayAnimation (dialog.anim);
+				if (dialog.anims != null)
+					sceneCharas[0].PlayAnimationSequence(dialog.anims, dialog.isLoopAnim);
 
 				ShowDialogBoxes(false, true);
 
@@ -961,8 +984,8 @@ public class QuestEvent : MonoBehaviour {
 				academyArrow.SetActive(isAcademy);
 				normalArrow.SetActive(!isAcademy);
 				
-				if (dialog.anim != null)
-					playerChara.PlayAnimation (dialog.anim);
+				if (dialog.anims != null)
+					playerChara.PlayAnimationSequence (dialog.anims, dialog.isLoopAnim);
 
 				if (!isAcademy)
 					playerNameLabel.text = PlayerProfile.Get ().playerName;

@@ -92,7 +92,7 @@ public class CostumeScene : MonoBehaviour {
 
 		_l2dModel.LoadProfile ();
 		_l2dModel.GetModel ().StopBasicMotion (true);
-		_l2dModel.PlayIdleAnim ();
+		_l2dModel.PlayAnimation ("COSTUME_IDLE");
 	}
 	
 	// Update is called once per frame
@@ -274,6 +274,9 @@ public class CostumeScene : MonoBehaviour {
 			_l2dModel.SetHair (itemID - 100);
 		}
 
+		Debug.Log ("Playing costume switch animation");
+		string[] animSeq = new string[]{"COSTUME_CHANGE", "COSTUME_IDLE"};
+		_l2dModel.PlayAnimationSequence (animSeq);
 	}
 
 	void OnSwordClick()
