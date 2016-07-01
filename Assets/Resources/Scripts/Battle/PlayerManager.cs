@@ -137,6 +137,7 @@ public class PlayerManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
 		if(!isPlaying && l2dInterface.IsAnimationComplete())
 		{
 			isPlaying = true;
@@ -174,18 +175,10 @@ public class PlayerManager : MonoBehaviour {
 					attackend = true;
 					playerattack = true; 
 					m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
-//					StartCoroutine(Utility.DelayInSeconds(0.5f,
-//									(res1) => {m_enemyMgr.damageEnemy(currentSkill.dmg); 	
-//									attackend = true;
-//									playerattack = true; 
-//									m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
-//									} ));
-
 
 					if(m_battleMgr != null)
 						m_battleMgr.Correct();
 
-		
 				}
 				else
 				{
@@ -256,24 +249,25 @@ public class PlayerManager : MonoBehaviour {
 
 	bool CalculateDodgeChance()
 	{
-//		float rand = Random.Range(0.0f, 1.0f);
-//		Debug.Log( "Random: " + rand);
-//		if(rand <= ranChance)
-//		{
-//			// Show chance
-//			m_handler.ShowDodgeBtn(true);
-//			return true;
-//		}
+		float rand = Random.Range(0.0f, 1.0f);
+		Debug.Log( "Random: " + rand);
+		if(rand <= ranChance)
+		{
+			// Show chance
+			m_handler.ShowDodgeBtn(true);
+			return true;
+		}
 		return false;
 	}
 
 	#region Dodge Mechanic
 	void Dodge()
 	{
-		TweenPosition tpos = l2dInterface.GetComponent<TweenPosition>();
-		if(tpos != null)
-			tpos.Play(true);
-
+//		TweenPosition tpos = l2dInterface.GetComponent<TweenPosition>();
+//		if(tpos != null)
+//			tpos.Play(true);
+	
+		l2dInterface.PlayAnimation ("BATTLE_DODGE");
 		m_handler.ShowDodgeBtn(false);
 
 		if(m_routine != null)
@@ -281,15 +275,10 @@ public class PlayerManager : MonoBehaviour {
 
 		StartCoroutine(Utility.DelayInSeconds(1.0f, 
 						(res1) => { 
-							if(tpos != null)
-							{
-								tpos.eventReceiver = null;
-								tpos.callWhenFinished = "";
-								tpos.Play(false);
-							}
 							m_handler.ShowActionButtons(true);
 						} ) ); 
 	}
+
 	void DamageEffect()
 	{
 		// Apply Damage to player
@@ -358,19 +347,28 @@ public class PlayerManager : MonoBehaviour {
 	public void NormalAttack(GameObject obj)
 	{
 		Debug.Log ("Obj Name: " + obj.name);
-		l2dInterface.PlayAttackAnim ();
+
 		m_soundService.PlaySound(m_soundService.GetSFX("playermoveattack"), false);
-		//Service.Get<HUDService>().ShowMid(false);
+
 		m_handler.ShowActionButtons(false);
 		isPlaying = attackend = specialAtk = false;
 		Service.Get<HUDService>().HUDControl.SetSpecialEnable(false);
 
-		if (obj.name == "Punch") {
+		if (obj.name == "Punch") 
+		{
 			currentSkill = m_skills [0];
-		} else if (obj.name == "Kick") {
+			l2dInterface.PlayAnimation ("attack");
+		} 
+		else if (obj.name == "Kick") 
+		{
 			currentSkill = m_skills [1];
-		} else
+			l2dInterface.PlayAnimation ("BATTLE_KICK");
+		} 
+		else 
+		{
 			currentSkill = m_skills [2];
+			l2dInterface.PlayAnimation ("BATTLE_STRIKEPOSE");
+		}
 
 	}
 

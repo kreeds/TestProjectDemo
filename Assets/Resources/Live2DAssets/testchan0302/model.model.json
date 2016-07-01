@@ -51,6 +51,15 @@
 		"attack":[
 			{"file":"atk00.mtn","fade_in":200, "fade_out":200}
 		],
+		"BATTLE_KICK":[
+			{"file":"Emote_Battle02.mtn", "fade_in":200, "fade_out":200}
+		],
+		"BATTLE_STRIKEPOSE":[
+			{"file":"Emote_BattleStrikePose.mtn", "fade_in":200, "fade_out":200}
+		],
+		"BATTLE_DODGE":[
+			{"file":"Emote_BattleDodge.mtn", "fade_in":200, "fade_out":200}
+		],
 		"special":[
 			{"file":"Specialmove.mtn","fade_in":200, "fade_out":200}
 		],
@@ -105,5 +114,6 @@
 		"win":[
 			{"file":"win00.mtn","fade_in":200, "fade_out":200}
 		],
+		
 	}
 }
