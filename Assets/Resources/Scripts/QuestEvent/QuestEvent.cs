@@ -270,6 +270,8 @@ public class QuestEvent : MonoBehaviour {
 
 
 		playerTextGroup.SetActive (true);
+
+		m_hudService.HUDControl.RemoveBattleHUD ();
 	}
 
 	void ClearScene()

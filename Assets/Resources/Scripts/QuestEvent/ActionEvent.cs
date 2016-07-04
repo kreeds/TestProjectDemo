@@ -71,12 +71,12 @@ public class ActionEvent : MonoBehaviour {
 		frameScale.y = _frameBG.transform.localScale.y;
 		_frameBG.transform.localScale = frameScale;
 
-		_actionLabel.transform.localPosition = new Vector3 (-fillWidth/2 + 40f, 0, -30f);
+		_actionLabel.transform.localPosition = new Vector3 (-fillWidth/2 + 40f, 6, -30f);
 
-		_costLabel.transform.localPosition = new Vector3 (fillWidth / 2 - 45f, 0, -12f);
+		_costLabel.transform.localPosition = new Vector3 (fillWidth / 2 - 50f, 6, -12f);
 		_costLabel.text = required.ToString ();
 
-		_energyIcon.transform.localPosition = new Vector3 (fillWidth / 2 - 70f, 0);
+		_energyIcon.transform.localPosition = new Vector3 (fillWidth / 2 - 80f, 3);
 
 		fillWidth *= 0.9f;
 		fillScale.x = fillWidth;
