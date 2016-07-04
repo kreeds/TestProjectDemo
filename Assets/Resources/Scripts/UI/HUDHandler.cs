@@ -30,6 +30,7 @@ public class HUDHandler : MonoBehaviour {
 	[SerializeField]UISlider	m_expBar;
 
 	[SerializeField]GameObject	m_dodgeBtn;
+	[SerializeField]GameObject	m_criticalBtn;
 	[SerializeField]GameObject  m_sparkle;
 	[SerializeField]GameObject	m_lvlbar;
 	[SerializeField]GameObject 	m_pauseBtn;
@@ -155,6 +156,12 @@ public class HUDHandler : MonoBehaviour {
 		{
 			m_dodgeBtn.GetComponent<UIButtonMessage>().target = pmgr.gameObject;
 			m_dodgeBtn.GetComponent<UIButtonMessage>().functionName = "Dodge"; 
+		}
+
+		if(m_criticalBtn != null)
+		{
+			m_criticalBtn.GetComponent<UIButtonMessage>().target = pmgr.gameObject;
+			m_criticalBtn.GetComponent<UIButtonMessage>().functionName = "CriticalDamage"; 
 		}
 
 		// Initialize Battle End Timer
@@ -307,6 +314,13 @@ public class HUDHandler : MonoBehaviour {
 	{
 		if(m_dodgeBtn != null)
 			m_dodgeBtn.SetActive(show);
+
+	}
+
+	public void ShowCriticalBtn(bool show)
+	{
+		if(m_criticalBtn != null)
+			m_criticalBtn.SetActive(show);
 
 	}
 
