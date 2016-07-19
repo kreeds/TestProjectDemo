@@ -162,6 +162,10 @@ public class InputManager : MonoBehaviour {
                 if (IsGestureRecognizingNeeded) //need more than 2 points for gesture recognition
                 {
                     string gestureName = mgData.RecognizeGesture(currentGesturePoints);
+					GameObject obj = Instantiate(Resources.Load("Prefabs/Battle/SuccessOrMiss")) as GameObject;
+					Service.Get<HUDService>().HUDControl.AttachMid(ref obj);
+					UILabel label = obj.GetComponent<UILabel> ();
+
 					if(mgData.IsRequiredGestureRecognized(	gestureName, mgGesture.getGestureIndex)
 						 && m_battleMgr.currentGestureState != BattleManager.GestureState.END )
 					{
@@ -173,12 +177,15 @@ public class InputManager : MonoBehaviour {
 						if(m_playerMgr != null)
 							m_playerMgr.AddSpecialCount();
 
+						if(label != null)
+							label.text = "SUCCESS";
 
 					}
 					else // Incorrect Gesture
 					{
-						GameObject obj = Instantiate(Resources.Load("Prefabs/Battle/MISS")) as GameObject;
-						Service.Get<HUDService>().HUDControl.AttachMid(ref obj);
+
+						if(label != null)
+							label.text = "MISS";
 
 					}
                     IsGestureRecognizingNeeded = false;

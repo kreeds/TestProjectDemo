@@ -50,7 +50,9 @@ public class PlayerManager : MonoBehaviour {
 	int m_specGaugeCnt = 0;									// Special counter used for special gauge Count;
 
 
-	const float ranChance = 1.0f;
+	const float dodgeChance = 0.0f;
+	const float critChance = 1.0f;
+
 	Skill currentSkill;
 	GameObject m_braveBurst;
 	
@@ -137,6 +139,7 @@ public class PlayerManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
 		if(!isPlaying && l2dInterface.IsAnimationComplete())
 		{
 			isPlaying = true;
@@ -169,23 +172,37 @@ public class PlayerManager : MonoBehaviour {
 			{
 				if(!specialAtk)
 				{
-					AttackEffect(16, 112);
-					m_enemyMgr.damageEnemy(currentSkill.dmg); 	
-					attackend = true;
-					playerattack = true; 
-					m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
-//					StartCoroutine(Utility.DelayInSeconds(0.5f,
-//									(res1) => {m_enemyMgr.damageEnemy(currentSkill.dmg); 	
-//									attackend = true;
-//									playerattack = true; 
-//									m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
-//									} ));
+					if(!CalculateChance(critChance))
+					{
+						AttackEffect(16, 112);
+						m_enemyMgr.damageEnemy(currentSkill.dmg); 	
+						attackend = true;
+						playerattack = true; 
+						m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
 
+						if(m_battleMgr != null)
+							m_battleMgr.Correct();
+					}
+					else
+					{
+						m_handler.ShowCriticalBtn(true);
+							// Fail to press
+						m_routine = StartCoroutine(Utility.DelayInSeconds(1.0f, 
+								(res1) => 
+								{ 
+									m_handler.ShowCriticalBtn(false); 
+									AttackEffect(16, 112);
+									m_enemyMgr.damageEnemy(currentSkill.dmg); 	
+									attackend = true;
+									playerattack = true; 
+									m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
 
-					if(m_battleMgr != null)
-						m_battleMgr.Correct();
+									if(m_battleMgr != null)
+										m_battleMgr.Correct();
 
-		
+								} ) ); 
+					}
+
 				}
 				else
 				{
@@ -206,9 +223,7 @@ public class PlayerManager : MonoBehaviour {
 					
 				}
 			}
-
-
-
+					
 			//StartCoroutine(ReturnCamera());
 		
 		}
@@ -222,7 +237,7 @@ public class PlayerManager : MonoBehaviour {
 		{
 
 			// Add Dodge here
-			if(!CalculateDodgeChance())
+			if(!CalculateChance(dodgeChance))
 			{
 				AttackEffect(16, 112);
 				DamageEffect();
@@ -254,26 +269,24 @@ public class PlayerManager : MonoBehaviour {
 		m_enemyMgr.damageEnemy(m_player.atk);
 	}
 
-	bool CalculateDodgeChance()
+
+	bool CalculateChance(float rate)
 	{
-//		float rand = Random.Range(0.0f, 1.0f);
-//		Debug.Log( "Random: " + rand);
-//		if(rand <= ranChance)
-//		{
-//			// Show chance
-//			m_handler.ShowDodgeBtn(true);
-//			return true;
-//		}
+		float rand = Random.Range(0.0f, 1.0f);
+		if(rand <= rate)
+		{
+			return true;
+		}
 		return false;
 	}
+		
 
-	#region Dodge Mechanic
+	/// <summary>
+	/// Method for invoking dodge mechanic
+	/// </summary>
 	void Dodge()
 	{
-		TweenPosition tpos = l2dInterface.GetComponent<TweenPosition>();
-		if(tpos != null)
-			tpos.Play(true);
-
+		l2dInterface.PlayAnimation ("BATTLE_DODGE");
 		m_handler.ShowDodgeBtn(false);
 
 		if(m_routine != null)
@@ -281,15 +294,26 @@ public class PlayerManager : MonoBehaviour {
 
 		StartCoroutine(Utility.DelayInSeconds(1.0f, 
 						(res1) => { 
-							if(tpos != null)
-							{
-								tpos.eventReceiver = null;
-								tpos.callWhenFinished = "";
-								tpos.Play(false);
-							}
 							m_handler.ShowActionButtons(true);
 						} ) ); 
 	}
+
+	void CriticalDamage()
+	{
+		m_handler.ShowCriticalBtn(false);
+		if(m_routine != null)
+			StopCoroutine(m_routine);
+
+		AttackEffect(16, 112);
+		m_enemyMgr.damageEnemy(currentSkill.dmg * 2); 	
+		attackend = true;
+		playerattack = true; 
+		m_soundService.PlaySound(m_soundService.GetSFX("attack03"), false);
+
+		if(m_battleMgr != null)
+			m_battleMgr.Correct();
+	}
+
 	void DamageEffect()
 	{
 		// Apply Damage to player
@@ -312,7 +336,6 @@ public class PlayerManager : MonoBehaviour {
 
 											}));
 	}
-	#endregion
 
 	public void AddSpecialCount()
 	{
@@ -358,19 +381,28 @@ public class PlayerManager : MonoBehaviour {
 	public void NormalAttack(GameObject obj)
 	{
 		Debug.Log ("Obj Name: " + obj.name);
-		l2dInterface.PlayAttackAnim ();
+
 		m_soundService.PlaySound(m_soundService.GetSFX("playermoveattack"), false);
-		//Service.Get<HUDService>().ShowMid(false);
+
 		m_handler.ShowActionButtons(false);
 		isPlaying = attackend = specialAtk = false;
 		Service.Get<HUDService>().HUDControl.SetSpecialEnable(false);
 
-		if (obj.name == "Punch") {
+		if (obj.name == "Punch") 
+		{
 			currentSkill = m_skills [0];
-		} else if (obj.name == "Kick") {
+			l2dInterface.PlayAnimation ("attack");
+		} 
+		else if (obj.name == "Kick") 
+		{
 			currentSkill = m_skills [1];
-		} else
+			l2dInterface.PlayAnimation ("BATTLE_KICK");
+		} 
+		else 
+		{
 			currentSkill = m_skills [2];
+			l2dInterface.PlayAnimation ("BATTLE_STRIKEPOSE");
+		}
 
 	}
 
