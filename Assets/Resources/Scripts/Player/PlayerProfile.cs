@@ -74,10 +74,10 @@ public class PlayerProfile {
 		//		newsList.Add (new NewsDataItem ("[Caution] Fake Lady Knights", "LK_portrait", "tvnews"));
 		//		newsList.Add (new NewsDataItem ("Thank you!", "portrait", "thankyounote"));
 		
-		newsList.Add (new NewsDataItem ("@Emi was in the newspapers", "LK_portrait", "newspaper", true));
-		newsList.Add (new NewsDataItem ("@Weining was on the TV news", "LK_portrait", "tvnews", true));
-		newsList.Add (new NewsDataItem ("[Caution] Fake Lady Knights", "LK_portrait", "Fakeladyknight", true));
-		newsList.Add (new NewsDataItem ("@Jing got a thank you letter", "portrait", "thankyounote", true));
+		newsList.Add (new NewsDataItem ("@Emi was in the newspapers", "newspaper", "newspaper", true));
+		newsList.Add (new NewsDataItem ("@Weining was on the TV news", "tvnews", "tvnews", true));
+		newsList.Add (new NewsDataItem ("[Caution] Fake Lady Knights", "Fakeladyknight", "Fakeladyknight", true));
+		newsList.Add (new NewsDataItem ("@Jing got a thank you letter", "thankyounote", "thankyounote", true));
 		
 		newsList [0]._newsBody = "Emi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapersEmi was in the newspapers";
 		newsList [1]._newsBody = "@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news@Weining was on the TV news";

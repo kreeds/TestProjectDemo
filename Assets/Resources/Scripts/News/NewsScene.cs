@@ -32,6 +32,7 @@ public class NewsScene : MonoBehaviour {
 
 	[SerializeField]UITable				_listTable;
 	[SerializeField]UISprite			_newsTexture;
+	[SerializeField]UISprite			_detailedNewsTexture;
 
 	[SerializeField]UILabel				_headingText;
 	[SerializeField]UILabel				_bodyText;
@@ -40,6 +41,8 @@ public class NewsScene : MonoBehaviour {
 	[SerializeField]GameObject			_listGroup;
 
 	private List<NewsDataItem>			_newsDataList;
+
+	private UITweener					_detailTween;
 	SoundService m_soundService;
 	AudioClip	m_bgm;
 
@@ -112,14 +115,23 @@ public class NewsScene : MonoBehaviour {
 		}
 
 		_listTable.Reposition ();
+
+		_detailTween = _detailGroup.GetComponent<UITweener> ();
+		_detailTween.Play (false);
 	}
 
 	void OnNewsItemClicked(int id){
+		if (_detailTween == null)
+			return;
+
 //		_newsTexture.mainTexture = Resources.Load (_newsDataList [id]._mainTextureName) as Texture; 
 		_newsTexture.spriteName = _newsDataList [id]._mainTextureName;
+		_detailedNewsTexture.spriteName = _newsTexture.spriteName;
 
-		_detailGroup.SetActive (true);
-		_listTable.gameObject.SetActive (false);
+//		_detailGroup.SetActive (true);
+//		_listTable.gameObject.SetActive (false);
+
+		_detailTween.Play (true);
 
 		_bodyText.text = _newsDataList [id]._newsBody;
 		_headingText.text = _newsDataList [id]._headLine;
@@ -129,13 +141,17 @@ public class NewsScene : MonoBehaviour {
 
 	void OnBack()
 	{
-		if (_detailGroup.activeSelf) {
-			_newsTexture.spriteName = "newspaper";
-			_listTable.gameObject.SetActive(true);
-			_detailGroup.SetActive(false);
-		} else {
-			Service.Get<HUDService> ().ReturnToHome ();
-			//go back to previous scene
-		}
+//		if (_detailGroup.activeSelf) {
+//			_newsTexture.spriteName = "newspaper";
+//			_listTable.gameObject.SetActive(true);
+//			_detailGroup.SetActive(false);
+//		} else {
+//			Service.Get<HUDService> ().ReturnToHome ();
+//			//go back to previous scene
+//		}
+		if (_detailTween == null)
+			return;
+
+		_detailTween.Play (false);
 	}
 }
