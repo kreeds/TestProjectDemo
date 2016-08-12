@@ -917,6 +917,41 @@ public class QuestEvent : MonoBehaviour {
 		}
 	}
 
+	void PlayEmoteFX(Vector3 pos, string[] emoteName)
+	{
+		foreach (string emote in emoteName) 
+		{
+			float lifetime = 0.2f;
+			GameObject fxObject;
+			string fxName = "";
+
+			switch (emote) {
+			case "EMOTE_HAPPY":
+			case "EMOTE_HAPPY2":
+			case "EMOTE_OK":
+				fxName = "Prefabs/FX/Emoji_Happy2_Fx";
+				break;
+			case "EMOTE_WORRIED":
+			case "EMOTE_SAD":
+			case "EMOTE_CRY":
+				fxName = "Prefabs/FX/Emoji_Gloomy_Fx";
+				break;
+			case "EMOTE_SHOCK":
+				fxName = "Prefabs/FX/Emoji_Shock_Fx";
+				break;
+
+			}
+
+			if (fxName != "") {
+				fxObject = NGUITools.AddChild (scenePanel.gameObject, Resources.Load (fxName) as GameObject);
+				Vector3 offset = new Vector3(0, 300f, 5f);
+				fxObject.transform.localPosition = pos + offset;
+				lifetime = fxObject.particleSystem.duration;
+				Destroy (fxObject, lifetime);
+			}
+		}
+	}
+
 	void ShowCurrentDialog()
 	{
 		if (currentDialogEvent == null) {
@@ -964,10 +999,13 @@ public class QuestEvent : MonoBehaviour {
 				otherNameLabel.text = characterList[dialog.characterID]._name;
 				playerText.text = "";
 
-				if (dialog.anims != null)
+				if (dialog.anims != null){
 					sceneCharas[0].PlayAnimationSequence(dialog.anims, dialog.isLoopAnim);
+					PlayEmoteFX(sceneCharas[0].transform.localPosition, dialog.anims);
+				}
 
 				ShowDialogBoxes(false, true);
+
 
 //				if (playerTextGroup.transform.localScale.x >= 1)
 //					playerTextTweenIn.Play(false);
@@ -986,8 +1024,10 @@ public class QuestEvent : MonoBehaviour {
 				academyArrow.SetActive(isAcademy);
 				normalArrow.SetActive(!isAcademy);
 				
-				if (dialog.anims != null)
+				if (dialog.anims != null){
 					playerChara.PlayAnimationSequence (dialog.anims, dialog.isLoopAnim);
+					PlayEmoteFX(playerChara.transform.localPosition, dialog.anims);
+				}
 
 				if (!isAcademy)
 					playerNameLabel.text = PlayerProfile.Get ().playerName;
