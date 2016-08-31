@@ -20,6 +20,10 @@ struct PlayerStats
 	public int gemcount;
 }
 
+
+/// <summary>
+/// Player manager.
+/// </summary>
 public class PlayerManager : MonoBehaviour {
 
 	PlayerStats m_player;
@@ -33,8 +37,6 @@ public class PlayerManager : MonoBehaviour {
 	HUDHandler m_handler;
 	Coroutine m_routine;
 
-	[SerializeField]UIGauge m_gauge;
-	[SerializeField]UIGauge m_specGauge;
 	[SerializeField]LAppModelProxy l2dInterface;
 	[SerializeField]GameObject m_obj;
 	[SerializeField]float waitinterval;
@@ -298,6 +300,9 @@ public class PlayerManager : MonoBehaviour {
 						} ) ); 
 	}
 
+	/// <summary>
+	/// Method for Critical Damage. As of now it is hardcoded to 2x skill damage
+	/// </summary>
 	void CriticalDamage()
 	{
 		m_handler.ShowCriticalBtn(false);

@@ -58,6 +58,7 @@ public class EnemyManager : MonoBehaviour {
 		}
 	}
 
+	/// </summary>
 	void CreateLive2DEnemy()
 	{
 		GameObject obj = NGUITools.AddChild(m_panel.gameObject, Resources.Load("Prefabs/EnemySample") as GameObject);
@@ -86,6 +87,9 @@ public class EnemyManager : MonoBehaviour {
 			handle.reduce((int)GAUGE.ENEMY, damage);
 	}
 
+	/// <summary>
+	/// Method to kill Enemy
+	/// </summary>
 	public void killEnemy()
 	{
 		if(handle != null)
@@ -94,6 +98,11 @@ public class EnemyManager : MonoBehaviour {
 		currentEnemy.Hp = -1;
 	}
 
+
+	/// <summary>
+	/// Getter method to get current enemy attack value
+	/// </summary>
+	/// <returns>The current enemy attack.</returns>
 	public float GetCurrentEnemyAttack()
 	{
 		return currentEnemy.attack;

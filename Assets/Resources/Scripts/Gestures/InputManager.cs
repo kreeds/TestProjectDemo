@@ -8,6 +8,10 @@ using PDollarGestureRecognizer;
 using System;
 using System.Text;
 
+
+/// <summary>
+/// Class Manager detects input gesture from player and process it
+/// </summary>
 public class InputManager : MonoBehaviour {
 
 	public delegate void GestureDelegates(string param1, string param2);
@@ -48,7 +52,9 @@ public class InputManager : MonoBehaviour {
     List<Point> 		currentGesturePoints;
     List<Point>			pointsContainer;
 
-
+	/// <summary>
+	/// Disable gesture Recognition
+	/// </summary>
     bool disableGesture = false;
     public bool DisableGesture
     {
@@ -84,6 +90,10 @@ public class InputManager : MonoBehaviour {
 		m_playerMgr = PlayerManager.Get();
 	}
 
+	/// <summary>
+	/// Starts the gesture detection on first touch
+	/// </summary>
+	/// <param name="pos">Position.</param>
     void StartGesture(Vector3 pos)
     {
 		positionTouchStart = pos;
@@ -98,12 +108,21 @@ public class InputManager : MonoBehaviour {
 		currentGesturePoints.Add(new Point(pos.x, -pos.y, strokeID));
     }
 
+
+	/// <summary>
+	/// Method for detecting movement of gesture
+	/// </summary>
+	/// <param name="pos">Position.</param>
     void MoveGesture(Vector3 pos)
     {
         IsMovementInTouch = WasMovementInTouch = true;
 		currentGesturePoints.Add(new Point(pos.x, -pos.y, strokeID));
     }
 
+	/// <summary>
+	/// Method for end of movement
+	/// </summary>
+	/// <param name="pos">Position.</param>
     void FinishGesture(Vector3 pos)
     {
         if (IsTouchInProgress)
@@ -199,6 +218,9 @@ public class InputManager : MonoBehaviour {
         }
     }
 
+	/// <summary>
+	/// Normal attack Phase Check
+	/// </summary>
 	void AttackPhaseCheck()
     {
 		if(m_battleMgr.CurBattlePhase != BattleManager.BattlePhase.ATTACK)
@@ -374,6 +396,9 @@ public class InputManager : MonoBehaviour {
 
     }
 
+	/// <summary>
+	/// Destroys the trails from the gesture display
+	/// </summary>
     public void DestroyTrails()
     {
     	foreach(GameObject trail in trailList)
